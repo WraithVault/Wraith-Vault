@@ -1,1481 +1,1765 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Wraith Vault Leaks</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FiveM Leaks | Premium Resources</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: #050507;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* =========================================
+           BACKGROUND
+        ========================================= */
+
+        .background {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: -10;
+
+            background:
+                radial-gradient(
+                    circle at 50% 20%,
+                    rgba(255, 30, 80, 0.12),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 85% 65%,
+                    rgba(115, 45, 255, 0.10),
+                    transparent 30%
+                ),
+                #050507;
+        }
+
+        .glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.35;
+            animation: float 12s infinite alternate ease-in-out;
+        }
+
+        .glow.one {
+            width: 400px;
+            height: 400px;
+            background: #ff174f;
+            top: -200px;
+            left: -100px;
+        }
+
+        .glow.two {
+            width: 350px;
+            height: 350px;
+            background: #6b2cff;
+            right: -100px;
+            top: 35%;
+            animation-delay: 2s;
+        }
+
+        .glow.three {
+            width: 300px;
+            height: 300px;
+            background: #ff174f;
+            bottom: -150px;
+            left: 40%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            from {
+                transform: translate(0, 0) scale(1);
+            }
+
+            to {
+                transform: translate(70px, -40px) scale(1.2);
+            }
+        }
+
+        .grid {
+            position: absolute;
+            inset: 0;
+            opacity: 0.18;
+
+            background-image:
+                linear-gradient(
+                    rgba(255,255,255,0.035) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,0.035) 1px,
+                    transparent 1px
+                );
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+            background-size: 60px 60px;
 
-<style>
+            mask-image:
+                linear-gradient(
+                    to bottom,
+                    black,
+                    transparent 90%
+                );
+        }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+        /* =========================================
+           NAVBAR
+        ========================================= */
 
-html{
-    scroll-behavior:smooth;
-}
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
 
-body{
-    font-family:Inter,sans-serif;
-    background:#050505;
-    color:#fff;
-    overflow-x:hidden;
-}
-
-a{
-    text-decoration:none;
-    color:inherit;
-}
-
-
-/* =========================
-   BACKGROUND
-========================= */
-
-.background{
-    position:fixed;
-    inset:0;
-    z-index:-10;
-    overflow:hidden;
-    background:
-        radial-gradient(circle at 50% 15%,rgba(255,255,255,.08),transparent 30%),
-        radial-gradient(circle at 10% 60%,rgba(255,255,255,.045),transparent 28%),
-        #050505;
-}
+            width: 100%;
+            height: 78px;
 
-.grid{
-    position:absolute;
-    inset:0;
-    opacity:.12;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
 
-    background-image:
-        linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+            padding: 0 7%;
 
-    background-size:60px 60px;
-}
+            background: rgba(5,5,7,0.78);
 
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
 
-/* =========================
-   NAVBAR
-========================= */
+            border-bottom:
+                1px solid rgba(255,255,255,0.06);
 
-nav{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:78px;
+            z-index: 1000;
+        }
 
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
 
-    padding:0 7%;
-
-    background:rgba(5,5,5,.85);
-    backdrop-filter:blur(18px);
+            font-size: 20px;
+            font-weight: 900;
 
-    border-bottom:1px solid rgba(255,255,255,.08);
+            letter-spacing: -1px;
+        }
 
-    z-index:1000;
-}
+        .logo-mark {
+            width: 35px;
+            height: 35px;
 
-.logo{
-    display:flex;
-    align-items:center;
-    gap:10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-    font-size:17px;
-    font-weight:900;
-    letter-spacing:-.7px;
-}
+            border-radius: 9px;
 
-.logo-image{
-    width:37px;
-    height:37px;
-    object-fit:cover;
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff174f,
+                    #8d2cff
+                );
 
-    border-radius:9px;
+            box-shadow:
+                0 0 25px rgba(255,23,79,0.25);
 
-    border:1px solid rgba(255,255,255,.12);
+            font-size: 15px;
+        }
 
-    box-shadow:0 0 25px rgba(255,255,255,.15);
-}
+        .logo span {
+            color: #ff315f;
+        }
 
-.logo span{
-    color:#999;
-    margin-left:4px;
-}
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
 
-.nav-links{
-    display:flex;
-    align-items:center;
-    gap:30px;
-}
+        .nav-links a {
+            color: #929296;
+            font-size: 13px;
+            font-weight: 700;
 
-.nav-links a{
-    color:#858585;
-    font-size:12px;
-    font-weight:700;
-    transition:.25s;
-}
+            transition: 0.25s ease;
+        }
 
-.nav-links a:hover{
-    color:#fff;
-}
+        .nav-links a:hover {
+            color: #fff;
+        }
 
-.nav-discord{
-    padding:11px 19px;
-    border-radius:8px;
+        .nav-discord {
+            padding: 11px 19px;
 
-    color:#050505 !important;
-    background:#fff;
-}
+            border-radius: 8px;
 
+            color: #fff !important;
 
-/* =========================
-   HERO
-========================= */
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff174f,
+                    #a22cff
+                );
 
-.hero{
-    min-height:100vh;
+            box-shadow:
+                0 8px 30px rgba(255,23,79,0.18);
+        }
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+        .nav-discord:hover {
+            transform: translateY(-2px);
 
-    text-align:center;
+            box-shadow:
+                0 12px 35px rgba(255,23,79,0.3);
+        }
 
-    padding:150px 20px 100px;
-}
+        /* =========================================
+           HERO
+        ========================================= */
 
-.hero-content{
-    max-width:1000px;
+        .hero {
+            min-height: 100vh;
 
-    animation:heroIn 1s ease forwards;
-}
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-@keyframes heroIn{
-    from{
-        opacity:0;
-        transform:translateY(35px);
-    }
+            text-align: center;
 
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
+            padding:
+                150px 20px
+                100px;
+        }
 
-.eyebrow{
-    display:inline-flex;
-    align-items:center;
-    gap:9px;
+        .hero-content {
+            max-width: 950px;
 
-    padding:8px 15px;
+            animation:
+                heroIn 1s ease forwards;
+        }
 
-    border:1px solid rgba(255,255,255,.14);
+        @keyframes heroIn {
+            from {
+                opacity: 0;
+                transform: translateY(35px);
+            }
 
-    background:rgba(255,255,255,.035);
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-    border-radius:100px;
+        .eyebrow {
+            display: inline-flex;
 
-    color:#aaa;
+            align-items: center;
+            gap: 9px;
 
-    font-size:10px;
-    font-weight:800;
+            padding: 8px 15px;
 
-    letter-spacing:1.5px;
+            border:
+                1px solid rgba(255,23,79,0.25);
 
-    margin-bottom:28px;
-}
+            background:
+                rgba(255,23,79,0.06);
 
-.dot{
-    width:7px;
-    height:7px;
+            border-radius: 100px;
 
-    background:#fff;
+            color: #ff5478;
 
-    border-radius:50%;
+            font-size: 11px;
+            font-weight: 800;
 
-    box-shadow:0 0 12px rgba(255,255,255,.8);
+            letter-spacing: 1.5px;
 
-    animation:pulse 1.5s infinite;
-}
+            margin-bottom: 28px;
+        }
 
-@keyframes pulse{
-    0%,100%{
-        opacity:1;
-        transform:scale(1);
-    }
+        .dot {
+            width: 7px;
+            height: 7px;
 
-    50%{
-        opacity:.35;
-        transform:scale(.7);
-    }
-}
+            background: #ff315f;
 
-.hero h1{
-    font-size:clamp(50px,8vw,105px);
-    line-height:.92;
+            border-radius: 50%;
 
-    font-weight:900;
+            box-shadow:
+                0 0 12px #ff315f;
 
-    letter-spacing:-6px;
+            animation:
+                pulse 1.5s infinite;
+        }
 
-    text-transform:uppercase;
-}
+        @keyframes pulse {
+            0%,100% {
+                opacity: 1;
+                transform: scale(1);
+            }
 
-.white{
-    color:#fff;
-}
+            50% {
+                opacity: 0.4;
+                transform: scale(0.7);
+            }
+        }
 
-.gradient{
-    background:linear-gradient(100deg,#fff,#888,#fff);
+        .hero h1 {
+            font-size:
+                clamp(55px, 9vw, 110px);
 
-    -webkit-background-clip:text;
-    background-clip:text;
+            line-height: 0.9;
 
-    color:transparent;
-}
+            font-weight: 900;
 
-.hero-description{
-    max-width:650px;
+            letter-spacing: -7px;
 
-    margin:32px auto 0;
+            text-transform: uppercase;
+        }
 
-    color:#858585;
+        .hero h1 .white {
+            color: #fff;
+        }
 
-    font-size:15px;
+        .hero h1 .gradient {
+            background:
+                linear-gradient(
+                    100deg,
+                    #ff174f,
+                    #ff4c72,
+                    #a82cff
+                );
 
-    line-height:1.8;
-}
+            -webkit-background-clip: text;
+            background-clip: text;
 
-.hero-buttons{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
+            color: transparent;
 
-    gap:13px;
+            filter:
+                drop-shadow(
+                    0 0 30px
+                    rgba(255,23,79,0.15)
+                );
+        }
 
-    margin-top:35px;
-}
+        .hero-description {
+            max-width: 650px;
 
-.btn{
-    display:inline-flex;
+            margin: 32px auto 0;
 
-    align-items:center;
-    justify-content:center;
+            color: #85858b;
 
-    min-width:175px;
+            font-size: 16px;
 
-    padding:15px 24px;
+            line-height: 1.8;
+        }
 
-    border-radius:9px;
+        .hero-buttons {
+            display: flex;
 
-    font-size:12px;
-    font-weight:800;
+            justify-content: center;
+            flex-wrap: wrap;
 
-    transition:.25s;
-}
+            gap: 13px;
 
-.btn-primary{
-    color:#050505;
-    background:#fff;
+            margin-top: 35px;
+        }
 
-    box-shadow:0 12px 40px rgba(255,255,255,.12);
-}
+        .btn {
+            display: inline-flex;
 
-.btn-primary:hover{
-    transform:translateY(-4px);
+            align-items: center;
+            justify-content: center;
 
-    box-shadow:0 18px 50px rgba(255,255,255,.2);
-}
+            min-width: 175px;
 
-.btn-secondary{
-    color:#ddd;
+            padding: 15px 24px;
 
-    background:rgba(255,255,255,.035);
+            border-radius: 9px;
 
-    border:1px solid rgba(255,255,255,.1);
-}
+            font-size: 13px;
+            font-weight: 800;
 
-.btn-secondary:hover{
-    transform:translateY(-4px);
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
 
-    background:rgba(255,255,255,.07);
-}
+        .btn-primary {
+            color: #fff;
 
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff174f,
+                    #9b2cff
+                );
 
-/* =========================
-   STATS
-========================= */
+            box-shadow:
+                0 12px 40px
+                rgba(255,23,79,0.2);
+        }
 
-.stats{
-    max-width:850px;
+        .btn-primary:hover {
+            transform: translateY(-4px);
 
-    margin:-40px auto 0;
+            box-shadow:
+                0 18px 50px
+                rgba(255,23,79,0.35);
+        }
 
-    display:grid;
+        .btn-secondary {
+            color: #ddd;
 
-    grid-template-columns:repeat(3,1fr);
+            background:
+                rgba(255,255,255,0.035);
 
-    border:1px solid rgba(255,255,255,.08);
+            border:
+                1px solid rgba(255,255,255,0.09);
+        }
 
-    border-radius:14px;
+        .btn-secondary:hover {
+            transform: translateY(-4px);
 
-    background:rgba(255,255,255,.025);
+            background:
+                rgba(255,255,255,0.07);
+        }
 
-    backdrop-filter:blur(15px);
-}
+        /* =========================================
+           STATS
+        ========================================= */
 
-.stat{
-    padding:25px;
+        .stats {
+            max-width: 850px;
 
-    text-align:center;
+            margin: -40px auto 0;
 
-    border-right:1px solid rgba(255,255,255,.07);
-}
+            display: grid;
 
-.stat:last-child{
-    border-right:none;
-}
+            grid-template-columns:
+                repeat(3, 1fr);
 
-.stat strong{
-    display:block;
+            border:
+                1px solid rgba(255,255,255,0.07);
 
-    font-size:25px;
-    font-weight:900;
-}
+            border-radius: 14px;
 
-.stat span{
-    display:block;
+            background:
+                rgba(255,255,255,0.025);
 
-    margin-top:6px;
+            backdrop-filter:
+                blur(15px);
+        }
 
-    color:#666;
+        .stat {
+            padding: 25px;
 
-    font-size:10px;
-    font-weight:700;
+            text-align: center;
 
-    text-transform:uppercase;
+            border-right:
+                1px solid rgba(255,255,255,0.06);
+        }
 
-    letter-spacing:1px;
-}
+        .stat:last-child {
+            border-right: none;
+        }
 
+        .stat strong {
+            display: block;
 
-/* =========================
-   SECTIONS
-========================= */
+            font-size: 25px;
+            font-weight: 900;
+        }
 
-section{
-    padding:110px 7%;
-}
+        .stat span {
+            display: block;
 
-.section-header{
-    max-width:1150px;
+            margin-top: 6px;
 
-    margin:0 auto 50px;
-}
+            color: #666;
 
-.center{
-    text-align:center;
-}
+            font-size: 11px;
+            font-weight: 700;
 
-.section-label{
-    color:#aaa;
+            text-transform: uppercase;
 
-    font-size:10px;
-    font-weight:900;
+            letter-spacing: 1px;
+        }
 
-    text-transform:uppercase;
+        /* =========================================
+           GENERAL SECTIONS
+        ========================================= */
 
-    letter-spacing:2px;
-}
+        section {
+            padding: 110px 7%;
+        }
 
-.section-header h2{
-    margin-top:10px;
+        .section-header {
+            max-width: 1150px;
 
-    font-size:42px;
+            margin:
+                0 auto 50px;
+        }
 
-    font-weight:900;
+        .center {
+            text-align: center;
+        }
 
-    letter-spacing:-2px;
-}
+        .section-label {
+            color: #ff315f;
 
-.section-header p{
-    margin-top:12px;
+            font-size: 11px;
+            font-weight: 900;
 
-    color:#777;
+            text-transform: uppercase;
 
-    font-size:13px;
+            letter-spacing: 2px;
+        }
 
-    line-height:1.7;
-}
+        .section-header h2 {
+            margin-top: 10px;
 
+            font-size: 42px;
+            font-weight: 900;
 
-/* =========================
-   CATEGORY CARDS
-========================= */
+            letter-spacing: -2px;
+        }
 
-.cards{
-    max-width:1150px;
+        .section-header p {
+            margin-top: 12px;
 
-    margin:auto;
+            color: #777;
 
-    display:grid;
+            font-size: 14px;
 
-    grid-template-columns:repeat(3,1fr);
+            line-height: 1.7;
+        }
 
-    gap:18px;
-}
+        /* =========================================
+           LEAK CARDS
+        ========================================= */
 
-.card{
-    position:relative;
+        .cards {
+            max-width: 1150px;
 
-    padding:30px;
+            margin: auto;
 
-    min-height:230px;
+            display: grid;
 
-    overflow:hidden;
+            grid-template-columns:
+                repeat(3, 1fr);
 
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.045),
-            rgba(255,255,255,.012)
-        );
+            gap: 18px;
+        }
 
-    border:1px solid rgba(255,255,255,.08);
+        .card {
+            position: relative;
 
-    border-radius:15px;
+            padding: 30px;
 
-    transition:.3s;
-}
+            min-height: 230px;
 
-.card:hover{
-    transform:translateY(-8px);
+            overflow: hidden;
 
-    border-color:rgba(255,255,255,.25);
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.045),
+                    rgba(255,255,255,0.018)
+                );
 
-    box-shadow:0 20px 60px rgba(255,255,255,.05);
-}
+            border:
+                1px solid rgba(255,255,255,0.07);
 
-.icon{
-    width:48px;
-    height:48px;
+            border-radius: 15px;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease;
+        }
 
-    margin-bottom:22px;
+        .card:hover {
+            transform: translateY(-8px);
 
-    border-radius:11px;
+            border-color:
+                rgba(255,49,95,0.3);
+        }
 
-    background:rgba(255,255,255,.06);
+        .card::after {
+            content: "";
 
-    border:1px solid rgba(255,255,255,.09);
+            position: absolute;
 
-    color:#fff;
+            width: 150px;
+            height: 150px;
 
-    font-size:18px;
-}
+            top: -80px;
+            right: -80px;
 
-.card h3{
-    font-size:17px;
-    font-weight:800;
+            border-radius: 50%;
 
-    margin-bottom:10px;
-}
+            background: #ff174f;
 
-.card p{
-    color:#777;
+            filter: blur(70px);
 
-    font-size:13px;
+            opacity: 0;
 
-    line-height:1.7;
-}
+            transition: 0.3s;
+        }
 
-.card-link{
-    display:inline-block;
+        .card:hover::after {
+            opacity: 0.13;
+        }
 
-    margin-top:20px;
+        .icon {
+            width: 48px;
+            height: 48px;
 
-    color:#bbb;
+            display: flex;
 
-    font-size:10px;
+            align-items: center;
+            justify-content: center;
 
-    font-weight:800;
+            margin-bottom: 22px;
 
-    letter-spacing:.7px;
-}
+            border-radius: 11px;
 
+            background:
+                rgba(255,23,79,0.09);
 
-/* =========================
-   STAFF
-========================= */
+            border:
+                1px solid rgba(255,23,79,0.12);
 
-.staff-grid{
-    max-width:1150px;
+            color: #ff416b;
 
-    margin:auto;
+            font-size: 19px;
+        }
 
-    display:grid;
+        .card h3 {
+            font-size: 17px;
+            font-weight: 800;
 
-    grid-template-columns:repeat(2,1fr);
+            margin-bottom: 10px;
+        }
 
-    gap:20px;
-}
+        .card p {
+            color: #777;
 
-.staff-card{
-    position:relative;
+            font-size: 13px;
 
-    padding:32px 25px;
+            line-height: 1.7;
+        }
 
-    text-align:center;
+        .card-link {
+            display: inline-block;
 
-    border-radius:16px;
+            margin-top: 20px;
 
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.045),
-            rgba(255,255,255,.012)
-        );
+            color: #ff416b;
 
-    border:1px solid rgba(255,255,255,.08);
+            font-size: 11px;
+            font-weight: 800;
 
-    transition:.35s;
-}
+            letter-spacing: 0.5px;
+        }
 
-.staff-card:hover{
-    transform:translateY(-9px);
+        /* =========================================
+           STAFF TEAM
+        ========================================= */
 
-    border-color:rgba(255,255,255,.25);
+        .staff-section {
+            position: relative;
+        }
 
-    box-shadow:0 20px 60px rgba(255,255,255,.05);
-}
+        .staff-grid {
+            max-width: 1150px;
 
-.staff-role{
-    display:inline-block;
+            margin: auto;
 
-    padding:7px 12px;
+            display: grid;
 
-    margin-bottom:22px;
+            grid-template-columns:
+                repeat(3, 1fr);
 
-    border-radius:100px;
+            gap: 20px;
+        }
 
-    font-size:9px;
+        .staff-card {
+            position: relative;
 
-    font-weight:900;
+            overflow: hidden;
 
-    letter-spacing:1.4px;
+            padding: 32px 25px;
 
-    text-transform:uppercase;
+            text-align: center;
 
-    color:#ddd;
+            border-radius: 16px;
 
-    background:rgba(255,255,255,.05);
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.045),
+                    rgba(255,255,255,0.015)
+                );
 
-    border:1px solid rgba(255,255,255,.09);
-}
+            border:
+                1px solid rgba(255,255,255,0.07);
 
-.staff-icon{
-    width:62px;
-    height:62px;
+            transition:
+                transform 0.35s ease,
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
+        }
 
-    margin:0 auto 18px;
+        .staff-card:hover {
+            transform: translateY(-9px);
+        }
 
-    display:flex;
+        .staff-card::before {
+            content: "";
 
-    align-items:center;
-    justify-content:center;
+            position: absolute;
 
-    border-radius:50%;
+            width: 180px;
+            height: 180px;
 
-    font-size:20px;
+            left: 50%;
+            top: -110px;
 
-    background:rgba(255,255,255,.035);
+            transform:
+                translateX(-50%);
 
-    border:1px solid rgba(255,255,255,.10);
+            border-radius: 50%;
 
-    color:#fff;
-}
+            filter: blur(70px);
 
-.staff-card h3{
-    font-size:18px;
+            opacity: 0.12;
+        }
 
-    font-weight:900;
+        /* OWNER */
 
-    margin-bottom:16px;
-}
+        .staff-card.owner {
+            border-color:
+                rgba(255, 49, 95, 0.18);
+        }
 
-.staff-names{
-    display:flex;
+        .staff-card.owner::before {
+            background: #ff174f;
+        }
 
-    flex-wrap:wrap;
+        .staff-card.owner:hover {
+            border-color:
+                rgba(255, 49, 95, 0.45);
 
-    justify-content:center;
+            box-shadow:
+                0 20px 60px
+                rgba(255,23,79,0.12);
+        }
 
-    gap:8px;
-}
+        /* FOUNDERS */
 
-.staff-name{
-    padding:8px 12px;
+        .staff-card.founder {
+            border-color:
+                rgba(167, 70, 255, 0.18);
+        }
 
-    border-radius:7px;
+        .staff-card.founder::before {
+            background: #9b2cff;
+        }
 
-    background:rgba(255,255,255,.045);
+        .staff-card.founder:hover {
+            border-color:
+                rgba(167,70,255,0.45);
 
-    border:1px solid rgba(255,255,255,.07);
+            box-shadow:
+                0 20px 60px
+                rgba(140,45,255,0.12);
+        }
 
-    color:#aaa;
+        /* MANAGEMENT */
 
-    font-size:11px;
+        .staff-card.management {
+            border-color:
+                rgba(255,90,150,0.18);
+        }
 
-    font-weight:700;
-}
+        .staff-card.management::before {
+            background: #ff5b96;
+        }
 
+        .staff-card.management:hover {
+            border-color:
+                rgba(255,90,150,0.45);
 
-/* =========================
-   LEAKERS TEAM
-========================= */
+            box-shadow:
+                0 20px 60px
+                rgba(255,70,130,0.12);
+        }
 
-.leakers-team{
-    max-width:1150px;
+        .staff-role {
+            position: relative;
 
-    margin:35px auto 0;
+            display: inline-block;
 
-    padding:38px 30px;
+            padding: 7px 12px;
 
-    text-align:center;
+            margin-bottom: 22px;
 
-    border-radius:18px;
+            border-radius: 100px;
 
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.045),
-            rgba(255,255,255,.012)
-        );
+            font-size: 10px;
+            font-weight: 900;
 
-    border:1px solid rgba(255,255,255,.08);
-}
+            letter-spacing: 1.4px;
 
-.leakers-title{
-    display:inline-flex;
+            text-transform: uppercase;
+        }
 
-    align-items:center;
+        .owner .staff-role {
+            color: #ff5478;
 
-    gap:9px;
+            background:
+                rgba(255,23,79,0.08);
 
-    padding:8px 15px;
+            border:
+                1px solid rgba(255,23,79,0.15);
+        }
 
-    border-radius:100px;
+        .founder .staff-role {
+            color: #b276ff;
 
-    background:rgba(255,255,255,.05);
+            background:
+                rgba(155,44,255,0.08);
 
-    border:1px solid rgba(255,255,255,.09);
+            border:
+                1px solid rgba(155,44,255,0.15);
+        }
 
-    color:#ddd;
+        .management .staff-role {
+            color: #ff78a9;
 
-    font-size:10px;
+            background:
+                rgba(255,90,150,0.08);
 
-    font-weight:900;
+            border:
+                1px solid rgba(255,90,150,0.15);
+        }
 
-    letter-spacing:1.5px;
+        .staff-icon {
+            width: 62px;
+            height: 62px;
 
-    text-transform:uppercase;
+            margin:
+                0 auto 18px;
 
-    margin-bottom:25px;
-}
+            display: flex;
 
-.leakers-title::before{
-    content:"";
+            align-items: center;
+            justify-content: center;
 
-    width:7px;
-    height:7px;
+            border-radius: 50%;
 
-    border-radius:50%;
+            font-size: 20px;
+            font-weight: 900;
 
-    background:#fff;
+            background:
+                rgba(255,255,255,0.035);
 
-    box-shadow:0 0 12px rgba(255,255,255,.8);
-}
+            border:
+                1px solid rgba(255,255,255,0.08);
+        }
 
-.leakers-names{
-    display:flex;
+        .owner .staff-icon {
+            color: #ff416b;
 
-    flex-wrap:wrap;
+            box-shadow:
+                0 0 30px
+                rgba(255,23,79,0.12);
+        }
 
-    justify-content:center;
+        .founder .staff-icon {
+            color: #a95cff;
 
-    gap:10px;
-}
+            box-shadow:
+                0 0 30px
+                rgba(155,44,255,0.12);
+        }
 
-.leaker{
-    padding:11px 17px;
+        .management .staff-icon {
+            color: #ff6f9e;
 
-    border-radius:9px;
+            box-shadow:
+                0 0 30px
+                rgba(255,90,150,0.12);
+        }
 
-    color:#bbb;
+        .staff-card h3 {
+            font-size: 18px;
 
-    background:rgba(255,255,255,.035);
+            font-weight: 900;
 
-    border:1px solid rgba(255,255,255,.08);
+            margin-bottom: 16px;
+        }
 
-    font-size:12px;
+        .staff-names {
+            display: flex;
 
-    font-weight:700;
+            flex-wrap: wrap;
 
-    transition:.25s;
-}
+            justify-content: center;
 
-.leaker:hover{
-    color:#050505;
+            gap: 8px;
+        }
 
-    background:#fff;
+        .staff-name {
+            padding: 8px 12px;
 
-    transform:translateY(-3px);
-}
+            border-radius: 7px;
 
+            background:
+                rgba(255,255,255,0.045);
 
-/* =========================
-   ABOUT
-========================= */
+            border:
+                1px solid rgba(255,255,255,0.07);
 
-#about{
-    padding-top:90px;
-}
+            color: #bbb;
 
+            font-size: 12px;
+            font-weight: 700;
 
-/* =========================
-   DISCORD
-========================= */
+            transition: 0.25s;
+        }
 
-.discord-wrap{
-    max-width:1150px;
+        .staff-name:hover {
+            color: #fff;
 
-    margin:auto;
+            background:
+                rgba(255,255,255,0.08);
 
-    position:relative;
+            transform: translateY(-2px);
+        }
 
-    overflow:hidden;
+        /* =========================================
+           DISCORD
+        ========================================= */
 
-    padding:75px 40px;
+        .discord-wrap {
+            max-width: 1150px;
 
-    text-align:center;
+            margin: auto;
 
-    border:1px solid rgba(255,255,255,.12);
+            position: relative;
 
-    border-radius:20px;
+            overflow: hidden;
 
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.07),
-            rgba(255,255,255,.02)
-        );
-}
+            padding: 75px 40px;
 
-.discord-content{
-    position:relative;
+            text-align: center;
 
-    z-index:2;
-}
+            border:
+                1px solid rgba(255,23,79,0.18);
 
-.server-picture{
-    width:70px;
-    height:70px;
+            border-radius: 20px;
 
-    margin:0 auto 22px;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,23,79,0.11),
+                    rgba(120,40,255,0.08),
+                    rgba(255,255,255,0.025)
+                );
+        }
 
-    display:block;
+        .discord-wrap::before {
+            content: "";
 
-    object-fit:cover;
+            position: absolute;
 
-    border-radius:18px;
+            width: 400px;
+            height: 400px;
 
-    border:1px solid rgba(255,255,255,.14);
+            left: 50%;
+            top: 50%;
 
-    box-shadow:0 15px 45px rgba(255,255,255,.10);
-}
+            transform:
+                translate(-50%, -50%);
 
-.discord-wrap h2{
-    font-size:40px;
+            border-radius: 50%;
 
-    font-weight:900;
+            background:
+                rgba(255,23,79,0.12);
 
-    letter-spacing:-2px;
-}
+            filter: blur(100px);
+        }
 
-.discord-wrap p{
-    max-width:600px;
+        .discord-content {
+            position: relative;
+            z-index: 2;
+        }
 
-    margin:15px auto 30px;
+        .discord-icon {
+            width: 60px;
+            height: 60px;
 
-    color:#888;
+            margin:
+                0 auto 22px;
 
-    font-size:13px;
+            display: flex;
 
-    line-height:1.8;
-}
+            align-items: center;
+            justify-content: center;
 
+            border-radius: 16px;
 
-/* =========================
-   FOOTER
-========================= */
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff174f,
+                    #9b2cff
+                );
 
-footer{
-    padding:35px 7%;
+            font-size: 24px;
 
-    border-top:1px solid rgba(255,255,255,.07);
+            box-shadow:
+                0 15px 45px
+                rgba(255,23,79,0.25);
+        }
 
-    display:flex;
+        .discord-wrap h2 {
+            font-size: 40px;
 
-    justify-content:space-between;
+            font-weight: 900;
 
-    align-items:center;
+            letter-spacing: -2px;
+        }
 
-    color:#555;
+        .discord-wrap p {
+            max-width: 600px;
 
-    font-size:11px;
-}
+            margin:
+                15px auto 30px;
 
-footer strong{
-    color:#999;
-}
+            color: #888;
 
+            font-size: 14px;
 
-/* =========================
-   MOBILE
-========================= */
+            line-height: 1.8;
+        }
 
-@media(max-width:900px){
+        /* =========================================
+           FOOTER
+        ========================================= */
 
-    .cards{
-        grid-template-columns:repeat(2,1fr);
-    }
+        footer {
+            padding: 35px 7%;
 
-    .staff-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-}
+            border-top:
+                1px solid rgba(255,255,255,0.06);
 
-@media(max-width:650px){
+            display: flex;
 
-    nav{
-        padding:0 5%;
-    }
+            justify-content: space-between;
+            align-items: center;
 
-    .nav-links{
-        gap:15px;
-    }
+            color: #555;
 
-    .nav-links a:not(.nav-discord){
-        display:none;
-    }
+            font-size: 12px;
+        }
 
-    .hero{
-        padding-top:130px;
-    }
+        footer strong {
+            color: #999;
+        }
 
-    .hero h1{
-        font-size:48px;
-        letter-spacing:-3px;
-    }
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
 
-    .hero-description{
-        font-size:13px;
-    }
+        @media (max-width: 900px) {
 
-    .hero-buttons{
-        flex-direction:column;
-        align-items:center;
-    }
+            .cards,
+            .staff-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
 
-    .btn{
-        width:100%;
-        max-width:300px;
-    }
+            .nav-links {
+                gap: 15px;
+            }
 
-    .stats{
-        margin:-20px 20px 0;
+            .hero h1 {
+                letter-spacing: -4px;
+            }
+        }
 
-        grid-template-columns:1fr;
-    }
+        @media (max-width: 650px) {
 
-    .stat{
-        border-right:none;
+            nav {
+                padding: 0 5%;
+            }
 
-        border-bottom:1px solid rgba(255,255,255,.07);
-    }
+            .nav-links a:not(.nav-discord) {
+                display: none;
+            }
 
-    .stat:last-child{
-        border-bottom:none;
-    }
+            .hero {
+                padding-top: 130px;
+            }
 
-    section{
-        padding:80px 5%;
-    }
+            .hero h1 {
+                font-size: 55px;
+                letter-spacing: -3px;
+            }
 
-    .cards,
-    .staff-grid{
-        grid-template-columns:1fr;
-    }
+            .hero-description {
+                font-size: 14px;
+            }
 
-    .section-header h2{
-        font-size:32px;
-    }
+            .hero-buttons {
+                flex-direction: column;
 
-    .discord-wrap{
-        padding:55px 20px;
-    }
+                align-items: center;
+            }
 
-    .discord-wrap h2{
-        font-size:30px;
-    }
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
 
-    footer{
-        flex-direction:column;
-        gap:10px;
-        text-align:center;
-    }
-}
+            .stats {
+                margin:
+                    -20px 20px 0;
 
-</style>
+                grid-template-columns: 1fr;
+
+                border-radius: 12px;
+            }
+
+            .stat {
+                border-right: none;
+
+                border-bottom:
+                    1px solid rgba(255,255,255,0.06);
+            }
+
+            .stat:last-child {
+                border-bottom: none;
+            }
+
+            section {
+                padding: 80px 5%;
+            }
+
+            .cards,
+            .staff-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header h2 {
+                font-size: 32px;
+            }
+
+            .discord-wrap {
+                padding: 55px 20px;
+            }
+
+            .discord-wrap h2 {
+                font-size: 30px;
+            }
+
+            footer {
+                flex-direction: column;
+
+                gap: 10px;
+
+                text-align: center;
+            }
+        }
+    </style>
 </head>
-
 
 <body>
 
+    <!-- =========================================
+         BACKGROUND
+    ========================================= -->
 
-<!-- BACKGROUND -->
+    <div class="background">
 
-<div class="background">
-    <div class="grid"></div>
-</div>
+        <div class="glow one"></div>
+        <div class="glow two"></div>
+        <div class="glow three"></div>
 
+        <div class="grid"></div>
 
-<!-- NAVBAR -->
+    </div>
 
-<nav>
 
-<a href="#home" class="logo">
+    <!-- =========================================
+         NAVBAR
+    ========================================= -->
 
-    <img
-        src="server.png"
-        alt="Wraith Vault Leaks"
-        class="logo-image"
-    >
+    <nav>
 
-    WRAITH
+        <a href="#home" class="logo">
 
-    <span>
-        VAULT LEAKS
-    </span>
+            <div class="logo-mark">
+                FL
+            </div>
 
-</a>
+            FIVE M <span>LEAKS</span>
 
+        </a>
 
-<div class="nav-links">
+        <div class="nav-links">
 
-    <a href="#home">Home</a>
+            <a href="#home">
+                Home
+            </a>
 
-    <a href="#leaks">Packs</a>
+            <a href="#leaks">
+                Leaks
+            </a>
 
-    <a href="#staff">Staff</a>
+            <a href="#staff">
+                Staff
+            </a>
 
-    <a href="#about">About</a>
+            <a href="#about">
+                About
+            </a>
 
-    <a
-        href="https://discord.gg/Hhk3h9PH2"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="nav-discord"
-    >
-        Discord
-    </a>
+            <a
+                href="https://discord.gg/Hhk3h9PH2"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="nav-discord"
+            >
+                Discord
+            </a>
 
-</div>
+        </div>
 
-</nav>
+    </nav>
 
 
-<!-- HERO -->
+    <!-- =========================================
+         HERO
+    ========================================= -->
 
-<main id="home">
+    <main id="home">
 
-<section class="hero">
+        <section class="hero">
 
-<div class="hero-content">
+            <div class="hero-content">
 
-<div class="eyebrow">
+                <div class="eyebrow">
 
-<span class="dot"></span>
+                    <span class="dot"></span>
 
-THE ULTIMATE FIVEM RESOURCE HUB
+                    THE ULTIMATE FIVEM RESOURCE HUB
 
-</div>
+                </div>
 
+                <h1>
 
-<h1>
+                    <span class="white">
+                        FIVEM
+                    </span>
 
-<span class="white">
-WRAITH
-</span>
+                    <br>
 
-<br>
+                    <span class="gradient">
+                        LEAKS
+                    </span>
 
-<span class="gradient">
-VAULT LEAKS
-</span>
+                </h1>
 
-</h1>
+                <p class="hero-description">
 
+                    Discover premium FiveM resources,
+                    scripts, vehicles, MLOs, clothing
+                    and more. Everything you need for
+                    your next server, all in one place.
 
-<p class="hero-description">
+                </p>
 
-Discover premium graphics, sound packs,
-gun skins, perks, PC optimization tools,
-mods and more. Everything you need in
-one place.
+                <div class="hero-buttons">
 
-</p>
+                    <a
+                        href="https://discord.gg/Hhk3h9PH2"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-primary"
+                    >
+                        JOIN OUR DISCORD
+                    </a>
 
+                    <a
+                        href="#leaks"
+                        class="btn btn-secondary"
+                    >
+                        EXPLORE LEAKS
+                    </a>
 
-<div class="hero-buttons">
+                </div>
 
-<a
-    href="https://discord.gg/Hhk3h9PH2"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="btn btn-primary"
->
-    JOIN OUR DISCORD
-</a>
+            </div>
 
-<a
-    href="#leaks"
-    class="btn btn-secondary"
->
-    EXPLORE PACKS
-</a>
+        </section>
 
-</div>
 
-</div>
+        <!-- =========================================
+             STATS
+        ========================================= -->
 
-</section>
+        <div class="stats">
 
+            <div class="stat">
 
-<!-- STATS -->
+                <strong>
+                    100+
+                </strong>
 
-<div class="stats">
+                <span>
+                    Resources
+                </span>
 
-<div class="stat">
-<strong>100+</strong>
-<span>Resources</span>
-</div>
+            </div>
 
-<div class="stat">
-<strong>24/7</strong>
-<span>Community</span>
-</div>
+            <div class="stat">
 
-<div class="stat">
-<strong>FREE</strong>
-<span>Access</span>
-</div>
+                <strong>
+                    24/7
+                </strong>
 
-</div>
+                <span>
+                    Community
+                </span>
 
+            </div>
 
-<!-- CATEGORIES -->
+            <div class="stat">
 
-<section id="leaks">
+                <strong>
+                    FREE
+                </strong>
 
-<div class="section-header center">
+                <span>
+                    Access
+                </span>
 
-<div class="section-label">
-Categories
-</div>
+            </div>
 
-<h2>
-Explore The Vault
-</h2>
+        </div>
 
-<p>
-Browse our collection of resources
-and find what you need.
-</p>
 
-</div>
+        <!-- =========================================
+             LEAKS
+        ========================================= -->
 
+        <section id="leaks">
 
-<div class="cards">
+            <div class="section-header center">
 
+                <div class="section-label">
+                    Categories
+                </div>
 
-<div class="card">
+                <h2>
+                    Explore The Leaks
+                </h2>
 
-<div class="icon">◈</div>
+                <p>
+                    Browse through our collection of
+                    FiveM resources and find exactly
+                    what you need.
+                </p>
 
-<h3>
-Graphic Packs
-</h3>
+            </div>
 
-<p>
-Visual enhancement packs,
-graphics presets and FiveM
-visual resources.
-</p>
 
-<a href="#" class="card-link">
-VIEW GRAPHICS →
-</a>
+            <div class="cards">
 
-</div>
 
+                <div class="card">
 
-<div class="card">
+                    <div class="icon">
+                        ⚙
+                    </div>
 
-<div class="icon">♪</div>
+                    <h3>
+                        Scripts
+                    </h3>
 
-<h3>
-Sound Packs
-</h3>
+                    <p>
+                        Find FiveM scripts, systems and
+                        resources to improve your server.
+                    </p>
 
-<p>
-Custom audio, weapon sounds,
-vehicle sounds and immersive
-sound packs.
-</p>
+                    <a href="#" class="card-link">
+                        VIEW SCRIPTS →
+                    </a>
 
-<a href="#" class="card-link">
-VIEW SOUNDS →
-</a>
+                </div>
 
-</div>
 
+                <div class="card">
 
-<div class="card">
+                    <div class="icon">
+                        ◈
+                    </div>
 
-<div class="icon">✦</div>
+                    <h3>
+                        Vehicles
+                    </h3>
 
-<h3>
-Gun Skins
-</h3>
+                    <p>
+                        Custom cars, emergency vehicles,
+                        packs and other vehicle resources.
+                    </p>
 
-<p>
-Custom weapon skins and
-visual customization packs.
-</p>
+                    <a href="#" class="card-link">
+                        VIEW VEHICLES →
+                    </a>
 
-<a href="#" class="card-link">
-VIEW GUN SKINS →
-</a>
+                </div>
 
-</div>
 
+                <div class="card">
 
-<div class="card">
+                    <div class="icon">
+                        ◆
+                    </div>
 
-<div class="icon">◆</div>
+                    <h3>
+                        MLOs & Maps
+                    </h3>
 
-<h3>
-Perks
-</h3>
+                    <p>
+                        Explore custom interiors, maps
+                        and locations for your server.
+                    </p>
 
-<p>
-Special perks, benefits and
-community resources available
-through the vault.
-</p>
+                    <a href="#" class="card-link">
+                        VIEW MAPS →
+                    </a>
 
-<a href="#" class="card-link">
-VIEW PERKS →
-</a>
+                </div>
 
-</div>
 
+                <div class="card">
 
-<div class="card">
+                    <div class="icon">
+                        ◉
+                    </div>
 
-<div class="icon">⚙</div>
+                    <h3>
+                        Clothing
+                    </h3>
 
-<h3>
-PC Optimization
-</h3>
+                    <p>
+                        Character clothing, uniforms,
+                        EUP and custom clothing packs.
+                    </p>
 
-<p>
-Performance tweaks, optimization
-resources and settings designed
-to improve your PC experience.
-</p>
+                    <a href="#" class="card-link">
+                        VIEW CLOTHING →
+                    </a>
 
-<a href="#" class="card-link">
-OPTIMIZE PC →
-</a>
+                </div>
 
-</div>
 
+                <div class="card">
 
-<div class="card">
+                    <div class="icon">
+                        ✦
+                    </div>
 
-<div class="icon">+</div>
+                    <h3>
+                        Weapons
+                    </h3>
 
-<h3>
-Mods
-</h3>
+                    <p>
+                        Custom weapon packs and resources
+                        for your FiveM experience.
+                    </p>
 
-<p>
-Custom modifications, addons
-and other useful resources.
-</p>
+                    <a href="#" class="card-link">
+                        VIEW WEAPONS →
+                    </a>
 
-<a href="#" class="card-link">
-VIEW MODS →
-</a>
+                </div>
 
-</div>
 
+                <div class="card">
 
-</div>
+                    <div class="icon">
+                        +
+                    </div>
 
-</section>
+                    <h3>
+                        Miscellaneous
+                    </h3>
 
+                    <p>
+                        Other FiveM resources, tools,
+                        graphics and useful content.
+                    </p>
 
-<!-- STAFF -->
+                    <a href="#" class="card-link">
+                        VIEW MORE →
+                    </a>
 
-<section id="staff">
+                </div>
 
-<div class="section-header center">
+            </div>
 
-<div class="section-label">
-The Team
-</div>
+        </section>
 
-<h2>
-Staff Team
-</h2>
 
-<p>
-Meet the people behind Wraith Vault Leaks.
-</p>
+        <!-- =========================================
+             STAFF TEAM
+        ========================================= -->
 
-</div>
+        <section
+            id="staff"
+            class="staff-section"
+        >
 
+            <div class="section-header center">
 
-<div class="staff-grid">
+                <div class="section-label">
+                    The Team
+                </div>
 
+                <h2>
+                    Staff Team
+                </h2>
 
-<!-- FOUNDERS -->
+                <p>
+                    Meet the people behind FiveM Leaks.
+                </p>
 
-<div class="staff-card">
+            </div>
 
-<div class="staff-role">
-Founders
-</div>
 
-<div class="staff-icon">
-★
-</div>
+            <div class="staff-grid">
 
-<h3>
-Founders
-</h3>
 
-<div class="staff-names">
+                <!-- OWNERS -->
 
-<div class="staff-name">
-Vortex
-</div>
+                <div class="staff-card owner">
 
-<div class="staff-name">
-Speed
-</div>
+                    <div class="staff-role">
+                        Owners
+                    </div>
 
-</div>
+                    <div class="staff-icon">
+                        👑
+                    </div>
 
-</div>
+                    <h3>
+                        Owners
+                    </h3>
 
+                    <div class="staff-names">
 
-<!-- LEAKER MANAGEMENT -->
+                        <div class="staff-name">
+                            Vortex
+                        </div>
 
-<div class="staff-card">
+                        <div class="staff-name">
+                            Speed
+                        </div>
 
-<div class="staff-role">
-Leaker Management
-</div>
+                    </div>
 
-<div class="staff-icon">
-⚡
-</div>
+                </div>
 
-<h3>
-Leaker Management
-</h3>
 
-<div class="staff-names">
+                <!-- FOUNDERS -->
 
-<div class="staff-name">
-Kekrops
-</div>
+                <div class="staff-card founder">
 
-<div class="staff-name">
-Cyber
-</div>
+                    <div class="staff-role">
+                        Founders
+                    </div>
 
-<div class="staff-name">
-Agent
-</div>
+                    <div class="staff-icon">
+                        ★
+                    </div>
 
-</div>
+                    <h3>
+                        Founders
+                    </h3>
 
-</div>
+                    <div class="staff-names">
 
+                        <div class="staff-name">
+                            Musa
+                        </div>
 
-</div>
+                        <div class="staff-name">
+                            Sharky
+                        </div>
 
+                    </div>
 
-<!-- LEAKERS -->
+                </div>
 
-<div class="leakers-team">
 
-<div class="leakers-title">
-Leakers Team
-</div>
+                <!-- LEAKER MANAGEMENT -->
 
+                <div class="staff-card management">
 
-<div class="leakers-names">
+                    <div class="staff-role">
+                        Leaker Management
+                    </div>
 
-<div class="leaker">Ice</div>
+                    <div class="staff-icon">
+                        ⚡
+                    </div>
 
-<div class="leaker">Diddy</div>
+                    <h3>
+                        Leaker Management
+                    </h3>
 
-<div class="leaker">Flxn</div>
+                    <div class="staff-names">
 
-<div class="leaker">Shayan</div>
+                        <div class="staff-name">
+                            Kekrops
+                        </div>
 
-<div class="leaker">Syed Ali</div>
+                        <div class="staff-name">
+                            Cyber
+                        </div>
 
-<div class="leaker">Venom</div>
+                        <div class="staff-name">
+                            Agent
+                        </div>
 
-<div class="leaker">Usman</div>
+                    </div>
 
-<div class="leaker">Ali</div>
+                </div>
 
-</div>
 
-</div>
+            </div>
 
-</section>
+        </section>
 
 
-<!-- ABOUT -->
+        <!-- =========================================
+             ABOUT
+        ========================================= -->
 
-<section id="about">
+        <section id="about">
 
-<div class="section-header center">
+            <div class="section-header center">
 
-<div class="section-label">
-Community
-</div>
+                <div class="section-label">
+                    Community
+                </div>
 
-<h2>
-Welcome To The Vault
-</h2>
+                <h2>
+                    Built For FiveM
+                </h2>
 
-<p>
-Wraith Vault Leaks is a community
-focused on FiveM graphics, sounds,
-modifications, optimization and
-other useful resources.
-</p>
+                <p>
+                    Our goal is to create a simple place
+                    where the FiveM community can discover
+                    resources, stay updated and connect
+                    with other players.
+                </p>
 
-</div>
+            </div>
 
-</section>
+        </section>
 
 
-<!-- DISCORD -->
+        <!-- =========================================
+             DISCORD
+        ========================================= -->
 
-<section>
+        <section>
 
-<div class="discord-wrap">
+            <div class="discord-wrap">
 
-<div class="discord-content">
+                <div class="discord-content">
 
+                    <div class="discord-icon">
+                        DC
+                    </div>
 
-<img
-    src="server.png"
-    alt="Wraith Vault Leaks"
-    class="server-picture"
->
+                    <h2>
+                        Join The Community
+                    </h2>
 
+                    <p>
+                        Get access to updates, new resources,
+                        announcements and community discussions.
+                        Join our Discord today.
+                    </p>
 
-<h2>
-Join The Community
-</h2>
+                    <a
+                        href="https://discord.gg/Hhk3h9PH2"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-primary"
+                    >
+                        JOIN OUR DISCORD
+                    </a>
 
+                </div>
 
-<p>
-Get access to updates, new resources,
-announcements and community discussions.
-Join the Wraith Vault Leaks Discord today.
-</p>
+            </div>
 
+        </section>
 
-<a
-    href="https://discord.gg/Hhk3h9PH2"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="btn btn-primary"
->
-    JOIN OUR DISCORD
-</a>
+    </main>
 
 
-</div>
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
 
-</div>
+    <footer>
 
-</section>
+        <div>
+            © 2026
+            <strong>
+                FiveM Leaks
+            </strong>
+        </div>
 
+        <div>
+            Made for the FiveM community
+        </div>
 
-</main>
-
-
-<!-- FOOTER -->
-
-<footer>
-
-<div>
-
-© 2026
-
-<strong>
-Wraith Vault Leaks
-</strong>
-
-</div>
-
-
-<div>
-Made for the FiveM community
-</div>
-
-</footer>
-
+    </footer>
 
 </body>
 </html>
