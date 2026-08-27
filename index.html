@@ -16,10 +16,6 @@
 
     <style>
 
-        /* =========================================
-           RESET
-        ========================================= */
-
         * {
             margin: 0;
             padding: 0;
@@ -33,7 +29,7 @@
         body {
             font-family: "Inter", sans-serif;
             background: #050505;
-            color: #ffffff;
+            color: #fff;
             overflow-x: hidden;
         }
 
@@ -50,11 +46,8 @@
         .background {
             position: fixed;
             inset: 0;
-
             overflow: hidden;
-
             pointer-events: none;
-
             z-index: -10;
 
             background:
@@ -63,37 +56,28 @@
                     rgba(255,255,255,0.08),
                     transparent 30%
                 ),
-
                 radial-gradient(
                     circle at 10% 60%,
                     rgba(255,255,255,0.045),
                     transparent 28%
                 ),
-
                 #050505;
         }
 
 
         .glow {
             position: absolute;
-
             border-radius: 50%;
-
             filter: blur(110px);
-
             opacity: 0.18;
-
-            animation:
-                floatGlow 14s infinite alternate ease-in-out;
+            animation: floatGlow 14s infinite alternate ease-in-out;
         }
 
 
         .glow.one {
             width: 420px;
             height: 420px;
-
-            background: #ffffff;
-
+            background: #fff;
             top: -230px;
             left: -120px;
         }
@@ -102,12 +86,9 @@
         .glow.two {
             width: 350px;
             height: 350px;
-
-            background: #888888;
-
+            background: #888;
             right: -120px;
             top: 35%;
-
             animation-delay: 3s;
         }
 
@@ -115,12 +96,9 @@
         .glow.three {
             width: 300px;
             height: 300px;
-
-            background: #ffffff;
-
+            background: #fff;
             bottom: -180px;
             left: 42%;
-
             animation-delay: 6s;
         }
 
@@ -128,35 +106,25 @@
         @keyframes floatGlow {
 
             from {
-                transform:
-                    translate(0,0)
-                    scale(1);
+                transform: translate(0,0) scale(1);
             }
 
             to {
-                transform:
-                    translate(70px,-40px)
-                    scale(1.2);
+                transform: translate(70px,-40px) scale(1.2);
             }
         }
 
 
-        /* GRID */
-
         .grid {
             position: absolute;
-
             inset: 0;
-
             opacity: 0.12;
 
             background-image:
-
                 linear-gradient(
                     rgba(255,255,255,0.05) 1px,
                     transparent 1px
                 ),
-
                 linear-gradient(
                     90deg,
                     rgba(255,255,255,0.05) 1px,
@@ -180,7 +148,6 @@
 
         nav {
             position: fixed;
-
             top: 0;
             left: 0;
 
@@ -188,20 +155,15 @@
             height: 78px;
 
             display: flex;
-
             align-items: center;
             justify-content: space-between;
 
             padding: 0 7%;
 
-            background:
-                rgba(5,5,5,0.82);
+            background: rgba(5,5,5,0.82);
 
-            backdrop-filter:
-                blur(18px);
-
-            -webkit-backdrop-filter:
-                blur(18px);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
 
             border-bottom:
                 1px solid rgba(255,255,255,0.08);
@@ -210,17 +172,12 @@
         }
 
 
-        /* LOGO */
-
         .logo {
             display: flex;
-
             align-items: center;
-
             gap: 10px;
 
             font-size: 17px;
-
             font-weight: 900;
 
             letter-spacing: -0.7px;
@@ -232,40 +189,31 @@
             height: 37px;
 
             display: flex;
-
             align-items: center;
             justify-content: center;
 
             border-radius: 9px;
 
             color: #050505;
-
-            background: #ffffff;
+            background: #fff;
 
             box-shadow:
-                0 0 25px
-                rgba(255,255,255,0.15);
+                0 0 25px rgba(255,255,255,0.15);
 
             font-size: 12px;
-
             font-weight: 900;
         }
 
 
         .logo span {
-            color: #999999;
-
+            color: #999;
             margin-left: 4px;
         }
 
 
-        /* NAV LINKS */
-
         .nav-links {
             display: flex;
-
             align-items: center;
-
             gap: 30px;
         }
 
@@ -274,20 +222,16 @@
             color: #858585;
 
             font-size: 12px;
-
             font-weight: 700;
 
-            transition:
-                0.25s ease;
+            transition: 0.25s ease;
         }
 
 
         .nav-links a:hover {
-            color: #ffffff;
+            color: #fff;
         }
 
-
-        /* DISCORD BUTTON */
 
         .nav-discord {
             padding: 11px 19px;
@@ -295,22 +239,18 @@
             border-radius: 8px;
 
             color: #050505 !important;
-
-            background: #ffffff;
+            background: #fff;
 
             box-shadow:
-                0 8px 30px
-                rgba(255,255,255,0.08);
+                0 8px 30px rgba(255,255,255,0.08);
         }
 
 
         .nav-discord:hover {
-            transform:
-                translateY(-2px);
+            transform: translateY(-2px);
 
             box-shadow:
-                0 12px 35px
-                rgba(255,255,255,0.18);
+                0 12px 35px rgba(255,255,255,0.18);
         }
 
 
@@ -322,7 +262,6 @@
             min-height: 100vh;
 
             display: flex;
-
             align-items: center;
             justify-content: center;
 
@@ -346,44 +285,35 @@
 
             from {
                 opacity: 0;
-
-                transform:
-                    translateY(35px);
+                transform: translateY(35px);
             }
 
             to {
                 opacity: 1;
-
-                transform:
-                    translateY(0);
+                transform: translateY(0);
             }
         }
 
-
-        /* EYEBROW */
 
         .eyebrow {
             display: inline-flex;
 
             align-items: center;
-
             gap: 9px;
 
             padding: 8px 15px;
 
             border:
-                1px solid
-                rgba(255,255,255,0.14);
+                1px solid rgba(255,255,255,0.14);
 
             background:
                 rgba(255,255,255,0.035);
 
             border-radius: 100px;
 
-            color: #aaaaaa;
+            color: #aaa;
 
             font-size: 10px;
-
             font-weight: 800;
 
             letter-spacing: 1.5px;
@@ -396,13 +326,12 @@
             width: 7px;
             height: 7px;
 
-            background: #ffffff;
+            background: #fff;
 
             border-radius: 50%;
 
             box-shadow:
-                0 0 12px
-                rgba(255,255,255,0.8);
+                0 0 12px rgba(255,255,255,0.8);
 
             animation:
                 pulse 1.5s infinite;
@@ -413,21 +342,15 @@
 
             0%,100% {
                 opacity: 1;
-
-                transform:
-                    scale(1);
+                transform: scale(1);
             }
 
             50% {
                 opacity: 0.35;
-
-                transform:
-                    scale(0.7);
+                transform: scale(0.7);
             }
         }
 
-
-        /* HERO TITLE */
 
         .hero h1 {
             font-size:
@@ -444,7 +367,7 @@
 
 
         .hero h1 .white {
-            color: #ffffff;
+            color: #fff;
         }
 
 
@@ -452,13 +375,12 @@
             background:
                 linear-gradient(
                     100deg,
-                    #ffffff,
-                    #888888,
-                    #ffffff
+                    #fff,
+                    #888,
+                    #fff
                 );
 
             -webkit-background-clip: text;
-
             background-clip: text;
 
             color: transparent;
@@ -471,13 +393,10 @@
         }
 
 
-        /* DESCRIPTION */
-
         .hero-description {
             max-width: 650px;
 
-            margin:
-                32px auto 0;
+            margin: 32px auto 0;
 
             color: #858585;
 
@@ -487,13 +406,10 @@
         }
 
 
-        /* HERO BUTTONS */
-
         .hero-buttons {
             display: flex;
 
             justify-content: center;
-
             flex-wrap: wrap;
 
             gap: 13px;
@@ -515,7 +431,6 @@
             border-radius: 9px;
 
             font-size: 12px;
-
             font-weight: 800;
 
             transition:
@@ -527,7 +442,7 @@
         .btn-primary {
             color: #050505;
 
-            background: #ffffff;
+            background: #fff;
 
             box-shadow:
                 0 12px 40px
@@ -536,8 +451,7 @@
 
 
         .btn-primary:hover {
-            transform:
-                translateY(-4px);
+            transform: translateY(-4px);
 
             box-shadow:
                 0 18px 50px
@@ -546,20 +460,18 @@
 
 
         .btn-secondary {
-            color: #dddddd;
+            color: #ddd;
 
             background:
                 rgba(255,255,255,0.035);
 
             border:
-                1px solid
-                rgba(255,255,255,0.10);
+                1px solid rgba(255,255,255,0.10);
         }
 
 
         .btn-secondary:hover {
-            transform:
-                translateY(-4px);
+            transform: translateY(-4px);
 
             background:
                 rgba(255,255,255,0.07);
@@ -573,8 +485,7 @@
         .stats {
             max-width: 850px;
 
-            margin:
-                -40px auto 0;
+            margin: -40px auto 0;
 
             display: grid;
 
@@ -582,16 +493,14 @@
                 repeat(3,1fr);
 
             border:
-                1px solid
-                rgba(255,255,255,0.08);
+                1px solid rgba(255,255,255,0.08);
 
             border-radius: 14px;
 
             background:
                 rgba(255,255,255,0.025);
 
-            backdrop-filter:
-                blur(15px);
+            backdrop-filter: blur(15px);
         }
 
 
@@ -601,8 +510,7 @@
             text-align: center;
 
             border-right:
-                1px solid
-                rgba(255,255,255,0.07);
+                1px solid rgba(255,255,255,0.07);
         }
 
 
@@ -625,10 +533,9 @@
 
             margin-top: 6px;
 
-            color: #666666;
+            color: #666;
 
             font-size: 10px;
-
             font-weight: 700;
 
             text-transform: uppercase;
@@ -660,10 +567,9 @@
 
 
         .section-label {
-            color: #aaaaaa;
+            color: #aaa;
 
             font-size: 10px;
-
             font-weight: 900;
 
             text-transform: uppercase;
@@ -686,7 +592,7 @@
         .section-header p {
             margin-top: 12px;
 
-            color: #777777;
+            color: #777;
 
             font-size: 13px;
 
@@ -729,8 +635,7 @@
                 );
 
             border:
-                1px solid
-                rgba(255,255,255,0.08);
+                1px solid rgba(255,255,255,0.08);
 
             border-radius: 15px;
 
@@ -742,8 +647,7 @@
 
 
         .card:hover {
-            transform:
-                translateY(-8px);
+            transform: translateY(-8px);
 
             border-color:
                 rgba(255,255,255,0.25);
@@ -767,7 +671,7 @@
 
             border-radius: 50%;
 
-            background: #ffffff;
+            background: #fff;
 
             filter: blur(80px);
 
@@ -799,10 +703,9 @@
                 rgba(255,255,255,0.06);
 
             border:
-                1px solid
-                rgba(255,255,255,0.09);
+                1px solid rgba(255,255,255,0.09);
 
-            color: #ffffff;
+            color: #fff;
 
             font-size: 18px;
         }
@@ -818,7 +721,7 @@
 
 
         .card p {
-            color: #777777;
+            color: #777;
 
             font-size: 13px;
 
@@ -831,7 +734,7 @@
 
             margin-top: 20px;
 
-            color: #bbbbbb;
+            color: #bbb;
 
             font-size: 10px;
 
@@ -844,7 +747,7 @@
 
 
         .card:hover .card-link {
-            color: #ffffff;
+            color: #fff;
         }
 
 
@@ -890,8 +793,7 @@
                 );
 
             border:
-                1px solid
-                rgba(255,255,255,0.08);
+                1px solid rgba(255,255,255,0.08);
 
             transition:
                 transform 0.35s ease,
@@ -901,8 +803,7 @@
 
 
         .staff-card:hover {
-            transform:
-                translateY(-9px);
+            transform: translateY(-9px);
 
             border-color:
                 rgba(255,255,255,0.25);
@@ -929,7 +830,7 @@
 
             border-radius: 50%;
 
-            background: #ffffff;
+            background: #fff;
 
             filter: blur(80px);
 
@@ -956,14 +857,13 @@
 
             text-transform: uppercase;
 
-            color: #dddddd;
+            color: #ddd;
 
             background:
                 rgba(255,255,255,0.05);
 
             border:
-                1px solid
-                rgba(255,255,255,0.09);
+                1px solid rgba(255,255,255,0.09);
         }
 
 
@@ -982,17 +882,15 @@
             border-radius: 50%;
 
             font-size: 20px;
-
             font-weight: 900;
 
             background:
                 rgba(255,255,255,0.035);
 
             border:
-                1px solid
-                rgba(255,255,255,0.10);
+                1px solid rgba(255,255,255,0.10);
 
-            color: #ffffff;
+            color: #fff;
 
             box-shadow:
                 0 0 30px
@@ -1029,10 +927,9 @@
                 rgba(255,255,255,0.045);
 
             border:
-                1px solid
-                rgba(255,255,255,0.07);
+                1px solid rgba(255,255,255,0.07);
 
-            color: #aaaaaa;
+            color: #aaa;
 
             font-size: 11px;
 
@@ -1043,13 +940,188 @@
 
 
         .staff-name:hover {
-            color: #ffffff;
+            color: #fff;
 
             background:
                 rgba(255,255,255,0.09);
 
             transform:
                 translateY(-2px);
+        }
+
+
+        /* =========================================
+           LEAKERS TEAM
+        ========================================= */
+
+        .leakers-team {
+            max-width: 1150px;
+
+            margin: 35px auto 0;
+
+            padding: 38px 30px;
+
+            text-align: center;
+
+            border-radius: 18px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.045),
+                    rgba(255,255,255,0.012)
+                );
+
+            border:
+                1px solid rgba(255,255,255,0.08);
+
+            position: relative;
+
+            overflow: hidden;
+
+            transition:
+                border-color 0.3s ease,
+                transform 0.3s ease;
+        }
+
+
+        .leakers-team:hover {
+            border-color:
+                rgba(255,255,255,0.22);
+
+            transform:
+                translateY(-5px);
+        }
+
+
+        .leakers-team::before {
+            content: "";
+
+            position: absolute;
+
+            width: 350px;
+            height: 180px;
+
+            left: 50%;
+            top: -120px;
+
+            transform:
+                translateX(-50%);
+
+            border-radius: 50%;
+
+            background: #fff;
+
+            filter: blur(90px);
+
+            opacity: 0.06;
+        }
+
+
+        .leakers-title {
+            position: relative;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            padding: 8px 15px;
+
+            border-radius: 100px;
+
+            background:
+                rgba(255,255,255,0.05);
+
+            border:
+                1px solid rgba(255,255,255,0.09);
+
+            color: #ddd;
+
+            font-size: 10px;
+
+            font-weight: 900;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 25px;
+        }
+
+
+        .leakers-title::before {
+            content: "";
+
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: #fff;
+
+            box-shadow:
+                0 0 12px
+                rgba(255,255,255,0.8);
+        }
+
+
+        .leakers-names {
+            position: relative;
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
+
+            gap: 10px;
+        }
+
+
+        .leaker {
+            padding: 11px 17px;
+
+            border-radius: 9px;
+
+            color: #bbb;
+
+            background:
+                rgba(255,255,255,0.035);
+
+            border:
+                1px solid rgba(255,255,255,0.08);
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            transition:
+                0.25s ease;
+        }
+
+
+        .leaker:hover {
+            color: #050505;
+
+            background: #fff;
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 8px 25px
+                rgba(255,255,255,0.10);
+        }
+
+
+        /* =========================================
+           ABOUT
+        ========================================= */
+
+        #about {
+            padding-top: 90px;
         }
 
 
@@ -1071,8 +1143,7 @@
             text-align: center;
 
             border:
-                1px solid
-                rgba(255,255,255,0.12);
+                1px solid rgba(255,255,255,0.12);
 
             border-radius: 20px;
 
@@ -1101,7 +1172,7 @@
 
             border-radius: 50%;
 
-            background: #ffffff;
+            background: #fff;
 
             opacity: 0.035;
 
@@ -1116,31 +1187,27 @@
         }
 
 
-        .discord-icon {
-            width: 60px;
-            height: 60px;
+        /* SERVER PICTURE */
+
+        .server-picture {
+            width: 70px;
+            height: 70px;
 
             margin:
                 0 auto 22px;
 
-            display: flex;
+            display: block;
 
-            align-items: center;
-            justify-content: center;
+            object-fit: cover;
 
-            border-radius: 16px;
+            border-radius: 18px;
 
-            color: #050505;
-
-            background: #ffffff;
-
-            font-size: 17px;
-
-            font-weight: 900;
+            border:
+                1px solid rgba(255,255,255,0.14);
 
             box-shadow:
                 0 15px 45px
-                rgba(255,255,255,0.12);
+                rgba(255,255,255,0.10);
         }
 
 
@@ -1159,7 +1226,7 @@
             margin:
                 15px auto 30px;
 
-            color: #888888;
+            color: #888;
 
             font-size: 13px;
 
@@ -1175,8 +1242,7 @@
             padding: 35px 7%;
 
             border-top:
-                1px solid
-                rgba(255,255,255,0.07);
+                1px solid rgba(255,255,255,0.07);
 
             display: flex;
 
@@ -1184,14 +1250,14 @@
 
             align-items: center;
 
-            color: #555555;
+            color: #555;
 
             font-size: 11px;
         }
 
 
         footer strong {
-            color: #999999;
+            color: #999;
         }
 
 
@@ -1270,8 +1336,7 @@
                 border-right: none;
 
                 border-bottom:
-                    1px solid
-                    rgba(255,255,255,0.07);
+                    1px solid rgba(255,255,255,0.07);
             }
 
             .stat:last-child {
@@ -1299,6 +1364,11 @@
                 font-size: 30px;
             }
 
+            .leakers-team {
+                padding:
+                    30px 18px;
+            }
+
             footer {
                 flex-direction: column;
 
@@ -1315,9 +1385,7 @@
 <body>
 
 
-    <!-- =========================================
-         BACKGROUND
-    ========================================= -->
+    <!-- BACKGROUND -->
 
     <div class="background">
 
@@ -1333,9 +1401,7 @@
 
 
 
-    <!-- =========================================
-         NAVBAR
-    ========================================= -->
+    <!-- NAVBAR -->
 
     <nav>
 
@@ -1384,9 +1450,7 @@
 
 
 
-    <!-- =========================================
-         HERO
-    ========================================= -->
+    <!-- HERO -->
 
     <main id="home">
 
@@ -1458,9 +1522,7 @@
 
 
 
-        <!-- =========================================
-             STATS
-        ========================================= -->
+        <!-- STATS -->
 
         <div class="stats">
 
@@ -1508,9 +1570,7 @@
 
 
 
-        <!-- =========================================
-             PACKS
-        ========================================= -->
+        <!-- PACKS -->
 
         <section id="leaks">
 
@@ -1537,8 +1597,6 @@
             <div class="cards">
 
 
-                <!-- GRAPHIC PACKS -->
-
                 <div class="card">
 
                     <div class="icon">
@@ -1561,8 +1619,6 @@
 
                 </div>
 
-
-                <!-- SOUND PACKS -->
 
                 <div class="card">
 
@@ -1587,8 +1643,6 @@
                 </div>
 
 
-                <!-- GUN SKINS -->
-
                 <div class="card">
 
                     <div class="icon">
@@ -1601,8 +1655,7 @@
 
                     <p>
                         Custom weapon skins and
-                        visual customization packs
-                        for your game.
+                        visual customization packs.
                     </p>
 
                     <a href="#" class="card-link">
@@ -1611,8 +1664,6 @@
 
                 </div>
 
-
-                <!-- PERKS -->
 
                 <div class="card">
 
@@ -1637,8 +1688,6 @@
                 </div>
 
 
-                <!-- PC OPTIMIZATION -->
-
                 <div class="card">
 
                     <div class="icon">
@@ -1662,8 +1711,6 @@
                 </div>
 
 
-                <!-- MODS -->
-
                 <div class="card">
 
                     <div class="icon">
@@ -1676,7 +1723,7 @@
 
                     <p>
                         Custom modifications, addons
-                        and other useful FiveM resources.
+                        and other useful resources.
                     </p>
 
                     <a href="#" class="card-link">
@@ -1692,9 +1739,7 @@
 
 
 
-        <!-- =========================================
-             STAFF TEAM
-        ========================================= -->
+        <!-- STAFF -->
 
         <section
             id="staff"
@@ -1731,16 +1776,13 @@
                         Owners
                     </div>
 
-
                     <div class="staff-icon">
                         👑
                     </div>
 
-
                     <h3>
                         Owners
                     </h3>
-
 
                     <div class="staff-names">
 
@@ -1766,16 +1808,13 @@
                         Founders
                     </div>
 
-
                     <div class="staff-icon">
                         ★
                     </div>
 
-
                     <h3>
                         Founders
                     </h3>
-
 
                     <div class="staff-names">
 
@@ -1801,16 +1840,13 @@
                         Leaker Management
                     </div>
 
-
                     <div class="staff-icon">
                         ⚡
                     </div>
 
-
                     <h3>
                         Leaker Management
                     </h3>
-
 
                     <div class="staff-names">
 
@@ -1833,13 +1869,64 @@
 
             </div>
 
+
+
+            <!-- =====================================
+                 LEAKERS TEAM
+            ====================================== -->
+
+            <div class="leakers-team">
+
+
+                <div class="leakers-title">
+                    Leakers Team
+                </div>
+
+
+                <div class="leakers-names">
+
+                    <div class="leaker">
+                        Ice
+                    </div>
+
+                    <div class="leaker">
+                        Diddy
+                    </div>
+
+                    <div class="leaker">
+                        Flxn
+                    </div>
+
+                    <div class="leaker">
+                        Shayan
+                    </div>
+
+                    <div class="leaker">
+                        Syed Ali
+                    </div>
+
+                    <div class="leaker">
+                        Venom
+                    </div>
+
+                    <div class="leaker">
+                        Usman
+                    </div>
+
+                    <div class="leaker">
+                        Ali
+                    </div>
+
+                </div>
+
+
+            </div>
+
         </section>
 
 
 
-        <!-- =========================================
-             ABOUT
-        ========================================= -->
+        <!-- ABOUT -->
 
         <section id="about">
 
@@ -1870,9 +1957,7 @@
 
 
 
-        <!-- =========================================
-             DISCORD
-        ========================================= -->
+        <!-- DISCORD -->
 
         <section>
 
@@ -1883,9 +1968,23 @@
                 <div class="discord-content">
 
 
-                    <div class="discord-icon">
-                        WV
-                    </div>
+                    <!--
+                        PUT YOUR SERVER IMAGE HERE.
+
+                        Rename your image to:
+                        server.png
+
+                        Upload server.png to the
+                        SAME GitHub repository as this HTML.
+
+                        Then this will display it.
+                    -->
+
+                    <img
+                        src="server.png"
+                        alt="Wraith Vault Leaks"
+                        class="server-picture"
+                    >
 
 
                     <h2>
@@ -1923,12 +2022,9 @@
 
 
 
-    <!-- =========================================
-         FOOTER
-    ========================================= -->
+    <!-- FOOTER -->
 
     <footer>
-
 
         <div>
 
@@ -1944,7 +2040,6 @@
         <div>
             Made for the FiveM community
         </div>
-
 
     </footer>
 
