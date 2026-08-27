@@ -184,24 +184,18 @@
         }
 
 
-        .logo-mark {
+        .logo-image {
             width: 37px;
             height: 37px;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            object-fit: cover;
 
             border-radius: 9px;
 
-            color: #050505;
-            background: #fff;
+            border: 1px solid rgba(255,255,255,0.12);
 
             box-shadow:
                 0 0 25px rgba(255,255,255,0.15);
-
-            font-size: 12px;
-            font-weight: 900;
         }
 
 
@@ -768,7 +762,7 @@
             display: grid;
 
             grid-template-columns:
-                repeat(3,1fr);
+                repeat(2,1fr);
 
             gap: 20px;
         }
@@ -1187,8 +1181,6 @@
         }
 
 
-        /* SERVER PICTURE */
-
         .server-picture {
             width: 70px;
             height: 70px;
@@ -1267,7 +1259,11 @@
 
         @media (max-width: 900px) {
 
-            .cards,
+            .cards {
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
             .staff-grid {
                 grid-template-columns:
                     repeat(2,1fr);
@@ -1407,16 +1403,19 @@
 
         <a href="#home" class="logo">
 
-    <img
-        src="server.png"
-        alt="Wraith Vault Leaks"
-        class="logo-image"
-    >
+            <img
+                src="server.png"
+                alt="Wraith Vault Leaks"
+                class="logo-image"
+            >
 
-    WRAITH
-    <span>VAULT LEAKS</span>
+            WRAITH
 
-</a>
+            <span>
+                VAULT LEAKS
+            </span>
+
+        </a>
 
 
         <div class="nav-links">
@@ -1770,38 +1769,6 @@
             <div class="staff-grid">
 
 
-                <!-- OWNERS -->
-
-                <div class="staff-card">
-
-                    <div class="staff-role">
-                        Owners
-                    </div>
-
-                    <div class="staff-icon">
-                        👑
-                    </div>
-
-                    <h3>
-                        Owners
-                    </h3>
-
-                    <div class="staff-names">
-
-                        <div class="staff-name">
-                            Vortex
-                        </div>
-
-                        <div class="staff-name">
-                            Speed
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
                 <!-- FOUNDERS -->
 
                 <div class="staff-card">
@@ -1821,11 +1788,11 @@
                     <div class="staff-names">
 
                         <div class="staff-name">
-                            Musa
+                            Vortex
                         </div>
 
                         <div class="staff-name">
-                            Sharky
+                            Speed
                         </div>
 
                     </div>
@@ -1873,9 +1840,7 @@
 
 
 
-            <!-- =====================================
-                 LEAKERS TEAM
-            ====================================== -->
+            <!-- LEAKERS TEAM -->
 
             <div class="leakers-team">
 
@@ -1970,17 +1935,7 @@
                 <div class="discord-content">
 
 
-                    <!--
-                        PUT YOUR SERVER IMAGE HERE.
-
-                        Rename your image to:
-                        server.png
-
-                        Upload server.png to the
-                        SAME GitHub repository as this HTML.
-
-                        Then this will display it.
-                    -->
+                    <!-- SERVER PICTURE -->
 
                     <img
                         src="server.png"
