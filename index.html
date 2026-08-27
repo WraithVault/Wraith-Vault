@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>FiveM Leaks | Premium Resources</title>
+    <title>Wraith Vault | Premium FiveM Resources</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,7 +23,7 @@
 
         body {
             font-family: "Inter", sans-serif;
-            background: #050507;
+            background: #000;
             color: #fff;
             overflow-x: hidden;
         }
@@ -43,42 +43,41 @@
             overflow: hidden;
             pointer-events: none;
             z-index: -10;
-
             background:
                 radial-gradient(
-                    circle at 50% 20%,
-                    rgba(255, 30, 80, 0.12),
+                    circle at 50% 15%,
+                    rgba(255,255,255,0.08),
                     transparent 35%
                 ),
                 radial-gradient(
                     circle at 85% 65%,
-                    rgba(115, 45, 255, 0.10),
+                    rgba(255,255,255,0.045),
                     transparent 30%
                 ),
-                #050507;
+                #000;
         }
 
         .glow {
             position: absolute;
             border-radius: 50%;
-            filter: blur(100px);
-            opacity: 0.35;
-            animation: float 12s infinite alternate ease-in-out;
+            filter: blur(110px);
+            opacity: 0.18;
+            animation: float 14s infinite alternate ease-in-out;
         }
 
         .glow.one {
-            width: 400px;
-            height: 400px;
-            background: #ff174f;
-            top: -200px;
-            left: -100px;
+            width: 420px;
+            height: 420px;
+            background: #fff;
+            top: -220px;
+            left: -120px;
         }
 
         .glow.two {
             width: 350px;
             height: 350px;
-            background: #6b2cff;
-            right: -100px;
+            background: #aaa;
+            right: -120px;
             top: 35%;
             animation-delay: 2s;
         }
@@ -86,8 +85,8 @@
         .glow.three {
             width: 300px;
             height: 300px;
-            background: #ff174f;
-            bottom: -150px;
+            background: #fff;
+            bottom: -170px;
             left: 40%;
             animation-delay: 4s;
         }
@@ -105,16 +104,16 @@
         .grid {
             position: absolute;
             inset: 0;
-            opacity: 0.18;
+            opacity: 0.12;
 
             background-image:
                 linear-gradient(
-                    rgba(255,255,255,0.035) 1px,
+                    rgba(255,255,255,0.04) 1px,
                     transparent 1px
                 ),
                 linear-gradient(
                     90deg,
-                    rgba(255,255,255,0.035) 1px,
+                    rgba(255,255,255,0.04) 1px,
                     transparent 1px
                 );
 
@@ -136,7 +135,6 @@
             position: fixed;
             top: 0;
             left: 0;
-
             width: 100%;
             height: 78px;
 
@@ -146,13 +144,12 @@
 
             padding: 0 7%;
 
-            background: rgba(5,5,7,0.78);
+            background: rgba(0,0,0,0.82);
 
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
 
-            border-bottom:
-                1px solid rgba(255,255,255,0.06);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
 
             z-index: 1000;
         }
@@ -178,21 +175,18 @@
 
             border-radius: 9px;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #ff174f,
-                    #8d2cff
-                );
+            background: #fff;
+            color: #000;
 
             box-shadow:
-                0 0 25px rgba(255,23,79,0.25);
+                0 0 30px rgba(255,255,255,0.15);
 
-            font-size: 15px;
+            font-size: 13px;
+            font-weight: 900;
         }
 
         .logo span {
-            color: #ff315f;
+            color: #aaa;
         }
 
         .nav-links {
@@ -202,10 +196,9 @@
         }
 
         .nav-links a {
-            color: #929296;
+            color: #888;
             font-size: 13px;
             font-weight: 700;
-
             transition: 0.25s ease;
         }
 
@@ -218,24 +211,19 @@
 
             border-radius: 8px;
 
-            color: #fff !important;
+            color: #000 !important;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #ff174f,
-                    #a22cff
-                );
+            background: #fff;
 
             box-shadow:
-                0 8px 30px rgba(255,23,79,0.18);
+                0 8px 30px rgba(255,255,255,0.12);
         }
 
         .nav-discord:hover {
             transform: translateY(-2px);
 
             box-shadow:
-                0 12px 35px rgba(255,23,79,0.3);
+                0 12px 35px rgba(255,255,255,0.22);
         }
 
         /* =========================================
@@ -258,9 +246,7 @@
 
         .hero-content {
             max-width: 950px;
-
-            animation:
-                heroIn 1s ease forwards;
+            animation: heroIn 1s ease forwards;
         }
 
         @keyframes heroIn {
@@ -284,14 +270,14 @@
             padding: 8px 15px;
 
             border:
-                1px solid rgba(255,23,79,0.25);
+                1px solid rgba(255,255,255,0.15);
 
             background:
-                rgba(255,23,79,0.06);
+                rgba(255,255,255,0.045);
 
             border-radius: 100px;
 
-            color: #ff5478;
+            color: #ccc;
 
             font-size: 11px;
             font-weight: 800;
@@ -305,15 +291,14 @@
             width: 7px;
             height: 7px;
 
-            background: #ff315f;
+            background: #fff;
 
             border-radius: 50%;
 
             box-shadow:
-                0 0 12px #ff315f;
+                0 0 14px #fff;
 
-            animation:
-                pulse 1.5s infinite;
+            animation: pulse 1.5s infinite;
         }
 
         @keyframes pulse {
@@ -323,7 +308,7 @@
             }
 
             50% {
-                opacity: 0.4;
+                opacity: 0.35;
                 transform: scale(0.7);
             }
         }
@@ -349,9 +334,9 @@
             background:
                 linear-gradient(
                     100deg,
-                    #ff174f,
-                    #ff4c72,
-                    #a82cff
+                    #fff,
+                    #aaa,
+                    #fff
                 );
 
             -webkit-background-clip: text;
@@ -362,7 +347,7 @@
             filter:
                 drop-shadow(
                     0 0 30px
-                    rgba(255,23,79,0.15)
+                    rgba(255,255,255,0.12)
                 );
         }
 
@@ -371,7 +356,7 @@
 
             margin: 32px auto 0;
 
-            color: #85858b;
+            color: #777;
 
             font-size: 16px;
 
@@ -410,18 +395,13 @@
         }
 
         .btn-primary {
-            color: #fff;
+            color: #000;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #ff174f,
-                    #9b2cff
-                );
+            background: #fff;
 
             box-shadow:
                 0 12px 40px
-                rgba(255,23,79,0.2);
+                rgba(255,255,255,0.14);
         }
 
         .btn-primary:hover {
@@ -429,7 +409,7 @@
 
             box-shadow:
                 0 18px 50px
-                rgba(255,23,79,0.35);
+                rgba(255,255,255,0.25);
         }
 
         .btn-secondary {
@@ -439,14 +419,14 @@
                 rgba(255,255,255,0.035);
 
             border:
-                1px solid rgba(255,255,255,0.09);
+                1px solid rgba(255,255,255,0.1);
         }
 
         .btn-secondary:hover {
             transform: translateY(-4px);
 
             background:
-                rgba(255,255,255,0.07);
+                rgba(255,255,255,0.08);
         }
 
         /* =========================================
@@ -464,7 +444,7 @@
                 repeat(3, 1fr);
 
             border:
-                1px solid rgba(255,255,255,0.07);
+                1px solid rgba(255,255,255,0.08);
 
             border-radius: 14px;
 
@@ -481,7 +461,7 @@
             text-align: center;
 
             border-right:
-                1px solid rgba(255,255,255,0.06);
+                1px solid rgba(255,255,255,0.07);
         }
 
         .stat:last-child {
@@ -530,7 +510,7 @@
         }
 
         .section-label {
-            color: #ff315f;
+            color: #aaa;
 
             font-size: 11px;
             font-weight: 900;
@@ -560,7 +540,7 @@
         }
 
         /* =========================================
-           LEAK CARDS
+           CATEGORY CARDS
         ========================================= */
 
         .cards {
@@ -588,25 +568,29 @@
             background:
                 linear-gradient(
                     145deg,
-                    rgba(255,255,255,0.045),
-                    rgba(255,255,255,0.018)
+                    rgba(255,255,255,0.055),
+                    rgba(255,255,255,0.015)
                 );
 
             border:
-                1px solid rgba(255,255,255,0.07);
+                1px solid rgba(255,255,255,0.08);
 
             border-radius: 15px;
 
             transition:
                 transform 0.3s ease,
-                border-color 0.3s ease;
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
         }
 
         .card:hover {
             transform: translateY(-8px);
 
             border-color:
-                rgba(255,49,95,0.3);
+                rgba(255,255,255,0.3);
+
+            box-shadow:
+                0 20px 60px rgba(255,255,255,0.05);
         }
 
         .card::after {
@@ -622,7 +606,7 @@
 
             border-radius: 50%;
 
-            background: #ff174f;
+            background: #fff;
 
             filter: blur(70px);
 
@@ -632,7 +616,7 @@
         }
 
         .card:hover::after {
-            opacity: 0.13;
+            opacity: 0.08;
         }
 
         .icon {
@@ -649,12 +633,12 @@
             border-radius: 11px;
 
             background:
-                rgba(255,23,79,0.09);
+                rgba(255,255,255,0.07);
 
             border:
-                1px solid rgba(255,23,79,0.12);
+                1px solid rgba(255,255,255,0.1);
 
-            color: #ff416b;
+            color: #fff;
 
             font-size: 19px;
         }
@@ -679,7 +663,7 @@
 
             margin-top: 20px;
 
-            color: #ff416b;
+            color: #ddd;
 
             font-size: 11px;
             font-weight: 800;
@@ -722,12 +706,12 @@
             background:
                 linear-gradient(
                     145deg,
-                    rgba(255,255,255,0.045),
-                    rgba(255,255,255,0.015)
+                    rgba(255,255,255,0.055),
+                    rgba(255,255,255,0.012)
                 );
 
             border:
-                1px solid rgba(255,255,255,0.07);
+                1px solid rgba(255,255,255,0.08);
 
             transition:
                 transform 0.35s ease,
@@ -737,6 +721,13 @@
 
         .staff-card:hover {
             transform: translateY(-9px);
+
+            border-color:
+                rgba(255,255,255,0.25);
+
+            box-shadow:
+                0 20px 60px
+                rgba(255,255,255,0.05);
         }
 
         .staff-card::before {
@@ -755,69 +746,11 @@
 
             border-radius: 50%;
 
+            background: #fff;
+
             filter: blur(70px);
 
-            opacity: 0.12;
-        }
-
-        /* OWNER */
-
-        .staff-card.owner {
-            border-color:
-                rgba(255, 49, 95, 0.18);
-        }
-
-        .staff-card.owner::before {
-            background: #ff174f;
-        }
-
-        .staff-card.owner:hover {
-            border-color:
-                rgba(255, 49, 95, 0.45);
-
-            box-shadow:
-                0 20px 60px
-                rgba(255,23,79,0.12);
-        }
-
-        /* FOUNDERS */
-
-        .staff-card.founder {
-            border-color:
-                rgba(167, 70, 255, 0.18);
-        }
-
-        .staff-card.founder::before {
-            background: #9b2cff;
-        }
-
-        .staff-card.founder:hover {
-            border-color:
-                rgba(167,70,255,0.45);
-
-            box-shadow:
-                0 20px 60px
-                rgba(140,45,255,0.12);
-        }
-
-        /* MANAGEMENT */
-
-        .staff-card.management {
-            border-color:
-                rgba(255,90,150,0.18);
-        }
-
-        .staff-card.management::before {
-            background: #ff5b96;
-        }
-
-        .staff-card.management:hover {
-            border-color:
-                rgba(255,90,150,0.45);
-
-            box-shadow:
-                0 20px 60px
-                rgba(255,70,130,0.12);
+            opacity: 0.06;
         }
 
         .staff-role {
@@ -837,36 +770,14 @@
             letter-spacing: 1.4px;
 
             text-transform: uppercase;
-        }
 
-        .owner .staff-role {
-            color: #ff5478;
+            color: #ddd;
 
             background:
-                rgba(255,23,79,0.08);
+                rgba(255,255,255,0.06);
 
             border:
-                1px solid rgba(255,23,79,0.15);
-        }
-
-        .founder .staff-role {
-            color: #b276ff;
-
-            background:
-                rgba(155,44,255,0.08);
-
-            border:
-                1px solid rgba(155,44,255,0.15);
-        }
-
-        .management .staff-role {
-            color: #ff78a9;
-
-            background:
-                rgba(255,90,150,0.08);
-
-            border:
-                1px solid rgba(255,90,150,0.15);
+                1px solid rgba(255,255,255,0.1);
         }
 
         .staff-icon {
@@ -887,34 +798,16 @@
             font-weight: 900;
 
             background:
-                rgba(255,255,255,0.035);
+                rgba(255,255,255,0.04);
 
             border:
-                1px solid rgba(255,255,255,0.08);
-        }
+                1px solid rgba(255,255,255,0.1);
 
-        .owner .staff-icon {
-            color: #ff416b;
+            color: #fff;
 
             box-shadow:
                 0 0 30px
-                rgba(255,23,79,0.12);
-        }
-
-        .founder .staff-icon {
-            color: #a95cff;
-
-            box-shadow:
-                0 0 30px
-                rgba(155,44,255,0.12);
-        }
-
-        .management .staff-icon {
-            color: #ff6f9e;
-
-            box-shadow:
-                0 0 30px
-                rgba(255,90,150,0.12);
+                rgba(255,255,255,0.06);
         }
 
         .staff-card h3 {
@@ -958,9 +851,68 @@
             color: #fff;
 
             background:
-                rgba(255,255,255,0.08);
+                rgba(255,255,255,0.1);
 
             transform: translateY(-2px);
+        }
+
+        /* LEAKERS TEAM */
+
+        .leakers-team {
+            max-width: 1150px;
+
+            margin: 25px auto 0;
+
+            padding: 35px;
+
+            text-align: center;
+
+            border-radius: 16px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.05),
+                    rgba(255,255,255,0.015)
+                );
+
+            border:
+                1px solid rgba(255,255,255,0.08);
+        }
+
+        .leakers-title {
+            display: inline-block;
+
+            margin-bottom: 22px;
+
+            padding: 8px 14px;
+
+            border-radius: 100px;
+
+            color: #fff;
+
+            background:
+                rgba(255,255,255,0.07);
+
+            border:
+                1px solid rgba(255,255,255,0.1);
+
+            font-size: 10px;
+            font-weight: 900;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+        }
+
+        .leakers-grid {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
+
+            gap: 9px;
         }
 
         /* =========================================
@@ -981,16 +933,16 @@
             text-align: center;
 
             border:
-                1px solid rgba(255,23,79,0.18);
+                1px solid rgba(255,255,255,0.12);
 
             border-radius: 20px;
 
             background:
                 linear-gradient(
                     135deg,
-                    rgba(255,23,79,0.11),
-                    rgba(120,40,255,0.08),
-                    rgba(255,255,255,0.025)
+                    rgba(255,255,255,0.08),
+                    rgba(255,255,255,0.025),
+                    rgba(255,255,255,0.04)
                 );
         }
 
@@ -1011,7 +963,7 @@
             border-radius: 50%;
 
             background:
-                rgba(255,23,79,0.12);
+                rgba(255,255,255,0.08);
 
             filter: blur(100px);
         }
@@ -1035,18 +987,16 @@
 
             border-radius: 16px;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #ff174f,
-                    #9b2cff
-                );
+            background: #fff;
 
-            font-size: 24px;
+            color: #000;
+
+            font-size: 18px;
+            font-weight: 900;
 
             box-shadow:
                 0 15px 45px
-                rgba(255,23,79,0.25);
+                rgba(255,255,255,0.14);
         }
 
         .discord-wrap h2 {
@@ -1078,7 +1028,7 @@
             padding: 35px 7%;
 
             border-top:
-                1px solid rgba(255,255,255,0.06);
+                1px solid rgba(255,255,255,0.07);
 
             display: flex;
 
@@ -1091,7 +1041,7 @@
         }
 
         footer strong {
-            color: #999;
+            color: #aaa;
         }
 
         /* =========================================
@@ -1140,7 +1090,6 @@
 
             .hero-buttons {
                 flex-direction: column;
-
                 align-items: center;
             }
 
@@ -1227,10 +1176,10 @@
         <a href="#home" class="logo">
 
             <div class="logo-mark">
-                FL
+                WV
             </div>
 
-            FIVE M <span>LEAKS</span>
+            WRAITH <span>VAULT</span>
 
         </a>
 
@@ -1241,7 +1190,7 @@
             </a>
 
             <a href="#leaks">
-                Leaks
+                Resources
             </a>
 
             <a href="#staff">
@@ -1280,30 +1229,29 @@
 
                     <span class="dot"></span>
 
-                    THE ULTIMATE FIVEM RESOURCE HUB
+                    WRAITH VAULT • FIVEM RESOURCE HUB
 
                 </div>
 
                 <h1>
 
                     <span class="white">
-                        FIVEM
+                        WRAITH
                     </span>
 
                     <br>
 
                     <span class="gradient">
-                        LEAKS
+                        VAULT
                     </span>
 
                 </h1>
 
                 <p class="hero-description">
 
-                    Discover premium FiveM resources,
-                    scripts, vehicles, MLOs, clothing
-                    and more. Everything you need for
-                    your next server, all in one place.
+                    A clean and organized hub for FiveM
+                    resources, graphics, sounds, mods,
+                    optimization tools and community content.
 
                 </p>
 
@@ -1322,7 +1270,7 @@
                         href="#leaks"
                         class="btn btn-secondary"
                     >
-                        EXPLORE LEAKS
+                        EXPLORE RESOURCES
                     </a>
 
                 </div>
@@ -1378,7 +1326,7 @@
 
 
         <!-- =========================================
-             LEAKS
+             RESOURCE CATEGORIES
         ========================================= -->
 
         <section id="leaks">
@@ -1390,13 +1338,12 @@
                 </div>
 
                 <h2>
-                    Explore The Leaks
+                    Explore The Vault
                 </h2>
 
                 <p>
-                    Browse through our collection of
-                    FiveM resources and find exactly
-                    what you need.
+                    Browse the different resource categories
+                    available through Wraith Vault.
                 </p>
 
             </div>
@@ -1405,27 +1352,7 @@
             <div class="cards">
 
 
-                <div class="card">
-
-                    <div class="icon">
-                        ⚙
-                    </div>
-
-                    <h3>
-                        Scripts
-                    </h3>
-
-                    <p>
-                        Find FiveM scripts, systems and
-                        resources to improve your server.
-                    </p>
-
-                    <a href="#" class="card-link">
-                        VIEW SCRIPTS →
-                    </a>
-
-                </div>
-
+                <!-- GRAPHIC PACKS -->
 
                 <div class="card">
 
@@ -1434,64 +1361,46 @@
                     </div>
 
                     <h3>
-                        Vehicles
+                        Graphic Packs
                     </h3>
 
                     <p>
-                        Custom cars, emergency vehicles,
-                        packs and other vehicle resources.
+                        Visual enhancements, graphics presets
+                        and cinematic improvements for FiveM.
                     </p>
 
                     <a href="#" class="card-link">
-                        VIEW VEHICLES →
+                        VIEW GRAPHICS →
                     </a>
 
                 </div>
 
+
+                <!-- SOUND PACKS -->
 
                 <div class="card">
 
                     <div class="icon">
-                        ◆
+                        ♪
                     </div>
 
                     <h3>
-                        MLOs & Maps
+                        Sound Packs
                     </h3>
 
                     <p>
-                        Explore custom interiors, maps
-                        and locations for your server.
+                        Audio resources, sound replacements
+                        and immersive FiveM sound content.
                     </p>
 
                     <a href="#" class="card-link">
-                        VIEW MAPS →
+                        VIEW SOUNDS →
                     </a>
 
                 </div>
 
 
-                <div class="card">
-
-                    <div class="icon">
-                        ◉
-                    </div>
-
-                    <h3>
-                        Clothing
-                    </h3>
-
-                    <p>
-                        Character clothing, uniforms,
-                        EUP and custom clothing packs.
-                    </p>
-
-                    <a href="#" class="card-link">
-                        VIEW CLOTHING →
-                    </a>
-
-                </div>
-
+                <!-- GUN SKINS -->
 
                 <div class="card">
 
@@ -1500,20 +1409,70 @@
                     </div>
 
                     <h3>
-                        Weapons
+                        Gun Skins
                     </h3>
 
                     <p>
-                        Custom weapon packs and resources
-                        for your FiveM experience.
+                        Custom weapon appearances and
+                        visual customization resources.
                     </p>
 
                     <a href="#" class="card-link">
-                        VIEW WEAPONS →
+                        VIEW GUN SKINS →
                     </a>
 
                 </div>
 
+
+                <!-- PERKS -->
+
+                <div class="card">
+
+                    <div class="icon">
+                        ★
+                    </div>
+
+                    <h3>
+                        Perks
+                    </h3>
+
+                    <p>
+                        Community perks, extras and useful
+                        features available through the vault.
+                    </p>
+
+                    <a href="#" class="card-link">
+                        VIEW PERKS →
+                    </a>
+
+                </div>
+
+
+                <!-- PC OPTIMIZATION -->
+
+                <div class="card">
+
+                    <div class="icon">
+                        ⚙
+                    </div>
+
+                    <h3>
+                        PC Optimization
+                    </h3>
+
+                    <p>
+                        Optimization resources and settings
+                        designed to improve your gaming setup.
+                    </p>
+
+                    <a href="#" class="card-link">
+                        VIEW OPTIMIZATION →
+                    </a>
+
+                </div>
+
+
+                <!-- MODS -->
 
                 <div class="card">
 
@@ -1522,16 +1481,16 @@
                     </div>
 
                     <h3>
-                        Miscellaneous
+                        Mods
                     </h3>
 
                     <p>
-                        Other FiveM resources, tools,
-                        graphics and useful content.
+                        FiveM customization resources,
+                        modifications and community content.
                     </p>
 
                     <a href="#" class="card-link">
-                        VIEW MORE →
+                        VIEW MODS →
                     </a>
 
                 </div>
@@ -1561,7 +1520,7 @@
                 </h2>
 
                 <p>
-                    Meet the people behind FiveM Leaks.
+                    Meet the team behind Wraith Vault.
                 </p>
 
             </div>
@@ -1570,40 +1529,9 @@
             <div class="staff-grid">
 
 
-                <!-- OWNERS -->
-
-                <div class="staff-card owner">
-
-                    <div class="staff-role">
-                        Owners
-                    </div>
-
-                    <div class="staff-icon">
-                        👑
-                    </div>
-
-                    <h3>
-                        Owners
-                    </h3>
-
-                    <div class="staff-names">
-
-                        <div class="staff-name">
-                            Vortex
-                        </div>
-
-                        <div class="staff-name">
-                            Speed
-                        </div>
-
-                    </div>
-
-                </div>
-
-
                 <!-- FOUNDERS -->
 
-                <div class="staff-card founder">
+                <div class="staff-card">
 
                     <div class="staff-role">
                         Founders
@@ -1620,11 +1548,11 @@
                     <div class="staff-names">
 
                         <div class="staff-name">
-                            Musa
+                            Speed
                         </div>
 
                         <div class="staff-name">
-                            Sharky
+                            Vortex
                         </div>
 
                     </div>
@@ -1634,7 +1562,7 @@
 
                 <!-- LEAKER MANAGEMENT -->
 
-                <div class="staff-card management">
+                <div class="staff-card">
 
                     <div class="staff-role">
                         Leaker Management
@@ -1645,7 +1573,7 @@
                     </div>
 
                     <h3>
-                        Leaker Management
+                        Management
                     </h3>
 
                     <div class="staff-names">
@@ -1667,6 +1595,81 @@
                 </div>
 
 
+                <!-- COMMUNITY -->
+
+                <div class="staff-card">
+
+                    <div class="staff-role">
+                        Community
+                    </div>
+
+                    <div class="staff-icon">
+                        ◉
+                    </div>
+
+                    <h3>
+                        Wraith Vault
+                    </h3>
+
+                    <div class="staff-names">
+
+                        <div class="staff-name">
+                            Official Team
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================================
+                 LEAKERS TEAM
+            ====================================== -->
+
+            <div class="leakers-team">
+
+                <div class="leakers-title">
+                    Leakers Team
+                </div>
+
+                <div class="leakers-grid">
+
+                    <div class="staff-name">
+                        Ice
+                    </div>
+
+                    <div class="staff-name">
+                        Diddy
+                    </div>
+
+                    <div class="staff-name">
+                        Flxn
+                    </div>
+
+                    <div class="staff-name">
+                        Shayan
+                    </div>
+
+                    <div class="staff-name">
+                        Syed Ali
+                    </div>
+
+                    <div class="staff-name">
+                        Venom
+                    </div>
+
+                    <div class="staff-name">
+                        Usman
+                    </div>
+
+                    <div class="staff-name">
+                        Ali
+                    </div>
+
+                </div>
+
             </div>
 
         </section>
@@ -1681,7 +1684,7 @@
             <div class="section-header center">
 
                 <div class="section-label">
-                    Community
+                    Wraith Vault
                 </div>
 
                 <h2>
@@ -1689,10 +1692,9 @@
                 </h2>
 
                 <p>
-                    Our goal is to create a simple place
-                    where the FiveM community can discover
-                    resources, stay updated and connect
-                    with other players.
+                    Wraith Vault is a community-focused hub
+                    designed to keep FiveM resources organized
+                    and easy to discover.
                 </p>
 
             </div>
@@ -1711,17 +1713,17 @@
                 <div class="discord-content">
 
                     <div class="discord-icon">
-                        DC
+                        WV
                     </div>
 
                     <h2>
-                        Join The Community
+                        Join Wraith Vault
                     </h2>
 
                     <p>
-                        Get access to updates, new resources,
-                        announcements and community discussions.
-                        Join our Discord today.
+                        Get updates, announcements, community
+                        discussions and new resource releases
+                        through our Discord.
                     </p>
 
                     <a
@@ -1751,7 +1753,7 @@
         <div>
             © 2026
             <strong>
-                FiveM Leaks
+                Wraith Vault
             </strong>
         </div>
 
