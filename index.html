@@ -4,13 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>FiveM Leaks | Premium Resources</title>
+    <title>Wraith Vault Leaks</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
 
     <style>
+
+        /* =========================================
+           RESET
+        ========================================= */
+
         * {
             margin: 0;
             padding: 0;
@@ -23,8 +32,8 @@
 
         body {
             font-family: "Inter", sans-serif;
-            background: #050507;
-            color: #fff;
+            background: #050505;
+            color: #ffffff;
             overflow-x: hidden;
         }
 
@@ -33,6 +42,7 @@
             color: inherit;
         }
 
+
         /* =========================================
            BACKGROUND
         ========================================= */
@@ -40,81 +50,116 @@
         .background {
             position: fixed;
             inset: 0;
+
             overflow: hidden;
+
             pointer-events: none;
+
             z-index: -10;
 
             background:
                 radial-gradient(
-                    circle at 50% 20%,
-                    rgba(255, 30, 80, 0.12),
-                    transparent 35%
-                ),
-                radial-gradient(
-                    circle at 85% 65%,
-                    rgba(115, 45, 255, 0.10),
+                    circle at 50% 15%,
+                    rgba(255,255,255,0.08),
                     transparent 30%
                 ),
-                #050507;
+
+                radial-gradient(
+                    circle at 10% 60%,
+                    rgba(255,255,255,0.045),
+                    transparent 28%
+                ),
+
+                #050505;
         }
+
 
         .glow {
             position: absolute;
+
             border-radius: 50%;
-            filter: blur(100px);
-            opacity: 0.35;
-            animation: float 12s infinite alternate ease-in-out;
+
+            filter: blur(110px);
+
+            opacity: 0.18;
+
+            animation:
+                floatGlow 14s infinite alternate ease-in-out;
         }
 
+
         .glow.one {
-            width: 400px;
-            height: 400px;
-            background: #ff174f;
-            top: -200px;
-            left: -100px;
+            width: 420px;
+            height: 420px;
+
+            background: #ffffff;
+
+            top: -230px;
+            left: -120px;
         }
+
 
         .glow.two {
             width: 350px;
             height: 350px;
-            background: #6b2cff;
-            right: -100px;
+
+            background: #888888;
+
+            right: -120px;
             top: 35%;
-            animation-delay: 2s;
+
+            animation-delay: 3s;
         }
+
 
         .glow.three {
             width: 300px;
             height: 300px;
-            background: #ff174f;
-            bottom: -150px;
-            left: 40%;
-            animation-delay: 4s;
+
+            background: #ffffff;
+
+            bottom: -180px;
+            left: 42%;
+
+            animation-delay: 6s;
         }
 
-        @keyframes float {
+
+        @keyframes floatGlow {
+
             from {
-                transform: translate(0, 0) scale(1);
+                transform:
+                    translate(0,0)
+                    scale(1);
             }
 
             to {
-                transform: translate(70px, -40px) scale(1.2);
+                transform:
+                    translate(70px,-40px)
+                    scale(1.2);
             }
         }
 
+
+        /* GRID */
+
         .grid {
             position: absolute;
+
             inset: 0;
-            opacity: 0.18;
+
+            opacity: 0.12;
 
             background-image:
+
                 linear-gradient(
-                    rgba(255,255,255,0.035) 1px,
+                    rgba(255,255,255,0.05) 1px,
                     transparent 1px
                 ),
+
                 linear-gradient(
                     90deg,
-                    rgba(255,255,255,0.035) 1px,
+                    rgba(255,255,255,0.05) 1px,
                     transparent 1px
                 );
 
@@ -128,12 +173,14 @@
                 );
         }
 
+
         /* =========================================
            NAVBAR
         ========================================= */
 
         nav {
             position: fixed;
+
             top: 0;
             left: 0;
 
@@ -141,102 +188,131 @@
             height: 78px;
 
             display: flex;
+
             align-items: center;
             justify-content: space-between;
 
             padding: 0 7%;
 
-            background: rgba(5,5,7,0.78);
+            background:
+                rgba(5,5,5,0.82);
 
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
+            backdrop-filter:
+                blur(18px);
+
+            -webkit-backdrop-filter:
+                blur(18px);
 
             border-bottom:
-                1px solid rgba(255,255,255,0.06);
+                1px solid rgba(255,255,255,0.08);
 
             z-index: 1000;
         }
 
+
+        /* LOGO */
+
         .logo {
             display: flex;
+
             align-items: center;
+
             gap: 10px;
 
-            font-size: 20px;
+            font-size: 17px;
+
             font-weight: 900;
 
-            letter-spacing: -1px;
+            letter-spacing: -0.7px;
         }
 
+
         .logo-mark {
-            width: 35px;
-            height: 35px;
+            width: 37px;
+            height: 37px;
 
             display: flex;
+
             align-items: center;
             justify-content: center;
 
             border-radius: 9px;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #ff174f,
-                    #8d2cff
-                );
+            color: #050505;
+
+            background: #ffffff;
 
             box-shadow:
-                0 0 25px rgba(255,23,79,0.25);
+                0 0 25px
+                rgba(255,255,255,0.15);
 
-            font-size: 15px;
+            font-size: 12px;
+
+            font-weight: 900;
         }
+
 
         .logo span {
-            color: #ff315f;
+            color: #999999;
+
+            margin-left: 4px;
         }
+
+
+        /* NAV LINKS */
 
         .nav-links {
             display: flex;
+
             align-items: center;
-            gap: 32px;
+
+            gap: 30px;
         }
+
 
         .nav-links a {
-            color: #929296;
-            font-size: 13px;
+            color: #858585;
+
+            font-size: 12px;
+
             font-weight: 700;
 
-            transition: 0.25s ease;
+            transition:
+                0.25s ease;
         }
 
+
         .nav-links a:hover {
-            color: #fff;
+            color: #ffffff;
         }
+
+
+        /* DISCORD BUTTON */
 
         .nav-discord {
             padding: 11px 19px;
 
             border-radius: 8px;
 
-            color: #fff !important;
+            color: #050505 !important;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #ff174f,
-                    #a22cff
-                );
+            background: #ffffff;
 
             box-shadow:
-                0 8px 30px rgba(255,23,79,0.18);
+                0 8px 30px
+                rgba(255,255,255,0.08);
         }
+
 
         .nav-discord:hover {
-            transform: translateY(-2px);
+            transform:
+                translateY(-2px);
 
             box-shadow:
-                0 12px 35px rgba(255,23,79,0.3);
+                0 12px 35px
+                rgba(255,255,255,0.18);
         }
+
 
         /* =========================================
            HERO
@@ -246,6 +322,7 @@
             min-height: 100vh;
 
             display: flex;
+
             align-items: center;
             justify-content: center;
 
@@ -256,44 +333,57 @@
                 100px;
         }
 
+
         .hero-content {
-            max-width: 950px;
+            max-width: 1000px;
 
             animation:
                 heroIn 1s ease forwards;
         }
 
+
         @keyframes heroIn {
+
             from {
                 opacity: 0;
-                transform: translateY(35px);
+
+                transform:
+                    translateY(35px);
             }
 
             to {
                 opacity: 1;
-                transform: translateY(0);
+
+                transform:
+                    translateY(0);
             }
         }
+
+
+        /* EYEBROW */
 
         .eyebrow {
             display: inline-flex;
 
             align-items: center;
+
             gap: 9px;
 
             padding: 8px 15px;
 
             border:
-                1px solid rgba(255,23,79,0.25);
+                1px solid
+                rgba(255,255,255,0.14);
 
             background:
-                rgba(255,23,79,0.06);
+                rgba(255,255,255,0.035);
 
             border-radius: 100px;
 
-            color: #ff5478;
+            color: #aaaaaa;
 
-            font-size: 11px;
+            font-size: 10px;
+
             font-weight: 800;
 
             letter-spacing: 1.5px;
@@ -301,60 +391,74 @@
             margin-bottom: 28px;
         }
 
+
         .dot {
             width: 7px;
             height: 7px;
 
-            background: #ff315f;
+            background: #ffffff;
 
             border-radius: 50%;
 
             box-shadow:
-                0 0 12px #ff315f;
+                0 0 12px
+                rgba(255,255,255,0.8);
 
             animation:
                 pulse 1.5s infinite;
         }
 
+
         @keyframes pulse {
+
             0%,100% {
                 opacity: 1;
-                transform: scale(1);
+
+                transform:
+                    scale(1);
             }
 
             50% {
-                opacity: 0.4;
-                transform: scale(0.7);
+                opacity: 0.35;
+
+                transform:
+                    scale(0.7);
             }
         }
 
+
+        /* HERO TITLE */
+
         .hero h1 {
             font-size:
-                clamp(55px, 9vw, 110px);
+                clamp(50px, 8vw, 105px);
 
-            line-height: 0.9;
+            line-height: 0.92;
 
             font-weight: 900;
 
-            letter-spacing: -7px;
+            letter-spacing: -6px;
 
             text-transform: uppercase;
         }
 
+
         .hero h1 .white {
-            color: #fff;
+            color: #ffffff;
         }
+
 
         .hero h1 .gradient {
             background:
                 linear-gradient(
                     100deg,
-                    #ff174f,
-                    #ff4c72,
-                    #a82cff
+                    #ffffff,
+                    #888888,
+                    #ffffff
                 );
 
             -webkit-background-clip: text;
+
             background-clip: text;
 
             color: transparent;
@@ -362,32 +466,41 @@
             filter:
                 drop-shadow(
                     0 0 30px
-                    rgba(255,23,79,0.15)
+                    rgba(255,255,255,0.08)
                 );
         }
+
+
+        /* DESCRIPTION */
 
         .hero-description {
             max-width: 650px;
 
-            margin: 32px auto 0;
+            margin:
+                32px auto 0;
 
-            color: #85858b;
+            color: #858585;
 
-            font-size: 16px;
+            font-size: 15px;
 
             line-height: 1.8;
         }
+
+
+        /* HERO BUTTONS */
 
         .hero-buttons {
             display: flex;
 
             justify-content: center;
+
             flex-wrap: wrap;
 
             gap: 13px;
 
             margin-top: 35px;
         }
+
 
         .btn {
             display: inline-flex;
@@ -401,7 +514,8 @@
 
             border-radius: 9px;
 
-            font-size: 13px;
+            font-size: 12px;
+
             font-weight: 800;
 
             transition:
@@ -409,45 +523,48 @@
                 box-shadow 0.25s ease;
         }
 
-        .btn-primary {
-            color: #fff;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #ff174f,
-                    #9b2cff
-                );
+        .btn-primary {
+            color: #050505;
+
+            background: #ffffff;
 
             box-shadow:
                 0 12px 40px
-                rgba(255,23,79,0.2);
+                rgba(255,255,255,0.12);
         }
 
+
         .btn-primary:hover {
-            transform: translateY(-4px);
+            transform:
+                translateY(-4px);
 
             box-shadow:
                 0 18px 50px
-                rgba(255,23,79,0.35);
+                rgba(255,255,255,0.2);
         }
 
+
         .btn-secondary {
-            color: #ddd;
+            color: #dddddd;
 
             background:
                 rgba(255,255,255,0.035);
 
             border:
-                1px solid rgba(255,255,255,0.09);
+                1px solid
+                rgba(255,255,255,0.10);
         }
 
+
         .btn-secondary:hover {
-            transform: translateY(-4px);
+            transform:
+                translateY(-4px);
 
             background:
                 rgba(255,255,255,0.07);
         }
+
 
         /* =========================================
            STATS
@@ -456,15 +573,17 @@
         .stats {
             max-width: 850px;
 
-            margin: -40px auto 0;
+            margin:
+                -40px auto 0;
 
             display: grid;
 
             grid-template-columns:
-                repeat(3, 1fr);
+                repeat(3,1fr);
 
             border:
-                1px solid rgba(255,255,255,0.07);
+                1px solid
+                rgba(255,255,255,0.08);
 
             border-radius: 14px;
 
@@ -475,34 +594,41 @@
                 blur(15px);
         }
 
+
         .stat {
             padding: 25px;
 
             text-align: center;
 
             border-right:
-                1px solid rgba(255,255,255,0.06);
+                1px solid
+                rgba(255,255,255,0.07);
         }
+
 
         .stat:last-child {
             border-right: none;
         }
 
+
         .stat strong {
             display: block;
 
             font-size: 25px;
+
             font-weight: 900;
         }
+
 
         .stat span {
             display: block;
 
             margin-top: 6px;
 
-            color: #666;
+            color: #666666;
 
-            font-size: 11px;
+            font-size: 10px;
+
             font-weight: 700;
 
             text-transform: uppercase;
@@ -510,13 +636,15 @@
             letter-spacing: 1px;
         }
 
+
         /* =========================================
-           GENERAL SECTIONS
+           SECTIONS
         ========================================= */
 
         section {
             padding: 110px 7%;
         }
+
 
         .section-header {
             max-width: 1150px;
@@ -525,14 +653,17 @@
                 0 auto 50px;
         }
 
+
         .center {
             text-align: center;
         }
 
-        .section-label {
-            color: #ff315f;
 
-            font-size: 11px;
+        .section-label {
+            color: #aaaaaa;
+
+            font-size: 10px;
+
             font-weight: 900;
 
             text-transform: uppercase;
@@ -540,27 +671,31 @@
             letter-spacing: 2px;
         }
 
+
         .section-header h2 {
             margin-top: 10px;
 
             font-size: 42px;
+
             font-weight: 900;
 
             letter-spacing: -2px;
         }
 
+
         .section-header p {
             margin-top: 12px;
 
-            color: #777;
+            color: #777777;
 
-            font-size: 14px;
+            font-size: 13px;
 
             line-height: 1.7;
         }
 
+
         /* =========================================
-           LEAK CARDS
+           CATEGORY CARDS
         ========================================= */
 
         .cards {
@@ -571,10 +706,11 @@
             display: grid;
 
             grid-template-columns:
-                repeat(3, 1fr);
+                repeat(3,1fr);
 
             gap: 18px;
         }
+
 
         .card {
             position: relative;
@@ -589,51 +725,62 @@
                 linear-gradient(
                     145deg,
                     rgba(255,255,255,0.045),
-                    rgba(255,255,255,0.018)
+                    rgba(255,255,255,0.012)
                 );
 
             border:
-                1px solid rgba(255,255,255,0.07);
+                1px solid
+                rgba(255,255,255,0.08);
 
             border-radius: 15px;
 
             transition:
                 transform 0.3s ease,
-                border-color 0.3s ease;
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
         }
+
 
         .card:hover {
-            transform: translateY(-8px);
+            transform:
+                translateY(-8px);
 
             border-color:
-                rgba(255,49,95,0.3);
+                rgba(255,255,255,0.25);
+
+            box-shadow:
+                0 20px 60px
+                rgba(255,255,255,0.05);
         }
+
 
         .card::after {
             content: "";
 
             position: absolute;
 
-            width: 150px;
-            height: 150px;
+            width: 160px;
+            height: 160px;
 
-            top: -80px;
-            right: -80px;
+            top: -90px;
+            right: -90px;
 
             border-radius: 50%;
 
-            background: #ff174f;
+            background: #ffffff;
 
-            filter: blur(70px);
+            filter: blur(80px);
 
             opacity: 0;
 
             transition: 0.3s;
         }
 
+
         .card:hover::after {
-            opacity: 0.13;
+            opacity: 0.08;
         }
+
 
         .icon {
             width: 48px;
@@ -649,43 +796,57 @@
             border-radius: 11px;
 
             background:
-                rgba(255,23,79,0.09);
+                rgba(255,255,255,0.06);
 
             border:
-                1px solid rgba(255,23,79,0.12);
+                1px solid
+                rgba(255,255,255,0.09);
 
-            color: #ff416b;
+            color: #ffffff;
 
-            font-size: 19px;
+            font-size: 18px;
         }
+
 
         .card h3 {
             font-size: 17px;
+
             font-weight: 800;
 
             margin-bottom: 10px;
         }
 
+
         .card p {
-            color: #777;
+            color: #777777;
 
             font-size: 13px;
 
             line-height: 1.7;
         }
 
+
         .card-link {
             display: inline-block;
 
             margin-top: 20px;
 
-            color: #ff416b;
+            color: #bbbbbb;
 
-            font-size: 11px;
+            font-size: 10px;
+
             font-weight: 800;
 
-            letter-spacing: 0.5px;
+            letter-spacing: 0.7px;
+
+            transition: 0.2s;
         }
+
+
+        .card:hover .card-link {
+            color: #ffffff;
+        }
+
 
         /* =========================================
            STAFF TEAM
@@ -695,6 +856,7 @@
             position: relative;
         }
 
+
         .staff-grid {
             max-width: 1150px;
 
@@ -703,10 +865,11 @@
             display: grid;
 
             grid-template-columns:
-                repeat(3, 1fr);
+                repeat(3,1fr);
 
             gap: 20px;
         }
+
 
         .staff-card {
             position: relative;
@@ -723,11 +886,12 @@
                 linear-gradient(
                     145deg,
                     rgba(255,255,255,0.045),
-                    rgba(255,255,255,0.015)
+                    rgba(255,255,255,0.012)
                 );
 
             border:
-                1px solid rgba(255,255,255,0.07);
+                1px solid
+                rgba(255,255,255,0.08);
 
             transition:
                 transform 0.35s ease,
@@ -735,90 +899,43 @@
                 box-shadow 0.35s ease;
         }
 
+
         .staff-card:hover {
-            transform: translateY(-9px);
+            transform:
+                translateY(-9px);
+
+            border-color:
+                rgba(255,255,255,0.25);
+
+            box-shadow:
+                0 20px 60px
+                rgba(255,255,255,0.05);
         }
+
 
         .staff-card::before {
             content: "";
 
             position: absolute;
 
-            width: 180px;
-            height: 180px;
+            width: 190px;
+            height: 190px;
 
             left: 50%;
-            top: -110px;
+            top: -120px;
 
             transform:
                 translateX(-50%);
 
             border-radius: 50%;
 
-            filter: blur(70px);
+            background: #ffffff;
 
-            opacity: 0.12;
+            filter: blur(80px);
+
+            opacity: 0.06;
         }
 
-        /* OWNER */
-
-        .staff-card.owner {
-            border-color:
-                rgba(255, 49, 95, 0.18);
-        }
-
-        .staff-card.owner::before {
-            background: #ff174f;
-        }
-
-        .staff-card.owner:hover {
-            border-color:
-                rgba(255, 49, 95, 0.45);
-
-            box-shadow:
-                0 20px 60px
-                rgba(255,23,79,0.12);
-        }
-
-        /* FOUNDERS */
-
-        .staff-card.founder {
-            border-color:
-                rgba(167, 70, 255, 0.18);
-        }
-
-        .staff-card.founder::before {
-            background: #9b2cff;
-        }
-
-        .staff-card.founder:hover {
-            border-color:
-                rgba(167,70,255,0.45);
-
-            box-shadow:
-                0 20px 60px
-                rgba(140,45,255,0.12);
-        }
-
-        /* MANAGEMENT */
-
-        .staff-card.management {
-            border-color:
-                rgba(255,90,150,0.18);
-        }
-
-        .staff-card.management::before {
-            background: #ff5b96;
-        }
-
-        .staff-card.management:hover {
-            border-color:
-                rgba(255,90,150,0.45);
-
-            box-shadow:
-                0 20px 60px
-                rgba(255,70,130,0.12);
-        }
 
         .staff-role {
             position: relative;
@@ -831,43 +948,24 @@
 
             border-radius: 100px;
 
-            font-size: 10px;
+            font-size: 9px;
+
             font-weight: 900;
 
             letter-spacing: 1.4px;
 
             text-transform: uppercase;
-        }
 
-        .owner .staff-role {
-            color: #ff5478;
+            color: #dddddd;
 
             background:
-                rgba(255,23,79,0.08);
+                rgba(255,255,255,0.05);
 
             border:
-                1px solid rgba(255,23,79,0.15);
+                1px solid
+                rgba(255,255,255,0.09);
         }
 
-        .founder .staff-role {
-            color: #b276ff;
-
-            background:
-                rgba(155,44,255,0.08);
-
-            border:
-                1px solid rgba(155,44,255,0.15);
-        }
-
-        .management .staff-role {
-            color: #ff78a9;
-
-            background:
-                rgba(255,90,150,0.08);
-
-            border:
-                1px solid rgba(255,90,150,0.15);
-        }
 
         .staff-icon {
             width: 62px;
@@ -884,38 +982,23 @@
             border-radius: 50%;
 
             font-size: 20px;
+
             font-weight: 900;
 
             background:
                 rgba(255,255,255,0.035);
 
             border:
-                1px solid rgba(255,255,255,0.08);
-        }
+                1px solid
+                rgba(255,255,255,0.10);
 
-        .owner .staff-icon {
-            color: #ff416b;
-
-            box-shadow:
-                0 0 30px
-                rgba(255,23,79,0.12);
-        }
-
-        .founder .staff-icon {
-            color: #a95cff;
+            color: #ffffff;
 
             box-shadow:
                 0 0 30px
-                rgba(155,44,255,0.12);
+                rgba(255,255,255,0.07);
         }
 
-        .management .staff-icon {
-            color: #ff6f9e;
-
-            box-shadow:
-                0 0 30px
-                rgba(255,90,150,0.12);
-        }
 
         .staff-card h3 {
             font-size: 18px;
@@ -924,6 +1007,7 @@
 
             margin-bottom: 16px;
         }
+
 
         .staff-names {
             display: flex;
@@ -935,6 +1019,7 @@
             gap: 8px;
         }
 
+
         .staff-name {
             padding: 8px 12px;
 
@@ -944,24 +1029,29 @@
                 rgba(255,255,255,0.045);
 
             border:
-                1px solid rgba(255,255,255,0.07);
+                1px solid
+                rgba(255,255,255,0.07);
 
-            color: #bbb;
+            color: #aaaaaa;
 
-            font-size: 12px;
+            font-size: 11px;
+
             font-weight: 700;
 
             transition: 0.25s;
         }
 
+
         .staff-name:hover {
-            color: #fff;
+            color: #ffffff;
 
             background:
-                rgba(255,255,255,0.08);
+                rgba(255,255,255,0.09);
 
-            transform: translateY(-2px);
+            transform:
+                translateY(-2px);
         }
+
 
         /* =========================================
            DISCORD
@@ -981,18 +1071,19 @@
             text-align: center;
 
             border:
-                1px solid rgba(255,23,79,0.18);
+                1px solid
+                rgba(255,255,255,0.12);
 
             border-radius: 20px;
 
             background:
                 linear-gradient(
                     135deg,
-                    rgba(255,23,79,0.11),
-                    rgba(120,40,255,0.08),
-                    rgba(255,255,255,0.025)
+                    rgba(255,255,255,0.07),
+                    rgba(255,255,255,0.02)
                 );
         }
+
 
         .discord-wrap::before {
             content: "";
@@ -1006,20 +1097,24 @@
             top: 50%;
 
             transform:
-                translate(-50%, -50%);
+                translate(-50%,-50%);
 
             border-radius: 50%;
 
-            background:
-                rgba(255,23,79,0.12);
+            background: #ffffff;
+
+            opacity: 0.035;
 
             filter: blur(100px);
         }
 
+
         .discord-content {
             position: relative;
+
             z-index: 2;
         }
+
 
         .discord-icon {
             width: 60px;
@@ -1035,19 +1130,19 @@
 
             border-radius: 16px;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #ff174f,
-                    #9b2cff
-                );
+            color: #050505;
 
-            font-size: 24px;
+            background: #ffffff;
+
+            font-size: 17px;
+
+            font-weight: 900;
 
             box-shadow:
                 0 15px 45px
-                rgba(255,23,79,0.25);
+                rgba(255,255,255,0.12);
         }
+
 
         .discord-wrap h2 {
             font-size: 40px;
@@ -1057,18 +1152,20 @@
             letter-spacing: -2px;
         }
 
+
         .discord-wrap p {
             max-width: 600px;
 
             margin:
                 15px auto 30px;
 
-            color: #888;
+            color: #888888;
 
-            font-size: 14px;
+            font-size: 13px;
 
             line-height: 1.8;
         }
+
 
         /* =========================================
            FOOTER
@@ -1078,24 +1175,28 @@
             padding: 35px 7%;
 
             border-top:
-                1px solid rgba(255,255,255,0.06);
+                1px solid
+                rgba(255,255,255,0.07);
 
             display: flex;
 
             justify-content: space-between;
+
             align-items: center;
 
-            color: #555;
+            color: #555555;
 
-            font-size: 12px;
+            font-size: 11px;
         }
+
 
         footer strong {
-            color: #999;
+            color: #999999;
         }
 
+
         /* =========================================
-           RESPONSIVE
+           MOBILE
         ========================================= */
 
         @media (max-width: 900px) {
@@ -1103,7 +1204,7 @@
             .cards,
             .staff-grid {
                 grid-template-columns:
-                    repeat(2, 1fr);
+                    repeat(2,1fr);
             }
 
             .nav-links {
@@ -1115,10 +1216,15 @@
             }
         }
 
+
         @media (max-width: 650px) {
 
             nav {
                 padding: 0 5%;
+            }
+
+            .logo {
+                font-size: 13px;
             }
 
             .nav-links a:not(.nav-discord) {
@@ -1130,12 +1236,13 @@
             }
 
             .hero h1 {
-                font-size: 55px;
+                font-size: 48px;
+
                 letter-spacing: -3px;
             }
 
             .hero-description {
-                font-size: 14px;
+                font-size: 13px;
             }
 
             .hero-buttons {
@@ -1146,6 +1253,7 @@
 
             .btn {
                 width: 100%;
+
                 max-width: 300px;
             }
 
@@ -1162,7 +1270,8 @@
                 border-right: none;
 
                 border-bottom:
-                    1px solid rgba(255,255,255,0.06);
+                    1px solid
+                    rgba(255,255,255,0.07);
             }
 
             .stat:last-child {
@@ -1198,10 +1307,13 @@
                 text-align: center;
             }
         }
+
     </style>
 </head>
 
+
 <body>
+
 
     <!-- =========================================
          BACKGROUND
@@ -1210,12 +1322,15 @@
     <div class="background">
 
         <div class="glow one"></div>
+
         <div class="glow two"></div>
+
         <div class="glow three"></div>
 
         <div class="grid"></div>
 
     </div>
+
 
 
     <!-- =========================================
@@ -1227,12 +1342,14 @@
         <a href="#home" class="logo">
 
             <div class="logo-mark">
-                FL
+                WV
             </div>
 
-            FIVE M <span>LEAKS</span>
+            WRAITH
+            <span>VAULT LEAKS</span>
 
         </a>
+
 
         <div class="nav-links">
 
@@ -1241,7 +1358,7 @@
             </a>
 
             <a href="#leaks">
-                Leaks
+                Packs
             </a>
 
             <a href="#staff">
@@ -1266,6 +1383,7 @@
     </nav>
 
 
+
     <!-- =========================================
          HERO
     ========================================= -->
@@ -1276,6 +1394,7 @@
 
             <div class="hero-content">
 
+
                 <div class="eyebrow">
 
                     <span class="dot"></span>
@@ -1284,30 +1403,34 @@
 
                 </div>
 
+
                 <h1>
 
                     <span class="white">
-                        FIVEM
+                        WRAITH
                     </span>
 
                     <br>
 
                     <span class="gradient">
-                        LEAKS
+                        VAULT LEAKS
                     </span>
 
                 </h1>
 
+
                 <p class="hero-description">
 
-                    Discover premium FiveM resources,
-                    scripts, vehicles, MLOs, clothing
-                    and more. Everything you need for
-                    your next server, all in one place.
+                    Discover premium graphics, sound packs,
+                    gun skins, perks, PC optimization tools,
+                    mods and more. Everything you need in
+                    one place.
 
                 </p>
 
+
                 <div class="hero-buttons">
+
 
                     <a
                         href="https://discord.gg/Hhk3h9PH2"
@@ -1318,12 +1441,14 @@
                         JOIN OUR DISCORD
                     </a>
 
+
                     <a
                         href="#leaks"
                         class="btn btn-secondary"
                     >
-                        EXPLORE LEAKS
+                        EXPLORE PACKS
                     </a>
+
 
                 </div>
 
@@ -1332,11 +1457,13 @@
         </section>
 
 
+
         <!-- =========================================
              STATS
         ========================================= -->
 
         <div class="stats">
+
 
             <div class="stat">
 
@@ -1350,6 +1477,7 @@
 
             </div>
 
+
             <div class="stat">
 
                 <strong>
@@ -1361,6 +1489,7 @@
                 </span>
 
             </div>
+
 
             <div class="stat">
 
@@ -1374,14 +1503,17 @@
 
             </div>
 
+
         </div>
 
 
+
         <!-- =========================================
-             LEAKS
+             PACKS
         ========================================= -->
 
         <section id="leaks">
+
 
             <div class="section-header center">
 
@@ -1390,42 +1522,22 @@
                 </div>
 
                 <h2>
-                    Explore The Leaks
+                    Explore The Vault
                 </h2>
 
                 <p>
-                    Browse through our collection of
-                    FiveM resources and find exactly
-                    what you need.
+                    Browse our collection of resources
+                    and find what you need.
                 </p>
 
             </div>
 
 
+
             <div class="cards">
 
 
-                <div class="card">
-
-                    <div class="icon">
-                        ⚙
-                    </div>
-
-                    <h3>
-                        Scripts
-                    </h3>
-
-                    <p>
-                        Find FiveM scripts, systems and
-                        resources to improve your server.
-                    </p>
-
-                    <a href="#" class="card-link">
-                        VIEW SCRIPTS →
-                    </a>
-
-                </div>
-
+                <!-- GRAPHIC PACKS -->
 
                 <div class="card">
 
@@ -1434,64 +1546,48 @@
                     </div>
 
                     <h3>
-                        Vehicles
+                        Graphic Packs
                     </h3>
 
                     <p>
-                        Custom cars, emergency vehicles,
-                        packs and other vehicle resources.
+                        Visual enhancement packs,
+                        graphics presets and FiveM
+                        visual resources.
                     </p>
 
                     <a href="#" class="card-link">
-                        VIEW VEHICLES →
+                        VIEW GRAPHICS →
                     </a>
 
                 </div>
 
+
+                <!-- SOUND PACKS -->
 
                 <div class="card">
 
                     <div class="icon">
-                        ◆
+                        ♪
                     </div>
 
                     <h3>
-                        MLOs & Maps
+                        Sound Packs
                     </h3>
 
                     <p>
-                        Explore custom interiors, maps
-                        and locations for your server.
+                        Custom audio, weapon sounds,
+                        vehicle sounds and immersive
+                        sound packs.
                     </p>
 
                     <a href="#" class="card-link">
-                        VIEW MAPS →
+                        VIEW SOUNDS →
                     </a>
 
                 </div>
 
 
-                <div class="card">
-
-                    <div class="icon">
-                        ◉
-                    </div>
-
-                    <h3>
-                        Clothing
-                    </h3>
-
-                    <p>
-                        Character clothing, uniforms,
-                        EUP and custom clothing packs.
-                    </p>
-
-                    <a href="#" class="card-link">
-                        VIEW CLOTHING →
-                    </a>
-
-                </div>
-
+                <!-- GUN SKINS -->
 
                 <div class="card">
 
@@ -1500,20 +1596,73 @@
                     </div>
 
                     <h3>
-                        Weapons
+                        Gun Skins
                     </h3>
 
                     <p>
-                        Custom weapon packs and resources
-                        for your FiveM experience.
+                        Custom weapon skins and
+                        visual customization packs
+                        for your game.
                     </p>
 
                     <a href="#" class="card-link">
-                        VIEW WEAPONS →
+                        VIEW GUN SKINS →
                     </a>
 
                 </div>
 
+
+                <!-- PERKS -->
+
+                <div class="card">
+
+                    <div class="icon">
+                        ◆
+                    </div>
+
+                    <h3>
+                        Perks
+                    </h3>
+
+                    <p>
+                        Special perks, benefits and
+                        community resources available
+                        through the vault.
+                    </p>
+
+                    <a href="#" class="card-link">
+                        VIEW PERKS →
+                    </a>
+
+                </div>
+
+
+                <!-- PC OPTIMIZATION -->
+
+                <div class="card">
+
+                    <div class="icon">
+                        ⚙
+                    </div>
+
+                    <h3>
+                        PC Optimization
+                    </h3>
+
+                    <p>
+                        Performance tweaks, optimization
+                        resources and settings designed
+                        to improve your PC experience.
+                    </p>
+
+                    <a href="#" class="card-link">
+                        OPTIMIZE PC →
+                    </a>
+
+                </div>
+
+
+                <!-- MODS -->
 
                 <div class="card">
 
@@ -1522,23 +1671,25 @@
                     </div>
 
                     <h3>
-                        Miscellaneous
+                        Mods
                     </h3>
 
                     <p>
-                        Other FiveM resources, tools,
-                        graphics and useful content.
+                        Custom modifications, addons
+                        and other useful FiveM resources.
                     </p>
 
                     <a href="#" class="card-link">
-                        VIEW MORE →
+                        VIEW MODS →
                     </a>
 
                 </div>
 
+
             </div>
 
         </section>
+
 
 
         <!-- =========================================
@@ -1549,6 +1700,7 @@
             id="staff"
             class="staff-section"
         >
+
 
             <div class="section-header center">
 
@@ -1561,10 +1713,11 @@
                 </h2>
 
                 <p>
-                    Meet the people behind FiveM Leaks.
+                    Meet the people behind Wraith Vault Leaks.
                 </p>
 
             </div>
+
 
 
             <div class="staff-grid">
@@ -1572,19 +1725,22 @@
 
                 <!-- OWNERS -->
 
-                <div class="staff-card owner">
+                <div class="staff-card">
 
                     <div class="staff-role">
                         Owners
                     </div>
 
+
                     <div class="staff-icon">
                         👑
                     </div>
 
+
                     <h3>
                         Owners
                     </h3>
+
 
                     <div class="staff-names">
 
@@ -1601,21 +1757,25 @@
                 </div>
 
 
+
                 <!-- FOUNDERS -->
 
-                <div class="staff-card founder">
+                <div class="staff-card">
 
                     <div class="staff-role">
                         Founders
                     </div>
 
+
                     <div class="staff-icon">
                         ★
                     </div>
 
+
                     <h3>
                         Founders
                     </h3>
+
 
                     <div class="staff-names">
 
@@ -1632,21 +1792,25 @@
                 </div>
 
 
+
                 <!-- LEAKER MANAGEMENT -->
 
-                <div class="staff-card management">
+                <div class="staff-card">
 
                     <div class="staff-role">
                         Leaker Management
                     </div>
 
+
                     <div class="staff-icon">
                         ⚡
                     </div>
 
+
                     <h3>
                         Leaker Management
                     </h3>
+
 
                     <div class="staff-names">
 
@@ -1672,11 +1836,13 @@
         </section>
 
 
+
         <!-- =========================================
              ABOUT
         ========================================= -->
 
         <section id="about">
+
 
             <div class="section-header center">
 
@@ -1684,20 +1850,24 @@
                     Community
                 </div>
 
+
                 <h2>
-                    Built For FiveM
+                    Welcome To The Vault
                 </h2>
 
+
                 <p>
-                    Our goal is to create a simple place
-                    where the FiveM community can discover
-                    resources, stay updated and connect
-                    with other players.
+                    Wraith Vault Leaks is a community
+                    focused on FiveM graphics, sounds,
+                    modifications, optimization and
+                    other useful resources.
                 </p>
 
             </div>
 
+
         </section>
+
 
 
         <!-- =========================================
@@ -1706,23 +1876,29 @@
 
         <section>
 
+
             <div class="discord-wrap">
+
 
                 <div class="discord-content">
 
+
                     <div class="discord-icon">
-                        DC
+                        WV
                     </div>
+
 
                     <h2>
                         Join The Community
                     </h2>
 
+
                     <p>
                         Get access to updates, new resources,
                         announcements and community discussions.
-                        Join our Discord today.
+                        Join the Wraith Vault Leaks Discord today.
                     </p>
+
 
                     <a
                         href="https://discord.gg/Hhk3h9PH2"
@@ -1733,13 +1909,18 @@
                         JOIN OUR DISCORD
                     </a>
 
+
                 </div>
+
 
             </div>
 
+
         </section>
 
+
     </main>
+
 
 
     <!-- =========================================
@@ -1748,18 +1929,25 @@
 
     <footer>
 
+
         <div>
+
             © 2026
+
             <strong>
-                FiveM Leaks
+                Wraith Vault Leaks
             </strong>
+
         </div>
+
 
         <div>
             Made for the FiveM community
         </div>
 
+
     </footer>
+
 
 </body>
 </html>
