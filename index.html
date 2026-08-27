@@ -1,0 +1,1765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FiveM Leaks | Premium Resources</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: #050507;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* =========================================
+           BACKGROUND
+        ========================================= */
+
+        .background {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: -10;
+
+            background:
+                radial-gradient(
+                    circle at 50% 20%,
+                    rgba(255, 30, 80, 0.12),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 85% 65%,
+                    rgba(115, 45, 255, 0.10),
+                    transparent 30%
+                ),
+                #050507;
+        }
+
+        .glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.35;
+            animation: float 12s infinite alternate ease-in-out;
+        }
+
+        .glow.one {
+            width: 400px;
+            height: 400px;
+            background: #ff174f;
+            top: -200px;
+            left: -100px;
+        }
+
+        .glow.two {
+            width: 350px;
+            height: 350px;
+            background: #6b2cff;
+            right: -100px;
+            top: 35%;
+            animation-delay: 2s;
+        }
+
+        .glow.three {
+            width: 300px;
+            height: 300px;
+            background: #ff174f;
+            bottom: -150px;
+            left: 40%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            from {
+                transform: translate(0, 0) scale(1);
+            }
+
+            to {
+                transform: translate(70px, -40px) scale(1.2);
+            }
+        }
+
+        .grid {
+            position: absolute;
+            inset: 0;
+            opacity: 0.18;
+
+            background-image:
+                linear-gradient(
+                    rgba(255,255,255,0.035) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,0.035) 1px,
+                    transparent 1px
+                );
+
+            background-size: 60px 60px;
+
+            mask-image:
+                linear-gradient(
+                    to bottom,
+                    black,
+                    transparent 90%
+                );
+        }
+
+        /* =========================================
+           NAVBAR
+        ========================================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 78px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 7%;
+
+            background: rgba(5,5,7,0.78);
+
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            border-bottom:
+                1px solid rgba(255,255,255,0.06);
+
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            font-size: 20px;
+            font-weight: 900;
+
+            letter-spacing: -1px;
+        }
+
+        .logo-mark {
+            width: 35px;
+            height: 35px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 9px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff174f,
+                    #8d2cff
+                );
+
+            box-shadow:
+                0 0 25px rgba(255,23,79,0.25);
+
+            font-size: 15px;
+        }
+
+        .logo span {
+            color: #ff315f;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            color: #929296;
+            font-size: 13px;
+            font-weight: 700;
+
+            transition: 0.25s ease;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        .nav-discord {
+            padding: 11px 19px;
+
+            border-radius: 8px;
+
+            color: #fff !important;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff174f,
+                    #a22cff
+                );
+
+            box-shadow:
+                0 8px 30px rgba(255,23,79,0.18);
+        }
+
+        .nav-discord:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 12px 35px rgba(255,23,79,0.3);
+        }
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding:
+                150px 20px
+                100px;
+        }
+
+        .hero-content {
+            max-width: 950px;
+
+            animation:
+                heroIn 1s ease forwards;
+        }
+
+        @keyframes heroIn {
+            from {
+                opacity: 0;
+                transform: translateY(35px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .eyebrow {
+            display: inline-flex;
+
+            align-items: center;
+            gap: 9px;
+
+            padding: 8px 15px;
+
+            border:
+                1px solid rgba(255,23,79,0.25);
+
+            background:
+                rgba(255,23,79,0.06);
+
+            border-radius: 100px;
+
+            color: #ff5478;
+
+            font-size: 11px;
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+
+            margin-bottom: 28px;
+        }
+
+        .dot {
+            width: 7px;
+            height: 7px;
+
+            background: #ff315f;
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 12px #ff315f;
+
+            animation:
+                pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%,100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.4;
+                transform: scale(0.7);
+            }
+        }
+
+        .hero h1 {
+            font-size:
+                clamp(55px, 9vw, 110px);
+
+            line-height: 0.9;
+
+            font-weight: 900;
+
+            letter-spacing: -7px;
+
+            text-transform: uppercase;
+        }
+
+        .hero h1 .white {
+            color: #fff;
+        }
+
+        .hero h1 .gradient {
+            background:
+                linear-gradient(
+                    100deg,
+                    #ff174f,
+                    #ff4c72,
+                    #a82cff
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            color: transparent;
+
+            filter:
+                drop-shadow(
+                    0 0 30px
+                    rgba(255,23,79,0.15)
+                );
+        }
+
+        .hero-description {
+            max-width: 650px;
+
+            margin: 32px auto 0;
+
+            color: #85858b;
+
+            font-size: 16px;
+
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+
+            justify-content: center;
+            flex-wrap: wrap;
+
+            gap: 13px;
+
+            margin-top: 35px;
+        }
+
+        .btn {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            min-width: 175px;
+
+            padding: 15px 24px;
+
+            border-radius: 9px;
+
+            font-size: 13px;
+            font-weight: 800;
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .btn-primary {
+            color: #fff;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff174f,
+                    #9b2cff
+                );
+
+            box-shadow:
+                0 12px 40px
+                rgba(255,23,79,0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 18px 50px
+                rgba(255,23,79,0.35);
+        }
+
+        .btn-secondary {
+            color: #ddd;
+
+            background:
+                rgba(255,255,255,0.035);
+
+            border:
+                1px solid rgba(255,255,255,0.09);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-4px);
+
+            background:
+                rgba(255,255,255,0.07);
+        }
+
+        /* =========================================
+           STATS
+        ========================================= */
+
+        .stats {
+            max-width: 850px;
+
+            margin: -40px auto 0;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            border:
+                1px solid rgba(255,255,255,0.07);
+
+            border-radius: 14px;
+
+            background:
+                rgba(255,255,255,0.025);
+
+            backdrop-filter:
+                blur(15px);
+        }
+
+        .stat {
+            padding: 25px;
+
+            text-align: center;
+
+            border-right:
+                1px solid rgba(255,255,255,0.06);
+        }
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+        .stat strong {
+            display: block;
+
+            font-size: 25px;
+            font-weight: 900;
+        }
+
+        .stat span {
+            display: block;
+
+            margin-top: 6px;
+
+            color: #666;
+
+            font-size: 11px;
+            font-weight: 700;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+        }
+
+        /* =========================================
+           GENERAL SECTIONS
+        ========================================= */
+
+        section {
+            padding: 110px 7%;
+        }
+
+        .section-header {
+            max-width: 1150px;
+
+            margin:
+                0 auto 50px;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .section-label {
+            color: #ff315f;
+
+            font-size: 11px;
+            font-weight: 900;
+
+            text-transform: uppercase;
+
+            letter-spacing: 2px;
+        }
+
+        .section-header h2 {
+            margin-top: 10px;
+
+            font-size: 42px;
+            font-weight: 900;
+
+            letter-spacing: -2px;
+        }
+
+        .section-header p {
+            margin-top: 12px;
+
+            color: #777;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+        }
+
+        /* =========================================
+           LEAK CARDS
+        ========================================= */
+
+        .cards {
+            max-width: 1150px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .card {
+            position: relative;
+
+            padding: 30px;
+
+            min-height: 230px;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.045),
+                    rgba(255,255,255,0.018)
+                );
+
+            border:
+                1px solid rgba(255,255,255,0.07);
+
+            border-radius: 15px;
+
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+
+            border-color:
+                rgba(255,49,95,0.3);
+        }
+
+        .card::after {
+            content: "";
+
+            position: absolute;
+
+            width: 150px;
+            height: 150px;
+
+            top: -80px;
+            right: -80px;
+
+            border-radius: 50%;
+
+            background: #ff174f;
+
+            filter: blur(70px);
+
+            opacity: 0;
+
+            transition: 0.3s;
+        }
+
+        .card:hover::after {
+            opacity: 0.13;
+        }
+
+        .icon {
+            width: 48px;
+            height: 48px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 22px;
+
+            border-radius: 11px;
+
+            background:
+                rgba(255,23,79,0.09);
+
+            border:
+                1px solid rgba(255,23,79,0.12);
+
+            color: #ff416b;
+
+            font-size: 19px;
+        }
+
+        .card h3 {
+            font-size: 17px;
+            font-weight: 800;
+
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #777;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+        }
+
+        .card-link {
+            display: inline-block;
+
+            margin-top: 20px;
+
+            color: #ff416b;
+
+            font-size: 11px;
+            font-weight: 800;
+
+            letter-spacing: 0.5px;
+        }
+
+        /* =========================================
+           STAFF TEAM
+        ========================================= */
+
+        .staff-section {
+            position: relative;
+        }
+
+        .staff-grid {
+            max-width: 1150px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .staff-card {
+            position: relative;
+
+            overflow: hidden;
+
+            padding: 32px 25px;
+
+            text-align: center;
+
+            border-radius: 16px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.045),
+                    rgba(255,255,255,0.015)
+                );
+
+            border:
+                1px solid rgba(255,255,255,0.07);
+
+            transition:
+                transform 0.35s ease,
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
+        }
+
+        .staff-card:hover {
+            transform: translateY(-9px);
+        }
+
+        .staff-card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 180px;
+            height: 180px;
+
+            left: 50%;
+            top: -110px;
+
+            transform:
+                translateX(-50%);
+
+            border-radius: 50%;
+
+            filter: blur(70px);
+
+            opacity: 0.12;
+        }
+
+        /* OWNER */
+
+        .staff-card.owner {
+            border-color:
+                rgba(255, 49, 95, 0.18);
+        }
+
+        .staff-card.owner::before {
+            background: #ff174f;
+        }
+
+        .staff-card.owner:hover {
+            border-color:
+                rgba(255, 49, 95, 0.45);
+
+            box-shadow:
+                0 20px 60px
+                rgba(255,23,79,0.12);
+        }
+
+        /* FOUNDERS */
+
+        .staff-card.founder {
+            border-color:
+                rgba(167, 70, 255, 0.18);
+        }
+
+        .staff-card.founder::before {
+            background: #9b2cff;
+        }
+
+        .staff-card.founder:hover {
+            border-color:
+                rgba(167,70,255,0.45);
+
+            box-shadow:
+                0 20px 60px
+                rgba(140,45,255,0.12);
+        }
+
+        /* MANAGEMENT */
+
+        .staff-card.management {
+            border-color:
+                rgba(255,90,150,0.18);
+        }
+
+        .staff-card.management::before {
+            background: #ff5b96;
+        }
+
+        .staff-card.management:hover {
+            border-color:
+                rgba(255,90,150,0.45);
+
+            box-shadow:
+                0 20px 60px
+                rgba(255,70,130,0.12);
+        }
+
+        .staff-role {
+            position: relative;
+
+            display: inline-block;
+
+            padding: 7px 12px;
+
+            margin-bottom: 22px;
+
+            border-radius: 100px;
+
+            font-size: 10px;
+            font-weight: 900;
+
+            letter-spacing: 1.4px;
+
+            text-transform: uppercase;
+        }
+
+        .owner .staff-role {
+            color: #ff5478;
+
+            background:
+                rgba(255,23,79,0.08);
+
+            border:
+                1px solid rgba(255,23,79,0.15);
+        }
+
+        .founder .staff-role {
+            color: #b276ff;
+
+            background:
+                rgba(155,44,255,0.08);
+
+            border:
+                1px solid rgba(155,44,255,0.15);
+        }
+
+        .management .staff-role {
+            color: #ff78a9;
+
+            background:
+                rgba(255,90,150,0.08);
+
+            border:
+                1px solid rgba(255,90,150,0.15);
+        }
+
+        .staff-icon {
+            width: 62px;
+            height: 62px;
+
+            margin:
+                0 auto 18px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            font-size: 20px;
+            font-weight: 900;
+
+            background:
+                rgba(255,255,255,0.035);
+
+            border:
+                1px solid rgba(255,255,255,0.08);
+        }
+
+        .owner .staff-icon {
+            color: #ff416b;
+
+            box-shadow:
+                0 0 30px
+                rgba(255,23,79,0.12);
+        }
+
+        .founder .staff-icon {
+            color: #a95cff;
+
+            box-shadow:
+                0 0 30px
+                rgba(155,44,255,0.12);
+        }
+
+        .management .staff-icon {
+            color: #ff6f9e;
+
+            box-shadow:
+                0 0 30px
+                rgba(255,90,150,0.12);
+        }
+
+        .staff-card h3 {
+            font-size: 18px;
+
+            font-weight: 900;
+
+            margin-bottom: 16px;
+        }
+
+        .staff-names {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
+
+            gap: 8px;
+        }
+
+        .staff-name {
+            padding: 8px 12px;
+
+            border-radius: 7px;
+
+            background:
+                rgba(255,255,255,0.045);
+
+            border:
+                1px solid rgba(255,255,255,0.07);
+
+            color: #bbb;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            transition: 0.25s;
+        }
+
+        .staff-name:hover {
+            color: #fff;
+
+            background:
+                rgba(255,255,255,0.08);
+
+            transform: translateY(-2px);
+        }
+
+        /* =========================================
+           DISCORD
+        ========================================= */
+
+        .discord-wrap {
+            max-width: 1150px;
+
+            margin: auto;
+
+            position: relative;
+
+            overflow: hidden;
+
+            padding: 75px 40px;
+
+            text-align: center;
+
+            border:
+                1px solid rgba(255,23,79,0.18);
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,23,79,0.11),
+                    rgba(120,40,255,0.08),
+                    rgba(255,255,255,0.025)
+                );
+        }
+
+        .discord-wrap::before {
+            content: "";
+
+            position: absolute;
+
+            width: 400px;
+            height: 400px;
+
+            left: 50%;
+            top: 50%;
+
+            transform:
+                translate(-50%, -50%);
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,23,79,0.12);
+
+            filter: blur(100px);
+        }
+
+        .discord-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .discord-icon {
+            width: 60px;
+            height: 60px;
+
+            margin:
+                0 auto 22px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 16px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff174f,
+                    #9b2cff
+                );
+
+            font-size: 24px;
+
+            box-shadow:
+                0 15px 45px
+                rgba(255,23,79,0.25);
+        }
+
+        .discord-wrap h2 {
+            font-size: 40px;
+
+            font-weight: 900;
+
+            letter-spacing: -2px;
+        }
+
+        .discord-wrap p {
+            max-width: 600px;
+
+            margin:
+                15px auto 30px;
+
+            color: #888;
+
+            font-size: 14px;
+
+            line-height: 1.8;
+        }
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+            padding: 35px 7%;
+
+            border-top:
+                1px solid rgba(255,255,255,0.06);
+
+            display: flex;
+
+            justify-content: space-between;
+            align-items: center;
+
+            color: #555;
+
+            font-size: 12px;
+        }
+
+        footer strong {
+            color: #999;
+        }
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 900px) {
+
+            .cards,
+            .staff-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .hero h1 {
+                letter-spacing: -4px;
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            nav {
+                padding: 0 5%;
+            }
+
+            .nav-links a:not(.nav-discord) {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 130px;
+            }
+
+            .hero h1 {
+                font-size: 55px;
+                letter-spacing: -3px;
+            }
+
+            .hero-description {
+                font-size: 14px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .stats {
+                margin:
+                    -20px 20px 0;
+
+                grid-template-columns: 1fr;
+
+                border-radius: 12px;
+            }
+
+            .stat {
+                border-right: none;
+
+                border-bottom:
+                    1px solid rgba(255,255,255,0.06);
+            }
+
+            .stat:last-child {
+                border-bottom: none;
+            }
+
+            section {
+                padding: 80px 5%;
+            }
+
+            .cards,
+            .staff-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header h2 {
+                font-size: 32px;
+            }
+
+            .discord-wrap {
+                padding: 55px 20px;
+            }
+
+            .discord-wrap h2 {
+                font-size: 30px;
+            }
+
+            footer {
+                flex-direction: column;
+
+                gap: 10px;
+
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================================
+         BACKGROUND
+    ========================================= -->
+
+    <div class="background">
+
+        <div class="glow one"></div>
+        <div class="glow two"></div>
+        <div class="glow three"></div>
+
+        <div class="grid"></div>
+
+    </div>
+
+
+    <!-- =========================================
+         NAVBAR
+    ========================================= -->
+
+    <nav>
+
+        <a href="#home" class="logo">
+
+            <div class="logo-mark">
+                FL
+            </div>
+
+            FIVE M <span>LEAKS</span>
+
+        </a>
+
+        <div class="nav-links">
+
+            <a href="#home">
+                Home
+            </a>
+
+            <a href="#leaks">
+                Leaks
+            </a>
+
+            <a href="#staff">
+                Staff
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+            <a
+                href="https://discord.gg/Hhk3h9PH2"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="nav-discord"
+            >
+                Discord
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================================
+         HERO
+    ========================================= -->
+
+    <main id="home">
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <div class="eyebrow">
+
+                    <span class="dot"></span>
+
+                    THE ULTIMATE FIVEM RESOURCE HUB
+
+                </div>
+
+                <h1>
+
+                    <span class="white">
+                        FIVEM
+                    </span>
+
+                    <br>
+
+                    <span class="gradient">
+                        LEAKS
+                    </span>
+
+                </h1>
+
+                <p class="hero-description">
+
+                    Discover premium FiveM resources,
+                    scripts, vehicles, MLOs, clothing
+                    and more. Everything you need for
+                    your next server, all in one place.
+
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a
+                        href="https://discord.gg/Hhk3h9PH2"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-primary"
+                    >
+                        JOIN OUR DISCORD
+                    </a>
+
+                    <a
+                        href="#leaks"
+                        class="btn btn-secondary"
+                    >
+                        EXPLORE LEAKS
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             STATS
+        ========================================= -->
+
+        <div class="stats">
+
+            <div class="stat">
+
+                <strong>
+                    100+
+                </strong>
+
+                <span>
+                    Resources
+                </span>
+
+            </div>
+
+            <div class="stat">
+
+                <strong>
+                    24/7
+                </strong>
+
+                <span>
+                    Community
+                </span>
+
+            </div>
+
+            <div class="stat">
+
+                <strong>
+                    FREE
+                </strong>
+
+                <span>
+                    Access
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================================
+             LEAKS
+        ========================================= -->
+
+        <section id="leaks">
+
+            <div class="section-header center">
+
+                <div class="section-label">
+                    Categories
+                </div>
+
+                <h2>
+                    Explore The Leaks
+                </h2>
+
+                <p>
+                    Browse through our collection of
+                    FiveM resources and find exactly
+                    what you need.
+                </p>
+
+            </div>
+
+
+            <div class="cards">
+
+
+                <div class="card">
+
+                    <div class="icon">
+                        ⚙
+                    </div>
+
+                    <h3>
+                        Scripts
+                    </h3>
+
+                    <p>
+                        Find FiveM scripts, systems and
+                        resources to improve your server.
+                    </p>
+
+                    <a href="#" class="card-link">
+                        VIEW SCRIPTS →
+                    </a>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="icon">
+                        ◈
+                    </div>
+
+                    <h3>
+                        Vehicles
+                    </h3>
+
+                    <p>
+                        Custom cars, emergency vehicles,
+                        packs and other vehicle resources.
+                    </p>
+
+                    <a href="#" class="card-link">
+                        VIEW VEHICLES →
+                    </a>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="icon">
+                        ◆
+                    </div>
+
+                    <h3>
+                        MLOs & Maps
+                    </h3>
+
+                    <p>
+                        Explore custom interiors, maps
+                        and locations for your server.
+                    </p>
+
+                    <a href="#" class="card-link">
+                        VIEW MAPS →
+                    </a>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="icon">
+                        ◉
+                    </div>
+
+                    <h3>
+                        Clothing
+                    </h3>
+
+                    <p>
+                        Character clothing, uniforms,
+                        EUP and custom clothing packs.
+                    </p>
+
+                    <a href="#" class="card-link">
+                        VIEW CLOTHING →
+                    </a>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="icon">
+                        ✦
+                    </div>
+
+                    <h3>
+                        Weapons
+                    </h3>
+
+                    <p>
+                        Custom weapon packs and resources
+                        for your FiveM experience.
+                    </p>
+
+                    <a href="#" class="card-link">
+                        VIEW WEAPONS →
+                    </a>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="icon">
+                        +
+                    </div>
+
+                    <h3>
+                        Miscellaneous
+                    </h3>
+
+                    <p>
+                        Other FiveM resources, tools,
+                        graphics and useful content.
+                    </p>
+
+                    <a href="#" class="card-link">
+                        VIEW MORE →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             STAFF TEAM
+        ========================================= -->
+
+        <section
+            id="staff"
+            class="staff-section"
+        >
+
+            <div class="section-header center">
+
+                <div class="section-label">
+                    The Team
+                </div>
+
+                <h2>
+                    Staff Team
+                </h2>
+
+                <p>
+                    Meet the people behind FiveM Leaks.
+                </p>
+
+            </div>
+
+
+            <div class="staff-grid">
+
+
+                <!-- OWNERS -->
+
+                <div class="staff-card owner">
+
+                    <div class="staff-role">
+                        Owners
+                    </div>
+
+                    <div class="staff-icon">
+                        👑
+                    </div>
+
+                    <h3>
+                        Owners
+                    </h3>
+
+                    <div class="staff-names">
+
+                        <div class="staff-name">
+                            Vortex
+                        </div>
+
+                        <div class="staff-name">
+                            Speed
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FOUNDERS -->
+
+                <div class="staff-card founder">
+
+                    <div class="staff-role">
+                        Founders
+                    </div>
+
+                    <div class="staff-icon">
+                        ★
+                    </div>
+
+                    <h3>
+                        Founders
+                    </h3>
+
+                    <div class="staff-names">
+
+                        <div class="staff-name">
+                            Musa
+                        </div>
+
+                        <div class="staff-name">
+                            Sharky
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- LEAKER MANAGEMENT -->
+
+                <div class="staff-card management">
+
+                    <div class="staff-role">
+                        Leaker Management
+                    </div>
+
+                    <div class="staff-icon">
+                        ⚡
+                    </div>
+
+                    <h3>
+                        Leaker Management
+                    </h3>
+
+                    <div class="staff-names">
+
+                        <div class="staff-name">
+                            Kekrops
+                        </div>
+
+                        <div class="staff-name">
+                            Cyber
+                        </div>
+
+                        <div class="staff-name">
+                            Agent
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             ABOUT
+        ========================================= -->
+
+        <section id="about">
+
+            <div class="section-header center">
+
+                <div class="section-label">
+                    Community
+                </div>
+
+                <h2>
+                    Built For FiveM
+                </h2>
+
+                <p>
+                    Our goal is to create a simple place
+                    where the FiveM community can discover
+                    resources, stay updated and connect
+                    with other players.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             DISCORD
+        ========================================= -->
+
+        <section>
+
+            <div class="discord-wrap">
+
+                <div class="discord-content">
+
+                    <div class="discord-icon">
+                        DC
+                    </div>
+
+                    <h2>
+                        Join The Community
+                    </h2>
+
+                    <p>
+                        Get access to updates, new resources,
+                        announcements and community discussions.
+                        Join our Discord today.
+                    </p>
+
+                    <a
+                        href="https://discord.gg/Hhk3h9PH2"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-primary"
+                    >
+                        JOIN OUR DISCORD
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
+
+    <footer>
+
+        <div>
+            © 2026
+            <strong>
+                FiveM Leaks
+            </strong>
+        </div>
+
+        <div>
+            Made for the FiveM community
+        </div>
+
+    </footer>
+
+</body>
+</html>
