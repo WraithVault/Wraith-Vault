@@ -1,525 +1,1481 @@
-/* =====================================================
-   WRAITH VAULT — PREMIUM VISUAL REDESIGN
-   Paste this at the VERY BOTTOM of your existing <style>
-===================================================== */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-:root {
-    --wv-bg: #030303;
-    --wv-white: #ffffff;
-    --wv-muted: #8b8b8b;
-    --wv-border: rgba(255,255,255,.10);
-    --wv-glass: rgba(255,255,255,.035);
+<title>Wraith Vault Leaks</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-/* MAIN ATMOSPHERE */
+html{
+    scroll-behavior:smooth;
+}
 
-body {
+body{
+    font-family:Inter,sans-serif;
+    background:#050505;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.background{
+    position:fixed;
+    inset:0;
+    z-index:-10;
+    overflow:hidden;
     background:
-        radial-gradient(
-            circle at 50% -10%,
-            rgba(255,255,255,.13),
-            transparent 32%
-        ),
-        radial-gradient(
-            circle at 0% 45%,
-            rgba(255,255,255,.055),
-            transparent 28%
-        ),
-        radial-gradient(
-            circle at 100% 75%,
+        radial-gradient(circle at 50% 15%,rgba(255,255,255,.08),transparent 30%),
+        radial-gradient(circle at 10% 60%,rgba(255,255,255,.045),transparent 28%),
+        #050505;
+}
+
+.grid{
+    position:absolute;
+    inset:0;
+    opacity:.12;
+
+    background-image:
+        linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+
+    background-size:60px 60px;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:78px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 7%;
+
+    background:rgba(5,5,5,.85);
+    backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+    z-index:1000;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    font-size:17px;
+    font-weight:900;
+    letter-spacing:-.7px;
+}
+
+.logo-image{
+    width:37px;
+    height:37px;
+    object-fit:cover;
+
+    border-radius:9px;
+
+    border:1px solid rgba(255,255,255,.12);
+
+    box-shadow:0 0 25px rgba(255,255,255,.15);
+}
+
+.logo span{
+    color:#999;
+    margin-left:4px;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:30px;
+}
+
+.nav-links a{
+    color:#858585;
+    font-size:12px;
+    font-weight:700;
+    transition:.25s;
+}
+
+.nav-links a:hover{
+    color:#fff;
+}
+
+.nav-discord{
+    padding:11px 19px;
+    border-radius:8px;
+
+    color:#050505 !important;
+    background:#fff;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    padding:150px 20px 100px;
+}
+
+.hero-content{
+    max-width:1000px;
+
+    animation:heroIn 1s ease forwards;
+}
+
+@keyframes heroIn{
+    from{
+        opacity:0;
+        transform:translateY(35px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+
+    padding:8px 15px;
+
+    border:1px solid rgba(255,255,255,.14);
+
+    background:rgba(255,255,255,.035);
+
+    border-radius:100px;
+
+    color:#aaa;
+
+    font-size:10px;
+    font-weight:800;
+
+    letter-spacing:1.5px;
+
+    margin-bottom:28px;
+}
+
+.dot{
+    width:7px;
+    height:7px;
+
+    background:#fff;
+
+    border-radius:50%;
+
+    box-shadow:0 0 12px rgba(255,255,255,.8);
+
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+    0%,100%{
+        opacity:1;
+        transform:scale(1);
+    }
+
+    50%{
+        opacity:.35;
+        transform:scale(.7);
+    }
+}
+
+.hero h1{
+    font-size:clamp(50px,8vw,105px);
+    line-height:.92;
+
+    font-weight:900;
+
+    letter-spacing:-6px;
+
+    text-transform:uppercase;
+}
+
+.white{
+    color:#fff;
+}
+
+.gradient{
+    background:linear-gradient(100deg,#fff,#888,#fff);
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+}
+
+.hero-description{
+    max-width:650px;
+
+    margin:32px auto 0;
+
+    color:#858585;
+
+    font-size:15px;
+
+    line-height:1.8;
+}
+
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+
+    gap:13px;
+
+    margin-top:35px;
+}
+
+.btn{
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    min-width:175px;
+
+    padding:15px 24px;
+
+    border-radius:9px;
+
+    font-size:12px;
+    font-weight:800;
+
+    transition:.25s;
+}
+
+.btn-primary{
+    color:#050505;
+    background:#fff;
+
+    box-shadow:0 12px 40px rgba(255,255,255,.12);
+}
+
+.btn-primary:hover{
+    transform:translateY(-4px);
+
+    box-shadow:0 18px 50px rgba(255,255,255,.2);
+}
+
+.btn-secondary{
+    color:#ddd;
+
+    background:rgba(255,255,255,.035);
+
+    border:1px solid rgba(255,255,255,.1);
+}
+
+.btn-secondary:hover{
+    transform:translateY(-4px);
+
+    background:rgba(255,255,255,.07);
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+.stats{
+    max-width:850px;
+
+    margin:-40px auto 0;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,.025);
+
+    backdrop-filter:blur(15px);
+}
+
+.stat{
+    padding:25px;
+
+    text-align:center;
+
+    border-right:1px solid rgba(255,255,255,.07);
+}
+
+.stat:last-child{
+    border-right:none;
+}
+
+.stat strong{
+    display:block;
+
+    font-size:25px;
+    font-weight:900;
+}
+
+.stat span{
+    display:block;
+
+    margin-top:6px;
+
+    color:#666;
+
+    font-size:10px;
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+section{
+    padding:110px 7%;
+}
+
+.section-header{
+    max-width:1150px;
+
+    margin:0 auto 50px;
+}
+
+.center{
+    text-align:center;
+}
+
+.section-label{
+    color:#aaa;
+
+    font-size:10px;
+    font-weight:900;
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+}
+
+.section-header h2{
+    margin-top:10px;
+
+    font-size:42px;
+
+    font-weight:900;
+
+    letter-spacing:-2px;
+}
+
+.section-header p{
+    margin-top:12px;
+
+    color:#777;
+
+    font-size:13px;
+
+    line-height:1.7;
+}
+
+
+/* =========================
+   CATEGORY CARDS
+========================= */
+
+.cards{
+    max-width:1150px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:18px;
+}
+
+.card{
+    position:relative;
+
+    padding:30px;
+
+    min-height:230px;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            145deg,
             rgba(255,255,255,.045),
-            transparent 30%
-        ),
-        #030303 !important;
-
-    color: #fff;
-}
-
-
-/* ANIMATED LIGHT LAYER */
-
-body::before {
-    content: "";
-    position: fixed;
-    inset: -25%;
-
-    pointer-events: none;
-    z-index: -5;
-
-    background:
-        radial-gradient(
-            circle at 25% 25%,
-            rgba(255,255,255,.08),
-            transparent 18%
-        ),
-        radial-gradient(
-            circle at 75% 65%,
-            rgba(255,255,255,.055),
-            transparent 20%
+            rgba(255,255,255,.012)
         );
 
-    filter: blur(55px);
+    border:1px solid rgba(255,255,255,.08);
 
-    animation:
-        wvAtmosphere 18s ease-in-out infinite alternate;
+    border-radius:15px;
+
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+
+    border-color:rgba(255,255,255,.25);
+
+    box-shadow:0 20px 60px rgba(255,255,255,.05);
+}
+
+.icon{
+    width:48px;
+    height:48px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin-bottom:22px;
+
+    border-radius:11px;
+
+    background:rgba(255,255,255,.06);
+
+    border:1px solid rgba(255,255,255,.09);
+
+    color:#fff;
+
+    font-size:18px;
+}
+
+.card h3{
+    font-size:17px;
+    font-weight:800;
+
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#777;
+
+    font-size:13px;
+
+    line-height:1.7;
+}
+
+.card-link{
+    display:inline-block;
+
+    margin-top:20px;
+
+    color:#bbb;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:.7px;
 }
 
 
-@keyframes wvAtmosphere {
+/* =========================
+   STAFF
+========================= */
 
-    0% {
-        transform:
-            translate3d(-2%, -1%, 0)
-            scale(1);
-    }
+.staff-grid{
+    max-width:1150px;
 
-    50% {
-        transform:
-            translate3d(3%, 2%, 0)
-            scale(1.08);
-    }
+    margin:auto;
 
-    100% {
-        transform:
-            translate3d(-1%, 4%, 0)
-            scale(1.03);
-    }
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
 }
 
+.staff-card{
+    position:relative;
 
-/* NAVBAR */
+    padding:32px 25px;
 
-nav {
-    background:
-        rgba(3,3,3,.72) !important;
+    text-align:center;
 
-    backdrop-filter:
-        blur(22px)
-        saturate(140%) !important;
+    border-radius:16px;
 
-    -webkit-backdrop-filter:
-        blur(22px)
-        saturate(140%) !important;
-
-    border-bottom:
-        1px solid rgba(255,255,255,.08) !important;
-
-    box-shadow:
-        0 10px 45px rgba(0,0,0,.35);
-}
-
-
-/* LOGO */
-
-.logo-image {
-    box-shadow:
-        0 0 0 1px rgba(255,255,255,.08),
-        0 0 30px rgba(255,255,255,.13) !important;
-
-    transition:
-        transform .35s ease,
-        box-shadow .35s ease;
-}
-
-.logo:hover .logo-image {
-    transform:
-        rotate(-4deg)
-        scale(1.08);
-
-    box-shadow:
-        0 0 0 1px rgba(255,255,255,.20),
-        0 0 45px rgba(255,255,255,.22) !important;
-}
-
-
-/* HERO */
-
-.hero {
-    position: relative;
-}
-
-.hero::before {
-    content: "";
-
-    position: absolute;
-
-    width: 650px;
-    height: 650px;
-
-    left: 50%;
-    top: 38%;
-
-    transform:
-        translate(-50%,-50%);
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,255,255,.08),
-            transparent 65%
-        );
-
-    filter: blur(35px);
-
-    pointer-events: none;
-}
-
-
-.hero h1 {
-    text-shadow:
-        0 0 50px rgba(255,255,255,.07);
-}
-
-
-.hero h1 .gradient {
-    background:
-        linear-gradient(
-            110deg,
-            #ffffff 0%,
-            #a5a5a5 28%,
-            #ffffff 50%,
-            #666666 72%,
-            #ffffff 100%
-        );
-
-    background-size: 250% auto;
-
-    animation:
-        wvText 7s linear infinite;
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    color: transparent;
-}
-
-
-@keyframes wvText {
-
-    to {
-        background-position:
-            250% center;
-    }
-}
-
-
-/* BUTTONS */
-
-.btn {
-    position: relative;
-    overflow: hidden;
-
-    border:
-        1px solid rgba(255,255,255,.12);
-
-    transition:
-        transform .3s ease,
-        box-shadow .3s ease,
-        border-color .3s ease;
-}
-
-
-.btn::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: -120%;
-
-    width: 80%;
-    height: 100%;
-
-    transform:
-        skewX(-20deg);
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,.35),
-            transparent
-        );
-
-    transition:
-        left .6s ease;
-}
-
-
-.btn:hover::before {
-    left: 140%;
-}
-
-
-.btn-primary:hover {
-    box-shadow:
-        0 15px 55px rgba(255,255,255,.18);
-}
-
-
-/* STATS */
-
-.stats {
     background:
         linear-gradient(
             145deg,
-            rgba(255,255,255,.065),
-            rgba(255,255,255,.018)
-        ) !important;
-
-    backdrop-filter:
-        blur(20px);
-
-    box-shadow:
-        0 25px 80px rgba(0,0,0,.30);
-}
-
-
-/* ALL CARDS */
-
-.card,
-.staff-card,
-.leakers-team,
-.discord-wrap {
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.065),
-            rgba(255,255,255,.018)
-        ) !important;
-
-    backdrop-filter:
-        blur(18px)
-        saturate(130%);
-
-    -webkit-backdrop-filter:
-        blur(18px)
-        saturate(130%);
-
-    border:
-        1px solid rgba(255,255,255,.09) !important;
-
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.045),
-        0 20px 70px rgba(0,0,0,.20);
-
-    transition:
-        transform .35s ease,
-        border-color .35s ease,
-        box-shadow .35s ease !important;
-}
-
-
-.card:hover,
-.staff-card:hover,
-.leakers-team:hover {
-    border-color:
-        rgba(255,255,255,.25) !important;
-
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.08),
-        0 25px 80px rgba(0,0,0,.45),
-        0 0 45px rgba(255,255,255,.035);
-}
-
-
-/* CARD ICONS */
-
-.icon,
-.staff-icon {
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.11),
-            rgba(255,255,255,.025)
-        ) !important;
-
-    border:
-        1px solid rgba(255,255,255,.13) !important;
-
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.08),
-        0 10px 35px rgba(0,0,0,.25);
-}
-
-
-/* CATEGORY LINKS */
-
-.card-link {
-    position: relative;
-
-    transition:
-        color .25s ease,
-        letter-spacing .25s ease;
-}
-
-
-.card:hover .card-link {
-    letter-spacing: 1.3px;
-}
-
-
-/* STAFF NAMES */
-
-.staff-name,
-.leaker {
-    background:
-        rgba(255,255,255,.045) !important;
-
-    border:
-        1px solid rgba(255,255,255,.09) !important;
-
-    transition:
-        transform .25s ease,
-        background .25s ease,
-        border-color .25s ease,
-        color .25s ease;
-}
-
-
-.staff-name:hover,
-.leaker:hover {
-    background:
-        rgba(255,255,255,.11) !important;
-
-    border-color:
-        rgba(255,255,255,.22) !important;
-
-    color:
-        #fff !important;
-
-    transform:
-        translateY(-3px);
-}
-
-
-/* LEAKERS AREA */
-
-.leakers-team {
-    position: relative;
-}
-
-
-.leakers-team::after {
-    content: "";
-
-    position: absolute;
-
-    width: 300px;
-    height: 120px;
-
-    bottom: -100px;
-    left: 50%;
-
-    transform:
-        translateX(-50%);
-
-    background:
-        rgba(255,255,255,.07);
-
-    filter:
-        blur(80px);
-
-    pointer-events: none;
-}
-
-
-/* DISCORD AREA */
-
-.discord-wrap {
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.08),
-        0 30px 100px rgba(0,0,0,.40);
-}
-
-
-.server-picture {
-    box-shadow:
-        0 0 0 1px rgba(255,255,255,.12),
-        0 20px 60px rgba(255,255,255,.10) !important;
-
-    transition:
-        transform .4s ease,
-        box-shadow .4s ease;
-}
-
-
-.server-picture:hover {
-    transform:
-        scale(1.07)
-        rotate(2deg);
-
-    box-shadow:
-        0 0 0 1px rgba(255,255,255,.22),
-        0 25px 75px rgba(255,255,255,.17) !important;
-}
-
-
-/* SECTION HEADINGS */
-
-.section-header h2 {
-    text-shadow:
-        0 0 35px rgba(255,255,255,.055);
-}
-
-
-/* FOOTER */
-
-footer {
-    background:
-        rgba(0,0,0,.25);
-
-    backdrop-filter:
-        blur(15px);
-}
-
-
-/* CUSTOM SCROLLBAR */
-
-::-webkit-scrollbar {
-    width: 7px;
-}
-
-::-webkit-scrollbar-track {
-    background: #030303;
-}
-
-::-webkit-scrollbar-thumb {
-    background:
-        linear-gradient(
-            #777,
-            #222
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.012)
         );
 
-    border-radius: 20px;
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.35s;
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: #aaa;
+.staff-card:hover{
+    transform:translateY(-9px);
+
+    border-color:rgba(255,255,255,.25);
+
+    box-shadow:0 20px 60px rgba(255,255,255,.05);
+}
+
+.staff-role{
+    display:inline-block;
+
+    padding:7px 12px;
+
+    margin-bottom:22px;
+
+    border-radius:100px;
+
+    font-size:9px;
+
+    font-weight:900;
+
+    letter-spacing:1.4px;
+
+    text-transform:uppercase;
+
+    color:#ddd;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.09);
+}
+
+.staff-icon{
+    width:62px;
+    height:62px;
+
+    margin:0 auto 18px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    font-size:20px;
+
+    background:rgba(255,255,255,.035);
+
+    border:1px solid rgba(255,255,255,.10);
+
+    color:#fff;
+}
+
+.staff-card h3{
+    font-size:18px;
+
+    font-weight:900;
+
+    margin-bottom:16px;
+}
+
+.staff-names{
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:8px;
+}
+
+.staff-name{
+    padding:8px 12px;
+
+    border-radius:7px;
+
+    background:rgba(255,255,255,.045);
+
+    border:1px solid rgba(255,255,255,.07);
+
+    color:#aaa;
+
+    font-size:11px;
+
+    font-weight:700;
 }
 
 
-/* TEXT SELECTION */
+/* =========================
+   LEAKERS TEAM
+========================= */
 
-::selection {
-    background: #fff;
-    color: #000;
+.leakers-team{
+    max-width:1150px;
+
+    margin:35px auto 0;
+
+    padding:38px 30px;
+
+    text-align:center;
+
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.012)
+        );
+
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.leakers-title{
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    padding:8px 15px;
+
+    border-radius:100px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.09);
+
+    color:#ddd;
+
+    font-size:10px;
+
+    font-weight:900;
+
+    letter-spacing:1.5px;
+
+    text-transform:uppercase;
+
+    margin-bottom:25px;
+}
+
+.leakers-title::before{
+    content:"";
+
+    width:7px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    box-shadow:0 0 12px rgba(255,255,255,.8);
+}
+
+.leakers-names{
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:10px;
+}
+
+.leaker{
+    padding:11px 17px;
+
+    border-radius:9px;
+
+    color:#bbb;
+
+    background:rgba(255,255,255,.035);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    font-size:12px;
+
+    font-weight:700;
+
+    transition:.25s;
+}
+
+.leaker:hover{
+    color:#050505;
+
+    background:#fff;
+
+    transform:translateY(-3px);
 }
 
 
-/* MOBILE */
+/* =========================
+   ABOUT
+========================= */
 
-@media (max-width: 650px) {
+#about{
+    padding-top:90px;
+}
 
-    .hero::before {
-        width: 380px;
-        height: 380px;
+
+/* =========================
+   DISCORD
+========================= */
+
+.discord-wrap{
+    max-width:1150px;
+
+    margin:auto;
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:75px 40px;
+
+    text-align:center;
+
+    border:1px solid rgba(255,255,255,.12);
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.07),
+            rgba(255,255,255,.02)
+        );
+}
+
+.discord-content{
+    position:relative;
+
+    z-index:2;
+}
+
+.server-picture{
+    width:70px;
+    height:70px;
+
+    margin:0 auto 22px;
+
+    display:block;
+
+    object-fit:cover;
+
+    border-radius:18px;
+
+    border:1px solid rgba(255,255,255,.14);
+
+    box-shadow:0 15px 45px rgba(255,255,255,.10);
+}
+
+.discord-wrap h2{
+    font-size:40px;
+
+    font-weight:900;
+
+    letter-spacing:-2px;
+}
+
+.discord-wrap p{
+    max-width:600px;
+
+    margin:15px auto 30px;
+
+    color:#888;
+
+    font-size:13px;
+
+    line-height:1.8;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    padding:35px 7%;
+
+    border-top:1px solid rgba(255,255,255,.07);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    color:#555;
+
+    font-size:11px;
+}
+
+footer strong{
+    color:#999;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:900px){
+
+    .cards{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    body::before {
-        opacity: .7;
+    .staff-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:650px){
+
+    nav{
+        padding:0 5%;
     }
 
+    .nav-links{
+        gap:15px;
+    }
+
+    .nav-links a:not(.nav-discord){
+        display:none;
+    }
+
+    .hero{
+        padding-top:130px;
+    }
+
+    .hero h1{
+        font-size:48px;
+        letter-spacing:-3px;
+    }
+
+    .hero-description{
+        font-size:13px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .btn{
+        width:100%;
+        max-width:300px;
+    }
+
+    .stats{
+        margin:-20px 20px 0;
+
+        grid-template-columns:1fr;
+    }
+
+    .stat{
+        border-right:none;
+
+        border-bottom:1px solid rgba(255,255,255,.07);
+    }
+
+    .stat:last-child{
+        border-bottom:none;
+    }
+
+    section{
+        padding:80px 5%;
+    }
+
+    .cards,
+    .staff-grid{
+        grid-template-columns:1fr;
+    }
+
+    .section-header h2{
+        font-size:32px;
+    }
+
+    .discord-wrap{
+        padding:55px 20px;
+    }
+
+    .discord-wrap h2{
+        font-size:30px;
+    }
+
+    footer{
+        flex-direction:column;
+        gap:10px;
+        text-align:center;
+    }
 }
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- BACKGROUND -->
+
+<div class="background">
+    <div class="grid"></div>
+</div>
+
+
+<!-- NAVBAR -->
+
+<nav>
+
+<a href="#home" class="logo">
+
+    <img
+        src="server.png"
+        alt="Wraith Vault Leaks"
+        class="logo-image"
+    >
+
+    WRAITH
+
+    <span>
+        VAULT LEAKS
+    </span>
+
+</a>
+
+
+<div class="nav-links">
+
+    <a href="#home">Home</a>
+
+    <a href="#leaks">Packs</a>
+
+    <a href="#staff">Staff</a>
+
+    <a href="#about">About</a>
+
+    <a
+        href="https://discord.gg/Hhk3h9PH2"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="nav-discord"
+    >
+        Discord
+    </a>
+
+</div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<main id="home">
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="eyebrow">
+
+<span class="dot"></span>
+
+THE ULTIMATE FIVEM RESOURCE HUB
+
+</div>
+
+
+<h1>
+
+<span class="white">
+WRAITH
+</span>
+
+<br>
+
+<span class="gradient">
+VAULT LEAKS
+</span>
+
+</h1>
+
+
+<p class="hero-description">
+
+Discover premium graphics, sound packs,
+gun skins, perks, PC optimization tools,
+mods and more. Everything you need in
+one place.
+
+</p>
+
+
+<div class="hero-buttons">
+
+<a
+    href="https://discord.gg/Hhk3h9PH2"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="btn btn-primary"
+>
+    JOIN OUR DISCORD
+</a>
+
+<a
+    href="#leaks"
+    class="btn btn-secondary"
+>
+    EXPLORE PACKS
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- STATS -->
+
+<div class="stats">
+
+<div class="stat">
+<strong>100+</strong>
+<span>Resources</span>
+</div>
+
+<div class="stat">
+<strong>24/7</strong>
+<span>Community</span>
+</div>
+
+<div class="stat">
+<strong>FREE</strong>
+<span>Access</span>
+</div>
+
+</div>
+
+
+<!-- CATEGORIES -->
+
+<section id="leaks">
+
+<div class="section-header center">
+
+<div class="section-label">
+Categories
+</div>
+
+<h2>
+Explore The Vault
+</h2>
+
+<p>
+Browse our collection of resources
+and find what you need.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<div class="icon">◈</div>
+
+<h3>
+Graphic Packs
+</h3>
+
+<p>
+Visual enhancement packs,
+graphics presets and FiveM
+visual resources.
+</p>
+
+<a href="#" class="card-link">
+VIEW GRAPHICS →
+</a>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">♪</div>
+
+<h3>
+Sound Packs
+</h3>
+
+<p>
+Custom audio, weapon sounds,
+vehicle sounds and immersive
+sound packs.
+</p>
+
+<a href="#" class="card-link">
+VIEW SOUNDS →
+</a>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">✦</div>
+
+<h3>
+Gun Skins
+</h3>
+
+<p>
+Custom weapon skins and
+visual customization packs.
+</p>
+
+<a href="#" class="card-link">
+VIEW GUN SKINS →
+</a>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">◆</div>
+
+<h3>
+Perks
+</h3>
+
+<p>
+Special perks, benefits and
+community resources available
+through the vault.
+</p>
+
+<a href="#" class="card-link">
+VIEW PERKS →
+</a>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">⚙</div>
+
+<h3>
+PC Optimization
+</h3>
+
+<p>
+Performance tweaks, optimization
+resources and settings designed
+to improve your PC experience.
+</p>
+
+<a href="#" class="card-link">
+OPTIMIZE PC →
+</a>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">+</div>
+
+<h3>
+Mods
+</h3>
+
+<p>
+Custom modifications, addons
+and other useful resources.
+</p>
+
+<a href="#" class="card-link">
+VIEW MODS →
+</a>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- STAFF -->
+
+<section id="staff">
+
+<div class="section-header center">
+
+<div class="section-label">
+The Team
+</div>
+
+<h2>
+Staff Team
+</h2>
+
+<p>
+Meet the people behind Wraith Vault Leaks.
+</p>
+
+</div>
+
+
+<div class="staff-grid">
+
+
+<!-- FOUNDERS -->
+
+<div class="staff-card">
+
+<div class="staff-role">
+Founders
+</div>
+
+<div class="staff-icon">
+★
+</div>
+
+<h3>
+Founders
+</h3>
+
+<div class="staff-names">
+
+<div class="staff-name">
+Vortex
+</div>
+
+<div class="staff-name">
+Speed
+</div>
+
+</div>
+
+</div>
+
+
+<!-- LEAKER MANAGEMENT -->
+
+<div class="staff-card">
+
+<div class="staff-role">
+Leaker Management
+</div>
+
+<div class="staff-icon">
+⚡
+</div>
+
+<h3>
+Leaker Management
+</h3>
+
+<div class="staff-names">
+
+<div class="staff-name">
+Kekrops
+</div>
+
+<div class="staff-name">
+Cyber
+</div>
+
+<div class="staff-name">
+Agent
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<!-- LEAKERS -->
+
+<div class="leakers-team">
+
+<div class="leakers-title">
+Leakers Team
+</div>
+
+
+<div class="leakers-names">
+
+<div class="leaker">Ice</div>
+
+<div class="leaker">Diddy</div>
+
+<div class="leaker">Flxn</div>
+
+<div class="leaker">Shayan</div>
+
+<div class="leaker">Syed Ali</div>
+
+<div class="leaker">Venom</div>
+
+<div class="leaker">Usman</div>
+
+<div class="leaker">Ali</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="section-header center">
+
+<div class="section-label">
+Community
+</div>
+
+<h2>
+Welcome To The Vault
+</h2>
+
+<p>
+Wraith Vault Leaks is a community
+focused on FiveM graphics, sounds,
+modifications, optimization and
+other useful resources.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- DISCORD -->
+
+<section>
+
+<div class="discord-wrap">
+
+<div class="discord-content">
+
+
+<img
+    src="server.png"
+    alt="Wraith Vault Leaks"
+    class="server-picture"
+>
+
+
+<h2>
+Join The Community
+</h2>
+
+
+<p>
+Get access to updates, new resources,
+announcements and community discussions.
+Join the Wraith Vault Leaks Discord today.
+</p>
+
+
+<a
+    href="https://discord.gg/Hhk3h9PH2"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="btn btn-primary"
+>
+    JOIN OUR DISCORD
+</a>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div>
+
+© 2026
+
+<strong>
+Wraith Vault Leaks
+</strong>
+
+</div>
+
+
+<div>
+Made for the FiveM community
+</div>
+
+</footer>
+
+
+</body>
+</html>
