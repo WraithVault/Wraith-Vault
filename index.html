@@ -8,7 +8,7 @@
 <title>WRAITH VAULT // PREMIUM FIVE M NETWORK</title>
 
 <meta name="description" content="Wraith Vault — Premium FiveM PvP resource network.">
-<meta name="theme-color" content="#080808">
+<meta name="theme-color" content="#050505">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,9 +18,8 @@
 <style>
 
 :root{
-    --red:#ff2020;
-    --red2:#a80000;
-    --white:#f5f5f5;
+    --white:#ffffff;
+    --silver:#d8d8d8;
     --muted:#777;
     --dark:#050505;
     --panel:rgba(10,10,10,.72);
@@ -53,9 +52,9 @@ body::before{
     background:
         linear-gradient(
             90deg,
-            rgba(0,0,0,.94),
+            rgba(0,0,0,.96),
             rgba(0,0,0,.62),
-            rgba(0,0,0,.93)
+            rgba(0,0,0,.94)
         ),
         url("server.png") center/cover no-repeat;
 
@@ -80,13 +79,13 @@ body::after{
     background:
         radial-gradient(
             circle at 50% 20%,
-            rgba(255,20,20,.10),
+            rgba(255,255,255,.07),
             transparent 35%
         ),
         linear-gradient(
             180deg,
             transparent 20%,
-            rgba(0,0,0,.9) 100%
+            rgba(0,0,0,.94) 100%
         );
 
     mix-blend-mode:screen;
@@ -191,11 +190,11 @@ body::after{
     color:#fff;
 
     text-shadow:
-        0 0 30px rgba(255,0,0,.25);
+        0 0 30px rgba(255,255,255,.16);
 }
 
 .loader-mark span{
-    color:var(--red);
+    color:#aaa;
 }
 
 .loader-sub{
@@ -226,10 +225,10 @@ body::after{
     width:35%;
     height:100%;
 
-    background:var(--red);
+    background:#fff;
 
     box-shadow:
-        0 0 15px var(--red);
+        0 0 15px rgba(255,255,255,.7);
 
     animation:
         loaderMove 1s infinite;
@@ -263,14 +262,14 @@ body::after{
     background:
         linear-gradient(
             180deg,
-            rgba(0,0,0,.88),
-            rgba(0,0,0,.35)
+            rgba(0,0,0,.92),
+            rgba(0,0,0,.38)
         );
 
     border-bottom:
-        1px solid rgba(255,255,255,.06);
+        1px solid rgba(255,255,255,.07);
 
-    backdrop-filter:blur(18px);
+    backdrop-filter:blur(20px);
 }
 
 .logo{
@@ -283,7 +282,7 @@ body::after{
 }
 
 .logo span{
-    color:var(--red);
+    color:#aaa;
 }
 
 .nav{
@@ -318,14 +317,14 @@ body::after{
     background:
         linear-gradient(
             135deg,
-            #ff3030,
-            #9b0000
+            #fff,
+            #8d8d8d
         );
 
-    color:#fff !important;
+    color:#050505 !important;
 
     box-shadow:
-        0 0 20px rgba(255,0,0,.16);
+        0 0 25px rgba(255,255,255,.10);
 }
 
 /* =========================================================
@@ -356,10 +355,10 @@ body::after{
 
     color:#777;
 
-    background:rgba(0,0,0,.55);
+    background:rgba(0,0,0,.62);
 
     border:
-        1px solid rgba(255,255,255,.08);
+        1px solid rgba(255,255,255,.09);
 
     border-radius:6px;
 
@@ -375,10 +374,10 @@ body::after{
     color:#fff;
 
     border-color:
-        rgba(255,0,0,.4);
+        rgba(255,255,255,.35);
 
     box-shadow:
-        0 0 20px rgba(255,0,0,.12);
+        0 0 20px rgba(255,255,255,.08);
 }
 
 /* =========================================================
@@ -434,11 +433,11 @@ body::after{
 
     border-radius:50%;
 
-    background:#35ff6a;
+    background:#fff;
 
     box-shadow:
-        0 0 0 5px rgba(53,255,106,.06),
-        0 0 18px rgba(53,255,106,.7);
+        0 0 0 5px rgba(255,255,255,.04),
+        0 0 18px rgba(255,255,255,.55);
 
     animation:pulse 1.5s infinite;
 }
@@ -446,8 +445,8 @@ body::after{
 @keyframes pulse{
     50%{
         box-shadow:
-            0 0 0 9px rgba(53,255,106,0),
-            0 0 22px rgba(53,255,106,.8);
+            0 0 0 9px rgba(255,255,255,0),
+            0 0 22px rgba(255,255,255,.7);
     }
 }
 
@@ -467,14 +466,14 @@ body::after{
 }
 
 .hero h1 .red{
-    color:var(--red);
+    color:#fff;
 
     text-shadow:
-        0 0 30px rgba(255,0,0,.18);
+        0 0 35px rgba(255,255,255,.10);
 }
 
 .hero h1 .ghost{
-    color:#eee;
+    color:#8b8b8b;
 }
 
 .hero-desc{
@@ -520,24 +519,31 @@ body::after{
 }
 
 .btn-red{
-    color:#fff;
+    color:#050505;
 
     background:
         linear-gradient(
             135deg,
-            #ff2525,
-            #8e0000
+            #fff,
+            #9c9c9c
         );
 
     box-shadow:
-        0 10px 35px rgba(255,0,0,.15);
+        0 10px 35px rgba(255,255,255,.09);
 }
 
 .btn-red:hover{
     transform:translateY(-3px);
 
+    background:
+        linear-gradient(
+            135deg,
+            #fff,
+            #d0d0d0
+        );
+
     box-shadow:
-        0 15px 50px rgba(255,0,0,.25);
+        0 15px 50px rgba(255,255,255,.16);
 }
 
 .btn-outline{
@@ -553,9 +559,12 @@ body::after{
     color:#fff;
 
     border-color:
-        rgba(255,255,255,.25);
+        rgba(255,255,255,.32);
 
     transform:translateY(-3px);
+
+    box-shadow:
+        0 10px 35px rgba(255,255,255,.05);
 }
 
 /* =========================================================
@@ -572,17 +581,18 @@ body::after{
     background:
         linear-gradient(
             145deg,
-            rgba(20,20,20,.85),
-            rgba(0,0,0,.55)
+            rgba(25,25,25,.86),
+            rgba(0,0,0,.62)
         );
 
     border:
-        1px solid rgba(255,255,255,.10);
+        1px solid rgba(255,255,255,.11);
 
-    backdrop-filter:blur(20px);
+    backdrop-filter:blur(22px);
 
     box-shadow:
-        0 30px 100px rgba(0,0,0,.6);
+        0 30px 100px rgba(0,0,0,.6),
+        inset 0 1px 0 rgba(255,255,255,.05);
 }
 
 .terminal-head{
@@ -611,10 +621,10 @@ body::after{
 
     border-radius:50%;
 
-    background:#35ff6a;
+    background:#fff;
 
     box-shadow:
-        0 0 10px #35ff6a;
+        0 0 10px rgba(255,255,255,.7);
 }
 
 .terminal-body{
@@ -646,11 +656,11 @@ body::after{
 }
 
 .term-green{
-    color:#35ff6a !important;
+    color:#fff !important;
 }
 
 .term-red{
-    color:var(--red) !important;
+    color:#fff !important;
 }
 
 /* =========================================================
@@ -675,7 +685,7 @@ body::after{
     border-radius:8px;
 
     background:
-        rgba(4,4,4,.85);
+        rgba(4,4,4,.88);
 
     border:
         1px solid rgba(255,255,255,.10);
@@ -683,7 +693,8 @@ body::after{
     backdrop-filter:blur(20px);
 
     box-shadow:
-        0 25px 80px rgba(0,0,0,.5);
+        0 25px 80px rgba(0,0,0,.5),
+        inset 0 1px 0 rgba(255,255,255,.04);
 }
 
 .status{
@@ -708,10 +719,10 @@ body::after{
 }
 
 .status-number.red{
-    color:var(--red);
+    color:#eee;
 
     text-shadow:
-        0 0 18px rgba(255,0,0,.2);
+        0 0 18px rgba(255,255,255,.12);
 }
 
 .status-label{
@@ -745,7 +756,7 @@ section{
 }
 
 .section-kicker{
-    color:var(--red);
+    color:#aaa;
 
     font-size:7px;
     font-weight:900;
@@ -800,9 +811,12 @@ section{
         1px solid rgba(255,255,255,.10);
 
     background:
-        rgba(5,5,5,.75);
+        rgba(5,5,5,.78);
 
     backdrop-filter:blur(20px);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.04);
 }
 
 .drop-info{
@@ -810,7 +824,7 @@ section{
 }
 
 .drop-tag{
-    color:var(--red);
+    color:#aaa;
 
     font-size:7px;
     font-weight:900;
@@ -829,7 +843,7 @@ section{
 }
 
 .drop-info h3 span{
-    color:var(--red);
+    color:#aaa;
 }
 
 .drop-info p{
@@ -852,9 +866,9 @@ section{
     background:
         linear-gradient(
             90deg,
-            rgba(0,0,0,.7),
+            rgba(0,0,0,.78),
             transparent,
-            rgba(0,0,0,.2)
+            rgba(0,0,0,.3)
         ),
         url("server.png") center/cover;
 }
@@ -869,7 +883,7 @@ section{
         repeating-linear-gradient(
             90deg,
             transparent 0 80px,
-            rgba(255,0,0,.05) 81px 82px
+            rgba(255,255,255,.035) 81px 82px
         );
 }
 
@@ -945,8 +959,8 @@ section{
     background:
         linear-gradient(
             180deg,
-            rgba(255,255,255,.02),
-            rgba(0,0,0,.72)
+            rgba(255,255,255,.025),
+            rgba(0,0,0,.75)
         );
 
     cursor:pointer;
@@ -963,7 +977,7 @@ section{
     background:
         radial-gradient(
             circle at 50% 20%,
-            rgba(255,0,0,.20),
+            rgba(255,255,255,.12),
             transparent 55%
         );
 
@@ -977,10 +991,11 @@ section{
         translateY(-7px);
 
     border-color:
-        rgba(255,0,0,.4);
+        rgba(255,255,255,.32);
 
     box-shadow:
-        0 20px 50px rgba(255,0,0,.08);
+        0 20px 50px rgba(0,0,0,.35),
+        0 0 35px rgba(255,255,255,.04);
 }
 
 .category:hover::before{
@@ -993,7 +1008,7 @@ section{
     top:15px;
     left:17px;
 
-    color:var(--red);
+    color:#aaa;
 
     font-family:Orbitron,sans-serif;
 
@@ -1082,11 +1097,19 @@ section{
         1px solid rgba(255,255,255,.08);
 
     background:
-        rgba(0,0,0,.55);
+        rgba(0,0,0,.6);
 
     color:#ddd;
 
     font-size:9px;
+}
+
+.search:focus{
+    border-color:
+        rgba(255,255,255,.28);
+
+    box-shadow:
+        0 0 25px rgba(255,255,255,.04);
 }
 
 .search::placeholder{
@@ -1104,7 +1127,7 @@ section{
         1px solid rgba(255,255,255,.08);
 
     background:
-        rgba(0,0,0,.55);
+        rgba(0,0,0,.6);
 
     color:#777;
 
@@ -1119,7 +1142,10 @@ section{
     color:#fff;
 
     border-color:
-        rgba(255,0,0,.35);
+        rgba(255,255,255,.32);
+
+    background:
+        rgba(255,255,255,.05);
 }
 
 .resource-grid{
@@ -1142,16 +1168,22 @@ section{
         1px solid rgba(255,255,255,.08);
 
     background:
-        rgba(5,5,5,.8);
+        rgba(5,5,5,.82);
 
     transition:.3s;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.025);
 }
 
 .resource:hover{
     transform:translateY(-5px);
 
     border-color:
-        rgba(255,0,0,.3);
+        rgba(255,255,255,.28);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.35);
 }
 
 .resource-image{
@@ -1165,7 +1197,7 @@ section{
         linear-gradient(
             180deg,
             transparent,
-            rgba(0,0,0,.85)
+            rgba(0,0,0,.9)
         ),
         url("server.png") center/cover;
 }
@@ -1179,7 +1211,7 @@ section{
     background:
         linear-gradient(
             130deg,
-            rgba(255,0,0,.22),
+            rgba(255,255,255,.12),
             transparent 45%
         );
 
@@ -1191,7 +1223,7 @@ section{
 }
 
 .resource-category{
-    color:var(--red);
+    color:#aaa;
 
     font-size:6px;
     font-weight:900;
@@ -1236,7 +1268,7 @@ section{
 }
 
 .free{
-    color:#35ff6a;
+    color:#ddd;
 
     font-size:7px;
     font-weight:900;
@@ -1252,10 +1284,10 @@ section{
     border-radius:4px;
 
     border:
-        1px solid rgba(255,0,0,.25);
+        1px solid rgba(255,255,255,.16);
 
     background:
-        rgba(255,0,0,.06);
+        rgba(255,255,255,.035);
 
     color:#aaa;
 
@@ -1263,13 +1295,18 @@ section{
     font-weight:900;
 
     cursor:pointer;
+
+    transition:.25s;
 }
 
 .resource-btn:hover{
     color:#fff;
 
     background:
-        rgba(255,0,0,.12);
+        rgba(255,255,255,.08);
+
+    border-color:
+        rgba(255,255,255,.3);
 }
 
 /* =========================================================
@@ -1303,28 +1340,32 @@ section{
         url("server.png") center/cover;
 
     transition:.35s;
+
+    filter:grayscale(100%);
 }
 
 .showcase-item:nth-child(2){
-    filter:hue-rotate(15deg);
+    filter:grayscale(100%) brightness(.9);
 }
 
 .showcase-item:nth-child(3){
-    filter:brightness(.75);
+    filter:grayscale(100%) brightness(.75);
 }
 
 .showcase-item:nth-child(4){
-    filter:hue-rotate(-20deg);
+    filter:grayscale(100%) contrast(1.1);
 }
 
 .showcase-item:nth-child(5){
-    filter:contrast(1.1);
+    filter:grayscale(100%) contrast(1.15);
 }
 
 .showcase-item:hover{
     transform:scale(1.03);
 
     z-index:2;
+
+    filter:grayscale(100%) brightness(1.08);
 }
 
 /* =========================================================
@@ -1356,7 +1397,7 @@ section{
     color:#666;
 
     background:
-        rgba(0,0,0,.58);
+        rgba(0,0,0,.62);
 
     border:
         1px solid rgba(255,255,255,.07);
@@ -1391,14 +1432,17 @@ section{
     color:#fff;
 
     border-color:
-        rgba(255,0,0,.4);
+        rgba(255,255,255,.3);
 
     background:
         linear-gradient(
             90deg,
-            rgba(255,0,0,.08),
-            rgba(0,0,0,.6)
+            rgba(255,255,255,.07),
+            rgba(0,0,0,.65)
         );
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.25);
 }
 
 .staff-cards{
@@ -1423,7 +1467,7 @@ section{
         1px solid rgba(255,255,255,.08);
 
     background:
-        rgba(0,0,0,.65);
+        rgba(0,0,0,.68);
 
     cursor:pointer;
 
@@ -1434,7 +1478,10 @@ section{
     transform:translateY(-6px);
 
     border-color:
-        rgba(255,0,0,.4);
+        rgba(255,255,255,.32);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.4);
 }
 
 .staff-banner{
@@ -1449,6 +1496,8 @@ section{
         url("server.png") center/cover;
 
     position:relative;
+
+    filter:grayscale(100%);
 }
 
 .staff-banner::after{
@@ -1460,7 +1509,7 @@ section{
     background:
         linear-gradient(
             135deg,
-            rgba(255,0,0,.25),
+            rgba(255,255,255,.12),
             transparent 55%
         );
 }
@@ -1488,7 +1537,7 @@ section{
 .staff-role{
     margin-top:13px;
 
-    color:var(--red);
+    color:#aaa;
 
     font-size:6px;
     font-weight:900;
@@ -1519,10 +1568,10 @@ section{
 
     border-radius:50%;
 
-    background:#35ff6a;
+    background:#fff;
 
     box-shadow:
-        0 0 10px #35ff6a;
+        0 0 10px rgba(255,255,255,.7);
 }
 
 /* =========================================================
@@ -1549,9 +1598,12 @@ section{
         1px solid rgba(255,255,255,.08);
 
     background:
-        rgba(3,3,3,.7);
+        rgba(3,3,3,.72);
 
     backdrop-filter:blur(15px);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.025);
 }
 
 .panel-title{
@@ -1583,7 +1635,7 @@ section{
 }
 
 .change-version{
-    color:var(--red);
+    color:#aaa;
 
     font-size:7px;
     font-weight:900;
@@ -1649,9 +1701,9 @@ section{
     background:#080808;
 
     border:
-        1px solid rgba(255,0,0,.5);
+        1px solid rgba(255,255,255,.45);
 
-    color:var(--red);
+    color:#ddd;
 
     font-size:6px;
 }
@@ -1696,8 +1748,8 @@ section{
 
     background:
         linear-gradient(
-            rgba(0,0,0,.76),
-            rgba(0,0,0,.92)
+            rgba(0,0,0,.82),
+            rgba(0,0,0,.94)
         ),
         url("server.png") center/cover;
 }
@@ -1719,7 +1771,7 @@ section{
     background:
         radial-gradient(
             circle,
-            rgba(255,0,0,.16),
+            rgba(255,255,255,.08),
             transparent 65%
         );
 }
@@ -1752,8 +1804,6 @@ section{
 
     line-height:1.8;
 }
-
-/* Member count removed from Discord statistics */
 
 .discord-stats{
     display:flex;
@@ -1828,7 +1878,7 @@ footer strong{
     padding:20px;
 
     background:
-        rgba(0,0,0,.86);
+        rgba(0,0,0,.90);
 
     backdrop-filter:blur(18px);
 }
@@ -1851,7 +1901,8 @@ footer strong{
         1px solid rgba(255,255,255,.12);
 
     box-shadow:
-        0 40px 120px rgba(0,0,0,.75);
+        0 40px 120px rgba(0,0,0,.75),
+        0 0 50px rgba(255,255,255,.025);
 
     animation:modalIn .3s ease;
 }
@@ -1884,6 +1935,8 @@ footer strong{
             #080808
         ),
         url("server.png") center/cover;
+
+    filter:grayscale(100%);
 }
 
 .modal-banner::after{
@@ -1896,7 +1949,7 @@ footer strong{
         repeating-linear-gradient(
             90deg,
             transparent 0 80px,
-            rgba(255,0,0,.06) 81px 82px
+            rgba(255,255,255,.04) 81px 82px
         );
 }
 
@@ -1929,7 +1982,7 @@ footer strong{
         2px solid #090909;
 
     outline:
-        1px solid rgba(255,0,0,.4);
+        1px solid rgba(255,255,255,.4);
 
     font-family:Orbitron,sans-serif;
 
@@ -2009,7 +2062,7 @@ footer strong{
     color:#777;
 
     background:
-        rgba(0,0,0,.55);
+        rgba(0,0,0,.65);
 
     cursor:pointer;
 
@@ -2055,9 +2108,12 @@ footer strong{
     font-size:
         clamp(35px,8vw,90px);
 
-    color:var(--red);
+    color:#fff;
 
     letter-spacing:-5px;
+
+    text-shadow:
+        0 0 35px rgba(255,255,255,.12);
 }
 
 .classified p{
@@ -2327,14 +2383,6 @@ footer strong{
 ===================================================== -->
 
 <div class="side-controls">
-
-    <button
-        class="side-btn"
-        id="soundButton"
-        onclick="toggleSound()"
-    >
-        ♪
-    </button>
 
     <button
         class="side-btn"
@@ -4147,382 +4195,6 @@ function openDiscord(){
     );
 
 }
-
-
-/* =========================================================
-   FAST BACKGROUND MUSIC
-   BUILT-IN ELECTRONIC BEAT
-========================================================= */
-
-let soundOn=false;
-let audioContext=null;
-let masterGain=null;
-let musicTimer=null;
-let musicStep=0;
-
-const BPM=150;
-const STEP_TIME=60/BPM/2;
-
-function createMusic(){
-
-    if(audioContext) return;
-
-    audioContext =
-        new (
-            window.AudioContext ||
-            window.webkitAudioContext
-        )();
-
-    masterGain =
-        audioContext.createGain();
-
-    masterGain.gain.value=.22;
-
-    masterGain.connect(
-        audioContext.destination
-    );
-
-    musicStep=0;
-
-    musicTimer=setInterval(
-        playBeat,
-        STEP_TIME*1000
-    );
-
-    playBeat();
-}
-
-
-function playTone(
-    frequency,
-    duration,
-    type="sawtooth",
-    volume=.08
-){
-
-    if(!audioContext || !masterGain) return;
-
-    const now=
-        audioContext.currentTime;
-
-    const oscillator=
-        audioContext.createOscillator();
-
-    const gain=
-        audioContext.createGain();
-
-    oscillator.type=type;
-
-    oscillator.frequency.setValueAtTime(
-        frequency,
-        now
-    );
-
-    gain.gain.setValueAtTime(
-        volume,
-        now
-    );
-
-    gain.gain.exponentialRampToValueAtTime(
-        .001,
-        now+duration
-    );
-
-    oscillator.connect(gain);
-
-    gain.connect(masterGain);
-
-    oscillator.start(now);
-
-    oscillator.stop(
-        now+duration
-    );
-}
-
-
-function playKick(){
-
-    if(!audioContext || !masterGain) return;
-
-    const now=
-        audioContext.currentTime;
-
-    const oscillator=
-        audioContext.createOscillator();
-
-    const gain=
-        audioContext.createGain();
-
-    oscillator.type="sine";
-
-    oscillator.frequency.setValueAtTime(
-        140,
-        now
-    );
-
-    oscillator.frequency.exponentialRampToValueAtTime(
-        45,
-        now+.12
-    );
-
-    gain.gain.setValueAtTime(
-        .28,
-        now
-    );
-
-    gain.gain.exponentialRampToValueAtTime(
-        .001,
-        now+.14
-    );
-
-    oscillator.connect(gain);
-
-    gain.connect(masterGain);
-
-    oscillator.start(now);
-
-    oscillator.stop(
-        now+.15
-    );
-}
-
-
-function playSnare(){
-
-    if(!audioContext || !masterGain) return;
-
-    const buffer=
-        audioContext.createBuffer(
-            1,
-            audioContext.sampleRate*.12,
-            audioContext.sampleRate
-        );
-
-    const data=
-        buffer.getChannelData(0);
-
-    for(
-        let i=0;
-        i<data.length;
-        i++
-    ){
-
-        data[i]=
-            Math.random()*2-1;
-
-    }
-
-    const noise=
-        audioContext.createBufferSource();
-
-    noise.buffer=buffer;
-
-    const filter=
-        audioContext.createBiquadFilter();
-
-    filter.type="highpass";
-
-    filter.frequency.value=1200;
-
-    const gain=
-        audioContext.createGain();
-
-    gain.gain.setValueAtTime(
-        .11,
-        audioContext.currentTime
-    );
-
-    gain.gain.exponentialRampToValueAtTime(
-        .001,
-        audioContext.currentTime+.12
-    );
-
-    noise
-        .connect(filter)
-        .connect(gain)
-        .connect(masterGain);
-
-    noise.start();
-
-}
-
-
-function playBeat(){
-
-    if(!soundOn) return;
-
-    const step=
-        musicStep%16;
-
-    if(
-        step===0 ||
-        step===4 ||
-        step===8 ||
-        step===12
-    ){
-
-        playKick();
-
-    }
-
-    if(
-        step===4 ||
-        step===12
-    ){
-
-        playSnare();
-
-    }
-
-    if(
-        step===2 ||
-        step===6 ||
-        step===10 ||
-        step===14
-    ){
-
-        playTone(
-            120,
-            .05,
-            "square",
-            .035
-        );
-
-    }
-
-    const bassNotes=[
-        55,
-        55,
-        65.41,
-        73.42,
-        55,
-        55,
-        82.41,
-        73.42
-    ];
-
-    if(step%2===0){
-
-        playTone(
-            bassNotes[(step/2)%bassNotes.length],
-            .18,
-            "sawtooth",
-            .075
-        );
-
-    }
-
-    const melody=[
-        220,
-        261.63,
-        293.66,
-        329.63,
-        293.66,
-        261.63,
-        220,
-        196
-    ];
-
-    if(
-        step===1 ||
-        step===3 ||
-        step===5 ||
-        step===7 ||
-        step===9 ||
-        step===11 ||
-        step===13 ||
-        step===15
-    ){
-
-        playTone(
-            melody[(step-1)/2],
-            .10,
-            "square",
-            .025
-        );
-
-    }
-
-    musicStep++;
-
-}
-
-
-async function startMusic(){
-
-    if(!audioContext){
-
-        soundOn=true;
-
-        createMusic();
-
-        const button=
-            document.getElementById(
-                "soundButton"
-            );
-
-        button.textContent="♫";
-
-        return;
-
-    }
-
-    if(
-        audioContext.state==="suspended"
-    ){
-
-        await audioContext.resume();
-
-    }
-
-    soundOn=true;
-
-    const button=
-        document.getElementById(
-            "soundButton"
-        );
-
-    button.textContent="♫";
-
-}
-
-
-function toggleSound(){
-
-    if(!audioContext){
-
-        startMusic();
-
-        return;
-
-    }
-
-    soundOn=!soundOn;
-
-    const button=
-        document.getElementById(
-            "soundButton"
-        );
-
-    button.textContent =
-        soundOn ? "♫" : "♪";
-
-}
-
-
-document.addEventListener(
-    "click",
-    ()=>{
-
-        if(!audioContext){
-
-            startMusic();
-
-        }
-
-    },
-    {once:true}
-);
 
 
 /* =========================================================
