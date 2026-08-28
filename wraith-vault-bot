@@ -1,7 +1,7 @@
 {
-  "name": "wraith-vault-discord-bot",
+  "name": "wraith-vault-bot",
   "version": "1.0.0",
-  "description": "Wraith Vault Discord status and roles API",
+  "description": "Wraith Vault Discord Staff API",
   "main": "bot.js",
   "scripts": {
     "start": "node bot.js"
@@ -34,40 +34,47 @@ const client = new Client({
     ]
 });
 
+/*
+========================================
+WRAITH VAULT STAFF
+========================================
+*/
+
 const STAFF = {
-    "Vortex": {
+
+    Vortex: {
         id: "751896024515346483"
     },
 
-    "Speed": {
+    Speed: {
         id: "1014478071505633330"
     },
 
-    "Kekrops": {
+    Kekrops: {
         id: "1306965236359757847"
     },
 
-    "Cyber": {
+    Cyber: {
         id: "1449498150535561371"
     },
 
-    "Agent": {
+    Agent: {
         id: "1025056241166323712"
     },
 
-    "Ice": {
+    Ice: {
         id: "1339464209829986314"
     },
 
-    "Diddy": {
+    Diddy: {
         id: "907282063185547314"
     },
 
-    "Flxn": {
+    Flxn: {
         id: "1035924370008330250"
     },
 
-    "Shayan": {
+    Shayan: {
         id: "1490755471332872302"
     },
 
@@ -75,114 +82,281 @@ const STAFF = {
         id: "1478922243634630806"
     },
 
-    "Venom": {
+    Venom: {
         id: "1139831269304316006"
     },
 
-    "Usman": {
+    Usman: {
         id: "1413861685374095404"
     },
 
-    "Ali": {
+    Ali: {
         id: "802887207072432159"
     }
+
 };
 
+
+/*
+========================================
+HOME / TEST ROUTE
+========================================
+*/
+
 app.get("/", (req, res) => {
+
     res.json({
-        status: "online",
-        service: "Wraith Vault Discord API"
+        online: true,
+        service: "Wraith Vault Discord API",
+        version: "1.0"
     });
+
 });
+
+
+/*
+========================================
+STAFF API
+========================================
+*/
 
 app.get("/staff", async (req, res) => {
 
-    const guild = client.guilds.cache.first();
+    try {
 
-    if (!guild) {
-        return res.status(503).json({
-            error: "Discord server not available"
-        });
-    }
+        const guild = client.guilds.cache.first();
 
-    const result = {};
+        if (!guild) {
 
-    for (const [name, data] of Object.entries(STAFF)) {
+            return res.status(503).json({
+                error: "Discord server not found"
+            });
 
-        try {
+        }
 
-            const member = await guild.members.fetch(data.id);
+        const staffData = {};
 
-            const presence = member.presence;
+        for (const [name, data] of Object.entries(STAFF)) {
 
-            let status = "offline";
+            try {
 
-            if (presence) {
-                status = presence.status;
+                const member =
+                    await guild.members.fetch(data.id);
+
+                const presence =
+                    member.presence;
+
+                /*
+                ================================
+                STATUS
+                ================================
+                */
+
+                let status = "offline";
+
+                if (presence) {
+                    status = presence.status;
+                }
+
+
+                /*
+                ================================
+                DISCORD ACTIVITIES
+                ================================
+                */
+
+                const activities =
+                    presence?.activities?.map(activity => {
+
+                        return {
+
+                            name:
+                                activity.name || null,
+
+                            type:
+                                activity.type ?? null,
+
+                            details:
+                                activity.details || null,
+
+                            state:
+                                activity.state || null
+
+                        };
+
+                    }) || [];
+
+
+                /*
+                ================================
+                DISCORD ROLES
+                ================================
+                */
+
+                const roles =
+                    member.roles.cache
+
+                        .filter(role => role.id !== guild.id)
+
+                        .map(role => role.name);
+
+
+                /*
+                ================================
+                STAFF DATA
+                ================================
+                */
+
+                staffData[name] = {
+
+                    id:
+                        member.user.id,
+
+                    username:
+                        member.user.username,
+
+                    displayName:
+                        member.displayName,
+
+                    avatar:
+                        member.user.displayAvatarURL({
+                            size: 256,
+                            extension: "png"
+                        }),
+
+                    status:
+                        status,
+
+                    activities:
+                        activities,
+
+                    roles:
+                        roles
+
+                };
+
+
+            } catch (error) {
+
+                console.error(
+                    `Could not load ${name}:`,
+                    error.message
+                );
+
+
+                staffData[name] = {
+
+                    id:
+                        data.id,
+
+                    username:
+                        null,
+
+                    displayName:
+                        name,
+
+                    avatar:
+                        null,
+
+                    status:
+                        "offline",
+
+                    activities:
+                        [],
+
+                    roles:
+                        []
+
+                };
+
             }
 
-            const activities =
-                presence?.activities?.map(activity => ({
-                    name: activity.name,
-                    type: activity.type,
-                    details: activity.details || null,
-                    state: activity.state || null
-                })) || [];
-
-            result[name] = {
-
-                username: member.user.username,
-
-                displayName: member.displayName,
-
-                avatar: member.user.displayAvatarURL({
-                    size: 256,
-                    extension: "png"
-                }),
-
-                status: status,
-
-                activities: activities,
-
-                roles: member.roles.cache
-                    .filter(role => role.id !== guild.id)
-                    .map(role => role.name)
-            };
-
-        } catch (error) {
-
-            console.error(
-                `Error loading ${name}:`,
-                error.message
-            );
-
-            result[name] = {
-                username: null,
-                displayName: name,
-                avatar: null,
-                status: "offline",
-                activities: [],
-                roles: []
-            };
         }
+
+
+        res.json(staffData);
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        res.status(500).json({
+
+            error:
+                "Internal server error"
+
+        });
+
     }
 
-    res.json(result);
 });
+
+
+/*
+========================================
+DISCORD BOT READY
+========================================
+*/
 
 client.once("ready", () => {
 
     console.log(
-        `Logged in as ${client.user.tag}`
+        "================================"
     );
 
     console.log(
-        `Connected to ${client.guilds.cache.size} server(s)`
+        `Wraith Vault Bot: ${client.user.tag}`
+    );
+
+    console.log(
+        `Servers: ${client.guilds.cache.size}`
+    );
+
+    console.log(
+        "Discord bot is online."
+    );
+
+    console.log(
+        "================================"
     );
 
 });
 
-client.login(process.env.DISCORD_TOKEN);
+
+/*
+========================================
+DISCORD LOGIN
+========================================
+
+IMPORTANT:
+The token is NOT written here.
+
+The hosting service will provide it
+through the DISCORD_TOKEN environment
+variable.
+*/
+
+if (!process.env.DISCORD_TOKEN) {
+
+    console.error(
+        "ERROR: DISCORD_TOKEN is missing."
+    );
+
+} else {
+
+    client.login(
+        process.env.DISCORD_TOKEN
+    );
+
+}
+
+
+/*
+========================================
+START API SERVER
+========================================
+*/
 
 app.listen(PORT, () => {
 
