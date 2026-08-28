@@ -568,31 +568,89 @@ body::after{
 }
 
 /* =========================================================
-   HERO TERMINAL
+   HERO TERMINAL — PREMIUM UPGRADE
 ========================================================= */
 
 .hero-terminal{
     position:relative;
 
-    padding:18px;
+    padding:22px;
 
-    border-radius:9px;
+    border-radius:10px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(25,25,25,.86),
-            rgba(0,0,0,.62)
+            rgba(25,25,25,.90),
+            rgba(0,0,0,.70)
         );
 
     border:
-        1px solid rgba(255,255,255,.11);
+        1px solid rgba(255,255,255,.14);
 
     backdrop-filter:blur(22px);
 
     box-shadow:
         0 30px 100px rgba(0,0,0,.6),
-        inset 0 1px 0 rgba(255,255,255,.05);
+        inset 0 1px 0 rgba(255,255,255,.07),
+        0 0 0 rgba(255,255,255,0);
+
+    transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease,
+        background .35s ease;
+}
+
+/* Premium outer outline */
+
+.hero-terminal::before{
+    content:"";
+
+    position:absolute;
+
+    inset:-1px;
+
+    border-radius:11px;
+
+    border:1px solid transparent;
+
+    pointer-events:none;
+
+    transition:.35s ease;
+}
+
+/* Cursor hover = full premium outline + pop */
+
+.hero-terminal:hover{
+
+    transform:
+        translateY(-8px)
+        scale(1.025);
+
+    border-color:
+        rgba(255,255,255,.48);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(35,35,35,.94),
+            rgba(0,0,0,.78)
+        );
+
+    box-shadow:
+        0 35px 110px rgba(0,0,0,.72),
+        0 0 35px rgba(255,255,255,.10),
+        inset 0 1px 0 rgba(255,255,255,.13);
+}
+
+.hero-terminal:hover::before{
+
+    border-color:
+        rgba(255,255,255,.22);
+
+    box-shadow:
+        0 0 30px rgba(255,255,255,.08);
 }
 
 .terminal-head{
@@ -600,67 +658,138 @@ body::after{
     align-items:center;
     justify-content:space-between;
 
-    padding-bottom:14px;
+    padding-bottom:16px;
 
     border-bottom:
-        1px solid rgba(255,255,255,.07);
+        1px solid rgba(255,255,255,.10);
 }
 
 .term-title{
-    color:#777;
+    color:#d8d8d8;
 
-    font-size:7px;
+    font-family:Orbitron,sans-serif;
+
+    font-size:11px;
     font-weight:900;
 
-    letter-spacing:2px;
+    letter-spacing:2.5px;
+
+    text-shadow:
+        0 0 15px rgba(255,255,255,.12);
+
+    transition:.3s;
+}
+
+.hero-terminal:hover .term-title{
+    color:#fff;
+
+    text-shadow:
+        0 0 22px rgba(255,255,255,.30);
 }
 
 .term-dot{
-    width:6px;
-    height:6px;
+    width:8px;
+    height:8px;
 
     border-radius:50%;
 
     background:#fff;
 
     box-shadow:
-        0 0 10px rgba(255,255,255,.7);
+        0 0 10px rgba(255,255,255,.7),
+        0 0 20px rgba(255,255,255,.25);
+
+    transition:.3s;
+}
+
+.hero-terminal:hover .term-dot{
+    transform:scale(1.25);
+
+    box-shadow:
+        0 0 12px rgba(255,255,255,.9),
+        0 0 28px rgba(255,255,255,.45);
 }
 
 .terminal-body{
-    padding-top:16px;
+    padding-top:18px;
 }
 
 .term-line{
     display:flex;
     justify-content:space-between;
+    align-items:center;
 
-    padding:10px 0;
+    padding:12px 0;
 
     border-bottom:
-        1px solid rgba(255,255,255,.045);
+        1px solid rgba(255,255,255,.055);
+
+    transition:
+        padding .25s ease,
+        background .25s ease,
+        border-color .25s ease;
+}
+
+.term-line:last-child{
+    border-bottom:0;
+}
+
+.term-line:hover{
+    padding-left:7px;
+    padding-right:7px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.045),
+            transparent
+        );
+
+    border-color:
+        rgba(255,255,255,.14);
 }
 
 .term-line span:first-child{
-    color:#444;
+    color:#777;
 
-    font-size:7px;
+    font-size:9px;
     font-weight:900;
+
+    letter-spacing:1.4px;
 }
 
 .term-line span:last-child{
-    color:#aaa;
+    color:#d0d0d0;
 
-    font-size:8px;
+    font-family:Orbitron,sans-serif;
+
+    font-size:10px;
     font-weight:900;
+
+    letter-spacing:.5px;
+
+    transition:.25s;
+}
+
+.term-line:hover span:last-child{
+    color:#fff;
+
+    text-shadow:
+        0 0 15px rgba(255,255,255,.20);
 }
 
 .term-green{
     color:#fff !important;
+
+    text-shadow:
+        0 0 12px rgba(255,255,255,.12);
 }
 
 .term-red{
     color:#fff !important;
+
+    text-shadow:
+        0 0 15px rgba(255,255,255,.16);
 }
 
 /* =========================================================
@@ -1292,6 +1421,7 @@ section{
     color:#aaa;
 
     font-size:7px;
+
     font-weight:900;
 
     cursor:pointer;
@@ -1559,6 +1689,7 @@ section{
     color:#aaa;
 
     font-size:6px;
+
     font-weight:900;
 }
 
@@ -1638,6 +1769,7 @@ section{
     color:#aaa;
 
     font-size:7px;
+
     font-weight:900;
 }
 
@@ -1833,6 +1965,7 @@ section{
     margin-top:5px;
 
     font-size:6px;
+
     font-weight:900;
 
     letter-spacing:1px;
@@ -2030,6 +2163,7 @@ footer strong{
     color:#444;
 
     font-size:6px;
+
     font-weight:900;
 
     letter-spacing:1.5px;
@@ -2039,6 +2173,7 @@ footer strong{
     color:#aaa;
 
     font-size:8px;
+
     font-weight:800;
 
     text-align:right;
@@ -2122,6 +2257,7 @@ footer strong{
     color:#555;
 
     font-size:8px;
+
     font-weight:900;
 
     letter-spacing:4px;
@@ -2286,6 +2422,24 @@ footer strong{
 
     footer{
         flex-direction:column;
+    }
+
+    /* Keep terminal readable on mobile */
+
+    .hero-terminal{
+        padding:20px;
+    }
+
+    .term-title{
+        font-size:10px;
+    }
+
+    .term-line span:first-child{
+        font-size:8px;
+    }
+
+    .term-line span:last-child{
+        font-size:9px;
     }
 
 }
