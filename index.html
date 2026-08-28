@@ -1,18 +1,20 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Wraith Vault Leaks</title>
 
+<meta name="description" content="Wraith Vault — premium FiveM resources, mods, graphics, sounds and PC optimization.">
+<meta name="theme-color" content="#050505">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
-
 * {
     margin: 0;
     padding: 0;
@@ -25,2582 +27,1674 @@ html {
 
 body {
     font-family: "Inter", sans-serif;
-    background: #030303;
+    background: #050505;
     color: #fff;
     overflow-x: hidden;
 }
 
+/* =========================
+   LOADING SCREEN
+========================= */
 
-/* =========================================
-   FULL PAGE BACKGROUND
-========================================= */
-
-.background {
+.loader {
     position: fixed;
     inset: 0;
-    z-index: -20;
+    background: #050505;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 99999;
+    transition: opacity .7s ease, visibility .7s ease;
+}
+
+.loader.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-logo {
+    font-size: 38px;
+    font-weight: 900;
+    letter-spacing: 5px;
+}
+
+.loader-line {
+    width: 180px;
+    height: 2px;
+    background: #222;
+    margin-top: 22px;
     overflow: hidden;
-
-    background:
-        linear-gradient(
-            rgba(0,0,0,.78),
-            rgba(0,0,0,.88)
-        ),
-        url("server.png") center center / cover no-repeat;
-
-    background-attachment: fixed;
 }
 
-.background::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-
-    background:
-        radial-gradient(
-            circle at 50% 20%,
-            rgba(255,255,255,.10),
-            transparent 35%
-        ),
-        linear-gradient(
-            to bottom,
-            transparent 0%,
-            rgba(0,0,0,.35) 45%,
-            #030303 100%
-        );
+.loader-line span {
+    display: block;
+    width: 40%;
+    height: 100%;
+    background: #fff;
+    animation: loading 1.1s infinite ease-in-out;
 }
 
-.background::before {
-    content: "";
-
-    position: absolute;
-
-    width: 650px;
-    height: 650px;
-
-    left: 50%;
-    top: 35%;
-
-    transform: translate(-50%,-50%);
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,255,255,.10),
-            transparent 65%
-        );
-
-    filter: blur(60px);
-
-    animation: backgroundGlow 12s ease-in-out infinite alternate;
-}
-
-@keyframes backgroundGlow {
-
+@keyframes loading {
     0% {
-        transform: translate(-50%,-50%) scale(.9);
-        opacity: .35;
+        transform: translateX(-100%);
     }
 
     100% {
-        transform: translate(-50%,-50%) scale(1.2);
-        opacity: .7;
+        transform: translateX(350%);
     }
 }
 
-
-/* =========================================
+/* =========================
    NAVBAR
-========================================= */
+========================= */
 
-nav {
+.navbar {
     position: fixed;
     top: 0;
     left: 0;
-
     width: 100%;
-    height: 78px;
-
+    height: 76px;
+    padding: 0 6%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    padding: 0 7%;
-
-    background: rgba(0,0,0,.62);
-
-    backdrop-filter: blur(22px);
-    -webkit-backdrop-filter: blur(22px);
-
-    border-bottom:
-        1px solid rgba(255,255,255,.09);
-
-    z-index: 1000;
+    background: rgba(5,5,5,.82);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    z-index: 5000;
 }
 
 .logo {
-    display: flex;
-    align-items: center;
-
-    gap: 10px;
-
-    font-size: 17px;
     font-weight: 900;
-
-    letter-spacing: -.7px;
-
-    color: #fff;
-    text-decoration: none;
-}
-
-.logo-image {
-    width: 38px;
-    height: 38px;
-
-    object-fit: cover;
-
-    border-radius: 9px;
-
-    border:
-        1px solid rgba(255,255,255,.15);
-
-    box-shadow:
-        0 0 25px rgba(255,255,255,.15);
-
-    transition: .35s ease;
-}
-
-.logo:hover .logo-image {
-    transform:
-        rotate(-4deg)
-        scale(1.08);
-
-    box-shadow:
-        0 0 40px rgba(255,255,255,.25);
+    font-size: 21px;
+    letter-spacing: 3px;
 }
 
 .logo span {
-    color: #888;
-    margin-left: 4px;
+    color: #999;
 }
 
 .nav-links {
     display: flex;
-    align-items: center;
-    gap: 28px;
+    gap: 30px;
+    list-style: none;
 }
 
 .nav-links a {
-    color: #888;
-
-    font-size: 11px;
-    font-weight: 800;
-
+    color: #aaa;
     text-decoration: none;
-
-    transition: .25s ease;
+    font-size: 13px;
+    font-weight: 700;
+    transition: .25s;
 }
 
 .nav-links a:hover {
     color: #fff;
 }
 
-.nav-discord {
-    padding: 11px 18px;
-
-    border-radius: 8px;
-
-    background: #fff;
-
-    color: #000 !important;
-}
-
-
-/* =========================================
+/* =========================
    HERO
-========================================= */
+========================= */
 
 .hero {
     min-height: 100vh;
-
+    padding: 160px 7% 100px;
     display: flex;
     align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
-    padding:
-        150px 20px
-        100px;
-
     position: relative;
 }
 
 .hero-content {
-    max-width: 1000px;
-
-    position: relative;
-    z-index: 2;
-
-    animation:
-        heroIn 1s ease forwards;
+    max-width: 850px;
 }
 
-@keyframes heroIn {
-
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.eyebrow {
+.badge {
     display: inline-flex;
-
     align-items: center;
     gap: 9px;
-
-    padding: 8px 15px;
-
-    border:
-        1px solid rgba(255,255,255,.14);
-
-    background:
-        rgba(0,0,0,.45);
-
-    backdrop-filter: blur(12px);
-
-    border-radius: 100px;
-
+    border: 1px solid #292929;
+    padding: 9px 15px;
+    border-radius: 50px;
     color: #aaa;
-
-    font-size: 10px;
-    font-weight: 800;
-
-    letter-spacing: 1.5px;
-
-    margin-bottom: 28px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 27px;
+    background: rgba(255,255,255,.02);
 }
 
-.dot {
+.badge-dot {
     width: 7px;
     height: 7px;
-
-    background: #fff;
-
     border-radius: 50%;
-
-    box-shadow:
-        0 0 12px rgba(255,255,255,.8);
-
-    animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-
-    0%,100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-
-    50% {
-        opacity: .3;
-        transform: scale(.7);
-    }
+    background: #fff;
+    box-shadow: 0 0 12px #fff;
 }
 
 .hero h1 {
-    font-size:
-        clamp(50px,8vw,105px);
-
-    line-height: .92;
-
-    font-weight: 900;
-
+    font-size: clamp(55px, 9vw, 115px);
+    line-height: .9;
     letter-spacing: -6px;
-
-    text-transform: uppercase;
-
-    text-shadow:
-        0 5px 50px rgba(0,0,0,.8);
+    font-weight: 900;
 }
 
-.hero h1 .white {
-    color: #fff;
-}
-
-.gradient {
-    background:
-        linear-gradient(
-            110deg,
-            #fff,
-            #777,
-            #fff,
-            #555,
-            #fff
-        );
-
-    background-size: 250% auto;
-
-    animation:
-        textMove 7s linear infinite;
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    color: transparent;
-}
-
-@keyframes textMove {
-
-    to {
-        background-position:
-            250% center;
-    }
+.hero h1 span {
+    color: #777;
 }
 
 .hero-description {
-    max-width: 650px;
-
-    margin: 30px auto 0;
-
+    margin-top: 30px;
+    max-width: 620px;
     color: #999;
-
-    font-size: 14px;
-
+    font-size: 16px;
     line-height: 1.8;
-
-    text-shadow:
-        0 2px 15px #000;
 }
 
 .hero-buttons {
     display: flex;
-
-    justify-content: center;
-
-    flex-wrap: wrap;
-
     gap: 13px;
-
     margin-top: 35px;
+    flex-wrap: wrap;
 }
 
 .btn {
-    position: relative;
-
-    overflow: hidden;
-
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    min-width: 175px;
-
-    padding: 15px 24px;
-
-    border-radius: 9px;
-
-    font-size: 11px;
-
-    font-weight: 900;
-
-    border:
-        1px solid rgba(255,255,255,.15);
-
     text-decoration: none;
-
-    transition:
-        transform .3s ease,
-        box-shadow .3s ease;
-}
-
-.btn::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: -120%;
-
-    width: 80%;
-    height: 100%;
-
-    transform: skewX(-20deg);
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,.35),
-            transparent
-        );
-
-    transition:
-        left .6s ease;
-}
-
-.btn:hover::before {
-    left: 140%;
+    padding: 15px 24px;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: 800;
+    transition: .3s;
 }
 
 .btn-primary {
     background: #fff;
     color: #000;
-
-    box-shadow:
-        0 15px 45px rgba(255,255,255,.10);
 }
 
 .btn-primary:hover {
-    transform: translateY(-4px);
-
-    box-shadow:
-        0 20px 55px rgba(255,255,255,.20);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(255,255,255,.12);
 }
 
 .btn-secondary {
-    background:
-        rgba(0,0,0,.45);
-
-    color: #ddd;
-
-    backdrop-filter: blur(15px);
+    border: 1px solid #303030;
+    color: #fff;
+    background: #0c0c0c;
 }
 
 .btn-secondary:hover {
-    transform: translateY(-4px);
-
-    background:
-        rgba(255,255,255,.08);
+    background: #151515;
+    transform: translateY(-3px);
 }
 
-
-/* =========================================
-   STATS
-========================================= */
-
-.stats {
-    max-width: 850px;
-
-    margin:
-        -40px auto 0;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    background:
-        rgba(0,0,0,.52);
-
-    backdrop-filter: blur(20px);
-
-    border:
-        1px solid rgba(255,255,255,.10);
-
-    border-radius: 15px;
-
-    overflow: hidden;
-
-    box-shadow:
-        0 25px 80px rgba(0,0,0,.45);
-
-    position: relative;
-    z-index: 5;
-}
-
-.stat {
-    padding: 25px;
-
-    text-align: center;
-
-    border-right:
-        1px solid rgba(255,255,255,.08);
-}
-
-.stat:last-child {
-    border-right: none;
-}
-
-.stat strong {
-    display: block;
-
-    font-size: 25px;
-
-    font-weight: 900;
-}
-
-.stat span {
-    display: block;
-
-    margin-top: 6px;
-
-    color: #666;
-
-    font-size: 10px;
-
-    font-weight: 700;
-
-    text-transform: uppercase;
-
-    letter-spacing: 1px;
-}
-
-
-/* =========================================
-   SECTIONS
-========================================= */
+/* =========================
+   SECTION
+========================= */
 
 section {
-    padding:
-        110px 7%;
+    padding: 110px 7%;
 }
 
-.section-header {
-    max-width: 1150px;
-
-    margin:
-        0 auto 50px;
-}
-
-.center {
-    text-align: center;
+.section-head {
+    margin-bottom: 45px;
 }
 
 .section-label {
-    color: #aaa;
-
-    font-size: 10px;
-
-    font-weight: 900;
-
-    text-transform: uppercase;
-
-    letter-spacing: 2px;
-}
-
-.section-header h2 {
-    margin-top: 10px;
-
-    font-size: 42px;
-
-    font-weight: 900;
-
-    letter-spacing: -2px;
-
-    text-shadow:
-        0 4px 30px rgba(0,0,0,.8);
-}
-
-.section-header p {
-    margin-top: 12px;
-
+    font-size: 11px;
+    letter-spacing: 3px;
     color: #777;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
 
-    font-size: 13px;
+.section-title {
+    font-size: clamp(32px, 5vw, 55px);
+    font-weight: 900;
+    letter-spacing: -2px;
+}
 
+.section-subtitle {
+    color: #777;
+    margin-top: 12px;
+    max-width: 650px;
     line-height: 1.7;
 }
 
+/* =========================
+   STATUS
+========================= */
 
-/* =========================================
-   CATEGORY CARDS
-========================================= */
-
-.cards {
-    max-width: 1150px;
-
-    margin: auto;
-
+.status-bar {
     display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 45px;
+}
 
-    grid-template-columns:
-        repeat(3,1fr);
+.status-card {
+    background: #0b0b0b;
+    border: 1px solid #202020;
+    padding: 24px;
+    border-radius: 13px;
+    transition: .3s;
+}
 
+.status-card:hover {
+    border-color: #444;
+    transform: translateY(-4px);
+}
+
+.status-number {
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.status-text {
+    color: #777;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-wrap {
+    margin-bottom: 35px;
+}
+
+.search-box {
+    width: 100%;
+    max-width: 600px;
+    background: #0b0b0b;
+    border: 1px solid #222;
+    border-radius: 12px;
+    padding: 17px 20px;
+    color: #fff;
+    outline: none;
+    font-family: inherit;
+    font-size: 14px;
+    transition: .25s;
+}
+
+.search-box:focus {
+    border-color: #555;
+}
+
+/* =========================
+   DROPS
+========================= */
+
+.drops {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 18px;
 }
 
-.card {
-    position: relative;
-
-    padding: 30px;
-
-    min-height: 230px;
-
-    overflow: hidden;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.075),
-            rgba(0,0,0,.45)
-        );
-
-    backdrop-filter:
-        blur(20px);
-
-    -webkit-backdrop-filter:
-        blur(20px);
-
-    border:
-        1px solid rgba(255,255,255,.10);
-
+.drop {
+    background: #0a0a0a;
+    border: 1px solid #1e1e1e;
     border-radius: 15px;
-
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.05),
-        0 20px 70px rgba(0,0,0,.35);
-
-    transition:
-        transform .35s ease,
-        border-color .35s ease,
-        box-shadow .35s ease;
+    padding: 25px;
+    transition: .3s;
 }
 
-.card:hover {
-    transform:
-        translateY(-8px);
-
-    border-color:
-        rgba(255,255,255,.28);
-
-    box-shadow:
-        0 25px 90px rgba(0,0,0,.55),
-        0 0 45px rgba(255,255,255,.04);
+.drop:hover {
+    transform: translateY(-7px);
+    border-color: #444;
 }
 
-.icon {
-    width: 48px;
-    height: 48px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    margin-bottom: 22px;
-
-    border-radius: 11px;
-
-    background:
-        rgba(255,255,255,.07);
-
-    border:
-        1px solid rgba(255,255,255,.13);
-
-    color: #fff;
-
+.drop-icon {
+    width: 45px;
+    height: 45px;
+    display: grid;
+    place-items: center;
+    border: 1px solid #292929;
+    border-radius: 10px;
+    margin-bottom: 25px;
     font-size: 18px;
 }
 
-.card h3 {
-    font-size: 17px;
-
-    font-weight: 800;
-
-    margin-bottom: 10px;
+.drop h3 {
+    font-size: 18px;
+    margin-bottom: 9px;
 }
 
-.card p {
+.drop p {
     color: #777;
-
     font-size: 13px;
-
     line-height: 1.7;
 }
 
-.card-link {
-    display: inline-block;
+.drop-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 22px;
+}
 
-    margin-top: 20px;
-
-    color: #bbb;
-
+.drop-tag {
+    color: #777;
     font-size: 10px;
-
-    font-weight: 900;
-
-    letter-spacing: .7px;
-
-    text-decoration: none;
-
-    transition: .25s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.card:hover .card-link {
+.drop-link {
     color: #fff;
-
-    letter-spacing: 1.4px;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 800;
 }
 
-
-/* =========================================
+/* =========================
    STAFF
-========================================= */
+========================= */
 
 .staff-grid {
-    max-width: 1150px;
-
-    margin: auto;
-
     display: grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
 }
 
 .staff-card {
-    position: relative;
-
-    overflow: hidden;
-
-    padding: 32px 25px;
-
-    text-align: center;
-
-    border-radius: 16px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.07),
-            rgba(0,0,0,.50)
-        );
-
-    backdrop-filter:
-        blur(20px);
-
-    border:
-        1px solid rgba(255,255,255,.10);
-
-    box-shadow:
-        0 20px 70px rgba(0,0,0,.35);
-
-    transition: .35s ease;
+    background: #0a0a0a;
+    border: 1px solid #1e1e1e;
+    border-radius: 14px;
+    padding: 22px;
+    cursor: pointer;
+    transition: .3s;
 }
 
 .staff-card:hover {
-    transform:
-        translateY(-8px);
-
-    border-color:
-        rgba(255,255,255,.25);
+    border-color: #555;
+    transform: translateY(-6px);
 }
 
-.staff-role {
-    display: inline-block;
-
-    padding: 7px 12px;
-
-    margin-bottom: 22px;
-
-    border-radius: 100px;
-
-    font-size: 9px;
-
-    font-weight: 900;
-
-    letter-spacing: 1.4px;
-
-    text-transform: uppercase;
-
-    color: #ddd;
-
-    background:
-        rgba(255,255,255,.05);
-
-    border:
-        1px solid rgba(255,255,255,.10);
-}
-
-.staff-icon {
-    width: 62px;
-    height: 62px;
-
-    margin:
-        0 auto 18px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
+.avatar {
+    width: 65px;
+    height: 65px;
     border-radius: 50%;
-
-    font-size: 20px;
-
+    background: #151515;
+    display: grid;
+    place-items: center;
     font-weight: 900;
-
-    background:
-        rgba(255,255,255,.07);
-
-    border:
-        1px solid rgba(255,255,255,.14);
-
-    box-shadow:
-        0 10px 35px rgba(0,0,0,.35);
+    font-size: 19px;
+    margin-bottom: 20px;
+    border: 1px solid #292929;
+    overflow: hidden;
 }
 
-.staff-card h3 {
-    font-size: 18px;
-
-    font-weight: 900;
-
-    margin-bottom: 16px;
-}
-
-.staff-names {
-    display: flex;
-
-    flex-wrap: wrap;
-
-    justify-content: center;
-
-    gap: 8px;
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .staff-name {
-    padding: 8px 12px;
+    font-size: 15px;
+    font-weight: 800;
+}
 
-    border-radius: 7px;
-
-    background:
-        rgba(255,255,255,.045);
-
-    border:
-        1px solid rgba(255,255,255,.08);
-
-    color: #aaa;
-
+.staff-role {
+    color: #777;
     font-size: 11px;
-
-    font-weight: 700;
-
-    transition: .25s;
-
-    cursor: pointer;
+    margin-top: 6px;
 }
 
-.staff-name:hover {
-    color: #000;
-
-    background: #fff;
-
-    transform:
-        translateY(-2px);
-}
-
-
-/* =========================================
-   LEAKERS TEAM
-========================================= */
-
-.leakers-team {
-    max-width: 1150px;
-
-    margin:
-        35px auto 0;
-
-    padding:
-        38px 30px;
-
-    text-align: center;
-
-    border-radius: 18px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.07),
-            rgba(0,0,0,.50)
-        );
-
-    backdrop-filter:
-        blur(20px);
-
-    border:
-        1px solid rgba(255,255,255,.10);
-
-    box-shadow:
-        0 20px 70px rgba(0,0,0,.35);
-
-    transition: .35s ease;
-}
-
-.leakers-team:hover {
-    transform:
-        translateY(-5px);
-
-    border-color:
-        rgba(255,255,255,.23);
-}
-
-.leakers-title {
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 9px;
-
-    padding: 8px 15px;
-
-    border-radius: 100px;
-
-    background:
-        rgba(255,255,255,.05);
-
-    border:
-        1px solid rgba(255,255,255,.09);
-
-    color: #ddd;
-
+.staff-status {
+    margin-top: 18px;
+    color: #777;
     font-size: 10px;
-
-    font-weight: 900;
-
-    letter-spacing: 1.5px;
-
-    text-transform: uppercase;
-
-    margin-bottom: 25px;
 }
 
-.leakers-title::before {
-    content: "";
-
-    width: 7px;
-    height: 7px;
-
+.online-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
-
-    background: #fff;
-
-    box-shadow:
-        0 0 12px rgba(255,255,255,.8);
+    background: #777;
+    margin-right: 5px;
 }
 
-.leakers-names {
-    display: flex;
+/* =========================
+   STAFF POPUP
+========================= */
 
-    flex-wrap: wrap;
-
-    justify-content: center;
-
-    gap: 10px;
-}
-
-.leaker {
-    padding: 11px 17px;
-
-    border-radius: 9px;
-
-    color: #bbb;
-
-    background:
-        rgba(255,255,255,.045);
-
-    border:
-        1px solid rgba(255,255,255,.09);
-
-    font-size: 12px;
-
-    font-weight: 700;
-
-    transition: .25s ease;
-
-    cursor: pointer;
-}
-
-.leaker:hover {
-    color: #000;
-
-    background: #fff;
-
-    border-color: #fff;
-
-    transform:
-        translateY(-3px);
-}
-
-
-/* =========================================
-   ABOUT
-========================================= */
-
-#about {
-    padding-top: 90px;
-}
-
-
-/* =========================================
-   DISCORD
-========================================= */
-
-.discord-wrap {
-    max-width: 1150px;
-
-    margin: auto;
-
-    position: relative;
-
-    overflow: hidden;
-
-    padding: 75px 40px;
-
-    text-align: center;
-
-    border:
-        1px solid rgba(255,255,255,.12);
-
-    border-radius: 20px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.07),
-            rgba(0,0,0,.60)
-        ),
-        url("server.png")
-        center / cover no-repeat;
-
-    backdrop-filter:
-        blur(20px);
-
-    box-shadow:
-        0 30px 100px rgba(0,0,0,.55);
-}
-
-.discord-wrap::before {
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        linear-gradient(
-            rgba(0,0,0,.65),
-            rgba(0,0,0,.78)
-        );
-
-    z-index: 0;
-}
-
-.discord-content {
-    position: relative;
-    z-index: 2;
-}
-
-.server-picture {
-    width: 75px;
-    height: 75px;
-
-    margin:
-        0 auto 22px;
-
-    display: block;
-
-    object-fit: cover;
-
-    border-radius: 18px;
-
-    border:
-        1px solid rgba(255,255,255,.15);
-
-    box-shadow:
-        0 0 0 1px rgba(255,255,255,.10),
-        0 20px 60px rgba(255,255,255,.12);
-
-    transition: .4s ease;
-}
-
-.server-picture:hover {
-    transform:
-        scale(1.08)
-        rotate(2deg);
-
-    box-shadow:
-        0 0 0 1px rgba(255,255,255,.25),
-        0 25px 80px rgba(255,255,255,.20);
-}
-
-.discord-wrap h2 {
-    font-size: 40px;
-
-    font-weight: 900;
-
-    letter-spacing: -2px;
-}
-
-.discord-wrap p {
-    max-width: 600px;
-
-    margin:
-        15px auto 30px;
-
-    color: #999;
-
-    font-size: 13px;
-
-    line-height: 1.8;
-}
-
-
-/* =========================================
-   STAFF PROFILE POPUP
-========================================= */
-
-.staff-name,
-.leaker {
-    user-select: none;
-}
-
-.staff-modal {
+.modal {
     position: fixed;
-
     inset: 0;
-
-    z-index: 9999;
-
+    background: rgba(0,0,0,.82);
+    backdrop-filter: blur(14px);
     display: none;
-
     align-items: center;
     justify-content: center;
-
+    z-index: 9000;
     padding: 20px;
-
-    background:
-        rgba(0,0,0,.80);
-
-    backdrop-filter:
-        blur(16px);
-
-    -webkit-backdrop-filter:
-        blur(16px);
 }
 
-.staff-modal.active {
+.modal.active {
     display: flex;
 }
 
-.staff-popup {
+.modal-box {
     width: 100%;
-
-    max-width: 430px;
-
-    position: relative;
-
-    padding: 35px;
-
-    text-align: center;
-
+    max-width: 440px;
+    background: #0a0a0a;
+    border: 1px solid #292929;
     border-radius: 20px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.10),
-            rgba(0,0,0,.88)
-        ),
-        url("server.png")
-        center / cover no-repeat;
-
-    border:
-        1px solid rgba(255,255,255,.18);
-
-    box-shadow:
-        0 30px 100px rgba(0,0,0,.9),
-        0 0 70px rgba(255,255,255,.06);
-
-    overflow: hidden;
-
-    animation:
-        staffPopupIn .3s ease;
-}
-
-.staff-popup::before {
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        linear-gradient(
-            rgba(0,0,0,.72),
-            rgba(0,0,0,.90)
-        );
-
-    z-index: 0;
-}
-
-.staff-popup > * {
+    padding: 30px;
     position: relative;
-    z-index: 2;
+    animation: popup .25s ease;
 }
 
-@keyframes staffPopupIn {
-
+@keyframes popup {
     from {
         opacity: 0;
-
-        transform:
-            scale(.88)
-            translateY(20px);
+        transform: scale(.94) translateY(15px);
     }
 
     to {
         opacity: 1;
-
-        transform:
-            scale(1)
-            translateY(0);
+        transform: scale(1) translateY(0);
     }
 }
 
-.staff-close {
+.close {
     position: absolute;
-
-    top: 15px;
-    right: 18px;
-
-    width: 32px;
-    height: 32px;
-
-    border: 0;
-
-    border-radius: 50%;
-
-    background:
-        rgba(255,255,255,.08);
-
-    color: #aaa;
-
-    font-size: 18px;
-
+    right: 20px;
+    top: 18px;
+    background: none;
+    border: none;
+    color: #777;
+    font-size: 23px;
     cursor: pointer;
-
-    z-index: 5;
-
-    transition: .25s;
 }
 
-.staff-close:hover {
-    background: #fff;
-    color: #000;
-}
-
-.staff-avatar {
-    width: 90px;
-    height: 90px;
-
-    margin:
-        0 auto 18px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
+.modal-avatar {
+    width: 85px;
+    height: 85px;
     border-radius: 50%;
-
+    background: #151515;
+    margin-bottom: 20px;
     overflow: hidden;
-
-    border:
-        1px solid rgba(255,255,255,.22);
-
-    background:
-        #050505;
-
-    box-shadow:
-        0 0 50px rgba(255,255,255,.12);
+    border: 1px solid #333;
 }
 
-.staff-avatar img {
+.modal-avatar img {
     width: 100%;
     height: 100%;
-
     object-fit: cover;
 }
 
-.staff-popup h2 {
+.modal-name {
     font-size: 26px;
-
     font-weight: 900;
-
-    margin-bottom: 7px;
 }
 
-.staff-position {
-    display: inline-block;
-
-    padding: 7px 12px;
-
-    margin-bottom: 18px;
-
-    border-radius: 100px;
-
-    background:
-        rgba(255,255,255,.06);
-
-    border:
-        1px solid rgba(255,255,255,.10);
-
-    color: #aaa;
-
-    font-size: 9px;
-
-    font-weight: 900;
-
-    letter-spacing: 1px;
-
-    text-transform: uppercase;
-}
-
-.staff-status {
-    color: #888;
-
-    font-size: 11px;
-
-    font-weight: 700;
-
-    margin-bottom: 25px;
-}
-
-.status-dot {
-    display: inline-block;
-
-    width: 7px;
-    height: 7px;
-
-    margin-right: 6px;
-
-    border-radius: 50%;
-
-    background: #777;
-}
-
-.staff-popup-section {
-    text-align: left;
-
-    margin-top: 20px;
-}
-
-.staff-popup-section-title {
-    color: #666;
-
-    font-size: 9px;
-
-    font-weight: 900;
-
-    letter-spacing: 1.5px;
-
-    text-transform: uppercase;
-
-    margin-bottom: 9px;
-}
-
-.staff-role-list {
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 7px;
-}
-
-.popup-role {
-    padding: 8px 11px;
-
-    color: #bbb;
-
-    background:
-        rgba(255,255,255,.06);
-
-    border:
-        1px solid rgba(255,255,255,.09);
-
-    border-radius: 7px;
-
-    font-size: 10px;
-
-    font-weight: 700;
-}
-
-.staff-discord-name {
-    color: #aaa;
-
+.modal-username {
+    color: #777;
+    margin-top: 5px;
     font-size: 12px;
-
-    font-weight: 700;
 }
 
-.staff-discord {
-    display: block;
-
-    width: 100%;
-
+.info-box {
     margin-top: 25px;
+    border-top: 1px solid #202020;
+    padding-top: 20px;
+}
 
-    padding: 13px;
+.info-row {
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    border-bottom: 1px solid #151515;
+}
 
-    border-radius: 9px;
+.info-label {
+    color: #666;
+    font-size: 11px;
+}
 
-    background: #fff;
+.info-value {
+    font-size: 12px;
+    text-align: right;
+}
 
-    color: #000;
+.role-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 5px;
+}
 
-    font-size: 10px;
+.role {
+    border: 1px solid #292929;
+    padding: 5px 8px;
+    border-radius: 5px;
+    color: #aaa;
+    font-size: 9px;
+}
 
+/* =========================
+   JOIN
+========================= */
+
+.join {
+    text-align: center;
+    background: #080808;
+    border-top: 1px solid #171717;
+    border-bottom: 1px solid #171717;
+}
+
+.join h2 {
+    font-size: clamp(38px, 7vw, 75px);
     font-weight: 900;
-
-    text-decoration: none;
-
-    transition: .25s;
+    letter-spacing: -4px;
 }
 
-.staff-discord:hover {
-    transform:
-        translateY(-3px);
-
-    box-shadow:
-        0 15px 35px rgba(255,255,255,.15);
+.join p {
+    max-width: 600px;
+    margin: 20px auto 30px;
+    color: #777;
+    line-height: 1.7;
 }
 
-
-/* =========================================
+/* =========================
    FOOTER
-========================================= */
+========================= */
 
 footer {
-    padding:
-        35px 7%;
-
-    border-top:
-        1px solid rgba(255,255,255,.07);
-
+    padding: 45px 7%;
     display: flex;
-
     justify-content: space-between;
-
-    align-items: center;
-
+    gap: 20px;
+    border-top: 1px solid #171717;
     color: #555;
-
     font-size: 11px;
-
-    background:
-        rgba(0,0,0,.60);
-
-    backdrop-filter:
-        blur(15px);
 }
 
 footer strong {
-    color: #999;
+    color: #aaa;
 }
 
+/* =========================
+   REVEAL
+========================= */
 
-/* =========================================
-   SCROLLBAR
-========================================= */
-
-::-webkit-scrollbar {
-    width: 7px;
+.reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity .7s ease, transform .7s ease;
 }
 
-::-webkit-scrollbar-track {
-    background: #030303;
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-::-webkit-scrollbar-thumb {
-    background:
-        linear-gradient(
-            #777,
-            #222
-        );
-
-    border-radius: 20px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #aaa;
-}
-
-::selection {
-    background: #fff;
-    color: #000;
-}
-
-
-/* =========================================
+/* =========================
    MOBILE
-========================================= */
+========================= */
 
-@media (max-width: 900px) {
-
-    .cards {
-        grid-template-columns:
-            repeat(2,1fr);
-    }
+@media (max-width: 1000px) {
 
     .staff-grid {
-        grid-template-columns:
-            repeat(2,1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 
+    .drops {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 700px) {
 
-    nav {
+    .navbar {
         padding: 0 5%;
     }
 
-    .logo {
-        font-size: 13px;
-    }
-
-    .nav-links a:not(.nav-discord) {
+    .nav-links {
         display: none;
     }
 
     .hero {
-        padding-top: 130px;
+        padding: 140px 6% 80px;
     }
 
     .hero h1 {
-        font-size: 48px;
-
         letter-spacing: -3px;
     }
 
-    .hero-description {
-        font-size: 13px;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-
-        align-items: center;
-    }
-
-    .btn {
-        width: 100%;
-
-        max-width: 300px;
-    }
-
-    .stats {
-        margin:
-            -20px 20px 0;
-
-        grid-template-columns: 1fr;
-    }
-
-    .stat {
-        border-right: none;
-
-        border-bottom:
-            1px solid rgba(255,255,255,.08);
-    }
-
-    .stat:last-child {
-        border-bottom: none;
-    }
-
     section {
-        padding:
-            80px 5%;
+        padding: 80px 6%;
     }
 
-    .cards,
+    .status-bar,
+    .drops,
     .staff-grid {
         grid-template-columns: 1fr;
     }
 
-    .section-header h2 {
-        font-size: 32px;
-    }
-
-    .discord-wrap {
-        padding:
-            55px 20px;
-    }
-
-    .discord-wrap h2 {
-        font-size: 30px;
-    }
-
-    .staff-popup {
-        padding:
-            30px 20px;
-    }
-
     footer {
         flex-direction: column;
-
-        gap: 10px;
-
-        text-align: center;
     }
-
 }
-
 </style>
 </head>
 
-
 <body>
 
+<!-- =========================
+     LOADER
+========================= -->
 
-<!-- FULL BACKGROUND -->
+<div class="loader" id="loader">
 
-<div class="background"></div>
+    <div class="loader-logo">
+        WV
+    </div>
 
-
-<!-- =========================================
-     NAVBAR
-========================================= -->
-
-<nav>
-
-<a href="#home" class="logo">
-
-<img
-    src="server.png"
-    alt="Wraith Vault"
-    class="logo-image"
->
-
-WRAITH
-
-<span>
-    VAULT LEAKS
-</span>
-
-</a>
-
-
-<div class="nav-links">
-
-<a href="#home">
-    Home
-</a>
-
-<a href="#leaks">
-    Packs
-</a>
-
-<a href="#staff">
-    Staff
-</a>
-
-<a href="#about">
-    About
-</a>
-
-<a
-    href="https://discord.gg/Hhk3h9PH2"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="nav-discord"
->
-    Discord
-</a>
+    <div class="loader-line">
+        <span></span>
+    </div>
 
 </div>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        WRAITH <span>VAULT</span>
+    </div>
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="#home">HOME</a>
+        </li>
+
+        <li>
+            <a href="#drops">LATEST</a>
+        </li>
+
+        <li>
+            <a href="#staff">STAFF</a>
+        </li>
+
+        <li>
+            <a href="#about">ABOUT</a>
+        </li>
+
+    </ul>
 
 </nav>
 
 
-
-<!-- =========================================
+<!-- =========================
      HERO
-========================================= -->
+========================= -->
 
-<main id="home">
+<section class="hero" id="home">
 
-<section class="hero">
+    <div class="hero-content reveal">
 
-<div class="hero-content">
+        <div class="badge">
 
-<div class="eyebrow">
+            <span class="badge-dot"></span>
 
-<span class="dot"></span>
+            WRAITH VAULT IS ONLINE
 
-THE ULTIMATE FIVEM RESOURCE HUB
+        </div>
 
-</div>
+        <h1>
 
+            WRAITH<br>
 
-<h1>
+            <span>VAULT.</span>
 
-<span class="white">
-WRAITH
-</span>
+        </h1>
 
-<br>
+        <p class="hero-description">
 
-<span class="gradient">
-VAULT LEAKS
-</span>
+            A private vault for premium FiveM resources, custom modifications,
+            graphics, sounds, optimization tools and exclusive drops.
 
-</h1>
+        </p>
 
+        <div class="hero-buttons">
 
-<p class="hero-description">
+            <a
+                class="btn btn-primary"
+                href="https://discord.gg/F9Bs4mggt"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                JOIN DISCORD
+            </a>
 
-Discover premium graphics, sound packs,
-gun skins, perks, PC optimization tools,
-mods and more. Everything you need in
-one place.
+            <a
+                class="btn btn-secondary"
+                href="#drops"
+            >
+                EXPLORE VAULT
+            </a>
 
-</p>
-
-
-<div class="hero-buttons">
-
-<a
-    href="https://discord.gg/Hhk3h9PH2"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="btn btn-primary"
->
-    JOIN OUR DISCORD
-</a>
+        </div>
 
 
-<a
-    href="#leaks"
-    class="btn btn-secondary"
->
-    EXPLORE PACKS
-</a>
+        <div class="status-bar">
 
-</div>
+            <div class="status-card">
 
-</div>
+                <div class="status-number">
+                    24/7
+                </div>
+
+                <div class="status-text">
+                    Vault Access
+                </div>
+
+            </div>
+
+
+            <div class="status-card">
+
+                <div class="status-number">
+                    LIVE
+                </div>
+
+                <div class="status-text">
+                    Community Status
+                </div>
+
+            </div>
+
+
+            <div class="status-card">
+
+                <div class="status-number">
+                    WV
+                </div>
+
+                <div class="status-text">
+                    Wraith Vault
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
 
+<!-- =========================
+     LATEST DROPS
+========================= -->
 
-<!-- =========================================
-     STATS
-========================================= -->
+<section id="drops">
 
-<div class="stats">
+    <div class="section-head reveal">
 
-<div class="stat">
+        <div class="section-label">
+            Wraith Vault
+        </div>
 
-<strong>
-100+
-</strong>
+        <div class="section-title">
+            Latest Drops
+        </div>
 
-<span>
-Resources
-</span>
+        <div class="section-subtitle">
 
-</div>
+            Browse the latest resources available inside the vault.
 
+        </div>
 
-<div class="stat">
+    </div>
 
-<strong>
-24/7
-</strong>
 
-<span>
-Community
-</span>
+    <div class="search-wrap reveal">
 
-</div>
+        <input
+            id="search"
+            class="search-box"
+            type="text"
+            placeholder="Search latest drops..."
+            autocomplete="off"
+        >
 
+    </div>
 
-<div class="stat">
 
-<strong>
-FREE
-</strong>
+    <div class="drops" id="dropGrid">
 
-<span>
-Access
-</span>
 
-</div>
+        <!-- GRAPHICS -->
 
-</div>
+        <div
+            class="drop reveal"
+            data-search="graphic packs graphics"
+        >
 
+            <div class="drop-icon">
+                ✦
+            </div>
 
+            <h3>
+                Graphic Packs
+            </h3>
 
-<!-- =========================================
-     EXPLORE THE VAULT
-========================================= -->
+            <p>
+                Visual enhancements and graphics resources for your FiveM setup.
+            </p>
 
-<section id="leaks">
+            <div class="drop-meta">
 
-<div class="section-header center">
+                <span class="drop-tag">
+                    Graphics
+                </span>
 
-<div class="section-label">
-Categories
-</div>
+                <a
+                    class="drop-link"
+                    href="https://discord.com/channels/1389973715915247828/1516989670649499678"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    VIEW →
+                </a>
 
-<h2>
-Explore The Vault
-</h2>
+            </div>
 
-<p>
-Browse our collection of resources
-and find what you need.
-</p>
+        </div>
 
-</div>
 
+        <!-- SOUND -->
 
-<div class="cards">
+        <div
+            class="drop reveal"
+            data-search="sound packs sounds"
+        >
 
+            <div class="drop-icon">
+                ◉
+            </div>
 
-<!-- GRAPHIC PACKS -->
+            <h3>
+                Sound Packs
+            </h3>
 
-<div class="card">
+            <p>
+                Custom audio resources and sound packs for your setup.
+            </p>
 
-<div class="icon">
-◈
-</div>
+            <div class="drop-meta">
 
-<h3>
-Graphic Packs
-</h3>
+                <span class="drop-tag">
+                    Audio
+                </span>
 
-<p>
-Visual enhancement packs, graphics presets
-and FiveM visual resources.
-</p>
+                <a
+                    class="drop-link"
+                    href="https://discord.com/channels/1389973715915247828/1516989671261864039"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    VIEW →
+                </a>
 
-<a
-    href="https://discord.com/channels/1389973715915247828/1516989670649499678"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="card-link"
->
-    VIEW GRAPHICS →
-</a>
+            </div>
 
-</div>
+        </div>
 
 
+        <!-- GUN SKINS -->
 
-<!-- SOUND PACKS -->
+        <div
+            class="drop reveal"
+            data-search="gun skins guns"
+        >
 
-<div class="card">
+            <div class="drop-icon">
+                +
+            </div>
 
-<div class="icon">
-♪
-</div>
+            <h3>
+                Gun Skins
+            </h3>
 
-<h3>
-Sound Packs
-</h3>
+            <p>
+                Custom weapon skins and visual weapon modifications.
+            </p>
 
-<p>
-Custom audio, weapon sounds, vehicle sounds
-and immersive sound packs.
-</p>
+            <div class="drop-meta">
 
-<a
-    href="https://discord.com/channels/1389973715915247828/1516989671261864039"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="card-link"
->
-    VIEW SOUNDS →
-</a>
+                <span class="drop-tag">
+                    Weapons
+                </span>
 
-</div>
+                <a
+                    class="drop-link"
+                    href="https://discord.com/channels/1389973715915247828/1517282530339065988"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    VIEW →
+                </a>
 
+            </div>
 
+        </div>
 
-<!-- GUN SKINS -->
 
-<div class="card">
+        <!-- PC OPTI -->
 
-<div class="icon">
-✦
-</div>
+        <div
+            class="drop reveal"
+            data-search="pc optimization opti performance"
+        >
 
-<h3>
-Gun Skins
-</h3>
+            <div class="drop-icon">
+                ⌁
+            </div>
 
-<p>
-Custom weapon skins and visual
-customization packs.
-</p>
+            <h3>
+                PC Optimization
+            </h3>
 
-<a
-    href="https://discord.com/channels/1389973715915247828/1517282530339065988"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="card-link"
->
-    VIEW GUN SKINS →
-</a>
+            <p>
+                Optimization resources focused on performance and smoother gameplay.
+            </p>
 
-</div>
+            <div class="drop-meta">
 
+                <span class="drop-tag">
+                    Performance
+                </span>
 
+                <a
+                    class="drop-link"
+                    href="https://discord.com/channels/1389973715915247828/1517162228816674897"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    VIEW →
+                </a>
 
-<!-- PERKS -->
+            </div>
 
-<div class="card">
+        </div>
 
-<div class="icon">
-◆
-</div>
 
-<h3>
-Perks
-</h3>
+        <!-- PERKS -->
 
-<p>
-Special perks, benefits and community
-resources available through the vault.
-</p>
+        <div
+            class="drop reveal"
+            data-search="perks"
+        >
 
-<a
-    href="https://discord.com/channels/1389973715915247828/1517016261014585384"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="card-link"
->
-    VIEW PERKS →
-</a>
+            <div class="drop-icon">
+                ◆
+            </div>
 
-</div>
+            <h3>
+                Perks
+            </h3>
 
+            <p>
+                Exclusive Wraith Vault perks and community benefits.
+            </p>
 
+            <div class="drop-meta">
 
-<!-- PC OPTIMIZATION -->
+                <span class="drop-tag">
+                    Exclusive
+                </span>
 
-<div class="card">
+                <a
+                    class="drop-link"
+                    href="https://discord.com/channels/1389973715915247828/1517016261014585384"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    VIEW →
+                </a>
 
-<div class="icon">
-⚙
-</div>
+            </div>
 
-<h3>
-PC Optimization
-</h3>
+        </div>
 
-<p>
-Performance tweaks, optimization resources
-and settings designed to improve your PC.
-</p>
 
-<a
-    href="https://discord.com/channels/1389973715915247828/1517162228816674897"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="card-link"
->
-    OPTIMIZE PC →
-</a>
+        <!-- MODS -->
 
-</div>
+        <div
+            class="drop reveal"
+            data-search="mods modifications"
+        >
 
+            <div class="drop-icon">
+                ⚙
+            </div>
 
+            <h3>
+                Mods
+            </h3>
 
-<!-- MODS -->
+            <p>
+                Custom modifications and additional resources for FiveM.
+            </p>
 
-<div class="card">
+            <div class="drop-meta">
 
-<div class="icon">
-+
-</div>
+                <span class="drop-tag">
+                    Mods
+                </span>
 
-<h3>
-Mods
-</h3>
+                <a
+                    class="drop-link"
+                    href="https://discord.com/channels/1389973715915247828/1517030780419969094"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    VIEW →
+                </a>
 
-<p>
-Custom modifications, addons and other
-useful resources.
-</p>
+            </div>
 
-<a
-    href="https://discord.com/channels/1389973715915247828/1517030780419969094"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="card-link"
->
-    VIEW MODS →
-</a>
+        </div>
 
-</div>
-
-
-</div>
+    </div>
 
 </section>
 
 
-
-<!-- =========================================
-     STAFF TEAM
-========================================= -->
+<!-- =========================
+     STAFF
+========================= -->
 
 <section id="staff">
 
-<div class="section-header center">
+    <div class="section-head reveal">
 
-<div class="section-label">
-The Team
-</div>
+        <div class="section-label">
+            The Team
+        </div>
 
-<h2>
-Staff Team
-</h2>
+        <div class="section-title">
+            Staff Team
+        </div>
 
-<p>
-Meet the people behind Wraith Vault Leaks.
-Click a member to view their profile.
-</p>
+        <div class="section-subtitle">
 
-</div>
+            Meet the people behind Wraith Vault.
+            Click any member to view their profile.
 
+        </div>
 
-<div class="staff-grid">
-
-
-<!-- FOUNDERS -->
-
-<div class="staff-card">
-
-<div class="staff-role">
-Founders
-</div>
-
-<div class="staff-icon">
-★
-</div>
-
-<h3>
-Founders
-</h3>
-
-<div class="staff-names">
-
-<div
-    class="staff-name"
-    onclick="openStaff('Vortex')"
->
-Vortex
-</div>
-
-<div
-    class="staff-name"
-    onclick="openStaff('Speed')"
->
-Speed
-</div>
-
-</div>
-
-</div>
+    </div>
 
 
-
-<!-- LEAKER MANAGEMENT -->
-
-<div class="staff-card">
-
-<div class="staff-role">
-Leaker Management
-</div>
-
-<div class="staff-icon">
-⚡
-</div>
-
-<h3>
-Leaker Management
-</h3>
-
-<div class="staff-names">
-
-<div
-    class="staff-name"
-    onclick="openStaff('Kekrops')"
->
-Kekrops
-</div>
-
-<div
-    class="staff-name"
-    onclick="openStaff('Cyber')"
->
-Cyber
-</div>
-
-<div
-    class="staff-name"
-    onclick="openStaff('Agent')"
->
-Agent
-</div>
-
-</div>
-
-</div>
-
-</div>
+    <div class="staff-grid">
 
 
+        <div
+            class="staff-card reveal"
+            onclick="openStaff('Vortex','Owner','@.vortexlad')"
+        >
 
-<!-- LEAKERS TEAM -->
+            <div class="avatar">
+                V
+            </div>
 
-<div class="leakers-team">
+            <div class="staff-name">
+                Vortex
+            </div>
 
-<div class="leakers-title">
-Leakers Team
-</div>
+            <div class="staff-role">
+                Owner
+            </div>
 
+            <div class="staff-status">
+                <span class="online-dot"></span>
+                STATUS
+            </div>
 
-<div class="leakers-names">
-
-
-<div
-    class="leaker"
-    onclick="openStaff('Ice')"
->
-Ice
-</div>
-
-
-<div
-    class="leaker"
-    onclick="openStaff('Diddy')"
->
-Diddy
-</div>
+        </div>
 
 
-<div
-    class="leaker"
-    onclick="openStaff('Flxn')"
->
-Flxn
-</div>
+        <div
+            class="staff-card reveal"
+            onclick="openStaff('Speed','Owner','@3tpzz')"
+        >
+
+            <div class="avatar">
+                S
+            </div>
+
+            <div class="staff-name">
+                Speed
+            </div>
+
+            <div class="staff-role">
+                Owner
+            </div>
+
+            <div class="staff-status">
+                <span class="online-dot"></span>
+                STATUS
+            </div>
+
+        </div>
 
 
-<div
-    class="leaker"
-    onclick="openStaff('Shayan')"
->
-Shayan
-</div>
+        <div
+            class="staff-card reveal"
+            onclick="openStaff('Kekrops','Leaker Management','@kekropps')"
+        >
+
+            <div class="avatar">
+                K
+            </div>
+
+            <div class="staff-name">
+                Kekrops
+            </div>
+
+            <div class="staff-role">
+                Leaker Management
+            </div>
+
+        </div>
 
 
-<div
-    class="leaker"
-    onclick="openStaff('Syed Ali')"
->
-Syed Ali
-</div>
+        <div
+            class="staff-card reveal"
+            onclick="openStaff('Cyber','Leaker Management','@7yber')"
+        >
+
+            <div class="avatar">
+                C
+            </div>
+
+            <div class="staff-name">
+                Cyber
+            </div>
+
+            <div class="staff-role">
+                Leaker Management
+            </div>
+
+        </div>
 
 
-<div
-    class="leaker"
-    onclick="openStaff('Venom')"
->
-Venom
-</div>
+        <div
+            class="staff-card reveal"
+            onclick="openStaff('Agent','Leaker Management','@1pptx')"
+        >
+
+            <div class="avatar">
+                A
+            </div>
+
+            <div class="staff-name">
+                Agent
+            </div>
+
+            <div class="staff-role">
+                Leaker Management
+            </div>
+
+        </div>
 
 
-<div
-    class="leaker"
-    onclick="openStaff('Usman')"
->
-Usman
-</div>
+        <div
+            class="staff-card reveal"
+            onclick="openStaff('Ice','Leaker','@igv2')"
+        >
+
+            <div class="avatar">
+                I
+            </div>
+
+            <div class="staff-name">
+                Ice
+            </div>
+
+            <div class="staff-role">
+                Leaker
+            </div>
+
+        </div>
 
 
-<div
-    class="leaker"
-    onclick="openStaff('Ali')"
->
-Ali
-</div>
+        <div
+            class="staff-card reveal"
+            onclick="openStaff('Diddy','Leaker','@.6iqv')"
+        >
+
+            <div class="avatar">
+                D
+            </div>
+
+            <div class="staff-name">
+                Diddy
+            </div>
+
+            <div class="staff-role">
+                Leaker
+            </div>
+
+        </div>
 
 
-</div>
+        <div
+            class="staff-card reveal"
+            onclick="openStaff('Flxn','Leaker','@therealflexy')"
+        >
 
-</div>
+            <div class="avatar">
+                F
+            </div>
+
+            <div class="staff-name">
+                Flxn
+            </div>
+
+            <div class="staff-role">
+                Leaker
+            </div>
+
+        </div>
+
+
+        <div
+            class="staff-card reveal"
+            onclick="openStaff('Shayan','Leaker','@shayan0634_')"
+        >
+
+            <div class="avatar">
+                S
+            </div>
+
+            <div class="staff-name">
+                Shayan
+            </div>
+
+            <div class="staff-role">
+                Leaker
+            </div>
+
+        </div>
+
+
+        <div
+            class="staff-card reveal"
+            onclick="openStaff('Syed Ali','Leaker','@syedali.1')"
+        >
+
+            <div class="avatar">
+                S
+            </div>
+
+            <div class="staff-name">
+                Syed Ali
+            </div>
+
+            <div class="staff-role">
+                Leaker
+            </div>
+
+        </div>
+
+
+        <div
+            class="staff-card reveal"
+            onclick="openStaff('Venom','Leaker','@notyour.venom')"
+        >
+
+            <div class="avatar">
+                V
+            </div>
+
+            <div class="staff-name">
+                Venom
+            </div>
+
+            <div class="staff-role">
+                Leaker
+            </div>
+
+        </div>
+
+
+        <div
+            class="staff-card reveal"
+            onclick="openStaff('Usman','Leaker','@uc4p')"
+        >
+
+            <div class="avatar">
+                U
+            </div>
+
+            <div class="staff-name">
+                Usman
+            </div>
+
+            <div class="staff-role">
+                Leaker
+            </div>
+
+        </div>
+
+
+        <div
+            class="staff-card reveal"
+            onclick="openStaff('Ali','Leaker','@q3vp')"
+        >
+
+            <div class="avatar">
+                A
+            </div>
+
+            <div class="staff-name">
+                Ali
+            </div>
+
+            <div class="staff-role">
+                Leaker
+            </div>
+
+        </div>
+
+
+    </div>
 
 </section>
 
 
-
-<!-- =========================================
+<!-- =========================
      ABOUT
-========================================= -->
+========================= -->
 
 <section id="about">
 
-<div class="section-header center">
+    <div class="section-head reveal">
 
-<div class="section-label">
-Community
-</div>
+        <div class="section-label">
+            About
+        </div>
 
-<h2>
-Welcome To The Vault
-</h2>
+        <div class="section-title">
+            Inside The Vault
+        </div>
 
-<p>
-Wraith Vault Leaks is a community focused
-on FiveM graphics, sounds, modifications,
-optimization and other useful resources.
-</p>
+        <div class="section-subtitle">
 
-</div>
+            Wraith Vault brings together a private collection of FiveM resources
+            and community releases in one place. Join the Discord to access the
+            latest drops and stay updated.
 
-</section>
+        </div>
 
-
-
-<!-- =========================================
-     DISCORD
-========================================= -->
-
-<section>
-
-<div class="discord-wrap">
-
-<div class="discord-content">
-
-<img
-    src="server.png"
-    alt="Wraith Vault"
-    class="server-picture"
->
-
-<h2>
-Join The Community
-</h2>
-
-<p>
-Get access to updates, new resources,
-announcements and community discussions.
-Join the Wraith Vault Leaks Discord today.
-</p>
-
-<a
-    href="https://discord.gg/Hhk3h9PH2"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="btn btn-primary"
->
-    JOIN OUR DISCORD
-</a>
-
-</div>
-
-</div>
+    </div>
 
 </section>
 
 
-</main>
+<!-- =========================
+     JOIN DISCORD
+========================= -->
+
+<section class="join">
+
+    <div class="reveal">
+
+        <h2>
+            ENTER THE VAULT.
+        </h2>
+
+        <p>
+
+            Join the Wraith Vault Discord and access the latest resources,
+            releases and community updates.
+
+        </p>
+
+        <a
+            class="btn btn-primary"
+            href="https://discord.gg/F9Bs4mggt"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            JOIN WRAITH VAULT
+        </a>
+
+    </div>
+
+</section>
 
 
-
-<!-- =========================================
-     STAFF POPUP
-========================================= -->
-
-<div
-    class="staff-modal"
-    id="staffModal"
->
-
-<div class="staff-popup">
-
-
-<button
-    class="staff-close"
-    onclick="closeStaff()"
->
-×
-</button>
-
-
-<div
-    class="staff-avatar"
->
-
-<img
-    src="server.png"
-    alt="Wraith Vault"
->
-
-</div>
-
-
-<h2 id="staffName">
-Staff Member
-</h2>
-
-
-<div
-    class="staff-position"
-    id="staffPosition"
->
-Wraith Vault
-</div>
-
-
-<div
-    class="staff-status"
-    id="staffStatus"
->
-
-<span class="status-dot"></span>
-
-Discord status will be connected later
-
-</div>
-
-
-<div class="staff-popup-section">
-
-<div class="staff-popup-section-title">
-Discord Roles
-</div>
-
-
-<div
-    class="staff-role-list"
-    id="staffRoles"
->
-</div>
-
-</div>
-
-
-<div class="staff-popup-section">
-
-<div class="staff-popup-section-title">
-Discord
-</div>
-
-
-<div
-    class="staff-discord-name"
-    id="staffDiscord"
->
-@username
-</div>
-
-</div>
-
-
-<a
-    href="https://discord.gg/Hhk3h9PH2"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="staff-discord"
->
-    VIEW WRAITH VAULT DISCORD
-</a>
-
-
-</div>
-
-</div>
-
-
-
-<!-- =========================================
+<!-- =========================
      FOOTER
-========================================= -->
+========================= -->
 
 <footer>
 
-<div>
+    <div>
+        © 2026 <strong>Wraith Vault</strong>. All rights reserved.
+    </div>
 
-© 2026
-
-<strong>
-Wraith Vault Leaks
-</strong>
-
-</div>
-
-
-<div>
-Made for the FiveM community
-</div>
+    <div>
+        WRAITH VAULT LEAKS
+    </div>
 
 </footer>
 
 
+<!-- =========================
+     STAFF MODAL
+========================= -->
 
-<!-- =========================================
-     STAFF DATA + POPUP SCRIPT
-========================================= -->
+<div class="modal" id="staffModal">
+
+    <div class="modal-box">
+
+        <button
+            class="close"
+            onclick="closeStaff()"
+            aria-label="Close"
+        >
+            ×
+        </button>
+
+
+        <div class="modal-avatar" id="modalAvatar">
+
+            <span
+                style="
+                    display:grid;
+                    place-items:center;
+                    height:100%;
+                    font-size:25px;
+                    font-weight:900;
+                "
+                id="avatarLetter"
+            >
+                W
+            </span>
+
+        </div>
+
+
+        <div
+            class="modal-name"
+            id="modalName"
+        >
+            Staff Member
+        </div>
+
+
+        <div
+            class="modal-username"
+            id="modalUsername"
+        >
+            @username
+        </div>
+
+
+        <div class="info-box">
+
+
+            <div class="info-row">
+
+                <span class="info-label">
+                    ROLE
+                </span>
+
+                <span
+                    class="info-value"
+                    id="modalRole"
+                >
+                    —
+                </span>
+
+            </div>
+
+
+            <div class="info-row">
+
+                <span class="info-label">
+                    STATUS
+                </span>
+
+                <span
+                    class="info-value"
+                    id="modalStatus"
+                >
+                    Checking...
+                </span>
+
+            </div>
+
+
+            <div class="info-row">
+
+                <span class="info-label">
+                    ACTIVITY
+                </span>
+
+                <span
+                    class="info-value"
+                    id="modalActivity"
+                >
+                    Not connected
+                </span>
+
+            </div>
+
+
+            <div class="info-row">
+
+                <span class="info-label">
+                    DISCORD ROLES
+                </span>
+
+                <span
+                    class="info-value role-list"
+                    id="modalRoles"
+                >
+                    <span class="role">
+                        Not connected
+                    </span>
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
 
 <script>
 
-const staffData = {
+/* =========================
+   LOADER
+========================= */
 
-    "Vortex": {
-        username: "@.vortexlad",
-        position: "Founder",
-        roles: ["Founder", "Wraith Vault"]
-    },
+window.addEventListener("load", () => {
 
-    "Speed": {
-        username: "@3tpzz",
-        position: "Founder",
-        roles: ["Founder", "Wraith Vault"]
-    },
+    setTimeout(() => {
 
-    "Kekrops": {
-        username: "@kekropps",
-        position: "Leaker Management",
-        roles: ["Leaker Management", "Staff"]
-    },
+        document
+            .getElementById("loader")
+            .classList.add("hide");
 
-    "Cyber": {
-        username: "@7yber",
-        position: "Leaker Management",
-        roles: ["Leaker Management", "Staff"]
-    },
+    }, 700);
 
-    "Agent": {
-        username: "@1pptx",
-        position: "Leaker Management",
-        roles: ["Leaker Management", "Staff"]
-    },
-
-    "Ice": {
-        username: "@igv2",
-        position: "Leaker",
-        roles: ["Leaker"]
-    },
-
-    "Diddy": {
-        username: "@.6iqv",
-        position: "Leaker",
-        roles: ["Leaker"]
-    },
-
-    "Flxn": {
-        username: "@therealflexy",
-        position: "Leaker",
-        roles: ["Leaker"]
-    },
-
-    "Shayan": {
-        username: "@shayan0634_",
-        position: "Leaker",
-        roles: ["Leaker"]
-    },
-
-    "Syed Ali": {
-        username: "@syedali.1",
-        position: "Leaker",
-        roles: ["Leaker"]
-    },
-
-    "Venom": {
-        username: "@notyour.venom",
-        position: "Leaker",
-        roles: ["Leaker"]
-    },
-
-    "Usman": {
-        username: "@uc4p",
-        position: "Leaker",
-        roles: ["Leaker"]
-    },
-
-    "Ali": {
-        username: "@q3vp",
-        position: "Leaker",
-        roles: ["Leaker"]
-    }
-
-};
+});
 
 
-function openStaff(name) {
+/* =========================
+   STAFF POPUP
+========================= */
 
-    const member = staffData[name];
+function openStaff(name, role, username) {
 
-    if (!member) return;
+    document
+        .getElementById("staffModal")
+        .classList
+        .add("active");
 
 
     document
-        .getElementById("staffName")
+        .getElementById("modalName")
         .textContent = name;
 
 
     document
-        .getElementById("staffPosition")
-        .textContent = member.position;
+        .getElementById("modalUsername")
+        .textContent = username;
 
 
     document
-        .getElementById("staffDiscord")
-        .textContent = member.username;
-
-
-    const roles =
-        document.getElementById("staffRoles");
-
-
-    roles.innerHTML = "";
-
-
-    member.roles.forEach(function(role) {
-
-        const roleElement =
-            document.createElement("span");
-
-
-        roleElement.className =
-            "popup-role";
-
-
-        roleElement.textContent =
-            role;
-
-
-        roles.appendChild(roleElement);
-
-    });
+        .getElementById("modalRole")
+        .textContent = role;
 
 
     document
-        .getElementById("staffModal")
-        .classList.add("active");
+        .getElementById("avatarLetter")
+        .textContent =
+        name.charAt(0).toUpperCase();
 
 
-    document.body.style.overflow =
-        "hidden";
+    document
+        .getElementById("modalStatus")
+        .textContent =
+        "Not connected";
+
+
+    document
+        .getElementById("modalActivity")
+        .textContent =
+        "Not connected";
+
+
+    document
+        .getElementById("modalRoles")
+        .innerHTML =
+        '<span class="role">Not connected</span>';
+
 }
 
 
@@ -2608,50 +1702,124 @@ function closeStaff() {
 
     document
         .getElementById("staffModal")
-        .classList.remove("active");
+        .classList
+        .remove("active");
 
-
-    document.body.style.overflow =
-        "";
 }
 
 
-/* Close when clicking outside popup */
+/* CLOSE WHEN CLICKING OUTSIDE */
 
 document
     .getElementById("staffModal")
-    .addEventListener(
-        "click",
-        function(event) {
+    .addEventListener("click", function(e) {
+
+        if (e.target === this) {
+
+            closeStaff();
+
+        }
+
+    });
+
+
+/* CLOSE WITH ESCAPE */
+
+document.addEventListener("keydown", function(e) {
+
+    if (e.key === "Escape") {
+
+        closeStaff();
+
+    }
+
+});
+
+
+/* =========================
+   SEARCH
+========================= */
+
+const search =
+    document.getElementById("search");
+
+
+search.addEventListener("input", () => {
+
+    const query =
+        search.value
+        .toLowerCase()
+        .trim();
+
+
+    document
+        .querySelectorAll(".drop")
+        .forEach(card => {
+
+            const text =
+                card.dataset.search
+                .toLowerCase();
+
 
             if (
-                event.target === this
+                !query ||
+                text.includes(query)
             ) {
-                closeStaff();
+
+                card.style.display = "";
+
+            } else {
+
+                card.style.display = "none";
+
             }
 
+        });
+
+});
+
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+const observer =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target
+                        .classList
+                        .add("visible");
+
+                    observer.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+        {
+            threshold: .12
         }
     );
 
 
-/* Close with ESC */
+document
+    .querySelectorAll(".reveal")
+    .forEach(element => {
 
-document.addEventListener(
-    "keydown",
-    function(event) {
+        observer.observe(element);
 
-        if (
-            event.key === "Escape"
-        ) {
-            closeStaff();
-        }
-
-    }
-);
+    });
 
 </script>
 
-
 </body>
-
 </html>
+```
