@@ -1,2512 +1,2103 @@
 <!DOCTYPE html>
-<h<!DOCTYPE html>
 <html lang="en">
 
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta charset="UTF-8">
+<title>Wraith Vault Leaks</title>
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <title>Wraith Vault Leaks</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+<style>
 
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-        rel="stylesheet"
-    >
+html {
+    scroll-behavior: smooth;
+}
 
+body {
+    font-family: "Inter", sans-serif;
+    background: #030303;
+    color: #fff;
+    overflow-x: hidden;
+}
 
-    <style>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+/* =========================================
+   FULL PAGE CUSTOM BACKGROUND
+   YOUR IMAGE/GIF MUST BE NAMED server.png
+========================================= */
 
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -20;
+    overflow: hidden;
 
-        html {
-            scroll-behavior: smooth;
-        }
+    background:
+        linear-gradient(
+            rgba(0,0,0,.78),
+            rgba(0,0,0,.88)
+        ),
+        url("server.png") center center / cover no-repeat;
 
+    background-attachment: fixed;
+}
 
-        body {
-            font-family: "Inter", sans-serif;
 
-            background:
-                radial-gradient(
-                    circle at 50% -10%,
-                    rgba(255,255,255,.13),
-                    transparent 32%
-                ),
-                radial-gradient(
-                    circle at 0% 45%,
-                    rgba(255,255,255,.055),
-                    transparent 28%
-                ),
-                radial-gradient(
-                    circle at 100% 75%,
-                    rgba(255,255,255,.045),
-                    transparent 30%
-                ),
-                #030303;
+/* Extra dark layer */
 
-            color: #fff;
+.background::after {
+    content: "";
+    position: absolute;
+    inset: 0;
 
-            overflow-x: hidden;
-        }
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(255,255,255,.10),
+            transparent 35%
+        ),
+        linear-gradient(
+            to bottom,
+            transparent 0%,
+            rgba(0,0,0,.35) 45%,
+            #030303 100%
+        );
+}
 
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+/* Animated light */
 
+.background::before {
+    content: "";
 
-        /* =========================================
-           BACKGROUND
-        ========================================= */
+    position: absolute;
 
-        .background {
-            position: fixed;
+    width: 650px;
+    height: 650px;
 
-            inset: 0;
+    left: 50%;
+    top: 35%;
 
-            overflow: hidden;
+    transform: translate(-50%,-50%);
 
-            pointer-events: none;
+    border-radius: 50%;
 
-            z-index: -10;
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.10),
+            transparent 65%
+        );
 
-            background:
-                radial-gradient(
-                    circle at 50% 15%,
-                    rgba(255,255,255,.08),
-                    transparent 30%
-                ),
-                #030303;
-        }
+    filter: blur(60px);
 
+    animation: backgroundGlow 12s ease-in-out infinite alternate;
+}
 
-        .glow {
-            position: absolute;
 
-            border-radius: 50%;
+@keyframes backgroundGlow {
 
-            filter: blur(110px);
+    0% {
+        transform:
+            translate(-50%,-50%)
+            scale(.9);
+        opacity: .35;
+    }
 
-            opacity: .15;
+    100% {
+        transform:
+            translate(-50%,-50%)
+            scale(1.2);
+        opacity: .7;
+    }
+}
 
-            animation:
-                floatGlow 14s infinite alternate ease-in-out;
-        }
 
+/* =========================================
+   NAVBAR
+========================================= */
 
-        .glow.one {
-            width: 420px;
-            height: 420px;
+nav {
+    position: fixed;
 
-            background: #fff;
+    top: 0;
+    left: 0;
 
-            top: -230px;
-            left: -120px;
-        }
+    width: 100%;
+    height: 78px;
 
+    display: flex;
 
-        .glow.two {
-            width: 350px;
-            height: 350px;
+    align-items: center;
+    justify-content: space-between;
 
-            background: #888;
+    padding: 0 7%;
 
-            right: -120px;
-            top: 35%;
+    background:
+        rgba(0,0,0,.62);
 
-            animation-delay: 3s;
-        }
+    backdrop-filter:
+        blur(22px);
 
+    -webkit-backdrop-filter:
+        blur(22px);
 
-        .glow.three {
-            width: 300px;
-            height: 300px;
+    border-bottom:
+        1px solid rgba(255,255,255,.09);
 
-            background: #fff;
+    z-index: 1000;
+}
 
-            bottom: -180px;
-            left: 42%;
 
-            animation-delay: 6s;
-        }
+.logo {
+    display: flex;
 
+    align-items: center;
 
-        @keyframes floatGlow {
+    gap: 10px;
 
-            from {
-                transform:
-                    translate(0,0)
-                    scale(1);
-            }
+    font-size: 17px;
 
-            to {
-                transform:
-                    translate(70px,-40px)
-                    scale(1.2);
-            }
+    font-weight: 900;
 
-        }
+    letter-spacing: -.7px;
+}
 
 
-        .grid {
-            position: absolute;
+.logo-image {
+    width: 38px;
+    height: 38px;
 
-            inset: 0;
+    object-fit: cover;
 
-            opacity: .10;
+    border-radius: 9px;
 
-            background-image:
-                linear-gradient(
-                    rgba(255,255,255,.05) 1px,
-                    transparent 1px
-                ),
-                linear-gradient(
-                    90deg,
-                    rgba(255,255,255,.05) 1px,
-                    transparent 1px
-                );
+    border:
+        1px solid rgba(255,255,255,.15);
 
-            background-size: 60px 60px;
+    box-shadow:
+        0 0 25px rgba(255,255,255,.15);
 
-            mask-image:
-                linear-gradient(
-                    to bottom,
-                    black,
-                    transparent 90%
-                );
-        }
+    transition: .35s ease;
+}
 
 
-        body::before {
-            content: "";
+.logo:hover .logo-image {
+    transform:
+        rotate(-4deg)
+        scale(1.08);
 
-            position: fixed;
+    box-shadow:
+        0 0 40px rgba(255,255,255,.25);
+}
 
-            inset: -25%;
 
-            pointer-events: none;
+.logo span {
+    color: #888;
 
-            z-index: -5;
+    margin-left: 4px;
+}
 
-            background:
-                radial-gradient(
-                    circle at 25% 25%,
-                    rgba(255,255,255,.08),
-                    transparent 18%
-                ),
-                radial-gradient(
-                    circle at 75% 65%,
-                    rgba(255,255,255,.055),
-                    transparent 20%
-                );
 
-            filter: blur(55px);
+.nav-links {
+    display: flex;
 
-            animation:
-                wvAtmosphere 18s
-                ease-in-out
-                infinite
-                alternate;
-        }
+    align-items: center;
 
+    gap: 28px;
+}
 
-        @keyframes wvAtmosphere {
 
-            0% {
-                transform:
-                    translate3d(-2%,-1%,0)
-                    scale(1);
-            }
+.nav-links a {
+    color: #888;
 
-            50% {
-                transform:
-                    translate3d(3%,2%,0)
-                    scale(1.08);
-            }
+    font-size: 11px;
 
-            100% {
-                transform:
-                    translate3d(-1%,4%,0)
-                    scale(1.03);
-            }
+    font-weight: 800;
 
-        }
+    transition: .25s ease;
+}
 
 
-        /* =========================================
-           NAVBAR
-        ========================================= */
+.nav-links a:hover {
+    color: #fff;
+}
 
-        nav {
-            position: fixed;
 
-            top: 0;
-            left: 0;
+.nav-discord {
+    padding: 11px 18px;
 
-            width: 100%;
-            height: 78px;
+    border-radius: 8px;
 
-            display: flex;
+    background: #fff;
 
-            align-items: center;
-            justify-content: space-between;
+    color: #000 !important;
 
-            padding: 0 7%;
+    box-shadow:
+        0 10px 30px rgba(255,255,255,.08);
+}
 
-            background:
-                rgba(3,3,3,.72);
 
-            backdrop-filter:
-                blur(22px)
-                saturate(140%);
+/* =========================================
+   HERO
+========================================= */
 
-            -webkit-backdrop-filter:
-                blur(22px)
-                saturate(140%);
+.hero {
+    min-height: 100vh;
 
-            border-bottom:
-                1px solid rgba(255,255,255,.08);
+    display: flex;
 
-            box-shadow:
-                0 10px 45px rgba(0,0,0,.35);
+    align-items: center;
+    justify-content: center;
 
-            z-index: 1000;
-        }
+    text-align: center;
 
+    padding:
+        150px 20px
+        100px;
 
-        .logo {
-            display: flex;
+    position: relative;
+}
 
-            align-items: center;
 
-            gap: 10px;
+.hero-content {
+    max-width: 1000px;
 
-            font-size: 17px;
+    position: relative;
 
-            font-weight: 900;
+    z-index: 2;
 
-            letter-spacing: -.7px;
-        }
+    animation:
+        heroIn 1s ease forwards;
+}
 
 
-        .logo-image {
-            width: 37px;
-            height: 37px;
+@keyframes heroIn {
 
-            object-fit: cover;
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
 
-            border-radius: 9px;
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-            border:
-                1px solid rgba(255,255,255,.12);
 
-            box-shadow:
-                0 0 0 1px rgba(255,255,255,.08),
-                0 0 30px rgba(255,255,255,.13);
+.eyebrow {
+    display: inline-flex;
 
-            transition:
-                transform .35s ease,
-                box-shadow .35s ease;
-        }
+    align-items: center;
 
+    gap: 9px;
 
-        .logo:hover .logo-image {
-            transform:
-                rotate(-4deg)
-                scale(1.08);
+    padding: 8px 15px;
 
-            box-shadow:
-                0 0 0 1px rgba(255,255,255,.20),
-                0 0 45px rgba(255,255,255,.22);
-        }
+    border:
+        1px solid rgba(255,255,255,.14);
 
+    background:
+        rgba(0,0,0,.45);
 
-        .logo span {
-            color: #999;
+    backdrop-filter:
+        blur(12px);
 
-            margin-left: 4px;
-        }
+    border-radius: 100px;
 
+    color: #aaa;
 
-        .nav-links {
-            display: flex;
+    font-size: 10px;
 
-            align-items: center;
+    font-weight: 800;
 
-            gap: 30px;
-        }
+    letter-spacing: 1.5px;
 
+    margin-bottom: 28px;
+}
 
-        .nav-links a {
-            color: #858585;
 
-            font-size: 12px;
+.dot {
+    width: 7px;
+    height: 7px;
 
-            font-weight: 700;
+    background: #fff;
 
-            transition: .25s ease;
-        }
+    border-radius: 50%;
 
+    box-shadow:
+        0 0 12px rgba(255,255,255,.8);
 
-        .nav-links a:hover {
-            color: #fff;
-        }
+    animation:
+        pulse 1.5s infinite;
+}
 
 
-        .nav-discord {
-            padding: 11px 19px;
+@keyframes pulse {
 
-            border-radius: 8px;
+    0%,100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 
-            color: #050505 !important;
+    50% {
+        opacity: .3;
+        transform: scale(.7);
+    }
+}
 
-            background: #fff;
 
-            box-shadow:
-                0 8px 30px rgba(255,255,255,.08);
+.hero h1 {
+    font-size:
+        clamp(50px,8vw,105px);
 
-            transition: .25s ease;
-        }
+    line-height: .92;
 
+    font-weight: 900;
 
-        .nav-discord:hover {
-            transform:
-                translateY(-2px);
+    letter-spacing: -6px;
 
-            box-shadow:
-                0 12px 35px rgba(255,255,255,.18);
-        }
+    text-transform: uppercase;
 
+    text-shadow:
+        0 5px 50px rgba(0,0,0,.8);
+}
 
-        /* =========================================
-           HERO
-        ========================================= */
 
-        .hero {
-            min-height: 100vh;
+.hero h1 .white {
+    color: #fff;
+}
 
-            display: flex;
 
-            align-items: center;
+.gradient {
+    background:
+        linear-gradient(
+            110deg,
+            #fff,
+            #777,
+            #fff,
+            #555,
+            #fff
+        );
 
-            justify-content: center;
+    background-size: 250% auto;
 
-            text-align: center;
+    animation:
+        textMove 7s linear infinite;
 
-            padding:
-                150px 20px
-                100px;
+    -webkit-background-clip: text;
 
-            position: relative;
-        }
+    background-clip: text;
 
+    color: transparent;
+}
 
-        .hero::before {
-            content: "";
 
-            position: absolute;
+@keyframes textMove {
 
-            width: 650px;
-            height: 650px;
+    to {
+        background-position:
+            250% center;
+    }
+}
 
-            left: 50%;
-            top: 38%;
 
-            transform:
-                translate(-50%,-50%);
+.hero-description {
+    max-width: 650px;
 
-            border-radius: 50%;
+    margin: 30px auto 0;
 
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(255,255,255,.08),
-                    transparent 65%
-                );
+    color: #999;
 
-            filter: blur(35px);
+    font-size: 14px;
 
-            pointer-events: none;
-        }
+    line-height: 1.8;
 
+    text-shadow:
+        0 2px 15px #000;
+}
 
-        .hero-content {
-            max-width: 1000px;
 
-            animation:
-                heroIn 1s ease forwards;
+.hero-buttons {
+    display: flex;
 
-            position: relative;
+    justify-content: center;
 
-            z-index: 2;
-        }
+    flex-wrap: wrap;
 
+    gap: 13px;
 
-        @keyframes heroIn {
+    margin-top: 35px;
+}
 
-            from {
-                opacity: 0;
 
-                transform:
-                    translateY(35px);
-            }
+.btn {
+    position: relative;
 
-            to {
-                opacity: 1;
+    overflow: hidden;
 
-                transform:
-                    translateY(0);
-            }
+    display: inline-flex;
 
-        }
+    align-items: center;
+    justify-content: center;
 
+    min-width: 175px;
 
-        .eyebrow {
-            display: inline-flex;
+    padding: 15px 24px;
 
-            align-items: center;
+    border-radius: 9px;
 
-            gap: 9px;
+    font-size: 11px;
 
-            padding: 8px 15px;
+    font-weight: 900;
 
-            border:
-                1px solid rgba(255,255,255,.14);
+    border:
+        1px solid rgba(255,255,255,.15);
 
-            background:
-                rgba(255,255,255,.035);
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
 
-            border-radius: 100px;
 
-            color: #aaa;
+.btn::before {
+    content: "";
 
-            font-size: 10px;
+    position: absolute;
 
-            font-weight: 800;
+    top: 0;
+    left: -120%;
 
-            letter-spacing: 1.5px;
+    width: 80%;
+    height: 100%;
 
-            margin-bottom: 28px;
-        }
+    transform:
+        skewX(-20deg);
 
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.35),
+            transparent
+        );
 
-        .dot {
-            width: 7px;
-            height: 7px;
+    transition:
+        left .6s ease;
+}
 
-            background: #fff;
 
-            border-radius: 50%;
+.btn:hover::before {
+    left: 140%;
+}
 
-            box-shadow:
-                0 0 12px rgba(255,255,255,.8);
 
-            animation:
-                pulse 1.5s infinite;
-        }
+.btn-primary {
+    background: #fff;
 
+    color: #000;
 
-        @keyframes pulse {
+    box-shadow:
+        0 15px 45px rgba(255,255,255,.10);
+}
 
-            0%,100% {
-                opacity: 1;
 
-                transform:
-                    scale(1);
-            }
+.btn-primary:hover {
+    transform:
+        translateY(-4px);
 
-            50% {
-                opacity: .35;
+    box-shadow:
+        0 20px 55px rgba(255,255,255,.20);
+}
 
-                transform:
-                    scale(.7);
-            }
 
-        }
+.btn-secondary {
+    background:
+        rgba(0,0,0,.45);
 
+    color: #ddd;
 
-        .hero h1 {
-            font-size:
-                clamp(50px,8vw,105px);
+    backdrop-filter:
+        blur(15px);
+}
 
-            line-height: .92;
 
-            font-weight: 900;
+.btn-secondary:hover {
+    transform:
+        translateY(-4px);
 
-            letter-spacing: -6px;
+    background:
+        rgba(255,255,255,.08);
+}
 
-            text-transform: uppercase;
 
-            text-shadow:
-                0 0 50px rgba(255,255,255,.07);
-        }
+/* =========================================
+   STATS
+========================================= */
 
+.stats {
+    max-width: 850px;
 
-        .hero h1 .white {
-            color: #fff;
-        }
+    margin:
+        -40px auto 0;
 
+    display: grid;
 
-        .hero h1 .gradient {
-            background:
-                linear-gradient(
-                    110deg,
-                    #fff 0%,
-                    #a5a5a5 28%,
-                    #fff 50%,
-                    #666 72%,
-                    #fff 100%
-                );
+    grid-template-columns:
+        repeat(3,1fr);
 
-            background-size: 250% auto;
+    background:
+        rgba(0,0,0,.52);
 
-            animation:
-                wvText 7s linear infinite;
+    backdrop-filter:
+        blur(20px);
 
-            -webkit-background-clip: text;
+    border:
+        1px solid rgba(255,255,255,.10);
 
-            background-clip: text;
+    border-radius: 15px;
 
-            color: transparent;
-        }
+    overflow: hidden;
 
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.45);
 
-        @keyframes wvText {
+    position: relative;
 
-            to {
-                background-position:
-                    250% center;
-            }
+    z-index: 5;
+}
 
-        }
 
+.stat {
+    padding: 25px;
 
-        .hero-description {
-            max-width: 650px;
+    text-align: center;
 
-            margin: 32px auto 0;
+    border-right:
+        1px solid rgba(255,255,255,.08);
+}
 
-            color: #858585;
 
-            font-size: 15px;
+.stat:last-child {
+    border-right: none;
+}
 
-            line-height: 1.8;
-        }
 
+.stat strong {
+    display: block;
 
-        .hero-buttons {
-            display: flex;
+    font-size: 25px;
 
-            justify-content: center;
+    font-weight: 900;
+}
 
-            flex-wrap: wrap;
 
-            gap: 13px;
+.stat span {
+    display: block;
 
-            margin-top: 35px;
-        }
+    margin-top: 6px;
 
+    color: #666;
 
-        .btn {
-            position: relative;
+    font-size: 10px;
 
-            overflow: hidden;
+    font-weight: 700;
 
-            display: inline-flex;
+    text-transform: uppercase;
 
-            align-items: center;
+    letter-spacing: 1px;
+}
 
-            justify-content: center;
 
-            min-width: 175px;
+/* =========================================
+   SECTIONS
+========================================= */
 
-            padding: 15px 24px;
+section {
+    padding:
+        110px 7%;
+}
 
-            border-radius: 9px;
 
-            font-size: 12px;
+.section-header {
+    max-width: 1150px;
 
-            font-weight: 800;
+    margin:
+        0 auto 50px;
+}
 
-            border:
-                1px solid rgba(255,255,255,.12);
 
-            transition:
-                transform .3s ease,
-                box-shadow .3s ease;
-        }
+.center {
+    text-align: center;
+}
 
 
-        .btn::before {
-            content: "";
+.section-label {
+    color: #aaa;
 
-            position: absolute;
+    font-size: 10px;
 
-            top: 0;
-            left: -120%;
+    font-weight: 900;
 
-            width: 80%;
-            height: 100%;
+    text-transform: uppercase;
 
-            transform:
-                skewX(-20deg);
+    letter-spacing: 2px;
+}
 
-            background:
-                linear-gradient(
-                    90deg,
-                    transparent,
-                    rgba(255,255,255,.35),
-                    transparent
-                );
 
-            transition:
-                left .6s ease;
-        }
+.section-header h2 {
+    margin-top: 10px;
 
+    font-size: 42px;
 
-        .btn:hover::before {
-            left: 140%;
-        }
+    font-weight: 900;
 
+    letter-spacing: -2px;
 
-        .btn-primary {
-            color: #050505;
+    text-shadow:
+        0 4px 30px rgba(0,0,0,.8);
+}
 
-            background: #fff;
 
-            box-shadow:
-                0 12px 40px rgba(255,255,255,.12);
-        }
+.section-header p {
+    margin-top: 12px;
 
+    color: #777;
 
-        .btn-primary:hover {
-            transform:
-                translateY(-4px);
+    font-size: 13px;
 
-            box-shadow:
-                0 18px 50px rgba(255,255,255,.20);
-        }
+    line-height: 1.7;
+}
 
 
-        .btn-secondary {
-            color: #ddd;
+/* =========================================
+   CATEGORY CARDS
+========================================= */
 
-            background:
-                rgba(255,255,255,.035);
-        }
+.cards {
+    max-width: 1150px;
 
+    margin: auto;
 
-        .btn-secondary:hover {
-            transform:
-                translateY(-4px);
+    display: grid;
 
-            background:
-                rgba(255,255,255,.07);
-        }
+    grid-template-columns:
+        repeat(3,1fr);
 
+    gap: 18px;
+}
 
-        /* =========================================
-           STATS
-        ========================================= */
 
-        .stats {
-            max-width: 850px;
+.card {
+    position: relative;
 
-            margin:
-                -40px auto 0;
+    padding: 30px;
 
-            display: grid;
+    min-height: 230px;
 
-            grid-template-columns:
-                repeat(3,1fr);
+    overflow: hidden;
 
-            border:
-                1px solid rgba(255,255,255,.08);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.075),
+            rgba(0,0,0,.45)
+        );
 
-            border-radius: 14px;
+    backdrop-filter:
+        blur(20px);
 
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,.065),
-                    rgba(255,255,255,.018)
-                );
+    -webkit-backdrop-filter:
+        blur(20px);
 
-            backdrop-filter:
-                blur(20px);
+    border:
+        1px solid rgba(255,255,255,.10);
 
-            box-shadow:
-                0 25px 80px rgba(0,0,0,.30);
+    border-radius: 15px;
 
-            position: relative;
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.05),
+        0 20px 70px rgba(0,0,0,.35);
 
-            z-index: 5;
-        }
+    transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
+}
 
 
-        .stat {
-            padding: 25px;
+.card:hover {
+    transform:
+        translateY(-8px);
 
-            text-align: center;
+    border-color:
+        rgba(255,255,255,.28);
 
-            border-right:
-                1px solid rgba(255,255,255,.07);
-        }
+    box-shadow:
+        0 25px 90px rgba(0,0,0,.55),
+        0 0 45px rgba(255,255,255,.04);
+}
 
 
-        .stat:last-child {
-            border-right: none;
-        }
+.icon {
+    width: 48px;
+    height: 48px;
 
+    display: flex;
 
-        .stat strong {
-            display: block;
+    align-items: center;
+    justify-content: center;
 
-            font-size: 25px;
+    margin-bottom: 22px;
 
-            font-weight: 900;
-        }
+    border-radius: 11px;
 
+    background:
+        rgba(255,255,255,.07);
 
-        .stat span {
-            display: block;
+    border:
+        1px solid rgba(255,255,255,.13);
 
-            margin-top: 6px;
+    color: #fff;
 
-            color: #666;
+    font-size: 18px;
 
-            font-size: 10px;
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.35);
+}
 
-            font-weight: 700;
 
-            text-transform: uppercase;
+.card h3 {
+    font-size: 17px;
 
-            letter-spacing: 1px;
-        }
+    font-weight: 800;
 
+    margin-bottom: 10px;
+}
 
-        /* =========================================
-           SECTIONS
-        ========================================= */
 
-        section {
-            padding: 110px 7%;
-        }
+.card p {
+    color: #777;
 
+    font-size: 13px;
 
-        .section-header {
-            max-width: 1150px;
+    line-height: 1.7;
+}
 
-            margin:
-                0 auto 50px;
-        }
 
+.card-link {
+    display: inline-block;
 
-        .center {
-            text-align: center;
-        }
+    margin-top: 20px;
 
+    color: #bbb;
 
-        .section-label {
-            color: #aaa;
+    font-size: 10px;
 
-            font-size: 10px;
+    font-weight: 900;
 
-            font-weight: 900;
+    letter-spacing: .7px;
 
-            text-transform: uppercase;
+    transition: .25s ease;
+}
 
-            letter-spacing: 2px;
-        }
 
+.card:hover .card-link {
+    color: #fff;
 
-        .section-header h2 {
-            margin-top: 10px;
+    letter-spacing: 1.4px;
+}
 
-            font-size: 42px;
 
-            font-weight: 900;
+/* =========================================
+   STAFF
+========================================= */
 
-            letter-spacing: -2px;
+.staff-grid {
+    max-width: 1150px;
 
-            text-shadow:
-                0 0 35px rgba(255,255,255,.055);
-        }
+    margin: auto;
 
+    display: grid;
 
-        .section-header p {
-            margin-top: 12px;
+    grid-template-columns:
+        repeat(2,1fr);
 
-            color: #777;
+    gap: 20px;
+}
 
-            font-size: 13px;
 
-            line-height: 1.7;
-        }
+.staff-card {
+    position: relative;
 
+    overflow: hidden;
 
-        /* =========================================
-           CATEGORY CARDS
-        ========================================= */
+    padding: 32px 25px;
 
-        .cards {
-            max-width: 1150px;
+    text-align: center;
 
-            margin: auto;
+    border-radius: 16px;
 
-            display: grid;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.07),
+            rgba(0,0,0,.50)
+        );
 
-            grid-template-columns:
-                repeat(3,1fr);
+    backdrop-filter:
+        blur(20px);
 
-            gap: 18px;
-        }
+    border:
+        1px solid rgba(255,255,255,.10);
 
+    box-shadow:
+        0 20px 70px rgba(0,0,0,.35);
 
-        .card {
-            position: relative;
+    transition: .35s ease;
+}
 
-            padding: 30px;
 
-            min-height: 230px;
+.staff-card:hover {
+    transform:
+        translateY(-8px);
 
-            overflow: hidden;
+    border-color:
+        rgba(255,255,255,.25);
+}
 
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,.065),
-                    rgba(255,255,255,.018)
-                );
 
-            backdrop-filter:
-                blur(18px)
-                saturate(130%);
+.staff-role {
+    display: inline-block;
 
-            border:
-                1px solid rgba(255,255,255,.09);
+    padding: 7px 12px;
 
-            border-radius: 15px;
+    margin-bottom: 22px;
 
-            box-shadow:
-                inset 0 1px 0 rgba(255,255,255,.045),
-                0 20px 70px rgba(0,0,0,.20);
+    border-radius: 100px;
 
-            transition:
-                transform .35s ease,
-                border-color .35s ease,
-                box-shadow .35s ease;
-        }
+    font-size: 9px;
 
+    font-weight: 900;
 
-        .card:hover {
-            transform:
-                translateY(-8px);
+    letter-spacing: 1.4px;
 
-            border-color:
-                rgba(255,255,255,.25);
+    text-transform: uppercase;
 
-            box-shadow:
-                inset 0 1px 0 rgba(255,255,255,.08),
-                0 25px 80px rgba(0,0,0,.45),
-                0 0 45px rgba(255,255,255,.035);
-        }
+    color: #ddd;
 
+    background:
+        rgba(255,255,255,.05);
 
-        .card::after {
-            content: "";
+    border:
+        1px solid rgba(255,255,255,.10);
+}
 
-            position: absolute;
 
-            width: 160px;
-            height: 160px;
+.staff-icon {
+    width: 62px;
+    height: 62px;
 
-            top: -90px;
-            right: -90px;
+    margin:
+        0 auto 18px;
 
-            border-radius: 50%;
+    display: flex;
 
-            background: #fff;
+    align-items: center;
+    justify-content: center;
 
-            filter: blur(80px);
+    border-radius: 50%;
 
-            opacity: 0;
+    font-size: 20px;
 
-            transition: .3s;
-        }
+    font-weight: 900;
 
+    background:
+        rgba(255,255,255,.07);
 
-        .card:hover::after {
-            opacity: .08;
-        }
+    border:
+        1px solid rgba(255,255,255,.14);
 
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.35);
+}
 
-        .icon {
-            width: 48px;
-            height: 48px;
 
-            display: flex;
+.staff-card h3 {
+    font-size: 18px;
 
-            align-items: center;
-            justify-content: center;
+    font-weight: 900;
 
-            margin-bottom: 22px;
+    margin-bottom: 16px;
+}
 
-            border-radius: 11px;
 
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,.11),
-                    rgba(255,255,255,.025)
-                );
+.staff-names {
+    display: flex;
 
-            border:
-                1px solid rgba(255,255,255,.13);
+    flex-wrap: wrap;
 
-            color: #fff;
+    justify-content: center;
 
-            font-size: 18px;
+    gap: 8px;
+}
 
-            box-shadow:
-                inset 0 1px 0 rgba(255,255,255,.08),
-                0 10px 35px rgba(0,0,0,.25);
-        }
 
+.staff-name {
+    padding: 8px 12px;
 
-        .card h3 {
-            font-size: 17px;
+    border-radius: 7px;
 
-            font-weight: 800;
+    background:
+        rgba(255,255,255,.045);
 
-            margin-bottom: 10px;
-        }
+    border:
+        1px solid rgba(255,255,255,.08);
 
+    color: #aaa;
 
-        .card p {
-            color: #777;
+    font-size: 11px;
 
-            font-size: 13px;
+    font-weight: 700;
 
-            line-height: 1.7;
-        }
+    transition: .25s;
+}
 
 
-        .card-link {
-            display: inline-block;
+.staff-name:hover {
+    color: #000;
 
-            margin-top: 20px;
+    background: #fff;
 
-            color: #bbb;
+    transform:
+        translateY(-2px);
+}
 
-            font-size: 10px;
 
-            font-weight: 800;
+/* =========================================
+   LEAKERS TEAM
+========================================= */
 
-            letter-spacing: .7px;
+.leakers-team {
+    max-width: 1150px;
 
-            transition:
-                color .25s ease,
-                letter-spacing .25s ease;
-        }
+    margin:
+        35px auto 0;
 
+    padding:
+        38px 30px;
 
-        .card:hover .card-link {
-            color: #fff;
+    text-align: center;
 
-            letter-spacing: 1.3px;
-        }
+    border-radius: 18px;
 
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.07),
+            rgba(0,0,0,.50)
+        );
 
-        /* =========================================
-           STAFF
-        ========================================= */
+    backdrop-filter:
+        blur(20px);
 
-        .staff-grid {
-            max-width: 1150px;
+    border:
+        1px solid rgba(255,255,255,.10);
 
-            margin: auto;
+    box-shadow:
+        0 20px 70px rgba(0,0,0,.35);
 
-            display: grid;
+    transition: .35s ease;
+}
 
-            grid-template-columns:
-                repeat(2,1fr);
 
-            gap: 20px;
-        }
+.leakers-team:hover {
+    transform:
+        translateY(-5px);
 
+    border-color:
+        rgba(255,255,255,.23);
+}
 
-        .staff-card {
-            position: relative;
 
-            overflow: hidden;
+.leakers-title {
+    display: inline-flex;
 
-            padding: 32px 25px;
+    align-items: center;
 
-            text-align: center;
+    gap: 9px;
 
-            border-radius: 16px;
+    padding: 8px 15px;
 
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,.065),
-                    rgba(255,255,255,.018)
-                );
+    border-radius: 100px;
 
-            backdrop-filter:
-                blur(18px)
-                saturate(130%);
+    background:
+        rgba(255,255,255,.05);
 
-            border:
-                1px solid rgba(255,255,255,.09);
+    border:
+        1px solid rgba(255,255,255,.09);
 
-            box-shadow:
-                inset 0 1px 0 rgba(255,255,255,.045),
-                0 20px 70px rgba(0,0,0,.20);
+    color: #ddd;
 
-            transition:
-                transform .35s ease,
-                border-color .35s ease,
-                box-shadow .35s ease;
-        }
+    font-size: 10px;
 
+    font-weight: 900;
 
-        .staff-card:hover {
-            transform:
-                translateY(-9px);
+    letter-spacing: 1.5px;
 
-            border-color:
-                rgba(255,255,255,.25);
+    text-transform: uppercase;
 
-            box-shadow:
-                0 25px 80px rgba(0,0,0,.45);
-        }
+    margin-bottom: 25px;
+}
 
 
-        .staff-card::before {
-            content: "";
+.leakers-title::before {
+    content: "";
 
-            position: absolute;
+    width: 7px;
+    height: 7px;
 
-            width: 190px;
-            height: 190px;
+    border-radius: 50%;
 
-            left: 50%;
-            top: -120px;
+    background: #fff;
 
-            transform:
-                translateX(-50%);
+    box-shadow:
+        0 0 12px rgba(255,255,255,.8);
+}
 
-            border-radius: 50%;
 
-            background: #fff;
+.leakers-names {
+    display: flex;
 
-            filter: blur(80px);
+    flex-wrap: wrap;
 
-            opacity: .06;
-        }
+    justify-content: center;
 
+    gap: 10px;
+}
 
-        .staff-role {
-            position: relative;
 
-            display: inline-block;
+.leaker {
+    padding: 11px 17px;
 
-            padding: 7px 12px;
+    border-radius: 9px;
 
-            margin-bottom: 22px;
+    color: #bbb;
 
-            border-radius: 100px;
+    background:
+        rgba(255,255,255,.045);
 
-            font-size: 9px;
+    border:
+        1px solid rgba(255,255,255,.09);
 
-            font-weight: 900;
+    font-size: 12px;
 
-            letter-spacing: 1.4px;
+    font-weight: 700;
 
-            text-transform: uppercase;
+    transition: .25s ease;
+}
 
-            color: #ddd;
 
-            background:
-                rgba(255,255,255,.05);
+.leaker:hover {
+    color: #000;
 
-            border:
-                1px solid rgba(255,255,255,.09);
-        }
+    background: #fff;
 
+    border-color: #fff;
 
-        .staff-icon {
-            width: 62px;
-            height: 62px;
+    transform:
+        translateY(-3px);
+}
 
-            margin:
-                0 auto 18px;
 
-            display: flex;
+/* =========================================
+   ABOUT
+========================================= */
 
-            align-items: center;
-            justify-content: center;
+#about {
+    padding-top: 90px;
+}
 
-            border-radius: 50%;
 
-            font-size: 20px;
+/* =========================================
+   DISCORD
+========================================= */
 
-            font-weight: 900;
+.discord-wrap {
+    max-width: 1150px;
 
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,.11),
-                    rgba(255,255,255,.025)
-                );
+    margin: auto;
 
-            border:
-                1px solid rgba(255,255,255,.13);
+    position: relative;
 
-            color: #fff;
+    overflow: hidden;
 
-            box-shadow:
-                inset 0 1px 0 rgba(255,255,255,.08),
-                0 10px 35px rgba(0,0,0,.25);
-        }
+    padding: 75px 40px;
 
+    text-align: center;
 
-        .staff-card h3 {
-            font-size: 18px;
+    border:
+        1px solid rgba(255,255,255,.12);
 
-            font-weight: 900;
+    border-radius: 20px;
 
-            margin-bottom: 16px;
-        }
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.07),
+            rgba(0,0,0,.60)
+        ),
+        url("server.png")
+        center / cover no-repeat;
 
+    backdrop-filter:
+        blur(20px);
 
-        .staff-names {
-            display: flex;
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.55);
+}
 
-            flex-wrap: wrap;
 
-            justify-content: center;
+.discord-wrap::before {
+    content: "";
 
-            gap: 8px;
-        }
+    position: absolute;
 
+    inset: 0;
 
-        .staff-name {
-            padding: 8px 12px;
+    background:
+        linear-gradient(
+            rgba(0,0,0,.65),
+            rgba(0,0,0,.78)
+        );
 
-            border-radius: 7px;
+    z-index: 0;
+}
 
-            background:
-                rgba(255,255,255,.045);
 
-            border:
-                1px solid rgba(255,255,255,.07);
+.discord-content {
+    position: relative;
 
-            color: #aaa;
+    z-index: 2;
+}
 
-            font-size: 11px;
 
-            font-weight: 700;
+.server-picture {
+    width: 75px;
+    height: 75px;
 
-            transition: .25s;
-        }
+    margin:
+        0 auto 22px;
 
+    display: block;
 
-        .staff-name:hover {
-            color: #fff;
+    object-fit: cover;
 
-            background:
-                rgba(255,255,255,.09);
+    border-radius: 18px;
 
-            transform:
-                translateY(-2px);
-        }
+    border:
+        1px solid rgba(255,255,255,.15);
 
+    box-shadow:
+        0 0 0 1px rgba(255,255,255,.10),
+        0 20px 60px rgba(255,255,255,.12);
 
-        /* =========================================
-           LEAKERS
-        ========================================= */
+    transition: .4s ease;
+}
 
-        .leakers-team {
-            max-width: 1150px;
 
-            margin:
-                35px auto 0;
+.server-picture:hover {
+    transform:
+        scale(1.08)
+        rotate(2deg);
 
-            padding:
-                38px 30px;
+    box-shadow:
+        0 0 0 1px rgba(255,255,255,.25),
+        0 25px 80px rgba(255,255,255,.20);
+}
 
-            text-align: center;
 
-            border-radius: 18px;
+.discord-wrap h2 {
+    font-size: 40px;
 
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,.065),
-                    rgba(255,255,255,.018)
-                );
+    font-weight: 900;
 
-            backdrop-filter:
-                blur(18px);
+    letter-spacing: -2px;
+}
 
-            border:
-                1px solid rgba(255,255,255,.09);
 
-            box-shadow:
-                inset 0 1px 0 rgba(255,255,255,.045),
-                0 20px 70px rgba(0,0,0,.20);
+.discord-wrap p {
+    max-width: 600px;
 
-            position: relative;
+    margin:
+        15px auto 30px;
 
-            overflow: hidden;
+    color: #999;
 
-            transition:
-                border-color .3s ease,
-                transform .3s ease;
-        }
+    font-size: 13px;
 
+    line-height: 1.8;
+}
 
-        .leakers-team:hover {
-            border-color:
-                rgba(255,255,255,.22);
 
-            transform:
-                translateY(-5px);
-        }
+/* =========================================
+   FOOTER
+========================================= */
 
+footer {
+    padding:
+        35px 7%;
 
-        .leakers-team::before {
-            content: "";
+    border-top:
+        1px solid rgba(255,255,255,.07);
 
-            position: absolute;
+    display: flex;
 
-            width: 350px;
-            height: 180px;
+    justify-content: space-between;
 
-            left: 50%;
-            top: -120px;
+    align-items: center;
 
-            transform:
-                translateX(-50%);
+    color: #555;
 
-            border-radius: 50%;
+    font-size: 11px;
 
-            background: #fff;
+    background:
+        rgba(0,0,0,.60);
 
-            filter: blur(90px);
+    backdrop-filter:
+        blur(15px);
+}
 
-            opacity: .06;
-        }
 
+footer strong {
+    color: #999;
+}
 
-        .leakers-title {
-            position: relative;
 
-            display: inline-flex;
+/* =========================================
+   SCROLLBAR
+========================================= */
 
-            align-items: center;
+::-webkit-scrollbar {
+    width: 7px;
+}
 
-            gap: 9px;
 
-            padding: 8px 15px;
+::-webkit-scrollbar-track {
+    background: #030303;
+}
 
-            border-radius: 100px;
 
-            background:
-                rgba(255,255,255,.05);
+::-webkit-scrollbar-thumb {
+    background:
+        linear-gradient(
+            #777,
+            #222
+        );
 
-            border:
-                1px solid rgba(255,255,255,.09);
+    border-radius: 20px;
+}
 
-            color: #ddd;
 
-            font-size: 10px;
+::-webkit-scrollbar-thumb:hover {
+    background: #aaa;
+}
 
-            font-weight: 900;
 
-            letter-spacing: 1.5px;
+::selection {
+    background: #fff;
+    color: #000;
+}
 
-            text-transform: uppercase;
 
-            margin-bottom: 25px;
-        }
+/* =========================================
+   MOBILE
+========================================= */
 
+@media (max-width: 900px) {
 
-        .leakers-title::before {
-            content: "";
+    .cards {
+        grid-template-columns:
+            repeat(2,1fr);
+    }
 
-            width: 7px;
-            height: 7px;
+    .staff-grid {
+        grid-template-columns:
+            repeat(2,1fr);
+    }
 
-            border-radius: 50%;
+}
 
-            background: #fff;
 
-            box-shadow:
-                0 0 12px rgba(255,255,255,.8);
-        }
+@media (max-width: 650px) {
 
+    nav {
+        padding: 0 5%;
+    }
 
-        .leakers-names {
-            position: relative;
+    .logo {
+        font-size: 13px;
+    }
 
-            display: flex;
+    .nav-links a:not(.nav-discord) {
+        display: none;
+    }
 
-            flex-wrap: wrap;
+    .hero {
+        padding-top: 130px;
+    }
 
-            justify-content: center;
+    .hero h1 {
+        font-size: 48px;
 
-            gap: 10px;
-        }
+        letter-spacing: -3px;
+    }
 
+    .hero-description {
+        font-size: 13px;
+    }
 
-        .leaker {
-            padding: 11px 17px;
+    .hero-buttons {
+        flex-direction: column;
 
-            border-radius: 9px;
+        align-items: center;
+    }
 
-            color: #bbb;
+    .btn {
+        width: 100%;
 
-            background:
-                rgba(255,255,255,.045);
+        max-width: 300px;
+    }
 
-            border:
-                1px solid rgba(255,255,255,.09);
+    .stats {
+        margin:
+            -20px 20px 0;
 
-            font-size: 12px;
+        grid-template-columns: 1fr;
+    }
 
-            font-weight: 700;
+    .stat {
+        border-right: none;
 
-            transition:
-                transform .25s ease,
-                background .25s ease,
-                border-color .25s ease,
-                color .25s ease;
-        }
+        border-bottom:
+            1px solid rgba(255,255,255,.08);
+    }
 
+    .stat:last-child {
+        border-bottom: none;
+    }
 
-        .leaker:hover {
-            color: #050505;
+    section {
+        padding:
+            80px 5%;
+    }
 
-            background: #fff;
+    .cards,
+    .staff-grid {
+        grid-template-columns: 1fr;
+    }
 
-            border-color: #fff;
+    .section-header h2 {
+        font-size: 32px;
+    }
 
-            transform:
-                translateY(-3px);
+    .discord-wrap {
+        padding:
+            55px 20px;
+    }
 
-            box-shadow:
-                0 8px 25px
-                rgba(255,255,255,.10);
-        }
+    .discord-wrap h2 {
+        font-size: 30px;
+    }
 
+    footer {
+        flex-direction: column;
 
-        /* =========================================
-           ABOUT
-        ========================================= */
+        gap: 10px;
 
-        #about {
-            padding-top: 90px;
-        }
+        text-align: center;
+    }
 
+}
 
-        /* =========================================
-           DISCORD
-        ========================================= */
-
-        .discord-wrap {
-            max-width: 1150px;
-
-            margin: auto;
-
-            position: relative;
-
-            overflow: hidden;
-
-            padding: 75px 40px;
-
-            text-align: center;
-
-            border:
-                1px solid rgba(255,255,255,.12);
-
-            border-radius: 20px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(255,255,255,.065),
-                    rgba(255,255,255,.018)
-                );
-
-            backdrop-filter:
-                blur(20px);
-
-            box-shadow:
-                inset 0 1px 0 rgba(255,255,255,.08),
-                0 30px 100px rgba(0,0,0,.40);
-        }
-
-
-        .discord-wrap::before {
-            content: "";
-
-            position: absolute;
-
-            width: 400px;
-            height: 400px;
-
-            left: 50%;
-            top: 50%;
-
-            transform:
-                translate(-50%,-50%);
-
-            border-radius: 50%;
-
-            background: #fff;
-
-            opacity: .035;
-
-            filter: blur(100px);
-        }
-
-
-        .discord-content {
-            position: relative;
-
-            z-index: 2;
-        }
-
-
-        .server-picture {
-            width: 70px;
-            height: 70px;
-
-            margin:
-                0 auto 22px;
-
-            display: block;
-
-            object-fit: cover;
-
-            border-radius: 18px;
-
-            border:
-                1px solid rgba(255,255,255,.14);
-
-            box-shadow:
-                0 0 0 1px rgba(255,255,255,.12),
-                0 20px 60px rgba(255,255,255,.10);
-
-            transition:
-                transform .4s ease,
-                box-shadow .4s ease;
-        }
-
-
-        .server-picture:hover {
-            transform:
-                scale(1.07)
-                rotate(2deg);
-
-            box-shadow:
-                0 0 0 1px rgba(255,255,255,.22),
-                0 25px 75px rgba(255,255,255,.17);
-        }
-
-
-        .discord-wrap h2 {
-            font-size: 40px;
-
-            font-weight: 900;
-
-            letter-spacing: -2px;
-        }
-
-
-        .discord-wrap p {
-            max-width: 600px;
-
-            margin:
-                15px auto 30px;
-
-            color: #888;
-
-            font-size: 13px;
-
-            line-height: 1.8;
-        }
-
-
-        /* =========================================
-           FOOTER
-        ========================================= */
-
-        footer {
-            padding: 35px 7%;
-
-            border-top:
-                1px solid rgba(255,255,255,.07);
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            color: #555;
-
-            font-size: 11px;
-
-            background:
-                rgba(0,0,0,.25);
-
-            backdrop-filter:
-                blur(15px);
-        }
-
-
-        footer strong {
-            color: #999;
-        }
-
-
-        /* =========================================
-           SCROLLBAR
-        ========================================= */
-
-        ::-webkit-scrollbar {
-            width: 7px;
-        }
-
-
-        ::-webkit-scrollbar-track {
-            background: #030303;
-        }
-
-
-        ::-webkit-scrollbar-thumb {
-            background:
-                linear-gradient(
-                    #777,
-                    #222
-                );
-
-            border-radius: 20px;
-        }
-
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #aaa;
-        }
-
-
-        ::selection {
-            background: #fff;
-            color: #000;
-        }
-
-
-        /* =========================================
-           MOBILE
-        ========================================= */
-
-        @media (max-width: 900px) {
-
-            .cards {
-                grid-template-columns:
-                    repeat(2,1fr);
-            }
-
-
-            .staff-grid {
-                grid-template-columns:
-                    repeat(2,1fr);
-            }
-
-
-            .nav-links {
-                gap: 15px;
-            }
-
-
-            .hero h1 {
-                letter-spacing: -4px;
-            }
-
-        }
-
-
-        @media (max-width: 650px) {
-
-            nav {
-                padding: 0 5%;
-            }
-
-
-            .logo {
-                font-size: 13px;
-            }
-
-
-            .nav-links a:not(.nav-discord) {
-                display: none;
-            }
-
-
-            .hero {
-                padding-top: 130px;
-            }
-
-
-            .hero h1 {
-                font-size: 48px;
-
-                letter-spacing: -3px;
-            }
-
-
-            .hero-description {
-                font-size: 13px;
-            }
-
-
-            .hero-buttons {
-                flex-direction: column;
-
-                align-items: center;
-            }
-
-
-            .btn {
-                width: 100%;
-
-                max-width: 300px;
-            }
-
-
-            .stats {
-                margin:
-                    -20px 20px 0;
-
-                grid-template-columns: 1fr;
-
-                border-radius: 12px;
-            }
-
-
-            .stat {
-                border-right: none;
-
-                border-bottom:
-                    1px solid rgba(255,255,255,.07);
-            }
-
-
-            .stat:last-child {
-                border-bottom: none;
-            }
-
-
-            section {
-                padding: 80px 5%;
-            }
-
-
-            .cards,
-            .staff-grid {
-                grid-template-columns: 1fr;
-            }
-
-
-            .section-header h2 {
-                font-size: 32px;
-            }
-
-
-            .discord-wrap {
-                padding: 55px 20px;
-            }
-
-
-            .discord-wrap h2 {
-                font-size: 30px;
-            }
-
-
-            .leakers-team {
-                padding:
-                    30px 18px;
-            }
-
-
-            footer {
-                flex-direction: column;
-
-                gap: 10px;
-
-                text-align: center;
-            }
-
-        }
-
-    </style>
-
+</style>
 </head>
 
 
 <body>
 
 
-    <!-- =========================================
-         BACKGROUND
-    ========================================= -->
+<!-- =========================================
+     CUSTOM BACKGROUND
+========================================= -->
 
-    <div class="background">
+<div class="background"></div>
 
-        <div class="glow one"></div>
 
-        <div class="glow two"></div>
 
-        <div class="glow three"></div>
+<!-- =========================================
+     NAVBAR
+========================================= -->
 
-        <div class="grid"></div>
+<nav>
 
-    </div>
+<a href="#home" class="logo">
 
+<img
+    src="server.png"
+    alt="Wraith Vault"
+    class="logo-image"
+>
 
+WRAITH
 
-    <!-- =========================================
-         NAVBAR
-    ========================================= -->
+<span>
+    VAULT LEAKS
+</span>
 
-    <nav>
+</a>
 
-        <a
-            href="#home"
-            class="logo"
-        >
 
-            <img
-                src="server.png"
-                alt="Wraith Vault Leaks"
-                class="logo-image"
-            >
+<div class="nav-links">
 
-            WRAITH
+<a href="#home">
+    Home
+</a>
 
-            <span>
-                VAULT LEAKS
-            </span>
+<a href="#leaks">
+    Packs
+</a>
 
-        </a>
+<a href="#staff">
+    Staff
+</a>
 
+<a href="#about">
+    About
+</a>
 
-        <div class="nav-links">
+<a
+    href="https://discord.gg/Hhk3h9PH2"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="nav-discord"
+>
+    Discord
+</a>
 
-            <a href="#home">
-                Home
-            </a>
+</div>
 
-            <a href="#leaks">
-                Packs
-            </a>
+</nav>
 
-            <a href="#staff">
-                Staff
-            </a>
 
-            <a href="#about">
-                About
-            </a>
 
+<!-- =========================================
+     HERO
+========================================= -->
 
-            <a
-                href="https://discord.gg/Hhk3h9PH2"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="nav-discord"
-            >
-                Discord
-            </a>
+<main id="home">
 
-        </div>
+<section class="hero">
 
-    </nav>
+<div class="hero-content">
 
 
+<div class="eyebrow">
 
-    <!-- =========================================
-         HERO
-    ========================================= -->
+<span class="dot"></span>
 
-    <main id="home">
+THE ULTIMATE FIVEM RESOURCE HUB
 
-        <section class="hero">
+</div>
 
-            <div class="hero-content">
 
+<h1>
 
-                <div class="eyebrow">
+<span class="white">
+WRAITH
+</span>
 
-                    <span class="dot"></span>
+<br>
 
-                    THE ULTIMATE FIVEM RESOURCE HUB
+<span class="gradient">
+VAULT LEAKS
+</span>
 
-                </div>
+</h1>
 
 
-                <h1>
+<p class="hero-description">
 
-                    <span class="white">
-                        WRAITH
-                    </span>
+Discover premium graphics, sound packs,
+gun skins, perks, PC optimization tools,
+mods and more. Everything you need in
+one place.
 
-                    <br>
+</p>
 
-                    <span class="gradient">
-                        VAULT LEAKS
-                    </span>
 
-                </h1>
+<div class="hero-buttons">
 
 
-                <p class="hero-description">
+<a
+    href="https://discord.gg/Hhk3h9PH2"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="btn btn-primary"
+>
+    JOIN OUR DISCORD
+</a>
 
-                    Discover premium graphics, sound packs,
-                    gun skins, perks, PC optimization tools,
-                    mods and more. Everything you need in
-                    one place.
 
-                </p>
+<a
+    href="#leaks"
+    class="btn btn-secondary"
+>
+    EXPLORE PACKS
+</a>
 
 
-                <div class="hero-buttons">
+</div>
 
+</div>
 
-                    <a
-                        href="https://discord.gg/Hhk3h9PH2"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="btn btn-primary"
-                    >
-                        JOIN OUR DISCORD
-                    </a>
+</section>
 
 
-                    <a
-                        href="#leaks"
-                        class="btn btn-secondary"
-                    >
-                        EXPLORE PACKS
-                    </a>
 
+<!-- =========================================
+     STATS
+========================================= -->
 
-                </div>
+<div class="stats">
 
-            </div>
 
-        </section>
+<div class="stat">
 
+<strong>
+100+
+</strong>
 
+<span>
+Resources
+</span>
 
-        <!-- =========================================
-             STATS
-        ========================================= -->
+</div>
 
-        <div class="stats">
 
+<div class="stat">
 
-            <div class="stat">
+<strong>
+24/7
+</strong>
 
-                <strong>
-                    100+
-                </strong>
+<span>
+Community
+</span>
 
-                <span>
-                    Resources
-                </span>
+</div>
 
-            </div>
 
+<div class="stat">
 
-            <div class="stat">
+<strong>
+FREE
+</strong>
 
-                <strong>
-                    24/7
-                </strong>
+<span>
+Access
+</span>
 
-                <span>
-                    Community
-                </span>
+</div>
 
-            </div>
 
+</div>
 
-            <div class="stat">
 
-                <strong>
-                    FREE
-                </strong>
 
-                <span>
-                    Access
-                </span>
+<!-- =========================================
+     EXPLORE THE VAULT
+========================================= -->
 
-            </div>
+<section id="leaks">
 
 
-        </div>
+<div class="section-header center">
 
+<div class="section-label">
+Categories
+</div>
 
+<h2>
+Explore The Vault
+</h2>
 
-        <!-- =========================================
-             EXPLORE THE VAULT
-        ========================================= -->
+<p>
+Browse our collection of resources
+and find what you need.
+</p>
 
-        <section id="leaks">
+</div>
 
 
-            <div class="section-header center">
 
-                <div class="section-label">
-                    Categories
-                </div>
+<div class="cards">
 
 
-                <h2>
-                    Explore The Vault
-                </h2>
+<!-- GRAPHIC PACKS -->
 
+<div class="card">
 
-                <p>
-                    Browse our collection of resources
-                    and find what you need.
-                </p>
+<div class="icon">
+◈
+</div>
 
-            </div>
+<h3>
+Graphic Packs
+</h3>
 
+<p>
+Visual enhancement packs, graphics presets
+and FiveM visual resources.
+</p>
 
+<a
+    href="https://discord.com/channels/1389973715915247828/1516989670649499678"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="card-link"
+>
+    VIEW GRAPHICS →
+</a>
 
-            <div class="cards">
+</div>
 
 
-                <!-- GRAPHIC PACKS -->
 
-                <div class="card">
+<!-- SOUND PACKS -->
 
-                    <div class="icon">
-                        ◈
-                    </div>
+<div class="card">
 
+<div class="icon">
+♪
+</div>
 
-                    <h3>
-                        Graphic Packs
-                    </h3>
+<h3>
+Sound Packs
+</h3>
 
+<p>
+Custom audio, weapon sounds, vehicle sounds
+and immersive sound packs.
+</p>
 
-                    <p>
-                        Visual enhancement packs,
-                        graphics presets and FiveM
-                        visual resources.
-                    </p>
+<a
+    href="https://discord.com/channels/1389973715915247828/1516989671261864039"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="card-link"
+>
+    VIEW SOUNDS →
+</a>
 
+</div>
 
-                    <a
-                        href="https://discord.com/channels/1389973715915247828/1516989670649499678"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="card-link"
-                    >
-                        VIEW GRAPHICS →
-                    </a>
 
-                </div>
 
+<!-- GUN SKINS -->
 
+<div class="card">
 
-                <!-- SOUND PACKS -->
+<div class="icon">
+✦
+</div>
 
-                <div class="card">
+<h3>
+Gun Skins
+</h3>
 
-                    <div class="icon">
-                        ♪
-                    </div>
+<p>
+Custom weapon skins and visual
+customization packs.
+</p>
 
+<a
+    href="https://discord.com/channels/1389973715915247828/1517282530339065988"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="card-link"
+>
+    VIEW GUN SKINS →
+</a>
 
-                    <h3>
-                        Sound Packs
-                    </h3>
+</div>
 
 
-                    <p>
-                        Custom audio, weapon sounds,
-                        vehicle sounds and immersive
-                        sound packs.
-                    </p>
 
+<!-- PERKS -->
 
-                    <a
-                        href="https://discord.com/channels/1389973715915247828/1516989671261864039"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="card-link"
-                    >
-                        VIEW SOUNDS →
-                    </a>
+<div class="card">
 
-                </div>
+<div class="icon">
+◆
+</div>
 
+<h3>
+Perks
+</h3>
 
+<p>
+Special perks, benefits and community
+resources available through the vault.
+</p>
 
-                <!-- GUN SKINS -->
+<a
+    href="https://discord.com/channels/1389973715915247828/1517016261014585384"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="card-link"
+>
+    VIEW PERKS →
+</a>
 
-                <div class="card">
+</div>
 
-                    <div class="icon">
-                        ✦
-                    </div>
 
 
-                    <h3>
-                        Gun Skins
-                    </h3>
+<!-- PC OPTIMIZATION -->
 
+<div class="card">
 
-                    <p>
-                        Custom weapon skins and
-                        visual customization packs.
-                    </p>
+<div class="icon">
+⚙
+</div>
 
+<h3>
+PC Optimization
+</h3>
 
-                    <a
-                        href="https://discord.com/channels/1389973715915247828/1517282530339065988"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="card-link"
-                    >
-                        VIEW GUN SKINS →
-                    </a>
+<p>
+Performance tweaks, optimization resources
+and settings designed to improve your PC.
+</p>
 
-                </div>
+<a
+    href="https://discord.com/channels/1389973715915247828/1517162228816674897"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="card-link"
+>
+    OPTIMIZE PC →
+</a>
 
+</div>
 
 
-                <!-- PERKS -->
 
-                <div class="card">
+<!-- MODS -->
 
-                    <div class="icon">
-                        ◆
-                    </div>
+<div class="card">
 
+<div class="icon">
++
+</div>
 
-                    <h3>
-                        Perks
-                    </h3>
+<h3>
+Mods
+</h3>
 
+<p>
+Custom modifications, addons and other
+useful resources.
+</p>
 
-                    <p>
-                        Special perks, benefits and
-                        community resources available
-                        through the vault.
-                    </p>
+<a
+    href="https://discord.com/channels/1389973715915247828/1517030780419969094"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="card-link"
+>
+    VIEW MODS →
+</a>
 
+</div>
 
-                    <a
-                        href="https://discord.com/channels/1389973715915247828/1517016261014585384"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="card-link"
-                    >
-                        VIEW PERKS →
-                    </a>
 
-                </div>
+</div>
 
+</section>
 
 
-                <!-- PC OPTIMIZATION -->
 
-                <div class="card">
+<!-- =========================================
+     STAFF TEAM
+========================================= -->
 
-                    <div class="icon">
-                        ⚙
-                    </div>
+<section id="staff">
 
 
-                    <h3>
-                        PC Optimization
-                    </h3>
+<div class="section-header center">
 
+<div class="section-label">
+The Team
+</div>
 
-                    <p>
-                        Performance tweaks, optimization
-                        resources and settings designed
-                        to improve your PC experience.
-                    </p>
+<h2>
+Staff Team
+</h2>
 
+<p>
+Meet the people behind Wraith Vault Leaks.
+</p>
 
-                    <a
-                        href="https://discord.com/channels/1389973715915247828/1517162228816674897"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="card-link"
-                    >
-                        OPTIMIZE PC →
-                    </a>
+</div>
 
-                </div>
 
 
+<div class="staff-grid">
 
-                <!-- MODS -->
 
-                <div class="card">
+<!-- FOUNDERS -->
 
-                    <div class="icon">
-                        +
-                    </div>
+<div class="staff-card">
 
+<div class="staff-role">
+Founders
+</div>
 
-                    <h3>
-                        Mods
-                    </h3>
+<div class="staff-icon">
+★
+</div>
 
+<h3>
+Founders
+</h3>
 
-                    <p>
-                        Custom modifications, addons
-                        and other useful resources.
-                    </p>
+<div class="staff-names">
 
+<div class="staff-name">
+Vortex
+</div>
 
-                    <a
-                        href="https://discord.com/channels/1389973715915247828/1517030780419969094"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="card-link"
-                    >
-                        VIEW MODS →
-                    </a>
+<div class="staff-name">
+Speed
+</div>
 
-                </div>
+</div>
 
+</div>
 
-            </div>
 
-        </section>
 
+<!-- LEAKER MANAGEMENT -->
 
+<div class="staff-card">
 
-        <!-- =========================================
-             STAFF TEAM
-        ========================================= -->
+<div class="staff-role">
+Leaker Management
+</div>
 
-        <section
-            id="staff"
-            class="staff-section"
-        >
+<div class="staff-icon">
+⚡
+</div>
 
+<h3>
+Leaker Management
+</h3>
 
-            <div class="section-header center">
+<div class="staff-names">
 
-                <div class="section-label">
-                    The Team
-                </div>
+<div class="staff-name">
+Kekrops
+</div>
 
+<div class="staff-name">
+Cyber
+</div>
 
-                <h2>
-                    Staff Team
-                </h2>
+<div class="staff-name">
+Agent
+</div>
 
+</div>
 
-                <p>
-                    Meet the people behind Wraith Vault Leaks.
-                </p>
+</div>
 
-            </div>
 
+</div>
 
 
-            <div class="staff-grid">
 
+<!-- LEAKERS -->
 
-                <!-- FOUNDERS -->
+<div class="leakers-team">
 
-                <div class="staff-card">
 
-                    <div class="staff-role">
-                        Founders
-                    </div>
+<div class="leakers-title">
+Leakers Team
+</div>
 
 
-                    <div class="staff-icon">
-                        ★
-                    </div>
+<div class="leakers-names">
 
 
-                    <h3>
-                        Founders
-                    </h3>
+<div class="leaker">
+Ice
+</div>
 
+<div class="leaker">
+Diddy
+</div>
 
-                    <div class="staff-names">
+<div class="leaker">
+Flxn
+</div>
 
-                        <div class="staff-name">
-                            Vortex
-                        </div>
+<div class="leaker">
+Shayan
+</div>
 
-                        <div class="staff-name">
-                            Speed
-                        </div>
+<div class="leaker">
+Syed Ali
+</div>
 
-                    </div>
+<div class="leaker">
+Venom
+</div>
 
-                </div>
+<div class="leaker">
+Usman
+</div>
 
+<div class="leaker">
+Ali
+</div>
 
 
-                <!-- LEAKER MANAGEMENT -->
+</div>
 
-                <div class="staff-card">
+</div>
 
-                    <div class="staff-role">
-                        Leaker Management
-                    </div>
+</section>
 
 
-                    <div class="staff-icon">
-                        ⚡
-                    </div>
 
+<!-- =========================================
+     ABOUT
+========================================= -->
 
-                    <h3>
-                        Leaker Management
-                    </h3>
+<section id="about">
 
 
-                    <div class="staff-names">
+<div class="section-header center">
 
-                        <div class="staff-name">
-                            Kekrops
-                        </div>
+<div class="section-label">
+Community
+</div>
 
-                        <div class="staff-name">
-                            Cyber
-                        </div>
+<h2>
+Welcome To The Vault
+</h2>
 
-                        <div class="staff-name">
-                            Agent
-                        </div>
+<p>
+Wraith Vault Leaks is a community focused
+on FiveM graphics, sounds, modifications,
+optimization and other useful resources.
+</p>
 
-                    </div>
+</div>
 
-                </div>
+</section>
 
 
-            </div>
 
+<!-- =========================================
+     DISCORD
+========================================= -->
 
+<section>
 
-            <!-- LEAKERS TEAM -->
 
-            <div class="leakers-team">
+<div class="discord-wrap">
 
 
-                <div class="leakers-title">
-                    Leakers Team
-                </div>
+<div class="discord-content">
 
 
-                <div class="leakers-names">
+<img
+    src="server.png"
+    alt="Wraith Vault"
+    class="server-picture"
+>
 
 
-                    <div class="leaker">
-                        Ice
-                    </div>
+<h2>
+Join The Community
+</h2>
 
 
-                    <div class="leaker">
-                        Diddy
-                    </div>
+<p>
+Get access to updates, new resources,
+announcements and community discussions.
+Join the Wraith Vault Leaks Discord today.
+</p>
 
 
-                    <div class="leaker">
-                        Flxn
-                    </div>
+<a
+    href="https://discord.gg/Hhk3h9PH2"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="btn btn-primary"
+>
+    JOIN OUR DISCORD
+</a>
 
 
-                    <div class="leaker">
-                        Shayan
-                    </div>
+</div>
 
+</div>
 
-                    <div class="leaker">
-                        Syed Ali
-                    </div>
+</section>
 
 
-                    <div class="leaker">
-                        Venom
-                    </div>
+</main>
 
 
-                    <div class="leaker">
-                        Usman
-                    </div>
 
+<!-- =========================================
+     FOOTER
+========================================= -->
 
-                    <div class="leaker">
-                        Ali
-                    </div>
+<footer>
 
+<div>
 
-                </div>
+© 2026
 
+<strong>
+Wraith Vault Leaks
+</strong>
 
-            </div>
+</div>
 
-        </section>
 
+<div>
+Made for the FiveM community
+</div>
 
-
-        <!-- =========================================
-             ABOUT
-        ========================================= -->
-
-        <section id="about">
-
-
-            <div class="section-header center">
-
-
-                <div class="section-label">
-                    Community
-                </div>
-
-
-                <h2>
-                    Welcome To The Vault
-                </h2>
-
-
-                <p>
-                    Wraith Vault Leaks is a community
-                    focused on FiveM graphics, sounds,
-                    modifications, optimization and
-                    other useful resources.
-                </p>
-
-
-            </div>
-
-
-        </section>
-
-
-
-        <!-- =========================================
-             DISCORD
-        ========================================= -->
-
-        <section>
-
-
-            <div class="discord-wrap">
-
-
-                <div class="discord-content">
-
-
-                    <img
-                        src="server.png"
-                        alt="Wraith Vault Leaks"
-                        class="server-picture"
-                    >
-
-
-                    <h2>
-                        Join The Community
-                    </h2>
-
-
-                    <p>
-                        Get access to updates, new resources,
-                        announcements and community discussions.
-                        Join the Wraith Vault Leaks Discord today.
-                    </p>
-
-
-                    <a
-                        href="https://discord.gg/Hhk3h9PH2"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="btn btn-primary"
-                    >
-                        JOIN OUR DISCORD
-                    </a>
-
-
-                </div>
-
-
-            </div>
-
-
-        </section>
-
-
-    </main>
-
-
-
-    <!-- =========================================
-         FOOTER
-    ========================================= -->
-
-    <footer>
-
-
-        <div>
-
-            © 2026
-
-            <strong>
-                Wraith Vault Leaks
-            </strong>
-
-        </div>
-
-
-        <div>
-            Made for the FiveM community
-        </div>
-
-
-    </footer>
+</footer>
 
 
 </body>
