@@ -5,14 +5,31 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Wraith Vault</title>
+<title>WRAITH VAULT // PREMIUM FIVE M NETWORK</title>
+
+<meta name="description" content="Wraith Vault — Premium FiveM PvP resource network.">
+<meta name="theme-color" content="#080808">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Orbitron:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
+
+/* =========================================================
+   WRAITH VAULT // CORE
+========================================================= */
+
+:root{
+    --red:#ff2020;
+    --red2:#a80000;
+    --white:#f5f5f5;
+    --muted:#777;
+    --dark:#050505;
+    --panel:rgba(10,10,10,.72);
+    --line:rgba(255,255,255,.09);
+}
 
 *{
     margin:0;
@@ -25,164 +42,65 @@ html{
 }
 
 body{
-    background:#050505;
-    color:#fff;
-    font-family:'Orbitron',sans-serif;
+    background:#020202;
+    color:var(--white);
+    font-family:Inter,Arial,sans-serif;
     overflow-x:hidden;
 }
 
 /* =========================================================
-   BACKGROUND
+   MAIN BACKGROUND
+   KEEP YOUR server.png
 ========================================================= */
 
-.background{
+body::before{
+    content:"";
     position:fixed;
-    inset:-5%;
+    inset:0;
     z-index:-20;
 
     background:
         linear-gradient(
-            180deg,
-            rgba(0,0,0,.28),
-            rgba(0,0,0,.60)
+            90deg,
+            rgba(0,0,0,.94),
+            rgba(0,0,0,.62),
+            rgba(0,0,0,.93)
         ),
-        url("server.png") center center / cover no-repeat;
+        url("server.png") center/cover no-repeat;
+
+    transform:scale(1.04);
 
     animation:
         backgroundMove 18s ease-in-out infinite alternate;
-
-    filter:saturate(.75) contrast(1.08);
 }
 
 @keyframes backgroundMove{
-
-    0%{
-        transform:scale(1.07) translate3d(-.5%,-.5%,0);
-    }
-
-    50%{
-        transform:scale(1.11) translate3d(.6%,0,0);
-    }
-
-    100%{
-        transform:scale(1.07) translate3d(-.4%,.6%,0);
-    }
+    from{transform:scale(1.04) translate3d(0,0,0)}
+    to{transform:scale(1.10) translate3d(-10px,-5px,0)}
 }
 
-/* =========================================================
-   CINEMATIC DARKNESS
-========================================================= */
+/* dark cinematic layer */
 
-.cinematic{
+body::after{
+    content:"";
     position:fixed;
     inset:0;
-    z-index:-18;
+    z-index:-19;
     pointer-events:none;
 
     background:
         radial-gradient(
-            ellipse at center,
-            transparent 20%,
-            rgba(0,0,0,.28) 55%,
-            rgba(0,0,0,.88) 100%
-        );
-}
-
-/* =========================================================
-   MOVING LIGHT
-========================================================= */
-
-.light-beam{
-    position:absolute;
-
-    width:38vw;
-    height:160vh;
-
-    top:-30vh;
-    left:-60vw;
-
-    transform:rotate(19deg);
-
-    background:
+            circle at 50% 20%,
+            rgba(255,20,20,.10),
+            transparent 35%
+        ),
         linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,.018),
-            rgba(255,255,255,.07),
-            rgba(255,255,255,.018),
-            transparent
+            180deg,
+            transparent 20%,
+            rgba(0,0,0,.9) 100%
         );
 
-    filter:blur(20px);
-
-    animation:beam 12s linear infinite;
-}
-
-@keyframes beam{
-
-    from{
-        left:-65vw;
-    }
-
-    to{
-        left:125vw;
-    }
-}
-
-/* =========================================================
-   PARTICLES
-========================================================= */
-
-#particles{
-    position:fixed;
-    inset:0;
-    z-index:-15;
-    pointer-events:none;
-    overflow:hidden;
-}
-
-.particle{
-    position:absolute;
-
-    width:2px;
-    height:2px;
-
-    border-radius:50%;
-
-    background:rgba(255,255,255,.65);
-
-    box-shadow:
-        0 0 8px rgba(255,255,255,.55);
-
-    animation:
-        particleMove linear infinite;
-}
-
-@keyframes particleMove{
-
-    0%{
-        transform:
-            translate3d(0,110vh,0)
-            scale(.4);
-
-        opacity:0;
-    }
-
-    15%{
-        opacity:.7;
-    }
-
-    85%{
-        opacity:.7;
-    }
-
-    100%{
-        transform:
-            translate3d(80px,-15vh,0)
-            scale(1.2);
-
-        opacity:0;
-    }
+    mix-blend-mode:screen;
 }
 
 /* =========================================================
@@ -192,144 +110,294 @@ body{
 .scanlines{
     position:fixed;
     inset:0;
-
-    z-index:999;
-
     pointer-events:none;
-
-    opacity:.08;
+    z-index:9000;
 
     background:
         repeating-linear-gradient(
             0deg,
-            transparent 0px,
-            transparent 3px,
-            rgba(255,255,255,.035) 4px
+            rgba(255,255,255,.015) 0px,
+            rgba(255,255,255,.015) 1px,
+            transparent 1px,
+            transparent 4px
         );
+
+    opacity:.22;
 }
 
 /* =========================================================
-   VIGNETTE
+   PARTICLES
 ========================================================= */
 
-.vignette{
+.particles{
     position:fixed;
     inset:0;
-
-    z-index:998;
-
     pointer-events:none;
+    z-index:-10;
+    overflow:hidden;
+}
 
-    box-shadow:
-        inset 0 0 180px rgba(0,0,0,.95),
-        inset 0 0 70px rgba(0,0,0,.75);
+.particle{
+    position:absolute;
+
+    width:2px;
+    height:2px;
+
+    background:#fff;
+
+    border-radius:50%;
+
+    opacity:.35;
+
+    animation:
+        floatParticle linear infinite;
+}
+
+@keyframes floatParticle{
+    from{
+        transform:translateY(110vh);
+        opacity:0;
+    }
+
+    15%{
+        opacity:.4;
+    }
+
+    85%{
+        opacity:.3;
+    }
+
+    to{
+        transform:translateY(-10vh);
+        opacity:0;
+    }
 }
 
 /* =========================================================
-   TOP NAV
+   LOADER
 ========================================================= */
 
-nav{
+.loader{
     position:fixed;
+    inset:0;
+    z-index:99999;
 
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+
+    background:#020202;
+
+    transition:
+        opacity .7s ease,
+        visibility .7s ease;
+}
+
+.loader.hide{
+    opacity:0;
+    visibility:hidden;
+}
+
+.loader-mark{
+    font-family:Orbitron,sans-serif;
+    font-weight:900;
+
+    font-size:58px;
+
+    letter-spacing:-5px;
+
+    color:#fff;
+
+    text-shadow:
+        0 0 30px rgba(255,0,0,.25);
+}
+
+.loader-mark span{
+    color:var(--red);
+}
+
+.loader-sub{
+    margin-top:12px;
+
+    color:#555;
+
+    font-size:8px;
+    font-weight:900;
+
+    letter-spacing:5px;
+}
+
+.loader-bar{
+    width:240px;
+    height:2px;
+
+    margin-top:30px;
+
+    overflow:hidden;
+
+    background:#181818;
+}
+
+.loader-bar span{
+    display:block;
+
+    width:35%;
+    height:100%;
+
+    background:var(--red);
+
+    box-shadow:
+        0 0 15px var(--red);
+
+    animation:
+        loaderMove 1s infinite;
+}
+
+@keyframes loaderMove{
+    from{transform:translateX(-150%)}
+    to{transform:translateX(500%)}
+}
+
+/* =========================================================
+   NAV
+========================================================= */
+
+.navbar{
+    position:fixed;
     top:0;
     left:0;
 
     width:100%;
-    height:76px;
+    height:72px;
+
+    padding:0 5%;
 
     display:flex;
     align-items:center;
     justify-content:space-between;
 
-    padding:0 7%;
+    z-index:5000;
 
-    z-index:500;
-
-    background:rgba(3,3,3,.50);
-
-    backdrop-filter:blur(20px);
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,.88),
+            rgba(0,0,0,.35)
+        );
 
     border-bottom:
-        1px solid rgba(255,255,255,.09);
+        1px solid rgba(255,255,255,.06);
+
+    backdrop-filter:blur(18px);
 }
 
 .logo{
-    position:relative;
+    font-family:Orbitron,sans-serif;
 
-    font-size:21px;
-
+    font-size:17px;
     font-weight:900;
 
-    letter-spacing:4px;
-
-    color:#fff;
-
-    text-shadow:
-        0 0 10px rgba(255,255,255,.25),
-        0 0 30px rgba(255,255,255,.10);
+    letter-spacing:-1px;
 }
 
-.logo::after{
-    content:"";
-
-    position:absolute;
-
-    left:0;
-    bottom:-8px;
-
-    width:35px;
-    height:1px;
-
-    background:#fff;
-
-    box-shadow:
-        0 0 10px rgba(255,255,255,.6);
+.logo span{
+    color:var(--red);
 }
 
-.nav-links{
+.nav{
     display:flex;
-    gap:34px;
+    gap:28px;
 
     list-style:none;
 }
 
-.nav-links a{
-    position:relative;
-
-    color:rgba(255,255,255,.62);
+.nav a{
+    color:#777;
 
     text-decoration:none;
 
-    font-size:10px;
+    font-size:8px;
+    font-weight:900;
 
-    letter-spacing:2px;
+    letter-spacing:1.6px;
 
-    transition:.3s;
+    transition:.25s;
 }
 
-.nav-links a::after{
-    content:"";
-
-    position:absolute;
-
-    left:0;
-    bottom:-8px;
-
-    width:0;
-    height:1px;
-
-    background:#fff;
-
-    transition:.35s;
-}
-
-.nav-links a:hover{
+.nav a:hover{
     color:#fff;
 }
 
-.nav-links a:hover::after{
-    width:100%;
+.nav-discord{
+    padding:11px 17px;
+
+    border-radius:5px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff3030,
+            #9b0000
+        );
+
+    color:#fff !important;
+
+    box-shadow:
+        0 0 20px rgba(255,0,0,.16);
+}
+
+/* =========================================================
+   FLOATING SIDE CONTROLS
+========================================================= */
+
+.side-controls{
+    position:fixed;
+
+    left:18px;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    z-index:4000;
+
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.side-btn{
+    width:38px;
+    height:38px;
+
+    display:grid;
+    place-items:center;
+
+    color:#777;
+
+    background:rgba(0,0,0,.55);
+
+    border:
+        1px solid rgba(255,255,255,.08);
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    font-size:10px;
+    font-weight:900;
+}
+
+.side-btn:hover{
+    color:#fff;
+
+    border-color:
+        rgba(255,0,0,.4);
+
+    box-shadow:
+        0 0 20px rgba(255,0,0,.12);
 }
 
 /* =========================================================
@@ -339,950 +407,1321 @@ nav{
 .hero{
     min-height:100vh;
 
+    padding:
+        150px 7%
+        90px;
+
     display:flex;
     align-items:center;
-    justify-content:center;
-
-    text-align:center;
-
-    padding:
-        130px 20px 90px;
 
     position:relative;
 }
 
-.hero-content{
+.hero-grid{
     width:100%;
-    max-width:1150px;
 
-    animation:
-        heroEnter 1.3s ease forwards;
+    display:grid;
+
+    grid-template-columns:
+        1fr 300px;
+
+    gap:60px;
+
+    align-items:center;
 }
 
-@keyframes heroEnter{
-
-    from{
-        opacity:0;
-        transform:translateY(35px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+.hero-content{
+    max-width:900px;
 }
 
-.hero-small{
-    font-size:10px;
+.eyebrow{
+    display:flex;
+    align-items:center;
+    gap:10px;
 
-    letter-spacing:7px;
+    color:#777;
 
-    color:rgba(255,255,255,.48);
+    font-size:8px;
+    font-weight:900;
 
-    margin-bottom:28px;
+    letter-spacing:5px;
+}
+
+.live{
+    width:7px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:#35ff6a;
+
+    box-shadow:
+        0 0 0 5px rgba(53,255,106,.06),
+        0 0 18px rgba(53,255,106,.7);
+
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+    50%{
+        box-shadow:
+            0 0 0 9px rgba(53,255,106,0),
+            0 0 22px rgba(53,255,106,.8);
+    }
 }
 
 .hero h1{
+    margin-top:25px;
+
+    font-family:Orbitron,sans-serif;
+
     font-size:
-        clamp(60px,11vw,155px);
+        clamp(60px,11vw,145px);
+
+    line-height:.77;
 
     font-weight:900;
 
-    letter-spacing:13px;
+    letter-spacing:-10px;
+}
 
-    line-height:.85;
-
-    color:#fff;
+.hero h1 .red{
+    color:var(--red);
 
     text-shadow:
-        0 0 10px rgba(255,255,255,.3),
-        0 0 40px rgba(255,255,255,.12),
-        0 0 100px rgba(255,255,255,.07);
-
-    animation:titleGlow 4s ease-in-out infinite;
+        0 0 30px rgba(255,0,0,.18);
 }
 
-@keyframes titleGlow{
-
-    0%,100%{
-        text-shadow:
-            0 0 10px rgba(255,255,255,.3),
-            0 0 35px rgba(255,255,255,.12);
-    }
-
-    50%{
-        text-shadow:
-            0 0 14px rgba(255,255,255,.65),
-            0 0 50px rgba(255,255,255,.20),
-            0 0 100px rgba(255,255,255,.10);
-    }
+.hero h1 .ghost{
+    color:#eee;
 }
 
-.hero-line{
-    width:180px;
-    height:1px;
+.hero-desc{
+    max-width:620px;
 
-    margin:38px auto 25px;
+    margin-top:34px;
 
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            #fff,
-            transparent
-        );
+    color:#777;
 
-    box-shadow:
-        0 0 15px rgba(255,255,255,.5);
-}
-
-.hero-sub{
     font-size:12px;
 
-    letter-spacing:8px;
-
-    color:rgba(255,255,255,.62);
+    line-height:1.9;
 }
 
-/* =========================================================
-   HERO STATUS
-========================================================= */
-
-.live-status{
+.hero-buttons{
     display:flex;
+    flex-wrap:wrap;
 
+    gap:10px;
+
+    margin-top:30px;
+}
+
+.btn{
+    min-height:46px;
+
+    padding:0 22px;
+
+    display:inline-flex;
     align-items:center;
     justify-content:center;
 
-    gap:9px;
+    border-radius:5px;
 
-    margin-top:30px;
+    text-decoration:none;
 
-    font-size:9px;
+    font-size:8px;
+    font-weight:900;
 
-    letter-spacing:3px;
+    letter-spacing:1.5px;
 
-    color:rgba(255,255,255,.48);
+    transition:.3s;
 }
 
-.live-dot{
+.btn-red{
+    color:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff2525,
+            #8e0000
+        );
+
+    box-shadow:
+        0 10px 35px rgba(255,0,0,.15);
+}
+
+.btn-red:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 15px 50px rgba(255,0,0,.25);
+}
+
+.btn-outline{
+    color:#aaa;
+
+    background:rgba(255,255,255,.025);
+
+    border:
+        1px solid rgba(255,255,255,.10);
+}
+
+.btn-outline:hover{
+    color:#fff;
+
+    border-color:
+        rgba(255,255,255,.25);
+
+    transform:translateY(-3px);
+}
+
+/* =========================================================
+   HERO TERMINAL
+========================================================= */
+
+.hero-terminal{
+    position:relative;
+
+    padding:18px;
+
+    border-radius:9px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20,20,20,.85),
+            rgba(0,0,0,.55)
+        );
+
+    border:
+        1px solid rgba(255,255,255,.10);
+
+    backdrop-filter:blur(20px);
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.6);
+}
+
+.terminal-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding-bottom:14px;
+
+    border-bottom:
+        1px solid rgba(255,255,255,.07);
+}
+
+.term-title{
+    color:#777;
+
+    font-size:7px;
+    font-weight:900;
+
+    letter-spacing:2px;
+}
+
+.term-dot{
     width:6px;
     height:6px;
 
     border-radius:50%;
 
-    background:#fff;
+    background:#35ff6a;
 
     box-shadow:
-        0 0 8px #fff;
-
-    animation:
-        statusPulse 1.5s ease-in-out infinite;
+        0 0 10px #35ff6a;
 }
 
-@keyframes statusPulse{
+.terminal-body{
+    padding-top:16px;
+}
 
-    0%,100%{
-        opacity:.35;
-        transform:scale(.8);
-    }
+.term-line{
+    display:flex;
+    justify-content:space-between;
 
-    50%{
-        opacity:1;
-        transform:scale(1.2);
-    }
+    padding:10px 0;
+
+    border-bottom:
+        1px solid rgba(255,255,255,.045);
+}
+
+.term-line span:first-child{
+    color:#444;
+
+    font-size:7px;
+    font-weight:900;
+}
+
+.term-line span:last-child{
+    color:#aaa;
+
+    font-size:8px;
+    font-weight:900;
+}
+
+.term-green{
+    color:#35ff6a !important;
+}
+
+.term-red{
+    color:var(--red) !important;
 }
 
 /* =========================================================
-   BUTTON
+   STATUS STRIP
 ========================================================= */
 
-.discord-btn{
+.status-strip{
+    width:86%;
+
+    margin:-35px auto 0;
+
     position:relative;
+    z-index:10;
 
-    display:inline-flex;
-
-    align-items:center;
-    justify-content:center;
-
-    overflow:hidden;
-
-    margin-top:32px;
-
-    padding:16px 35px;
-
-    border:
-        1px solid rgba(255,255,255,.28);
-
-    border-radius:3px;
-
-    color:#fff;
-
-    text-decoration:none;
-
-    font-size:10px;
-
-    letter-spacing:2.5px;
-
-    background:
-        rgba(255,255,255,.055);
-
-    backdrop-filter:blur(15px);
-
-    box-shadow:
-        0 0 30px rgba(255,255,255,.035),
-        inset 0 0 25px rgba(255,255,255,.018);
-
-    transition:.4s;
-}
-
-.discord-btn::before{
-    content:"";
-
-    position:absolute;
-
-    top:0;
-    left:-120%;
-
-    width:80%;
-    height:100%;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,.25),
-            transparent
-        );
-
-    transform:skewX(-20deg);
-
-    transition:.7s;
-}
-
-.discord-btn:hover::before{
-    left:130%;
-}
-
-.discord-btn:hover{
-
-    transform:
-        translateY(-4px);
-
-    border-color:
-        rgba(255,255,255,.75);
-
-    box-shadow:
-        0 12px 40px rgba(0,0,0,.45),
-        0 0 35px rgba(255,255,255,.09);
-}
-
-/* =========================================================
-   SECTIONS
-========================================================= */
-
-section{
-    padding:
-        120px 7%;
-}
-
-.section-title{
-    text-align:center;
-
-    margin-bottom:60px;
-}
-
-.section-title span{
-    display:block;
-
-    font-size:9px;
-
-    letter-spacing:6px;
-
-    color:rgba(255,255,255,.38);
-
-    margin-bottom:18px;
-}
-
-.section-title h2{
-    font-size:
-        clamp(30px,5vw,54px);
-
-    letter-spacing:5px;
-
-    font-weight:800;
-}
-
-/* =========================================================
-   CATEGORY GRID
-========================================================= */
-
-.categories{
-    max-width:1250px;
-
-    margin:auto;
+    padding:18px;
 
     display:grid;
 
     grid-template-columns:
-        repeat(3,1fr);
+        repeat(5,1fr);
 
-    gap:18px;
+    border-radius:8px;
+
+    background:
+        rgba(4,4,4,.85);
+
+    border:
+        1px solid rgba(255,255,255,.10);
+
+    backdrop-filter:blur(20px);
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.5);
+}
+
+.status{
+    text-align:center;
+
+    padding:4px 15px;
+
+    border-right:
+        1px solid rgba(255,255,255,.07);
+}
+
+.status:last-child{
+    border:0;
+}
+
+.status-number{
+    font-family:Orbitron,sans-serif;
+
+    font-size:17px;
+
+    font-weight:900;
+}
+
+.status-number.red{
+    color:var(--red);
+
+    text-shadow:
+        0 0 18px rgba(255,0,0,.2);
+}
+
+.status-label{
+    margin-top:5px;
+
+    color:#4d4d4d;
+
+    font-size:6px;
+    font-weight:900;
+
+    letter-spacing:1.5px;
+}
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+section{
+    padding:
+        110px 7%;
+}
+
+.section-top{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:end;
+
+    gap:30px;
+}
+
+.section-kicker{
+    color:var(--red);
+
+    font-size:7px;
+    font-weight:900;
+
+    letter-spacing:4px;
+
+    margin-bottom:10px;
+}
+
+.section-title{
+    font-family:Orbitron,sans-serif;
+
+    font-size:
+        clamp(30px,5vw,55px);
+
+    font-weight:900;
+
+    letter-spacing:-3px;
+}
+
+.section-desc{
+    max-width:550px;
+
+    color:#5c5c5c;
+
+    font-size:10px;
+
+    line-height:1.8;
+
+    margin-top:12px;
+}
+
+/* =========================================================
+   LATEST DROP
+========================================================= */
+
+.latest-drop{
+    margin-top:45px;
+
+    display:grid;
+
+    grid-template-columns:
+        .8fr 1.5fr .7fr;
+
+    min-height:260px;
+
+    overflow:hidden;
+
+    border-radius:10px;
+
+    border:
+        1px solid rgba(255,255,255,.10);
+
+    background:
+        rgba(5,5,5,.75);
+
+    backdrop-filter:blur(20px);
+}
+
+.drop-info{
+    padding:30px;
+}
+
+.drop-tag{
+    color:var(--red);
+
+    font-size:7px;
+    font-weight:900;
+
+    letter-spacing:3px;
+}
+
+.drop-info h3{
+    margin-top:25px;
+
+    font-family:Orbitron,sans-serif;
+
+    font-size:24px;
+
+    font-weight:900;
+}
+
+.drop-info h3 span{
+    color:var(--red);
+}
+
+.drop-info p{
+    color:#555;
+
+    font-size:9px;
+
+    line-height:1.8;
+
+    margin-top:10px;
+}
+
+.drop-preview{
+    position:relative;
+
+    min-height:260px;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.7),
+            transparent,
+            rgba(0,0,0,.2)
+        ),
+        url("server.png") center/cover;
+}
+
+.drop-preview::after{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            transparent 0 80px,
+            rgba(255,0,0,.05) 81px 82px
+        );
+}
+
+.drop-meta{
+    padding:30px;
+}
+
+.meta-title{
+    color:#555;
+
+    font-size:7px;
+    font-weight:900;
+
+    letter-spacing:2px;
+}
+
+.meta-row{
+    display:flex;
+    justify-content:space-between;
+
+    padding:13px 0;
+
+    border-bottom:
+        1px solid rgba(255,255,255,.05);
+}
+
+.meta-row span:first-child{
+    color:#444;
+
+    font-size:7px;
+}
+
+.meta-row span:last-child{
+    color:#aaa;
+
+    font-size:7px;
+    font-weight:900;
+}
+
+/* =========================================================
+   RESOURCE NETWORK
+========================================================= */
+
+.category-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(6,1fr);
+
+    gap:10px;
+
+    margin-top:40px;
 }
 
 .category{
     position:relative;
 
-    min-height:235px;
+    min-height:160px;
+
+    padding:18px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:end;
 
     overflow:hidden;
 
-    padding:34px;
+    border-radius:7px;
 
-    cursor:pointer;
+    border:
+        1px solid rgba(255,255,255,.08);
 
     background:
         linear-gradient(
-            145deg,
-            rgba(255,255,255,.075),
-            rgba(255,255,255,.012)
+            180deg,
+            rgba(255,255,255,.02),
+            rgba(0,0,0,.72)
         );
 
-    border:
-        1px solid rgba(255,255,255,.105);
+    cursor:pointer;
 
-    backdrop-filter:blur(17px);
-
-    transition:
-        transform .4s cubic-bezier(.2,.8,.2,1),
-        border .3s,
-        box-shadow .3s;
+    transition:.35s;
 }
 
 .category::before{
     content:"";
 
     position:absolute;
-
-    top:0;
-    left:-100%;
-
-    width:100%;
-    height:1px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            #fff,
-            transparent
-        );
-
-    transition:.7s;
-}
-
-.category::after{
-    content:"";
-
-    position:absolute;
-
-    width:170px;
-    height:170px;
-
-    right:-100px;
-    bottom:-100px;
-
-    border-radius:50%;
+    inset:0;
 
     background:
         radial-gradient(
-            circle,
-            rgba(255,255,255,.07),
-            transparent 65%
+            circle at 50% 20%,
+            rgba(255,0,0,.20),
+            transparent 55%
         );
 
-    transition:.5s;
-}
-
-.category:hover::before{
-    left:100%;
-}
-
-.category:hover::after{
-    transform:scale(1.5);
-}
-
-.category:hover{
-    transform:
-        translateY(-10px);
-
-    border-color:
-        rgba(255,255,255,.32);
-
-    box-shadow:
-        0 25px 70px rgba(0,0,0,.5),
-        0 0 35px rgba(255,255,255,.045);
-}
-
-.category-number{
-    font-size:9px;
-
-    letter-spacing:4px;
-
-    color:rgba(255,255,255,.30);
-}
-
-.category h3{
-    margin-top:53px;
-
-    font-size:18px;
-
-    letter-spacing:2px;
-
-    font-weight:700;
-}
-
-.category p{
-    margin-top:13px;
-
-    max-width:300px;
-
-    font-family:Arial,sans-serif;
-
-    color:rgba(255,255,255,.42);
-
-    font-size:11px;
-
-    line-height:1.65;
-}
-
-.category-arrow{
-    position:absolute;
-
-    right:27px;
-    bottom:25px;
-
-    font-size:19px;
-
-    color:rgba(255,255,255,.35);
+    opacity:0;
 
     transition:.35s;
 }
 
-.category:hover .category-arrow{
-    transform:translateX(8px);
+.category:hover{
+    transform:
+        translateY(-7px);
 
-    color:#fff;
+    border-color:
+        rgba(255,0,0,.4);
 
-    text-shadow:
-        0 0 12px rgba(255,255,255,.5);
+    box-shadow:
+        0 20px 50px rgba(255,0,0,.08);
+}
+
+.category:hover::before{
+    opacity:1;
+}
+
+.category-number{
+    position:absolute;
+
+    top:15px;
+    left:17px;
+
+    color:var(--red);
+
+    font-family:Orbitron,sans-serif;
+
+    font-size:8px;
+}
+
+.category-icon{
+    position:absolute;
+
+    top:38px;
+    left:17px;
+
+    color:#333;
+
+    font-size:27px;
+
+    font-weight:900;
+}
+
+.category h3{
+    position:relative;
+
+    font-family:Orbitron,sans-serif;
+
+    font-size:10px;
+
+    z-index:2;
+}
+
+.category p{
+    position:relative;
+
+    margin-top:6px;
+
+    color:#555;
+
+    font-size:7px;
+
+    z-index:2;
+}
+
+.category-arrow{
+    position:relative;
+
+    margin-top:15px;
+
+    color:#777;
+
+    font-size:7px;
+
+    font-weight:900;
+
+    z-index:2;
 }
 
 /* =========================================================
-   STAFF TEAM
+   EXPLORER
 ========================================================= */
 
-.staff-section{
-    padding-top:70px;
+.explorer-controls{
+    margin-top:35px;
+
+    display:flex;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+    align-items:center;
 }
 
-.staff-container{
-    max-width:1000px;
+.search{
+    flex:1;
 
-    margin:auto;
+    min-width:240px;
+
+    height:44px;
+
+    padding:0 15px;
+
+    outline:none;
+
+    border-radius:5px;
+
+    border:
+        1px solid rgba(255,255,255,.08);
+
+    background:
+        rgba(0,0,0,.55);
+
+    color:#ddd;
+
+    font-size:9px;
+}
+
+.search::placeholder{
+    color:#444;
+}
+
+.filter{
+    height:44px;
+
+    padding:0 13px;
+
+    border-radius:5px;
+
+    border:
+        1px solid rgba(255,255,255,.08);
+
+    background:
+        rgba(0,0,0,.55);
+
+    color:#777;
+
+    font-size:7px;
+    font-weight:900;
+
+    cursor:pointer;
+}
+
+.filter.active,
+.filter:hover{
+    color:#fff;
+
+    border-color:
+        rgba(255,0,0,.35);
+}
+
+.resource-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:12px;
+
+    margin-top:20px;
+}
+
+.resource{
+    overflow:hidden;
+
+    border-radius:8px;
+
+    border:
+        1px solid rgba(255,255,255,.08);
+
+    background:
+        rgba(5,5,5,.8);
+
+    transition:.3s;
+}
+
+.resource:hover{
+    transform:translateY(-5px);
+
+    border-color:
+        rgba(255,0,0,.3);
+}
+
+.resource-image{
+    height:170px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent,
+            rgba(0,0,0,.85)
+        ),
+        url("server.png") center/cover;
+}
+
+.resource-image::before{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            130deg,
+            rgba(255,0,0,.22),
+            transparent 45%
+        );
+
+    mix-blend-mode:screen;
+}
+
+.resource-body{
+    padding:18px;
+}
+
+.resource-category{
+    color:var(--red);
+
+    font-size:6px;
+    font-weight:900;
+
+    letter-spacing:2px;
+}
+
+.resource-name{
+    margin-top:9px;
+
+    font-family:Orbitron,sans-serif;
+
+    font-size:12px;
+
+    font-weight:900;
+}
+
+.resource-desc{
+    color:#555;
+
+    font-size:8px;
+
+    line-height:1.6;
+
+    margin-top:7px;
+}
+
+.resource-bottom{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-top:16px;
+}
+
+.rating{
+    color:#aaa;
+
+    font-size:8px;
+}
+
+.free{
+    color:#35ff6a;
+
+    font-size:7px;
+    font-weight:900;
+}
+
+.resource-btn{
+    margin-top:14px;
+
+    width:100%;
+
+    height:34px;
+
+    border-radius:4px;
+
+    border:
+        1px solid rgba(255,0,0,.25);
+
+    background:
+        rgba(255,0,0,.06);
+
+    color:#aaa;
+
+    font-size:7px;
+    font-weight:900;
+
+    cursor:pointer;
+}
+
+.resource-btn:hover{
+    color:#fff;
+
+    background:
+        rgba(255,0,0,.12);
+}
+
+/* =========================================================
+   COMMUNITY SHOWCASE
+========================================================= */
+
+.showcase{
+    margin-top:40px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(5,1fr);
+
+    gap:8px;
+}
+
+.showcase-item{
+    height:190px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:6px;
+
+    border:
+        1px solid rgba(255,255,255,.07);
+
+    background:
+        url("server.png") center/cover;
+
+    transition:.35s;
+}
+
+.showcase-item:nth-child(2){
+    filter:hue-rotate(15deg);
+}
+
+.showcase-item:nth-child(3){
+    filter:brightness(.75);
+}
+
+.showcase-item:nth-child(4){
+    filter:hue-rotate(-20deg);
+}
+
+.showcase-item:nth-child(5){
+    filter:contrast(1.1);
+}
+
+.showcase-item:hover{
+    transform:scale(1.03);
+
+    z-index:2;
+}
+
+/* =========================================================
+   STAFF
+========================================================= */
+
+.staff-layout{
+    margin-top:40px;
+
+    display:grid;
+
+    grid-template-columns:220px 1fr;
+
+    gap:15px;
+}
+
+.staff-nav{
+    display:flex;
+    flex-direction:column;
+
+    gap:7px;
+}
+
+.staff-tab{
+    padding:18px;
+
+    text-align:left;
+
+    color:#666;
+
+    background:
+        rgba(0,0,0,.58);
+
+    border:
+        1px solid rgba(255,255,255,.07);
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.staff-tab strong{
+    display:block;
+
+    color:inherit;
+
+    font-size:9px;
+}
+
+.staff-tab span{
+    display:block;
+
+    margin-top:6px;
+
+    color:#3f3f3f;
+
+    font-size:6px;
+}
+
+.staff-tab:hover,
+.staff-tab.active{
+    color:#fff;
+
+    border-color:
+        rgba(255,0,0,.4);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,0,0,.08),
+            rgba(0,0,0,.6)
+        );
+}
+
+.staff-cards{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:10px;
 }
 
 .staff-card{
     position:relative;
 
-    min-height:240px;
+    min-height:250px;
 
-    display:flex;
+    overflow:hidden;
 
-    align-items:center;
-    justify-content:space-between;
+    border-radius:7px;
 
-    padding:50px;
+    border:
+        1px solid rgba(255,255,255,.08);
+
+    background:
+        rgba(0,0,0,.65);
 
     cursor:pointer;
 
-    overflow:hidden;
+    transition:.35s;
+}
+
+.staff-card:hover{
+    transform:translateY(-6px);
+
+    border-color:
+        rgba(255,0,0,.4);
+}
+
+.staff-banner{
+    height:150px;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent,
+            rgba(0,0,0,.95)
+        ),
+        url("server.png") center/cover;
+
+    position:relative;
+}
+
+.staff-banner::after{
+    content:"";
+
+    position:absolute;
+    inset:0;
 
     background:
         linear-gradient(
             135deg,
-            rgba(255,255,255,.075),
-            rgba(255,255,255,.012)
+            rgba(255,0,0,.25),
+            transparent 55%
         );
-
-    border:
-        1px solid rgba(255,255,255,.12);
-
-    backdrop-filter:blur(20px);
-
-    transition:.45s;
 }
 
-.staff-card::before{
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-        linear-gradient(
-            110deg,
-            transparent 20%,
-            rgba(255,255,255,.035),
-            transparent 70%
-        );
-
-    transform:translateX(-100%);
-
-    transition:1s;
+.staff-info{
+    padding:15px;
 }
 
-.staff-card:hover::before{
-    transform:translateX(100%);
-}
-
-.staff-card:hover{
-    transform:translateY(-7px);
-
-    border-color:
-        rgba(255,255,255,.32);
-
-    box-shadow:
-        0 30px 80px rgba(0,0,0,.5);
-}
-
-.staff-left small{
-    font-size:9px;
-
-    letter-spacing:5px;
-
-    color:rgba(255,255,255,.35);
-}
-
-.staff-left h2{
-    margin-top:15px;
-
-    font-size:
-        clamp(24px,4vw,42px);
-
-    letter-spacing:3px;
-}
-
-.staff-left p{
-    margin-top:12px;
-
-    color:rgba(255,255,255,.42);
-
-    font-family:Arial,sans-serif;
+.staff-name{
+    font-family:Orbitron,sans-serif;
 
     font-size:11px;
+
+    font-weight:900;
 }
 
-.staff-arrow{
-    width:58px;
-    height:58px;
+.staff-user{
+    color:#555;
 
-    display:flex;
+    margin-top:5px;
 
-    align-items:center;
-    justify-content:center;
-
-    border:
-        1px solid rgba(255,255,255,.18);
-
-    font-size:24px;
-
-    transition:.35s;
+    font-size:7px;
 }
 
-.staff-card:hover .staff-arrow{
-    transform:translateX(8px);
+.staff-role{
+    margin-top:13px;
 
-    border-color:#fff;
+    color:var(--red);
 
-    box-shadow:
-        0 0 25px rgba(255,255,255,.08);
+    font-size:6px;
+    font-weight:900;
+
+    letter-spacing:2px;
 }
 
-/* =========================================================
-   STAFF MODAL
-========================================================= */
-
-.staff-modal{
-    position:fixed;
-
-    inset:0;
-
-    z-index:1500;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    padding:25px;
-
-    background:
-        rgba(0,0,0,.78);
-
-    backdrop-filter:blur(18px);
-
-    opacity:0;
-    visibility:hidden;
-
-    transition:.35s;
-}
-
-.staff-modal.active{
-    opacity:1;
-    visibility:visible;
-}
-
-.staff-window{
-    position:relative;
-
-    width:min(850px,100%);
-
-    min-height:520px;
-
-    overflow:hidden;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(18,18,18,.96),
-            rgba(5,5,5,.98)
-        );
-
-    border:
-        1px solid rgba(255,255,255,.14);
-
-    box-shadow:
-        0 40px 120px rgba(0,0,0,.8);
-
-    transform:
-        translateY(30px)
-        scale(.96);
-
-    transition:.45s;
-}
-
-.staff-modal.active .staff-window{
-    transform:
-        translateY(0)
-        scale(1);
-}
-
-.modal-top{
-    height:80px;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:space-between;
-
-    padding:0 35px;
-
-    border-bottom:
-        1px solid rgba(255,255,255,.08);
-}
-
-.modal-title{
-    font-size:14px;
-
-    letter-spacing:3px;
-}
-
-.modal-counter{
-    font-size:9px;
-
-    letter-spacing:3px;
-
-    color:rgba(255,255,255,.30);
-}
-
-.close-modal{
+.staff-online{
     position:absolute;
 
-    top:20px;
-    right:25px;
-
-    width:35px;
-    height:35px;
+    right:12px;
+    bottom:14px;
 
     display:flex;
-
     align-items:center;
-    justify-content:center;
 
-    cursor:pointer;
+    gap:5px;
 
-    border:
-        1px solid rgba(255,255,255,.12);
+    color:#aaa;
 
-    color:rgba(255,255,255,.55);
-
-    font-size:17px;
-
-    transition:.3s;
+    font-size:6px;
+    font-weight:900;
 }
 
-.close-modal:hover{
-    color:#fff;
+.online-dot{
+    width:6px;
+    height:6px;
 
-    border-color:#fff;
+    border-radius:50%;
+
+    background:#35ff6a;
+
+    box-shadow:
+        0 0 10px #35ff6a;
 }
 
 /* =========================================================
-   STAFF PAGES
+   CHANGELOG / JOURNEY
 ========================================================= */
 
-.staff-page{
-    display:none;
+.info-grid{
+    margin-top:40px;
 
-    padding:42px 45px 50px;
-
-    animation:
-        pageIn .4s ease;
-}
-
-.staff-page.active{
-    display:block;
-}
-
-@keyframes pageIn{
-
-    from{
-        opacity:0;
-        transform:translateX(20px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateX(0);
-    }
-}
-
-.staff-page-head{
-    margin-bottom:30px;
-}
-
-.staff-page-head span{
-    font-size:8px;
-
-    letter-spacing:5px;
-
-    color:rgba(255,255,255,.35);
-}
-
-.staff-page-head h2{
-    margin-top:10px;
-
-    font-size:28px;
-
-    letter-spacing:3px;
-}
-
-.staff-members{
     display:grid;
 
     grid-template-columns:
-        repeat(2,1fr);
+        .9fr 1.5fr .9fr;
 
     gap:12px;
 }
 
-.member{
-    display:flex;
+.panel{
+    padding:24px;
 
-    align-items:center;
-    justify-content:space-between;
-
-    padding:19px 20px;
-
-    background:
-        rgba(255,255,255,.035);
+    border-radius:7px;
 
     border:
-        1px solid rgba(255,255,255,.075);
-
-    transition:.3s;
-}
-
-.member:hover{
-    background:
-        rgba(255,255,255,.065);
-
-    border-color:
-        rgba(255,255,255,.20);
-
-    transform:
-        translateX(4px);
-}
-
-.member-info{
-    display:flex;
-
-    align-items:center;
-
-    gap:13px;
-}
-
-.member-dot{
-    width:7px;
-    height:7px;
-
-    border-radius:50%;
-
-    background:#fff;
-
-    box-shadow:
-        0 0 10px rgba(255,255,255,.65);
-
-    animation:
-        memberPulse 1.7s ease-in-out infinite;
-}
-
-@keyframes memberPulse{
-
-    0%,100%{
-        opacity:.35;
-    }
-
-    50%{
-        opacity:1;
-    }
-}
-
-.member-name{
-    font-size:11px;
-
-    letter-spacing:1px;
-}
-
-.member-status{
-    font-family:Arial,sans-serif;
-
-    font-size:9px;
-
-    color:rgba(255,255,255,.38);
-
-    letter-spacing:1px;
-}
-
-/* =========================================================
-   STAFF NAVIGATION
-========================================================= */
-
-.staff-navigation{
-    display:flex;
-
-    align-items:center;
-    justify-content:space-between;
-
-    margin-top:35px;
-
-    padding-top:22px;
-
-    border-top:
-        1px solid rgba(255,255,255,.07);
-}
-
-.staff-nav-btn{
-    display:flex;
-
-    align-items:center;
-
-    gap:10px;
-
-    padding:10px 15px;
+        1px solid rgba(255,255,255,.08);
 
     background:
-        rgba(255,255,255,.035);
+        rgba(3,3,3,.7);
 
-    border:
-        1px solid rgba(255,255,255,.10);
-
-    color:rgba(255,255,255,.55);
-
-    cursor:pointer;
-
-    font-family:'Orbitron',sans-serif;
-
-    font-size:9px;
-
-    letter-spacing:1px;
-
-    transition:.3s;
+    backdrop-filter:blur(15px);
 }
 
-.staff-nav-btn:hover{
-    color:#fff;
+.panel-title{
+    color:#777;
 
-    border-color:
-        rgba(255,255,255,.35);
-}
-
-.staff-nav-btn.disabled{
-    opacity:.18;
-
-    pointer-events:none;
-}
-
-.page-indicator{
-    font-size:8px;
+    font-size:7px;
+    font-weight:900;
 
     letter-spacing:3px;
 
-    color:rgba(255,255,255,.25);
+    margin-bottom:18px;
+}
+
+.change{
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+    padding:12px 0;
+
+    border-bottom:
+        1px solid rgba(255,255,255,.05);
+}
+
+.change:last-child{
+    border:0;
+}
+
+.change-version{
+    color:var(--red);
+
+    font-size:7px;
+    font-weight:900;
+}
+
+.change-text{
+    color:#666;
+
+    font-size:7px;
+
+    text-align:right;
+}
+
+.timeline{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    position:relative;
+
+    padding:25px 0;
+}
+
+.timeline::before{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:0;
+
+    top:34px;
+
+    height:1px;
+
+    background:
+        rgba(255,255,255,.10);
+}
+
+.milestone{
+    position:relative;
+
+    text-align:center;
+
+    width:20%;
+
+    z-index:2;
+}
+
+.milestone-dot{
+    width:18px;
+    height:18px;
+
+    margin:auto;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:50%;
+
+    background:#080808;
+
+    border:
+        1px solid rgba(255,0,0,.5);
+
+    color:var(--red);
+
+    font-size:6px;
+}
+
+.milestone strong{
+    display:block;
+
+    margin-top:10px;
+
+    font-size:7px;
+}
+
+.milestone span{
+    display:block;
+
+    margin-top:5px;
+
+    color:#444;
+
+    font-size:6px;
 }
 
 /* =========================================================
-   DISCORD SECTION
+   DISCORD
 ========================================================= */
 
 .discord-section{
-    max-width:1000px;
-
-    margin:auto;
+    position:relative;
 
     text-align:center;
 
     padding:
-        70px 0 150px;
-}
-
-.discord-box{
-    position:relative;
+        130px 7%;
 
     overflow:hidden;
 
-    padding:
-        75px 35px;
+    border-top:
+        1px solid rgba(255,255,255,.07);
+
+    border-bottom:
+        1px solid rgba(255,255,255,.07);
 
     background:
         linear-gradient(
-            135deg,
-            rgba(255,255,255,.075),
-            rgba(255,255,255,.012)
-        );
-
-    border:
-        1px solid rgba(255,255,255,.12);
-
-    backdrop-filter:blur(20px);
-
-    box-shadow:
-        0 35px 100px rgba(0,0,0,.45);
+            rgba(0,0,0,.76),
+            rgba(0,0,0,.92)
+        ),
+        url("server.png") center/cover;
 }
 
-.discord-box::before{
+.discord-section::before{
     content:"";
 
     position:absolute;
@@ -1290,41 +1729,80 @@ section{
     width:500px;
     height:500px;
 
-    right:-300px;
-    top:-300px;
+    left:50%;
+    top:50%;
 
-    border-radius:50%;
+    transform:
+        translate(-50%,-50%);
 
     background:
         radial-gradient(
             circle,
-            rgba(255,255,255,.06),
+            rgba(255,0,0,.16),
             transparent 65%
         );
-
-    filter:blur(20px);
 }
 
-.discord-box h2{
+.discord-content{
+    position:relative;
+
+    z-index:2;
+}
+
+.discord-section h2{
+    font-family:Orbitron,sans-serif;
+
     font-size:
-        clamp(25px,4vw,45px);
+        clamp(38px,7vw,80px);
 
-    letter-spacing:4px;
+    letter-spacing:-5px;
+
+    font-weight:900;
 }
 
-.discord-box p{
-    max-width:620px;
+.discord-section p{
+    max-width:550px;
 
-    margin:
-        20px auto 0;
+    margin:17px auto 25px;
 
-    font-family:Arial,sans-serif;
+    color:#666;
 
-    color:rgba(255,255,255,.43);
-
-    font-size:12px;
+    font-size:10px;
 
     line-height:1.8;
+}
+
+.discord-stats{
+    display:flex;
+
+    justify-content:center;
+
+    gap:35px;
+
+    margin-bottom:28px;
+}
+
+.discord-stat strong{
+    display:block;
+
+    font-family:Orbitron,sans-serif;
+
+    color:#eee;
+
+    font-size:15px;
+}
+
+.discord-stat span{
+    color:#444;
+
+    display:block;
+
+    margin-top:5px;
+
+    font-size:6px;
+    font-weight:900;
+
+    letter-spacing:1px;
 }
 
 /* =========================================================
@@ -1334,207 +1812,443 @@ section{
 footer{
     padding:35px 7%;
 
-    text-align:center;
+    display:flex;
 
-    background:
-        rgba(0,0,0,.45);
+    justify-content:space-between;
 
-    border-top:
-        1px solid rgba(255,255,255,.07);
+    gap:25px;
+
+    color:#3e3e3e;
+
+    font-size:7px;
 }
 
-footer p{
-    font-size:8px;
-
-    letter-spacing:4px;
-
-    color:rgba(255,255,255,.25);
-}
-
-/* =========================================================
-   MOUSE GLOW
-========================================================= */
-
-.mouse-glow{
-    position:fixed;
-
-    width:330px;
-    height:330px;
-
-    pointer-events:none;
-
-    z-index:-5;
-
-    border-radius:50%;
-
-    transform:
-        translate(-50%,-50%);
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,255,255,.045),
-            transparent 65%
-        );
+footer strong{
+    color:#777;
 }
 
 /* =========================================================
-   INTRO
+   MODAL
 ========================================================= */
 
-.intro{
+.modal{
     position:fixed;
-
     inset:0;
 
-    z-index:3000;
+    z-index:10000;
 
-    display:flex;
+    display:none;
 
     align-items:center;
     justify-content:center;
 
-    background:#050505;
+    padding:20px;
 
-    animation:
-        introHide 1s ease 2s forwards;
+    background:
+        rgba(0,0,0,.86);
+
+    backdrop-filter:blur(18px);
 }
 
-.intro-content{
-    text-align:center;
+.modal.active{
+    display:flex;
 }
 
-.intro-logo{
-    font-size:34px;
+.modal-box{
+    width:100%;
+    max-width:440px;
 
-    font-weight:900;
+    overflow:hidden;
 
-    letter-spacing:8px;
+    border-radius:9px;
 
-    animation:
-        introGlow 1s ease-in-out infinite alternate;
-}
+    background:#080808;
 
-.intro-line{
-    width:0;
-    height:1px;
-
-    margin:22px auto;
-
-    background:#fff;
+    border:
+        1px solid rgba(255,255,255,.12);
 
     box-shadow:
-        0 0 15px #fff;
+        0 40px 120px rgba(0,0,0,.75);
 
-    animation:
-        introLine 1.4s ease forwards;
+    animation:modalIn .3s ease;
 }
 
-@keyframes introGlow{
-
+@keyframes modalIn{
     from{
-        opacity:.35;
+        opacity:0;
+        transform:
+            translateY(20px)
+            scale(.96);
     }
 
     to{
         opacity:1;
-
-        text-shadow:
-            0 0 30px rgba(255,255,255,.45);
+        transform:
+            translateY(0)
+            scale(1);
     }
 }
 
-@keyframes introLine{
+.modal-banner{
+    height:190px;
 
-    to{
-        width:220px;
-    }
+    position:relative;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,.1),
+            #080808
+        ),
+        url("server.png") center/cover;
 }
 
-@keyframes introHide{
+.modal-banner::after{
+    content:"";
 
-    to{
-        opacity:0;
-        visibility:hidden;
-        pointer-events:none;
-    }
+    position:absolute;
+    inset:0;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            transparent 0 80px,
+            rgba(255,0,0,.06) 81px 82px
+        );
+}
+
+.modal-content{
+    padding:0 28px 28px;
+}
+
+.modal-avatar{
+    width:75px;
+    height:75px;
+
+    margin-top:-37px;
+
+    position:relative;
+    z-index:3;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #262626,
+            #050505
+        );
+
+    border:
+        2px solid #090909;
+
+    outline:
+        1px solid rgba(255,0,0,.4);
+
+    font-family:Orbitron,sans-serif;
+
+    font-size:23px;
+    font-weight:900;
+}
+
+.modal-name{
+    margin-top:17px;
+
+    font-family:Orbitron,sans-serif;
+
+    font-size:22px;
+
+    font-weight:900;
+}
+
+.modal-user{
+    color:#555;
+
+    margin-top:5px;
+
+    font-size:8px;
+}
+
+.modal-row{
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:14px 0;
+
+    border-bottom:
+        1px solid rgba(255,255,255,.05);
+}
+
+.modal-row:first-child{
+    margin-top:20px;
+
+    border-top:
+        1px solid rgba(255,255,255,.05);
+}
+
+.modal-label{
+    color:#444;
+
+    font-size:6px;
+    font-weight:900;
+
+    letter-spacing:1.5px;
+}
+
+.modal-value{
+    color:#aaa;
+
+    font-size:8px;
+    font-weight:800;
+
+    text-align:right;
+}
+
+.modal-close{
+    position:absolute;
+
+    right:15px;
+    top:15px;
+
+    width:34px;
+    height:34px;
+
+    z-index:5;
+
+    border:0;
+
+    border-radius:5px;
+
+    color:#777;
+
+    background:
+        rgba(0,0,0,.55);
+
+    cursor:pointer;
+
+    font-size:18px;
+}
+
+.modal-close:hover{
+    color:#fff;
 }
 
 /* =========================================================
-   RESPONSIVE
+   EASTER EGG
 ========================================================= */
 
-@media(max-width:900px){
+.classified{
+    position:fixed;
+    inset:0;
 
-    .categories{
+    z-index:30000;
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    background:#000;
+}
+
+.classified.active{
+    display:flex;
+}
+
+.classified-inner{
+    text-align:center;
+
+    animation:
+        glitch .5s steps(2);
+}
+
+.classified h2{
+    font-family:Orbitron,sans-serif;
+
+    font-size:
+        clamp(35px,8vw,90px);
+
+    color:var(--red);
+
+    letter-spacing:-5px;
+}
+
+.classified p{
+    margin-top:12px;
+
+    color:#555;
+
+    font-size:8px;
+    font-weight:900;
+
+    letter-spacing:4px;
+}
+
+@keyframes glitch{
+    0%{transform:translateX(-5px)}
+    20%{transform:translateX(7px)}
+    40%{transform:translateX(-3px)}
+    60%{transform:translateX(4px)}
+    80%{transform:translateX(-2px)}
+    100%{transform:translateX(0)}
+}
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+.reveal{
+    opacity:0;
+
+    transform:
+        translateY(25px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.reveal.visible{
+    opacity:1;
+
+    transform:
+        translateY(0);
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:1000px){
+
+    .hero-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero-terminal{
+        max-width:500px;
+    }
+
+    .category-grid{
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+
+    .resource-grid{
         grid-template-columns:
             repeat(2,1fr);
     }
 
-    .nav-links{
-        gap:17px;
+    .showcase{
+        grid-template-columns:
+            repeat(3,1fr);
     }
 
-    nav{
-        padding:0 4%;
+    .info-grid{
+        grid-template-columns:1fr;
     }
 
-    .staff-card{
-        padding:35px;
+    .latest-drop{
+        grid-template-columns:1fr;
     }
+
+    .drop-preview{
+        min-height:220px;
+    }
+
+    .staff-cards{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
 }
 
 @media(max-width:650px){
 
-    nav{
-        height:65px;
+    .navbar{
+        padding:0 5%;
     }
 
-    .logo{
-        font-size:15px;
-    }
-
-    .nav-links{
+    .nav{
         display:none;
     }
 
+    .hero{
+        padding:
+            130px 6% 80px;
+    }
+
     .hero h1{
-        letter-spacing:6px;
+        font-size:
+            clamp(55px,18vw,95px);
+
+        letter-spacing:-6px;
     }
 
-    .hero-small{
-        letter-spacing:4px;
+    .side-controls{
+        display:none;
     }
 
-    .categories{
-        grid-template-columns:1fr;
+    .status-strip{
+        width:90%;
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+        gap:15px;
+    }
+
+    .status{
+        border:0;
     }
 
     section{
         padding:
-            90px 5%;
+            80px 6%;
     }
 
-    .staff-card{
-        padding:30px;
+    .section-top{
+        display:block;
     }
 
-    .staff-members{
+    .category-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .resource-grid{
         grid-template-columns:1fr;
     }
 
-    .staff-page{
-        padding:
-            35px 25px 40px;
+    .showcase{
+        grid-template-columns:
+            repeat(2,1fr);
     }
 
-    .modal-top{
-        padding:0 25px;
+    .showcase-item{
+        height:140px;
     }
 
-    .staff-window{
-        min-height:520px;
+    .staff-layout{
+        grid-template-columns:1fr;
     }
+
+    .staff-cards{
+        grid-template-columns:1fr;
+    }
+
+    .discord-stats{
+        gap:15px;
+    }
+
+    footer{
+        flex-direction:column;
+    }
+
 }
 
 </style>
@@ -1542,54 +2256,43 @@ footer p{
 
 <body>
 
-<!-- =========================================================
-     INTRO
-========================================================= -->
-
-<div class="intro">
-
-    <div class="intro-content">
-
-        <div class="intro-logo">
-            WRAITH VAULT
-        </div>
-
-        <div class="intro-line"></div>
-
-    </div>
-
-</div>
-
-<!-- =========================================================
-     BACKGROUND
-========================================================= -->
-
-<div class="background"></div>
-
-<div class="cinematic">
-    <div class="light-beam"></div>
-</div>
-
-<div id="particles"></div>
-
-<div class="mouse-glow" id="mouseGlow"></div>
-
 <div class="scanlines"></div>
 
-<div class="vignette"></div>
+<div class="particles" id="particles"></div>
 
 
-<!-- =========================================================
-     NAV
-========================================================= -->
+<!-- =====================================================
+     LOADER
+===================================================== -->
 
-<nav>
+<div class="loader" id="loader">
 
-    <div class="logo">
-        WRAITH VAULT
+    <div class="loader-mark">
+        W<span>V</span>
     </div>
 
-    <ul class="nav-links">
+    <div class="loader-sub">
+        WRAITH VAULT // INITIALIZING
+    </div>
+
+    <div class="loader-bar">
+        <span></span>
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        WRAITH <span>VAULT</span>
+    </div>
+
+    <ul class="nav">
 
         <li>
             <a href="#home">
@@ -1598,8 +2301,8 @@ footer p{
         </li>
 
         <li>
-            <a href="#vault">
-                VAULT
+            <a href="#resources">
+                RESOURCES
             </a>
         </li>
 
@@ -1610,8 +2313,24 @@ footer p{
         </li>
 
         <li>
+            <a href="#changelog">
+                CHANGELOG
+            </a>
+        </li>
+
+        <li>
             <a href="#discord">
                 DISCORD
+            </a>
+        </li>
+
+        <li>
+            <a
+                class="nav-discord"
+                href="https://discord.gg/F9Bs4mggt"
+                target="_blank"
+            >
+                JOIN DISCORD
             </a>
         </li>
 
@@ -1620,329 +2339,200 @@ footer p{
 </nav>
 
 
-<!-- =========================================================
+<!-- =====================================================
+     SIDE CONTROLS
+===================================================== -->
+
+<div class="side-controls">
+
+    <button
+        class="side-btn"
+        id="soundButton"
+        onclick="toggleSound()"
+    >
+        ♪
+    </button>
+
+    <button
+        class="side-btn"
+        onclick="openDiscord()"
+    >
+        D
+    </button>
+
+    <button
+        class="side-btn"
+        onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    >
+        ↑
+    </button>
+
+</div>
+
+
+<!-- =====================================================
      HERO
-========================================================= -->
+===================================================== -->
 
-<main id="home">
+<section
+    class="hero"
+    id="home"
+>
 
-<section class="hero">
+    <div class="hero-grid">
 
-    <div class="hero-content">
+        <div class="hero-content reveal">
 
-        <div class="hero-small">
-            THE ULTIMATE FIVE M EXPERIENCE
+            <div class="eyebrow">
+
+                <span class="live"></span>
+
+                PREMIUM FIVEM RESOURCE NETWORK
+
+            </div>
+
+
+            <h1>
+
+                <span class="red">
+                    WRAITH
+                </span>
+
+                <br>
+
+                <span class="ghost">
+                    VAULT
+                </span>
+
+            </h1>
+
+
+            <p class="hero-desc">
+
+                Enter the underground resource network built
+                around FiveM PvP. Graphics, sounds, weapon
+                customization, optimization and modifications —
+                organized inside one premium vault.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a
+                    class="btn btn-red"
+                    href="#resources"
+                >
+                    ENTER THE VAULT →
+                </a>
+
+                <a
+                    class="btn btn-outline"
+                    href="https://discord.gg/F9Bs4mggt"
+                    target="_blank"
+                >
+                    JOIN DISCORD
+                </a>
+
+            </div>
+
         </div>
 
-        <h1>
-            WRAITH
-        </h1>
 
-        <div class="hero-line"></div>
+        <!-- TERMINAL -->
 
-        <div class="hero-sub">
-            VAULT
-        </div>
+        <div class="hero-terminal reveal">
 
-        <div class="live-status">
+            <div class="terminal-head">
 
-            <span class="live-dot"></span>
+                <span class="term-title">
+                    VAULT SYSTEM
+                </span>
 
-            VAULT ONLINE
-
-        </div>
-
-        <a
-            class="discord-btn"
-            href="https://discord.gg/F9Bs4mggt"
-            target="_blank"
-        >
-            ENTER THE VAULT
-        </a>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     VAULT
-========================================================= -->
-
-<section id="vault">
-
-    <div class="section-title">
-
-        <span>
-            WRAITH // VAULT
-        </span>
-
-        <h2>
-            THE COLLECTION
-        </h2>
-
-    </div>
-
-
-    <div class="categories">
-
-
-        <!-- =================================================
-             GRAPHIC PACKS
-        ================================================== -->
-
-        <a
-            href="https://discord.com/channels/1389973715915247828/1516989670649499678"
-            target="_blank"
-            style="text-decoration:none;color:inherit;"
-        >
-
-            <div class="category">
-
-                <div class="category-number">
-                    01
-                </div>
-
-                <h3>
-                    GRAPHIC PACKS
-                </h3>
-
-                <p>
-                    Premium visual packs built for
-                    a sharper and more cinematic
-                    FiveM experience.
-                </p>
-
-                <div class="category-arrow">
-                    →
-                </div>
+                <span class="term-dot"></span>
 
             </div>
 
-        </a>
 
+            <div class="terminal-body">
 
-        <!-- =================================================
-             SOUND PACK
-        ================================================== -->
+                <div class="term-line">
 
-        <a
-            href="https://discord.com/channels/1389973715915247828/1516989671261864039"
-            target="_blank"
-            style="text-decoration:none;color:inherit;"
-        >
+                    <span>
+                        NETWORK
+                    </span>
 
-            <div class="category">
+                    <span class="term-green">
+                        ONLINE
+                    </span>
 
-                <div class="category-number">
-                    02
                 </div>
 
-                <h3>
-                    SOUND PACK
-                </h3>
 
-                <p>
-                    Enhanced audio designed to make
-                    every shot, vehicle and moment
-                    hit harder.
-                </p>
+                <div class="term-line">
 
-                <div class="category-arrow">
-                    →
+                    <span>
+                        ACCESS
+                    </span>
+
+                    <span>
+                        PUBLIC
+                    </span>
+
                 </div>
 
-            </div>
 
-        </a>
+                <div class="term-line">
 
+                    <span>
+                        DISCORD
+                    </span>
 
-        <!-- =================================================
-             PC OPTI
-        ================================================== -->
+                    <span class="term-green">
+                        CONNECTED
+                    </span>
 
-        <a
-            href="https://discord.com/channels/1389973715915247828/1517162228816674897"
-            target="_blank"
-            style="text-decoration:none;color:inherit;"
-        >
-
-            <div class="category">
-
-                <div class="category-number">
-                    03
                 </div>
 
-                <h3>
-                    PC OPTI
-                </h3>
 
-                <p>
-                    Performance-focused optimization
-                    designed for smoother gameplay
-                    and better stability.
-                </p>
+                <div class="term-line">
 
-                <div class="category-arrow">
-                    →
+                    <span>
+                        RESOURCES
+                    </span>
+
+                    <span class="term-red">
+                        500+
+                    </span>
+
                 </div>
 
-            </div>
 
-        </a>
+                <div class="term-line">
 
+                    <span>
+                        STAFF
+                    </span>
 
-        <!-- =================================================
-             PERKS
-        ================================================== -->
+                    <span>
+                        13
+                    </span>
 
-        <a
-            href="https://discord.com/channels/1389973715915247828/1517016261014585384"
-            target="_blank"
-            style="text-decoration:none;color:inherit;"
-        >
-
-            <div class="category">
-
-                <div class="category-number">
-                    04
                 </div>
 
-                <h3>
-                    PERKS
-                </h3>
 
-                <p>
-                    Exclusive benefits and premium
-                    advantages available inside
-                    Wraith Vault.
-                </p>
+                <div class="term-line">
 
-                <div class="category-arrow">
-                    →
+                    <span>
+                        SECURITY
+                    </span>
+
+                    <span class="term-green">
+                        ACTIVE
+                    </span>
+
                 </div>
 
-            </div>
-
-        </a>
-
-
-        <!-- =================================================
-             MODS
-        ================================================== -->
-
-        <a
-            href="https://discord.com/channels/1389973715915247828/1517030780419969094"
-            target="_blank"
-            style="text-decoration:none;color:inherit;"
-        >
-
-            <div class="category">
-
-                <div class="category-number">
-                    05
-                </div>
-
-                <h3>
-                    MODS
-                </h3>
-
-                <p>
-                    Curated FiveM modifications selected
-                    for the Wraith Vault experience.
-                </p>
-
-                <div class="category-arrow">
-                    →
-                </div>
-
-            </div>
-
-        </a>
-
-
-        <!-- =================================================
-             GUN SKINS
-        ================================================== -->
-
-        <a
-            href="https://discord.com/channels/1389973715915247828/1517282530339065988"
-            target="_blank"
-            style="text-decoration:none;color:inherit;"
-        >
-
-            <div class="category">
-
-                <div class="category-number">
-                    06
-                </div>
-
-                <h3>
-                    GUN SKINS
-                </h3>
-
-                <p>
-                    Custom weapon visuals designed
-                    around a clean competitive PvP look.
-                </p>
-
-                <div class="category-arrow">
-                    →
-                </div>
-
-            </div>
-
-        </a>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     STAFF
-========================================================= -->
-
-<section id="staff" class="staff-section">
-
-    <div class="section-title">
-
-        <span>
-            WRAITH // PERSONNEL
-        </span>
-
-        <h2>
-            STAFF TEAM
-        </h2>
-
-    </div>
-
-
-    <div class="staff-container">
-
-        <div
-            class="staff-card"
-            id="openStaff"
-        >
-
-            <div class="staff-left">
-
-                <small>
-                    OFFICIAL WRAITH VAULT
-                </small>
-
-                <h2>
-                    WRAITH VAULT STAFF TEAM
-                </h2>
-
-                <p>
-                    View the current Vault staff hierarchy.
-                </p>
-
-            </div>
-
-            <div class="staff-arrow">
-                →
             </div>
 
         </div>
@@ -1952,436 +2542,1429 @@ footer p{
 </section>
 
 
-<!-- =========================================================
-     DISCORD
-========================================================= -->
+<!-- =====================================================
+     STATUS
+===================================================== -->
 
-<section id="discord">
+<div class="status-strip reveal">
 
-    <div class="discord-section">
+    <div class="status">
 
-        <div class="discord-box">
+        <div class="status-number">
+            ●
+        </div>
 
-            <h2>
-                ENTER WRAITH VAULT
-            </h2>
+        <div class="status-label">
+            VAULT STATUS
+        </div>
+
+    </div>
+
+
+    <div class="status">
+
+        <div class="status-number red">
+            1,284+
+        </div>
+
+        <div class="status-label">
+            DISCORD MEMBERS
+        </div>
+
+    </div>
+
+
+    <div class="status">
+
+        <div class="status-number red">
+            13
+        </div>
+
+        <div class="status-label">
+            STAFF
+        </div>
+
+    </div>
+
+
+    <div class="status">
+
+        <div class="status-number red">
+            500+
+        </div>
+
+        <div class="status-label">
+            RESOURCES
+        </div>
+
+    </div>
+
+
+    <div class="status">
+
+        <div class="status-number red">
+            LIVE
+        </div>
+
+        <div class="status-label">
+            COMMUNITY
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     LATEST DROP
+===================================================== -->
+
+<section>
+
+    <div class="section-top reveal">
+
+        <div>
+
+            <div class="section-kicker">
+                FRESH FROM THE VAULT
+            </div>
+
+            <div class="section-title">
+                LATEST DROP
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="latest-drop reveal">
+
+        <div class="drop-info">
+
+            <div class="drop-tag">
+                NEW RELEASE
+            </div>
+
+            <h3>
+                HYPER VISUALS
+                <span>V3</span>
+            </h3>
 
             <p>
-                Access the Vault, explore the collection
-                and connect with the Wraith community.
+                A cinematic visual enhancement pack designed
+                around competitive FiveM PvP.
             </p>
 
             <a
-                class="discord-btn"
+                class="btn btn-red"
+                style="margin-top:20px"
                 href="https://discord.gg/F9Bs4mggt"
                 target="_blank"
             >
-                JOIN DISCORD
+                VIEW DROP →
             </a>
 
         </div>
 
+
+        <div class="drop-preview"></div>
+
+
+        <div class="drop-meta">
+
+            <div class="meta-title">
+                DROP INFO
+            </div>
+
+
+            <div class="meta-row">
+
+                <span>
+                    RELEASED
+                </span>
+
+                <span>
+                    NEW
+                </span>
+
+            </div>
+
+
+            <div class="meta-row">
+
+                <span>
+                    CATEGORY
+                </span>
+
+                <span>
+                    GRAPHICS
+                </span>
+
+            </div>
+
+
+            <div class="meta-row">
+
+                <span>
+                    VERSION
+                </span>
+
+                <span>
+                    V3.0
+                </span>
+
+            </div>
+
+
+            <div class="meta-row">
+
+                <span>
+                    STATUS
+                </span>
+
+                <span>
+                    AVAILABLE
+                </span>
+
+            </div>
+
+        </div>
+
     </div>
 
 </section>
 
-</main>
 
+<!-- =====================================================
+     RESOURCE NETWORK
+===================================================== -->
 
-<!-- =========================================================
-     STAFF MODAL
-========================================================= -->
-
-<div
-    class="staff-modal"
-    id="staffModal"
+<section
+    id="resources"
 >
 
-    <div class="staff-window">
+    <div class="section-top reveal">
 
-        <div class="modal-top">
+        <div>
 
-            <div class="modal-title">
-                WRAITH VAULT // STAFF
+            <div class="section-kicker">
+                RESOURCE NETWORK
             </div>
 
-            <div
-                class="modal-counter"
-                id="modalCounter"
-            >
-                01 / 03
+            <div class="section-title">
+                THE VAULT
+            </div>
+
+            <p class="section-desc">
+                Explore the different Wraith Vault sectors.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="category-grid">
+
+
+        <div
+            class="category reveal"
+            onclick="filterResources('graphics')"
+        >
+
+            <div class="category-number">
+                01
+            </div>
+
+            <div class="category-icon">
+                ◉
+            </div>
+
+            <h3>
+                GRAPHICS
+            </h3>
+
+            <p>
+                Visual enhancement
+            </p>
+
+            <div class="category-arrow">
+                ENTER SECTOR →
             </div>
 
         </div>
 
 
+        <div
+            class="category reveal"
+            onclick="filterResources('sounds')"
+        >
+
+            <div class="category-number">
+                02
+            </div>
+
+            <div class="category-icon">
+                ≋
+            </div>
+
+            <h3>
+                SOUNDS
+            </h3>
+
+            <p>
+                Audio & sound packs
+            </p>
+
+            <div class="category-arrow">
+                ENTER SECTOR →
+            </div>
+
+        </div>
+
+
+        <div
+            class="category reveal"
+            onclick="filterResources('guns')"
+        >
+
+            <div class="category-number">
+                03
+            </div>
+
+            <div class="category-icon">
+                +
+            </div>
+
+            <h3>
+                GUN SKINS
+            </h3>
+
+            <p>
+                Weapon customization
+            </p>
+
+            <div class="category-arrow">
+                ENTER SECTOR →
+            </div>
+
+        </div>
+
+
+        <div
+            class="category reveal"
+            onclick="filterResources('perks')"
+        >
+
+            <div class="category-number">
+                04
+            </div>
+
+            <div class="category-icon">
+                ★
+            </div>
+
+            <h3>
+                PERKS
+            </h3>
+
+            <p>
+                Community perks
+            </p>
+
+            <div class="category-arrow">
+                ENTER SECTOR →
+            </div>
+
+        </div>
+
+
+        <div
+            class="category reveal"
+            onclick="filterResources('optimization')"
+        >
+
+            <div class="category-number">
+                05
+            </div>
+
+            <div class="category-icon">
+                ↯
+            </div>
+
+            <h3>
+                OPTIMIZATION
+            </h3>
+
+            <p>
+                Performance boost
+            </p>
+
+            <div class="category-arrow">
+                ENTER SECTOR →
+            </div>
+
+        </div>
+
+
+        <div
+            class="category reveal"
+            onclick="filterResources('mods')"
+        >
+
+            <div class="category-number">
+                06
+            </div>
+
+            <div class="category-icon">
+                &lt;/&gt;
+            </div>
+
+            <h3>
+                MODS
+            </h3>
+
+            <p>
+                Scripts & modifications
+            </p>
+
+            <div class="category-arrow">
+                ENTER SECTOR →
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     RESOURCE EXPLORER
+===================================================== -->
+
+<section>
+
+    <div class="section-top reveal">
+
+        <div>
+
+            <div class="section-kicker">
+                SEARCH THE NETWORK
+            </div>
+
+            <div class="section-title">
+                VAULT EXPLORER
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="explorer-controls reveal">
+
+        <input
+            id="resourceSearch"
+            class="search"
+            placeholder="Search resources..."
+            oninput="searchResources()"
+        >
+
+
         <button
-            class="close-modal"
-            id="closeStaff"
+            class="filter active"
+            data-filter="all"
+            onclick="filterResources('all')"
+        >
+            ALL
+        </button>
+
+        <button
+            class="filter"
+            data-filter="graphics"
+            onclick="filterResources('graphics')"
+        >
+            GRAPHICS
+        </button>
+
+        <button
+            class="filter"
+            data-filter="sounds"
+            onclick="filterResources('sounds')"
+        >
+            SOUNDS
+        </button>
+
+        <button
+            class="filter"
+            data-filter="guns"
+            onclick="filterResources('guns')"
+        >
+            GUN SKINS
+        </button>
+
+        <button
+            class="filter"
+            data-filter="perks"
+            onclick="filterResources('perks')"
+        >
+            PERKS
+        </button>
+
+        <button
+            class="filter"
+            data-filter="optimization"
+            onclick="filterResources('optimization')"
+        >
+            OPTIMIZATION
+        </button>
+
+        <button
+            class="filter"
+            data-filter="mods"
+            onclick="filterResources('mods')"
+        >
+            MODS
+        </button>
+
+    </div>
+
+
+    <div
+        class="resource-grid"
+        id="resourceGrid"
+    >
+
+
+        <div
+            class="resource"
+            data-category="graphics"
+            data-name="hyper visual pack"
+        >
+
+            <div class="resource-image"></div>
+
+            <div class="resource-body">
+
+                <div class="resource-category">
+                    GRAPHICS
+                </div>
+
+                <div class="resource-name">
+                    Hyper Visual Pack
+                </div>
+
+                <div class="resource-desc">
+                    PvP-focused visual enhancement.
+                </div>
+
+                <div class="resource-bottom">
+
+                    <span class="rating">
+                        ★ 4.9
+                    </span>
+
+                    <span class="free">
+                        FREE
+                    </span>
+
+                </div>
+
+                <button
+                    class="resource-btn"
+                    onclick="openResource('Hyper Visual Pack','Graphics','★ 4.9','Premium PvP visual enhancement pack.')"
+                >
+                    VIEW RESOURCE →
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="resource"
+            data-category="sounds"
+            data-name="realistic gun sounds"
+        >
+
+            <div class="resource-image"></div>
+
+            <div class="resource-body">
+
+                <div class="resource-category">
+                    SOUNDS
+                </div>
+
+                <div class="resource-name">
+                    Realistic Gun Sounds
+                </div>
+
+                <div class="resource-desc">
+                    Custom PvP audio collection.
+                </div>
+
+                <div class="resource-bottom">
+
+                    <span class="rating">
+                        ★ 4.8
+                    </span>
+
+                    <span class="free">
+                        FREE
+                    </span>
+
+                </div>
+
+                <button
+                    class="resource-btn"
+                    onclick="openResource('Realistic Gun Sounds','Sounds','★ 4.8','Custom FiveM PvP sound collection.')"
+                >
+                    VIEW RESOURCE →
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="resource"
+            data-category="guns"
+            data-name="clean weapon skins"
+        >
+
+            <div class="resource-image"></div>
+
+            <div class="resource-body">
+
+                <div class="resource-category">
+                    GUN SKINS
+                </div>
+
+                <div class="resource-name">
+                    Clean Weapon Skins
+                </div>
+
+                <div class="resource-desc">
+                    Competitive weapon visuals.
+                </div>
+
+                <div class="resource-bottom">
+
+                    <span class="rating">
+                        ★ 4.7
+                    </span>
+
+                    <span class="free">
+                        FREE
+                    </span>
+
+                </div>
+
+                <button
+                    class="resource-btn"
+                    onclick="openResource('Clean Weapon Skins','Gun Skins','★ 4.7','Competitive weapon visual collection.')"
+                >
+                    VIEW RESOURCE →
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="resource"
+            data-category="perks"
+            data-name="pvp perk suite"
+        >
+
+            <div class="resource-image"></div>
+
+            <div class="resource-body">
+
+                <div class="resource-category">
+                    PERKS
+                </div>
+
+                <div class="resource-name">
+                    PvP Perk Suite
+                </div>
+
+                <div class="resource-desc">
+                    Exclusive community perks.
+                </div>
+
+                <div class="resource-bottom">
+
+                    <span class="rating">
+                        ★ 4.6
+                    </span>
+
+                    <span class="free">
+                        FREE
+                    </span>
+
+                </div>
+
+                <button
+                    class="resource-btn"
+                    onclick="openResource('PvP Perk Suite','Perks','★ 4.6','Community perks and features.')"
+                >
+                    VIEW RESOURCE →
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="resource"
+            data-category="optimization"
+            data-name="fps booster pro"
+        >
+
+            <div class="resource-image"></div>
+
+            <div class="resource-body">
+
+                <div class="resource-category">
+                    OPTIMIZATION
+                </div>
+
+                <div class="resource-name">
+                    FPS Booster Pro
+                </div>
+
+                <div class="resource-desc">
+                    Performance-focused configuration.
+                </div>
+
+                <div class="resource-bottom">
+
+                    <span class="rating">
+                        ★ 4.8
+                    </span>
+
+                    <span class="free">
+                        FREE
+                    </span>
+
+                </div>
+
+                <button
+                    class="resource-btn"
+                    onclick="openResource('FPS Booster Pro','Optimization','★ 4.8','Performance optimization resource.')"
+                >
+                    VIEW RESOURCE →
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="resource"
+            data-category="mods"
+            data-name="advanced mods pack"
+        >
+
+            <div class="resource-image"></div>
+
+            <div class="resource-body">
+
+                <div class="resource-category">
+                    MODS
+                </div>
+
+                <div class="resource-name">
+                    Advanced Mods Pack
+                </div>
+
+                <div class="resource-desc">
+                    Custom modifications and utilities.
+                </div>
+
+                <div class="resource-bottom">
+
+                    <span class="rating">
+                        ★ 4.7
+                    </span>
+
+                    <span class="free">
+                        FREE
+                    </span>
+
+                </div>
+
+                <button
+                    class="resource-btn"
+                    onclick="openResource('Advanced Mods Pack','Mods','★ 4.7','FiveM modification collection.')"
+                >
+                    VIEW RESOURCE →
+                </button>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     COMMUNITY SHOWCASE
+===================================================== -->
+
+<section>
+
+    <div class="section-top reveal">
+
+        <div>
+
+            <div class="section-kicker">
+                COMMUNITY
+            </div>
+
+            <div class="section-title">
+                SHOWCASE
+            </div>
+
+            <p class="section-desc">
+                Featured setups from the Wraith Vault community.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="showcase reveal">
+
+        <div class="showcase-item"></div>
+
+        <div class="showcase-item"></div>
+
+        <div class="showcase-item"></div>
+
+        <div class="showcase-item"></div>
+
+        <div class="showcase-item"></div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     STAFF
+===================================================== -->
+
+<section
+    id="staff"
+>
+
+    <div class="section-top reveal">
+
+        <div>
+
+            <div class="section-kicker">
+                OFFICIAL TEAM
+            </div>
+
+            <div class="section-title">
+                WRAITH STAFF
+            </div>
+
+            <p class="section-desc">
+                The people behind the vault.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="staff-layout">
+
+
+        <div class="staff-nav">
+
+            <button
+                class="staff-tab active"
+                onclick="staffTeam(0,this)"
+            >
+
+                <strong>
+                    FOUNDERS →
+                </strong>
+
+                <span>
+                    2 MEMBERS
+                </span>
+
+            </button>
+
+
+            <button
+                class="staff-tab"
+                onclick="staffTeam(1,this)"
+            >
+
+                <strong>
+                    MANAGEMENT →
+                </strong>
+
+                <span>
+                    3 MEMBERS
+                </span>
+
+            </button>
+
+
+            <button
+                class="staff-tab"
+                onclick="staffTeam(2,this)"
+            >
+
+                <strong>
+                    LEAKERS →
+                </strong>
+
+                <span>
+                    8 MEMBERS
+                </span>
+
+            </button>
+
+        </div>
+
+
+        <div
+            class="staff-cards"
+            id="staffCards"
+        ></div>
+
+    </div>
+
+
+    <div
+        style="
+            text-align:center;
+            margin-top:18px;
+            color:#555;
+            font-size:7px;
+            font-weight:900;
+            letter-spacing:2px;
+        "
+    >
+
+        <span
+            class="online-dot"
+            style="
+                display:inline-block;
+                margin-right:7px;
+            "
+        ></span>
+
+        EVERYONE IS ACTIVE & CONNECTED
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CHANGELOG
+===================================================== -->
+
+<section
+    id="changelog"
+>
+
+    <div class="section-top reveal">
+
+        <div>
+
+            <div class="section-kicker">
+                HISTORY
+            </div>
+
+            <div class="section-title">
+                WRAITH JOURNEY
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="info-grid">
+
+
+        <div class="panel reveal">
+
+            <div class="panel-title">
+                CHANGELOG
+            </div>
+
+
+            <div class="change">
+
+                <span class="change-version">
+                    V3.4.0
+                </span>
+
+                <span class="change-text">
+                    NEW — Hyper Visuals
+                </span>
+
+            </div>
+
+
+            <div class="change">
+
+                <span class="change-version">
+                    V3.3.0
+                </span>
+
+                <span class="change-text">
+                    NEW — Sound Pack
+                </span>
+
+            </div>
+
+
+            <div class="change">
+
+                <span class="change-version">
+                    V3.2.0
+                </span>
+
+                <span class="change-text">
+                    UPDATED — Staff System
+                </span>
+
+            </div>
+
+
+            <div class="change">
+
+                <span class="change-version">
+                    V3.1.0
+                </span>
+
+                <span class="change-text">
+                    NEW — Resource Explorer
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="panel reveal">
+
+            <div class="panel-title">
+                VAULT MILESTONES
+            </div>
+
+
+            <div class="timeline">
+
+
+                <div class="milestone">
+
+                    <div class="milestone-dot">
+                        01
+                    </div>
+
+                    <strong>
+                        CREATED
+                    </strong>
+
+                    <span>
+                        2026
+                    </span>
+
+                </div>
+
+
+                <div class="milestone">
+
+                    <div class="milestone-dot">
+                        02
+                    </div>
+
+                    <strong>
+                        100+
+                    </strong>
+
+                    <span>
+                        MEMBERS
+                    </span>
+
+                </div>
+
+
+                <div class="milestone">
+
+                    <div class="milestone-dot">
+                        03
+                    </div>
+
+                    <strong>
+                        100+
+                    </strong>
+
+                    <span>
+                        RESOURCES
+                    </span>
+
+                </div>
+
+
+                <div class="milestone">
+
+                    <div class="milestone-dot">
+                        04
+                    </div>
+
+                    <strong>
+                        500+
+                    </strong>
+
+                    <span>
+                        MEMBERS
+                    </span>
+
+                </div>
+
+
+                <div class="milestone">
+
+                    <div class="milestone-dot">
+                        05
+                    </div>
+
+                    <strong>
+                        NOW
+                    </strong>
+
+                    <span>
+                        WRAITH V2
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <div class="panel reveal">
+
+            <div class="panel-title">
+                VAULT STATISTICS
+            </div>
+
+
+            <div class="change">
+
+                <span class="change-version">
+                    RESOURCES
+                </span>
+
+                <span class="change-text">
+                    500+
+                </span>
+
+            </div>
+
+
+            <div class="change">
+
+                <span class="change-version">
+                    MEMBERS
+                </span>
+
+                <span class="change-text">
+                    1,284+
+                </span>
+
+            </div>
+
+
+            <div class="change">
+
+                <span class="change-version">
+                    DROPS
+                </span>
+
+                <span class="change-text">
+                    48+
+                </span>
+
+            </div>
+
+
+            <div class="change">
+
+                <span class="change-version">
+                    STATUS
+                </span>
+
+                <span class="change-text">
+                    ONLINE
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     DISCORD
+===================================================== -->
+
+<section
+    class="discord-section"
+    id="discord"
+>
+
+    <div class="discord-content reveal">
+
+        <div class="section-kicker">
+            WRAITH VAULT NETWORK
+        </div>
+
+        <h2>
+            ENTER THE VAULT.
+        </h2>
+
+        <p>
+            Join the official Wraith Vault Discord for releases,
+            community updates, resources and announcements.
+        </p>
+
+
+        <div class="discord-stats">
+
+            <div class="discord-stat">
+
+                <strong>
+                    1,284+
+                </strong>
+
+                <span>
+                    MEMBERS
+                </span>
+
+            </div>
+
+
+            <div class="discord-stat">
+
+                <strong>
+                    13
+                </strong>
+
+                <span>
+                    STAFF
+                </span>
+
+            </div>
+
+
+            <div class="discord-stat">
+
+                <strong>
+                    500+
+                </strong>
+
+                <span>
+                    RESOURCES
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <a
+            class="btn btn-red"
+            href="https://discord.gg/F9Bs4mggt"
+            target="_blank"
+        >
+            JOIN WRAITH VAULT DISCORD →
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div>
+        © 2026 <strong>WRAITH VAULT</strong>
+    </div>
+
+    <div>
+        PREMIUM FIVEM RESOURCE NETWORK
+    </div>
+
+    <div>
+        WRAITH // WV
+    </div>
+
+</footer>
+
+
+<!-- =====================================================
+     STAFF MODAL
+===================================================== -->
+
+<div
+    class="modal"
+    id="staffModal"
+>
+
+    <div
+        class="modal-box"
+        style="position:relative"
+    >
+
+        <button
+            class="modal-close"
+            onclick="closeStaff()"
         >
             ×
         </button>
 
 
-        <!-- ================================================
-             PAGE 1 — FOUNDERS
-        ================================================= -->
+        <div class="modal-banner"></div>
 
-        <div
-            class="staff-page active"
-            data-page="0"
-        >
 
-            <div class="staff-page-head">
+        <div class="modal-content">
 
-                <span>
-                    HIERARCHY // 01
-                </span>
-
-                <h2>
-                    FOUNDERS
-                </h2>
-
-            </div>
-
-
-            <div class="staff-members">
-
-                <div class="member">
-
-                    <div class="member-info">
-
-                        <span class="member-dot"></span>
-
-                        <span class="member-name">
-                            Vortex
-                        </span>
-
-                    </div>
-
-                    <span class="member-status">
-                        ACTIVE • CONNECTED
-                    </span>
-
-                </div>
-
-
-                <div class="member">
-
-                    <div class="member-info">
-
-                        <span class="member-dot"></span>
-
-                        <span class="member-name">
-                            Speed
-                        </span>
-
-                    </div>
-
-                    <span class="member-status">
-                        ACTIVE • CONNECTED
-                    </span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- ================================================
-             PAGE 2 — LEAKER MANAGEMENT
-        ================================================= -->
-
-        <div
-            class="staff-page"
-            data-page="1"
-        >
-
-            <div class="staff-page-head">
-
-                <span>
-                    HIERARCHY // 02
-                </span>
-
-                <h2>
-                    LEAKER MANAGEMENT
-                </h2>
-
-            </div>
-
-
-            <div class="staff-members">
-
-                <div class="member">
-
-                    <div class="member-info">
-
-                        <span class="member-dot"></span>
-
-                        <span class="member-name">
-                            Kekrops
-                        </span>
-
-                    </div>
-
-                    <span class="member-status">
-                        ACTIVE • CONNECTED
-                    </span>
-
-                </div>
-
-
-                <div class="member">
-
-                    <div class="member-info">
-
-                        <span class="member-dot"></span>
-
-                        <span class="member-name">
-                            Cyber
-                        </span>
-
-                    </div>
-
-                    <span class="member-status">
-                        ACTIVE • CONNECTED
-                    </span>
-
-                </div>
-
-
-                <div class="member">
-
-                    <div class="member-info">
-
-                        <span class="member-dot"></span>
-
-                        <span class="member-name">
-                            Agent
-                        </span>
-
-                    </div>
-
-                    <span class="member-status">
-                        ACTIVE • CONNECTED
-                    </span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- ================================================
-             PAGE 3 — LEAKERS
-        ================================================= -->
-
-        <div
-            class="staff-page"
-            data-page="2"
-        >
-
-            <div class="staff-page-head">
-
-                <span>
-                    HIERARCHY // 03
-                </span>
-
-                <h2>
-                    LEAKERS TEAM
-                </h2>
-
-            </div>
-
-
-            <div class="staff-members">
-
-                <div class="member">
-
-                    <div class="member-info">
-
-                        <span class="member-dot"></span>
-
-                        <span class="member-name">
-                            Ice
-                        </span>
-
-                    </div>
-
-                    <span class="member-status">
-                        ACTIVE • CONNECTED
-                    </span>
-
-                </div>
-
-
-                <div class="member">
-
-                    <div class="member-info">
-
-                        <span class="member-dot"></span>
-
-                        <span class="member-name">
-                            Diddy
-                        </span>
-
-                    </div>
-
-                    <span class="member-status">
-                        ACTIVE • CONNECTED
-                    </span>
-
-                </div>
-
-
-                <div class="member">
-
-                    <div class="member-info">
-
-                        <span class="member-dot"></span>
-
-                        <span class="member-name">
-                            Usman
-                        </span>
-
-                    </div>
-
-                    <span class="member-status">
-                        ACTIVE • CONNECTED
-                    </span>
-
-                </div>
-
-
-                <div class="member">
-
-                    <div class="member-info">
-
-                        <span class="member-dot"></span>
-
-                        <span class="member-name">
-                            Flxn
-                        </span>
-
-                    </div>
-
-                    <span class="member-status">
-                        ACTIVE • CONNECTED
-                    </span>
-
-                </div>
-
-
-                <div class="member">
-
-                    <div class="member-info">
-
-                        <span class="member-dot"></span>
-
-                        <span class="member-name">
-                            Shayan
-                        </span>
-
-                    </div>
-
-                    <span class="member-status">
-                        ACTIVE • CONNECTED
-                    </span>
-
-                </div>
-
-
-                <div class="member">
-
-                    <div class="member-info">
-
-                        <span class="member-dot"></span>
-
-                        <span class="member-name">
-                            Ali
-                        </span>
-
-                    </div>
-
-                    <span class="member-status">
-                        ACTIVE • CONNECTED
-                    </span>
-
-                </div>
-
-
-                <div class="member">
-
-                    <div class="member-info">
-
-                        <span class="member-dot"></span>
-
-                        <span class="member-name">
-                            Venom
-                        </span>
-
-                    </div>
-
-                    <span class="member-status">
-                        ACTIVE • CONNECTED
-                    </span>
-
-                </div>
-
-
-                <div class="member">
-
-                    <div class="member-info">
-
-                        <span class="member-dot"></span>
-
-                        <span class="member-name">
-                            Syed Ali
-                        </span>
-
-                    </div>
-
-                    <span class="member-status">
-                        ACTIVE • CONNECTED
-                    </span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- ================================================
-             STAFF NAVIGATION
-        ================================================= -->
-
-        <div class="staff-navigation">
-
-            <button
-                class="staff-nav-btn disabled"
-                id="previousStaff"
+            <div
+                class="modal-avatar"
+                id="modalAvatar"
             >
-                ← PREVIOUS
-            </button>
+                W
+            </div>
 
 
             <div
-                class="page-indicator"
-                id="pageIndicator"
+                class="modal-name"
+                id="modalName"
             >
-                FOUNDERS
+                Vortex
             </div>
 
 
-            <button
-                class="staff-nav-btn"
-                id="nextStaff"
+            <div
+                class="modal-user"
+                id="modalUser"
             >
-                NEXT →
-            </button>
+                @.vortexlad
+            </div>
+
+
+            <div class="modal-row">
+
+                <span class="modal-label">
+                    ROLE
+                </span>
+
+                <span
+                    class="modal-value"
+                    id="modalRole"
+                >
+                    Founder
+                </span>
+
+            </div>
+
+
+            <div class="modal-row">
+
+                <span class="modal-label">
+                    STATUS
+                </span>
+
+                <span class="modal-value">
+                    <span
+                        class="online-dot"
+                        style="
+                            display:inline-block;
+                            margin-right:6px;
+                        "
+                    ></span>
+                    ONLINE
+                </span>
+
+            </div>
+
+
+            <div class="modal-row">
+
+                <span class="modal-label">
+                    ACTIVITY
+                </span>
+
+                <span class="modal-value">
+                    Wraith Vault
+                </span>
+
+            </div>
+
+
+            <div class="modal-row">
+
+                <span class="modal-label">
+                    DISCORD
+                </span>
+
+                <span
+                    class="modal-value"
+                    id="modalDiscord"
+                >
+                    Connected
+                </span>
+
+            </div>
+
+
+            <div class="modal-row">
+
+                <span class="modal-label">
+                    ACCESS
+                </span>
+
+                <span class="modal-value">
+                    VERIFIED
+                </span>
+
+            </div>
 
         </div>
 
@@ -2390,20 +3973,156 @@ footer p{
 </div>
 
 
-<!-- =========================================================
-     FOOTER
-========================================================= -->
+<!-- =====================================================
+     RESOURCE MODAL
+===================================================== -->
 
-<footer>
+<div
+    class="modal"
+    id="resourceModal"
+>
 
-    <p>
-        WRAITH VAULT // FIVE M // 2026
-    </p>
+    <div
+        class="modal-box"
+        style="position:relative"
+    >
 
-</footer>
+        <button
+            class="modal-close"
+            onclick="closeResource()"
+        >
+            ×
+        </button>
+
+
+        <div class="modal-banner"></div>
+
+
+        <div class="modal-content">
+
+            <div
+                class="modal-name"
+                id="resourceModalName"
+            >
+                Resource
+            </div>
+
+
+            <div
+                class="modal-user"
+                id="resourceModalCategory"
+            >
+                Graphics
+            </div>
+
+
+            <div class="modal-row">
+
+                <span class="modal-label">
+                    RATING
+                </span>
+
+                <span
+                    class="modal-value"
+                    id="resourceModalRating"
+                >
+                    ★ 4.9
+                </span>
+
+            </div>
+
+
+            <div class="modal-row">
+
+                <span class="modal-label">
+                    STATUS
+                </span>
+
+                <span class="modal-value">
+                    AVAILABLE
+                </span>
+
+            </div>
+
+
+            <div class="modal-row">
+
+                <span class="modal-label">
+                    DESCRIPTION
+                </span>
+
+                <span
+                    class="modal-value"
+                    id="resourceModalDescription"
+                >
+                    Premium resource.
+                </span>
+
+            </div>
+
+
+            <a
+                class="btn btn-red"
+                style="
+                    width:100%;
+                    margin-top:20px;
+                "
+                href="https://discord.gg/F9Bs4mggt"
+                target="_blank"
+            >
+                ACCESS RESOURCE →
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     CLASSIFIED EASTER EGG
+===================================================== -->
+
+<div
+    class="classified"
+    id="classified"
+>
+
+    <div class="classified-inner">
+
+        <h2>
+            WRAITH
+        </h2>
+
+        <p>
+            CLASSIFIED VAULT ACCESS GRANTED
+        </p>
+
+    </div>
+
+</div>
 
 
 <script>
+
+/* =========================================================
+   LOADER
+========================================================= */
+
+window.addEventListener("load",()=>{
+
+    setTimeout(()=>{
+
+        document
+            .getElementById("loader")
+            .classList
+            .add("hide");
+
+    },900);
+
+});
+
 
 /* =========================================================
    PARTICLES
@@ -2412,48 +4131,420 @@ footer p{
 const particleContainer =
     document.getElementById("particles");
 
-for(let i = 0; i < 75; i++){
+for(let i=0;i<35;i++){
 
-    const particle =
-        document.createElement("div");
+    const p =
+        document.createElement("span");
 
-    particle.className =
-        "particle";
+    p.className="particle";
 
-    particle.style.left =
-        Math.random() * 100 + "%";
+    p.style.left =
+        Math.random()*100+"%";
 
-    particle.style.animationDuration =
-        (Math.random() * 13 + 8) + "s";
+    p.style.animationDuration =
+        (7+Math.random()*14)+"s";
 
-    particle.style.animationDelay =
-        (Math.random() * 12) + "s";
+    p.style.animationDelay =
+        (-Math.random()*15)+"s";
 
-    particle.style.opacity =
-        Math.random();
+    p.style.opacity =
+        Math.random()*.4;
 
-    particleContainer.appendChild(particle);
+    particleContainer.appendChild(p);
+
 }
 
 
 /* =========================================================
-   MOUSE LIGHT
+   REVEAL
 ========================================================= */
 
-const mouseGlow =
-    document.getElementById("mouseGlow");
+const revealObserver =
+    new IntersectionObserver(
+        entries=>{
 
-document.addEventListener(
-    "mousemove",
-    function(event){
+            entries.forEach(entry=>{
 
-        mouseGlow.style.left =
-            event.clientX + "px";
+                if(entry.isIntersecting){
 
-        mouseGlow.style.top =
-            event.clientY + "px";
+                    entry.target
+                        .classList
+                        .add("visible");
+
+                    revealObserver
+                        .unobserve(entry.target);
+
+                }
+
+            });
+
+        },
+        {
+            threshold:.1
+        }
+    );
+
+document
+    .querySelectorAll(".reveal")
+    .forEach(el=>{
+        revealObserver.observe(el);
+    });
+
+
+/* =========================================================
+   DISCORD
+========================================================= */
+
+function openDiscord(){
+
+    window.open(
+        "https://discord.gg/F9Bs4mggt",
+        "_blank"
+    );
+
+}
+
+
+/* =========================================================
+   SOUND BUTTON
+========================================================= */
+
+let soundOn=false;
+
+function toggleSound(){
+
+    soundOn=!soundOn;
+
+    const button =
+        document.getElementById("soundButton");
+
+    button.textContent =
+        soundOn ? "♫" : "♪";
+
+}
+
+
+/* =========================================================
+   RESOURCE FILTER
+========================================================= */
+
+function filterResources(category){
+
+    document
+        .querySelectorAll(".filter")
+        .forEach(button=>{
+
+            button.classList.remove("active");
+
+            if(
+                button.dataset.filter === category
+            ){
+
+                button.classList.add("active");
+
+            }
+
+        });
+
+
+    document
+        .querySelectorAll(".resource")
+        .forEach(resource=>{
+
+            if(
+                category==="all" ||
+                resource.dataset.category===category
+            ){
+
+                resource.style.display="block";
+
+            }else{
+
+                resource.style.display="none";
+
+            }
+
+        });
+
+}
+
+
+function searchResources(){
+
+    const query =
+        document
+            .getElementById("resourceSearch")
+            .value
+            .toLowerCase()
+            .trim();
+
+
+    document
+        .querySelectorAll(".resource")
+        .forEach(resource=>{
+
+            const name =
+                resource.dataset.name;
+
+            resource.style.display =
+                name.includes(query)
+                    ? "block"
+                    : "none";
+
+        });
+
+}
+
+
+/* =========================================================
+   RESOURCE MODAL
+========================================================= */
+
+function openResource(
+    name,
+    category,
+    rating,
+    description
+){
+
+    document
+        .getElementById("resourceModal")
+        .classList
+        .add("active");
+
+
+    document
+        .getElementById("resourceModalName")
+        .textContent=name;
+
+
+    document
+        .getElementById("resourceModalCategory")
+        .textContent=category;
+
+
+    document
+        .getElementById("resourceModalRating")
+        .textContent=rating;
+
+
+    document
+        .getElementById("resourceModalDescription")
+        .textContent=description;
+
+}
+
+
+function closeResource(){
+
+    document
+        .getElementById("resourceModal")
+        .classList
+        .remove("active");
+
+}
+
+
+/* =========================================================
+   STAFF DATA
+========================================================= */
+
+const staffData=[
+
+    {
+        name:"Vortex",
+        user:"@.vortexlad",
+        role:"Founder"
+    },
+
+    {
+        name:"Speed",
+        user:"@3tpzz",
+        role:"Founder"
+    },
+
+    {
+        name:"Kekrops",
+        user:"@kekropps",
+        role:"Leaker Management"
+    },
+
+    {
+        name:"Cyber",
+        user:"@7yber",
+        role:"Leaker Management"
+    },
+
+    {
+        name:"Agent",
+        user:"@1pptx",
+        role:"Leaker Management"
+    },
+
+    {
+        name:"Ice",
+        user:"@igv2",
+        role:"Leaker"
+    },
+
+    {
+        name:"Diddy",
+        user:"@.6iqv",
+        role:"Leaker"
+    },
+
+    {
+        name:"Flxn",
+        user:"@therealflexy",
+        role:"Leaker"
+    },
+
+    {
+        name:"Shayan",
+        user:"@shayan0634_",
+        role:"Leaker"
+    },
+
+    {
+        name:"Syed Ali",
+        user:"@syedali.1",
+        role:"Leaker"
+    },
+
+    {
+        name:"Venom",
+        user:"@notyour.venom",
+        role:"Leaker"
+    },
+
+    {
+        name:"Usman",
+        user:"@uc4p",
+        role:"Leaker"
+    },
+
+    {
+        name:"Ali",
+        user:"@q3vp",
+        role:"Leaker"
+    }
+
+];
+
+
+let currentStaffTeam=0;
+
+
+function staffTeam(team,button){
+
+    currentStaffTeam=team;
+
+
+    document
+        .querySelectorAll(".staff-tab")
+        .forEach(tab=>{
+            tab.classList.remove("active");
+        });
+
+
+    button.classList.add("active");
+
+
+    const cards =
+        document.getElementById("staffCards");
+
+
+    cards.innerHTML="";
+
+
+    let filtered=[];
+
+
+    if(team===0){
+
+        filtered=staffData.filter(
+            x=>x.role==="Founder"
+        );
 
     }
+
+    if(team===1){
+
+        filtered=staffData.filter(
+            x=>x.role==="Leaker Management"
+        );
+
+    }
+
+    if(team===2){
+
+        filtered=staffData.filter(
+            x=>x.role==="Leaker"
+        );
+
+    }
+
+
+    filtered.forEach(person=>{
+
+        const card =
+            document.createElement("div");
+
+        card.className="staff-card";
+
+
+        card.innerHTML=`
+
+            <div class="staff-banner"></div>
+
+            <div class="staff-info">
+
+                <div class="staff-name">
+                    ${person.name}
+                </div>
+
+                <div class="staff-user">
+                    ${person.user}
+                </div>
+
+                <div class="staff-role">
+                    ${person.role}
+                </div>
+
+            </div>
+
+            <div class="staff-online">
+
+                <span class="online-dot"></span>
+
+                ONLINE
+
+            </div>
+
+        `;
+
+
+        card.onclick=()=>{
+
+            openStaff(
+                person.name,
+                person.user,
+                person.role
+            );
+
+        };
+
+
+        cards.appendChild(card);
+
+    });
+
+}
+
+
+staffTeam(
+    0,
+    document.querySelector(".staff-tab")
 );
 
 
@@ -2461,188 +4552,102 @@ document.addEventListener(
    STAFF MODAL
 ========================================================= */
 
-const staffModal =
-    document.getElementById("staffModal");
+function openStaff(
+    name,
+    user,
+    role
+){
 
-const openStaff =
-    document.getElementById("openStaff");
-
-const closeStaff =
-    document.getElementById("closeStaff");
-
-openStaff.addEventListener(
-    "click",
-    function(){
-
-        staffModal.classList.add("active");
-
-        showStaffPage(0);
-
-    }
-);
+    document
+        .getElementById("staffModal")
+        .classList
+        .add("active");
 
 
-closeStaff.addEventListener(
-    "click",
-    function(){
-
-        staffModal.classList.remove("active");
-
-    }
-);
+    document
+        .getElementById("modalAvatar")
+        .textContent =
+        name.charAt(0)
+            .toUpperCase();
 
 
-/* Close when clicking outside */
-
-staffModal.addEventListener(
-    "click",
-    function(event){
-
-        if(event.target === staffModal){
-
-            staffModal.classList.remove("active");
-
-        }
-
-    }
-);
+    document
+        .getElementById("modalName")
+        .textContent=name;
 
 
-/* =========================================================
-   STAFF PAGES
-========================================================= */
-
-const staffPages =
-    document.querySelectorAll(".staff-page");
-
-const nextStaff =
-    document.getElementById("nextStaff");
-
-const previousStaff =
-    document.getElementById("previousStaff");
-
-const modalCounter =
-    document.getElementById("modalCounter");
-
-const pageIndicator =
-    document.getElementById("pageIndicator");
-
-const pageNames = [
-
-    "FOUNDERS",
-
-    "LEAKER MANAGEMENT",
-
-    "LEAKERS TEAM"
-
-];
-
-let currentStaffPage = 0;
+    document
+        .getElementById("modalUser")
+        .textContent=user;
 
 
-function showStaffPage(page){
-
-    currentStaffPage = page;
-
-
-    staffPages.forEach(
-        function(item,index){
-
-            item.classList.toggle(
-                "active",
-                index === page
-            );
-
-        }
-    );
+    document
+        .getElementById("modalRole")
+        .textContent=role;
 
 
-    modalCounter.textContent =
-        String(page + 1).padStart(2,"0")
-        + " / 03";
-
-
-    pageIndicator.textContent =
-        pageNames[page];
-
-
-    if(page === 0){
-
-        previousStaff.classList.add(
-            "disabled"
-        );
-
-    }else{
-
-        previousStaff.classList.remove(
-            "disabled"
-        );
-
-    }
-
-
-    if(page === staffPages.length - 1){
-
-        nextStaff.classList.add(
-            "disabled"
-        );
-
-    }else{
-
-        nextStaff.classList.remove(
-            "disabled"
-        );
-
-    }
+    document
+        .getElementById("modalDiscord")
+        .textContent=user;
 
 }
 
 
-nextStaff.addEventListener(
-    "click",
-    function(){
+function closeStaff(){
 
-        if(currentStaffPage < staffPages.length - 1){
+    document
+        .getElementById("staffModal")
+        .classList
+        .remove("active");
 
-            showStaffPage(
-                currentStaffPage + 1
-            );
-
-        }
-
-    }
-);
-
-
-previousStaff.addEventListener(
-    "click",
-    function(){
-
-        if(currentStaffPage > 0){
-
-            showStaffPage(
-                currentStaffPage - 1
-            );
-
-        }
-
-    }
-);
+}
 
 
 /* =========================================================
-   ESCAPE CLOSE
+   MODAL OUTSIDE CLICK
+========================================================= */
+
+document
+    .querySelectorAll(".modal")
+    .forEach(modal=>{
+
+        modal.addEventListener(
+            "click",
+            e=>{
+
+                if(
+                    e.target===modal
+                ){
+
+                    modal.classList.remove(
+                        "active"
+                    );
+
+                }
+
+            }
+        );
+
+    });
+
+
+/* =========================================================
+   ESCAPE
 ========================================================= */
 
 document.addEventListener(
     "keydown",
-    function(event){
+    e=>{
 
-        if(event.key === "Escape"){
+        if(e.key==="Escape"){
 
-            staffModal.classList.remove(
-                "active"
-            );
+            document
+                .querySelectorAll(".modal")
+                .forEach(modal=>{
+                    modal.classList.remove(
+                        "active"
+                    );
+                });
 
         }
 
@@ -2651,85 +4656,84 @@ document.addEventListener(
 
 
 /* =========================================================
-   CATEGORY 3D MOVEMENT
+   WRAITH SECRET COMMAND
+   TYPE WRAITH
 ========================================================= */
 
-const categories =
-    document.querySelectorAll(".category");
+let secret="";
+
+document.addEventListener(
+    "keydown",
+    e=>{
+
+        secret+=e.key.toLowerCase();
+
+        if(secret.length>6){
+
+            secret=
+                secret.slice(-6);
+
+        }
 
 
-categories.forEach(
-    function(card){
+        if(secret==="wraith"){
 
-        card.addEventListener(
-            "mousemove",
-            function(event){
+            const classified =
+                document
+                    .getElementById(
+                        "classified"
+                    );
 
-                const rect =
-                    card.getBoundingClientRect();
-
-                const x =
-                    event.clientX - rect.left;
-
-                const y =
-                    event.clientY - rect.top;
-
-                const rotateX =
-                    ((y / rect.height) - .5) * -5;
-
-                const rotateY =
-                    ((x / rect.width) - .5) * 5;
+            classified.classList.add(
+                "active"
+            );
 
 
-                card.style.transform =
-                    `
-                    perspective(900px)
-                    rotateX(${rotateX}deg)
-                    rotateY(${rotateY}deg)
-                    translateY(-9px)
-                    `;
+            setTimeout(()=>{
 
-            }
-        );
+                classified.classList.remove(
+                    "active"
+                );
+
+            },2500);
 
 
-        card.addEventListener(
-            "mouseleave",
-            function(){
+            secret="";
 
-                card.style.transform =
-                    "perspective(900px) rotateX(0deg) rotateY(0deg) translateY(0)";
-
-            }
-        );
+        }
 
     }
 );
 
 
 /* =========================================================
-   BACKGROUND PARALLAX
+   PARALLAX MOUSE EFFECT
 ========================================================= */
-
-const background =
-    document.querySelector(".background");
-
 
 document.addEventListener(
     "mousemove",
-    function(event){
+    e=>{
 
         const x =
-            (event.clientX /
-            window.innerWidth - .5) * 5;
+            (e.clientX /
+            window.innerWidth -
+            .5) * 2;
 
         const y =
-            (event.clientY /
-            window.innerHeight - .5) * 5;
+            (e.clientY /
+            window.innerHeight -
+            .5) * 2;
 
 
-        background.style.transform =
-            `scale(1.09) translate(${x}px,${y}px)`;
+        document.body.style.setProperty(
+            "--mouse-x",
+            x
+        );
+
+        document.body.style.setProperty(
+            "--mouse-y",
+            y
+        );
 
     }
 );
