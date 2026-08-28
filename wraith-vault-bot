@@ -1,1 +1,193 @@
+{
+  "name": "wraith-vault-discord-bot",
+  "version": "1.0.0",
+  "description": "Wraith Vault Discord status and roles API",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.21.0",
+    "express": "^5.1.0",
+    "cors": "^2.8.5"
+  }
+}
+const express = require("express");
+const cors = require("cors");
+const {
+    Client,
+    GatewayIntentBits
+} = require("discord.js");
 
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+
+const PORT = process.env.PORT || 3000;
+
+const client = new Client({
+    intents: [
+        GatewayIntentBits.Guilds,
+        GatewayIntentBits.GuildMembers,
+        GatewayIntentBits.GuildPresences
+    ]
+});
+
+const STAFF = {
+    "Vortex": {
+        id: "751896024515346483"
+    },
+
+    "Speed": {
+        id: "1014478071505633330"
+    },
+
+    "Kekrops": {
+        id: "1306965236359757847"
+    },
+
+    "Cyber": {
+        id: "1449498150535561371"
+    },
+
+    "Agent": {
+        id: "1025056241166323712"
+    },
+
+    "Ice": {
+        id: "1339464209829986314"
+    },
+
+    "Diddy": {
+        id: "907282063185547314"
+    },
+
+    "Flxn": {
+        id: "1035924370008330250"
+    },
+
+    "Shayan": {
+        id: "1490755471332872302"
+    },
+
+    "Syed Ali": {
+        id: "1478922243634630806"
+    },
+
+    "Venom": {
+        id: "1139831269304316006"
+    },
+
+    "Usman": {
+        id: "1413861685374095404"
+    },
+
+    "Ali": {
+        id: "802887207072432159"
+    }
+};
+
+app.get("/", (req, res) => {
+    res.json({
+        status: "online",
+        service: "Wraith Vault Discord API"
+    });
+});
+
+app.get("/staff", async (req, res) => {
+
+    const guild = client.guilds.cache.first();
+
+    if (!guild) {
+        return res.status(503).json({
+            error: "Discord server not available"
+        });
+    }
+
+    const result = {};
+
+    for (const [name, data] of Object.entries(STAFF)) {
+
+        try {
+
+            const member = await guild.members.fetch(data.id);
+
+            const presence = member.presence;
+
+            let status = "offline";
+
+            if (presence) {
+                status = presence.status;
+            }
+
+            const activities =
+                presence?.activities?.map(activity => ({
+                    name: activity.name,
+                    type: activity.type,
+                    details: activity.details || null,
+                    state: activity.state || null
+                })) || [];
+
+            result[name] = {
+
+                username: member.user.username,
+
+                displayName: member.displayName,
+
+                avatar: member.user.displayAvatarURL({
+                    size: 256,
+                    extension: "png"
+                }),
+
+                status: status,
+
+                activities: activities,
+
+                roles: member.roles.cache
+                    .filter(role => role.id !== guild.id)
+                    .map(role => role.name)
+            };
+
+        } catch (error) {
+
+            console.error(
+                `Error loading ${name}:`,
+                error.message
+            );
+
+            result[name] = {
+                username: null,
+                displayName: name,
+                avatar: null,
+                status: "offline",
+                activities: [],
+                roles: []
+            };
+        }
+    }
+
+    res.json(result);
+});
+
+client.once("ready", () => {
+
+    console.log(
+        `Logged in as ${client.user.tag}`
+    );
+
+    console.log(
+        `Connected to ${client.guilds.cache.size} server(s)`
+    );
+
+});
+
+client.login(process.env.DISCORD_TOKEN);
+
+app.listen(PORT, () => {
+
+    console.log(
+        `Wraith Vault API running on port ${PORT}`
+    );
+
+});
